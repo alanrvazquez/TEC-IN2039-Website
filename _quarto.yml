@@ -1,7 +1,7 @@
 project:
   title: "TEC-IN2039 Data Visualization"
   type: website
-output-dir: docs
+  output-dir: docs
 editor: visual
 
 website:

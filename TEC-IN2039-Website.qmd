@@ -2,9 +2,6 @@
 title: "IN2039 Visualización de Datos"
 subtitle: "Diapositivas Semestre AD 2024"
 author: Alan R. Vazquez
-csl: apa.csl
-format:
-  html: default
 ---
 
 ## Tópicos del Curso
