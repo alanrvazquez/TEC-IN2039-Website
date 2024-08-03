@@ -193,7 +193,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
     "title": "Variables Categóricas",
     "section": "Actividad (solo mode)",
-    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 o plotly en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data.\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 o plotly en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#agenda",
@@ -529,14 +529,14 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-4",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
-    "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B.\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B."
   },
   {
     "objectID": "TEC-IN2039-Website.html",
     "href": "TEC-IN2039-Website.html",
     "title": "IN2039 Visualización de Datos",
     "section": "",
-    "text": "Tópicos del Curso\n\nIntroducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple",
+    "text": "Tópicos del Curso\n\nIntroducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numéricas\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple",
     "crumbs": [
       "Home"
     ]
@@ -546,7 +546,7 @@
     "href": "TEC-IN2039-Website.slides.html#tópicos-del-curso",
     "title": "IN2039 Visualización de Datos",
     "section": "Tópicos del Curso",
-    "text": "Tópicos del Curso\n\nIntroducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Tópicos del Curso\n\nIntroducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numéricas\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple\n\n\n\n\n\nTecnológico de Monterrey"
   },
   {
     "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#agenda",
@@ -749,7 +749,7 @@
     "href": "T2_Types_of_Variables/Slides_Types.slides.html#comentarios-finales",
     "title": "Tipos de Variables",
     "section": "Comentarios finales",
-    "text": "Comentarios finales\n\ndplyr es una librería que nos permite manipular datos en R.\nLos tipos de variable ayudan a especificar las operaciones y visualizaciones que podemos aplicar a los datos.\nExisten gráficas apropiadas o diseñadas para visualizar variables númericas o categóricas.\nEn este curso, veremos varias gráficas para cada tipo de variable y sus combinaciones.\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Comentarios finales\n\ndplyr es una librería que nos permite manipular datos en R.\nLos tipos de variable ayudan a especificar las operaciones y visualizaciones que podemos aplicar a los datos.\nExisten gráficas apropiadas o diseñadas para visualizar variables númericas o categóricas.\nEn este curso, veremos varias gráficas para cada tipo de variable y sus combinaciones."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#agenda",
@@ -987,7 +987,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-2",
     "title": "Variables Numéricas",
     "section": "Actividad (solo mode) Parte 2",
-    "text": "Actividad (solo mode) Parte 2\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos. Usando R, crea las siguientes gráficas\n\nHistograma\nGráfica de caja\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Actividad (solo mode) Parte 2\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos. Usando R, crea las siguientes gráficas\n\nHistograma\nGráfica de caja"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#agenda",
@@ -1610,6 +1610,6 @@
     "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-2",
     "title": "Herramientas para construir gráficas",
     "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nAccede a la siguiente liga:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopia el archivo Google Colab en tu drive.\nContesta las preguntas.\n\n\n\n\n\nTecnológico de Monterrey"
+    "text": "Mini-actividad (solo mode)\n\nAccede a la siguiente liga:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopia el archivo Google Colab en tu drive.\nContesta las preguntas."
   }
 ]
