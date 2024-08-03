@@ -1,0 +1,35 @@
+## Colapsando categorías
+
+Let’s create a new column, called `play`, to represent the groups of dogs whose “purpose” is to play (or not). (This is a fictitious distinction used for demonstration purposes.) This category consists of the toy and non-sporting breeds.
+
+The new feature, `play`, is a transformation of the feature `group` that collapses categories: toy and non-sporting are combined into one category, and the remaining categories are placed in a second, non-play category.
+
+The boolean (`bool`) storage type is useful to indicate the presence or absence of this characteristic:
+
+```{r}
+
+```
+
+## 
+
+Representing a two-category qualitative feature as a boolean has a few advantages. For example, the mean of `play` makes sense because it returns the fraction of `True` values. When booleans are used for numeric calculations, `True` becomes 1 and `False` becomes 0:
+
+```{r}
+
+```
+
+## Convertir de quantitativo a ordinal
+
+Finally, another transformation that we sometimes find useful is to convert numeric values into categories.
+
+For example, we might collapse the values in `ailments` into categories: 0, 1, 2, 3, 4+. In other words, we turn `ailments` from a quantitative feature into an ordinal feature with the mapping 0→0, 1→1, 2→2, 3→3, and any value 4 or larger→4+.
+
+We might want to make this transformation because few breeds have more than three genetic ailments. This simplification can be clearer and adequate for an investigation.
+
+## Sin embargo...
+
+When we convert a quantitative feature to ordinal, we lose information. We can’t go back. That is, if we know the number of ailments for a breed is four or more, we can’t re-create the actual numeric value.
+
+The same thing happens when we collapse categories. For this reason, it’s a good practice to keep the original feature.
+
+If we need to check our work or change categories, we can document and re-create our steps.

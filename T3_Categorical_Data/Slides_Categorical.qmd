@@ -1,0 +1,501 @@
+---
+title: |
+   | Variables Categóricas  
+author: 
+  - name: Alan R. Vázquez
+    affiliations:
+      - name: Departamento de Ingeniería Industrial
+format: 
+  revealjs:
+    chalkboard: true
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+revealjs-plugins:
+  - pointer    
+editor: visual
+---
+
+## Agenda
+
+[*Enfocarnos en 1 variable categórica.*]{style="color:darkgreen;"}
+
+<br/>
+
+1.  Introducción
+
+2.  Resúmenes estadísticos
+
+3.  Gráfica de barras
+
+4.  Transformando variables categóricas
+
+5.  Actividad: Gráfica circular
+
+## Primero lo primero
+
+Hoy usaremos R para construir gráficas y tablas. Para esto, usaremos las librerías que ya vimos antes como `readxl`, `ggplot2`, `ggformula`, y `dplyr`.
+
+<br/>
+
+Carguémoslas en R antes de comenzar.
+
+```{r}
+#| echo: true
+#| output: false
+
+# Nos se te olvide instalar la librería "ggformula" en Google Colab.
+# install.packages(ggformula)
+library(readxl)
+library(ggplot2)
+library(ggformula)
+library(dplyr)
+```
+
+## Penguins Dataset
+
+Ilustraremos los conceptos de hoy usando el conjunto de datos `penguins.xlsx`.
+
+::: columns
+::: {.column width="68%"}
+Súbelo a Google Colab y cárgalo en R usando el siguiente código.
+
+```{r}
+#| output: false
+#| echo: true
+#| code-overflow: wrap
+
+penguins_data = read_excel("penguins.xlsx")
+```
+:::
+
+::: {.column width="32%"}
+![](images/clipboard-1776523589.png){fig-align="right" width="561"}
+:::
+:::
+
+En Google Colab, el archivo debe de estar en la carpeta llamada "content" o "contenido."
+
+## 
+
+Hoy nos enfocaremos en visualizar las variables categóricas: `species`, `island` y `sex`.
+
+```{r}
+#| output: true
+#| echo: true
+
+penguins_data %>% 
+  select(species, island, sex) %>%
+  head()
+```
+
+## Asegúrate que R sabe que la variable es categórica
+
+A pesar de que la variables `species`, `island` y `sex` son claramente categóricas, R no reconoce esto.
+
+Por default, R determina que esas variables son carácter o `chr` porque están compuestas por texto.
+
+> En R, las variables categóricas se conocen como `factor` o `fct`.
+
+## Definiendo variables categóricas en R
+
+Para asegurarnos que R sepa que la variable es categórica o `fct`, usamos la función `mutate_at()` de `dplyr`:
+
+</br>
+
+```{r}
+#| echo: true
+#| output: true
+
+penguins_data = penguins_data %>% 
+  mutate_at(c("species", "island", "sex"), as.factor)
+```
+
+</br>
+
+Nota que acabamos de reemplazar el objeto `penguins_data` con la nueva versión.
+
+## 
+
+Ahora, las etiquetas de las variables son `fct`.
+
+```{r}
+#| echo: true
+#| output: true
+
+penguins_data %>% 
+  mutate_at(c("species", "island", "sex"), as.factor) %>% 
+  select(species, island, sex) %>% 
+  head()
+
+```
+
+# Resúmenes Estadísticos
+
+## Resúmenes Estadísticos
+
+. . .
+
+> Un **resumen estadístico** nos ayuda a resumir un conjunto de observaciones de una manera simple.
+
+. . .
+
+Los resúmenes estadísticos más utilizados para datos categóricos son:
+
+-   La [**frecuencia**]{style="color:darkblue;"} de una categoría es el número de observaciones que pertenecen a esa categoría.
+
+-   La [**frecuencia relativa**]{style="color:darkblue;"} es la frecuencia dividida por el número total de observaciones.
+
+## Tabla de Frecuencia
+
+Resume una variable categórica contando los valores por categoría.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| output: true
+#| code-overflow: wrap
+
+penguins_data %>% 
+  group_by(species) %>% 
+  summarise("Frecuencia" = n())
+```
+:::
+
+::: {.column width="50%"}
+| **Especie** | **Frecuencia** |
+|-------------|----------------|
+| Adelie      | 152            |
+| Chinstrap   | 68             |
+| Gentoo      | 124            |
+| **Total**   | **344**        |
+:::
+:::
+
+-   **Frecuencia**: Número de observaciones en cada categoría.
+
+-   **Total**: Suma total de observaciones.
+
+::: notes
+1.  Ventajas de las frequencias.
+
+2.  Resumen claro y conciso de los datos categóricos.
+
+3.  Facilita la identificación de patrones y tendencias.
+
+4.  Ayuda en la toma de decisiones informadas.
+:::
+
+## 
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+penguins_data %>% 
+  group_by(species) %>% 
+  summarise("Frecuencia" = n())
+```
+
+</br>
+
+El código se lee:
+
+> Del objeto `penguins_data`, agrupa los datos por la variable `species`, y resume los datos usando el el número de elementos por categoría (`n()`).
+
+## Tabla de Frecuencia Relativa
+
+Resume una variable categórica calculando la *proporción de valores* por categoría.
+
+::: columns
+::: {.column width="55%"}
+```{r}
+#| echo: true
+#| output: true
+#| code-overflow: wrap
+
+penguins_data %>% 
+  group_by(species) %>% 
+  summarise("Frecuencia" = n()) %>%
+  mutate("Freq.Rel" = 
+           Frecuencia/sum(Frecuencia))
+```
+:::
+
+::: {.column width="45%"}
+| **Especie** | **Frecuencia relativa** |
+|-------------|-------------------------|
+| Adelie      | 0.4418605               |
+| Chinstrap   | 0.1976744               |
+| Gentoo      | 0.3604651               |
+| **Suma**    | **1**                   |
+:::
+:::
+
+-   **Frecuencia relativa**: Número de observaciones en cada categoría dividida por el total.
+
+::: notes
+La ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información.
+:::
+
+# Gráfica de barras
+
+## Gráfica de Barras
+
+> Representa visualmente una tabla de frecuencias o frecuencias relativas.
+
+La frecuencia (o frecuencia relativa) se representa por una barra de altura proporcional.
+
+. . .
+
+Puedes construir una gráfica de barras usando la función `gf_bar()` así:
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-align: center
+#| code-overflow: wrap
+#| output-location: slide
+
+gf_bar( ~ species, data = penguins_data)
+```
+
+## 
+
+Si quieres graficar la frecuencia relativa, usa la función `gf_percents`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-align: center
+#| code-overflow: wrap
+
+gf_percents( ~ species, data = penguins_data)
+```
+
+## Ejemplo: Mejorando la gráfica
+
+Usando las herramientas para gráficos en ggplot, podemos mejorar el código anterior para que la gráfica se vea así.
+
+```{r}
+#| echo: false
+#| output: true
+#| code-fold: true
+#| fig-height: 4
+#| fig-align: center
+
+gf_percents( ~ species, data = penguins_data, fill = ~species) + labs(title = "Proporciones de pingüinos", subtitle = "Distribución pingüinos en Adelie, Chinstrap, and Gentoo", x = "Tipo de especie", y = "Frecuencia relativa", fill = "Especie") + theme_minimal()
+
+```
+
+# Transformando variables categóricas
+
+## Aplica el Principio 3
+
+> *Aplica los principios del diseño gráfico.*
+
+. . .
+
+Podemos mejorar gráficas de variables categóricas usando estas técnicas:
+
+::: incremental
+-   Re-etiquetar las categorías para que sean más informativas.
+
+-   Re-ordenar las categorías para que sigan su orden natural.
+
+-   Colapsar categorías para simplificar la gráfica.
+:::
+
+## Ejemplo: Boston Housing Dataset
+
+Este conjunto de datos contiene información recopilada por el Servicio del Censo de EE. UU. sobre viviendas en el área de Boston, Massachusetts.
+
+::: columns
+::: {.column width="60%"}
+![](images/boston_dataset.png)
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-3653087831.png)
+:::
+:::
+
+## 
+
+Los datos están en el archivo `Boston_dataset.xlsx`. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.
+
+```{r}
+#| echo: true
+#| output: true
+
+Boston_dataset = read_excel("Boston_dataset.xlsx")
+Boston_dataset %>% head()
+```
+
+Nos concentraremos en las siguientes variables
+
+-   `chas` : Si la casa limita con el río Charles (1: Si y 0: No)
+
+-   `rad` : Indice de accesibilidad a carreteras radiales (`Low`, `Medium`, `High`).
+
+## Recuerda...
+
+Asegúrate de que R sabe que esas variables son categóricas.
+
+```{r}
+#| echo: true
+#| output: true
+
+Boston_dataset = Boston_dataset %>% 
+  mutate_at(c("chas", "rad"), as.factor)
+Boston_dataset %>% select(chas, rad) %>% head()
+```
+
+## Gráfica inicial
+
+Vamos a construir una gráfica de barras de `chas`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+gf_percents( ~ chas, data = Boston_dataset)
+```
+
+Sin embargo, las categorías en la gráfica no son informativas.
+
+## Re-etiquetado categorías
+
+Lo mejor es re-nombrar las categorías de la variable `chas` para que la gráfica de barras de mas información al usuario.
+
+1.  Verifica los nombres de las categorías en la variable usando la función `unique()`.
+
+    ```{r}
+    #| echo: true
+    #| output: true
+
+    Boston_dataset %>% select(chas) %>% unique()
+    ```
+
+## 
+
+2.  Re-emplaza por nombres apropiados usando las funciones `mutate()` y `case_match()`.
+
+    ```{r}
+    #| echo: true
+    #| output: true
+
+    Boston_dataset = Boston_dataset %>% 
+      mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Si"))
+    Boston_dataset %>% head()
+    ```
+
+## Veamos que sucede ahora.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center 
+
+gf_percents( ~ chas, data = Boston_dataset)
+```
+
+Mucho mejor 😃
+
+## Re-ordenar categorías
+
+Ahora, construyamos una gráfica de barras de `rad`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center 
+
+gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Las categorías no siguen un orden natural de izquierda a derecha: `Low`, `Medium`, y `High`.
+
+## 
+
+Para tener el orden de las categorías deseado, debemos de ser más explícitos al momento de definir la variable categórica en R.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+Boston_dataset = Boston_dataset %>% 
+      mutate(rad = factor(rad, levels = c("Low", "Medium", "High")))
+gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Mucho mejor 😃
+
+## Guardando gráficas en ggplot2
+
+Para guardar una gráfica de ggplot2, primero guardamos la gráfica en un objeto de R.
+
+```{r}
+#| echo: true
+#| output: true
+
+mi_grafica_de_barras = gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Luego, usamos la función `ggsave()`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+ggsave(filename = "Mi_grafica.jpg", plot = mi_grafica_de_barras, 
+       width = NA, height = NA, units = "cm", dpi = 300)
+```
+
+Algunos de los argumentos arriba son:
+
+-   `width`: ancho del gráfico.
+-   `height`: altura del gráfico.
+-   `units`: unidades de medición.
+-   `dpi`: resolución del gráfico.
+
+# Gráfica circular
+
+## Gráfica circular o de pastel
+
+::: columns
+::: {.column width="50%"}
+::: incremental
+-   Se construye dividiendo un círculo en varias porciones que representan las categorías de la variable.
+
+-   El diámetro del círculo comprendido por una categoría es su frecuencia relativa.
+
+-   Permite dar un vistazo rápido a las proporciones de cada categoría.
+:::
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-800609446.png)
+:::
+:::
+
+::: notes
+Pie charts versus bar charts.
+
+**Bar charts can serve as a good way to show comparisons between categories**. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart.
+:::
+
+## Actividad (*solo* mode)
+
+[Preguntale a ChatGPT]{style="color:darkgreen;"}
+
+1.  Ve ChatGPT en <https://chat.openai.com/>
+2.  Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de *pastel*) usando **ggplot2** o **plotly** en R.
+3.  Adapta tu código para producir una gráfica circular de la variable `island` en `penguin_data`.

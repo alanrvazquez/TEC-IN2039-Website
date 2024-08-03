@@ -1,0 +1,392 @@
+---
+title: ¿Qué es la visualización de datos?
+author: Alan R. Vázquez
+institute: Departamento de Ingeniería Industrial
+format: 
+  revealjs:
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+revealjs-plugins:
+  - pointer    
+editor: visual
+---
+
+## Agenda
+
+::: columns
+::: {.column width="50%"}
+1.  Ciencia de datos
+
+    ![](images/clipboard-974366284.png){width="320"}
+:::
+
+::: {.column width="50%"}
+2.  Los 3 principios de visualización
+
+    ![](images/clipboard-1163901538.png){width="345"}
+:::
+:::
+
+::: columns
+::: {.column width="30%"}
+3.  Actividad
+:::
+
+::: {.column width="70%"}
+![](images/clipboard-4224793803.png){fig-align="left" width="341"}
+:::
+:::
+
+# Introducción a Ciencia de Datos
+
+## La ciencia de datos es ...
+
+un campo multidisciplinario que utiliza métodos, procesos, algoritmos y sistemas científicos para extraer conocimientos e ideas de muchos datos estructurados y no estructurados.
+
+<br/>
+
+. . .
+
+::: center
+::: columns
+::: {.column width="40%"}
+![](images/clipboard-2707460623.png){fig-align="center" width="377"}
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-3242954590.png){fig-align="center" width="485"}
+:::
+:::
+:::
+
+## El esquema de ciencia de datos
+
+![](images/clipboard-4096324521.png){fig-align="center"}
+
+## Business understanding
+
+-   La comprensión empresarial se refiere a definir el problema empresarial a resolver.
+
+-   El objetivo es reformular el problema empresarial como un problema de ciencia de datos.
+
+-   A menudo, reformular el problema y diseñar una solución es un proceso iterativo.
+
+## Data understanding
+
+-   Si el objetivo es resolver un problema empresarial, los datos que componen la materia prima disponible a partir de la cual se construirá la solución.
+
+::: incremental
+-   Los datos disponibles rara vez coinciden con el problema.
+
+-   Por ejemplo, los datos históricos a menudo se recopilan con fines no relacionados con el problema empresarial actual o sin ningún propósito explícito.
+:::
+
+. . .
+
+> Nuestro objetivo es convertir los datos en información que contesten preguntas útiles.
+
+## Tipos de datos
+
+::: center
+::: columns
+::: {.column width="30%"}
+[**Texto**]{style="color:green;"}
+
+![](images/clipboard-4167942809.png){width="511"}
+:::
+
+::: {.column width="30%"}
+[**Imágenes**]{style="color:orange;"}
+
+![](images/clipboard-3296722573.png){width="527"}
+
+[**Video**]{style="color:lightblue;"}
+
+![](images/clipboard-2123600827.png){width="401"}
+:::
+
+::: {.column width="30%"}
+[**Audio**]{style="color:green;"}
+
+![](images/clipboard-2206237365.png)
+:::
+:::
+:::
+
+## Datos númericos
+
+La metodología de ciencia de datos esta basada en datos númericos dados en tablas.
+
+![](images/9a292b70-64d7-475e-9ffa-22c019609752_lossy.png){fig-align="center"}
+
+> De hecho, los textos, imágenes, videos o audios son transformados a este formato para procesarlos.
+
+. . .
+
+[***En este curso, asumiremos que los datos están en una tabla.***]{style="color:#023562;"}
+
+::: notes
+Mas importante, asumiremos que los datos han sido limpiados y no contienen typos o observaciones extrañas.
+:::
+
+## La Situación Problema
+
+YouTube es una plataforma para compartir vídeos ampliamente conocida por la diversidad de vídeos subidos por sus usuarios.
+
+El sitio permite a sus usuarios cargar, ver, calificar, compartir y comentar vídeos.
+
+Un tipo particular de usuario es el *creador de contenido*, quien frecuentemente crea y sube vídeos entretenidos a la plataforma.
+
+![](images/clipboard-2009057073.png){fig-align="right" width="437"}
+
+## Objetivo de la situación problema
+
+> Esta situación problema concierne la creación de un póster que informe a un creador de contenido de Youtube los aspectos mas importantes del formato miniatura de un video. Es decir, que estén asociadas a un número de vistas grande.
+
+Para esto, tendrás a tu disposición una base de datos con 7242 videos y 51 variables que se encuentra en el archivo “YouTube_Dataset.xlsx.”
+
+Puedes encontrar más información en nuestra página de Canvas.
+
+# Los 3 principios de la visualización de datos
+
+## ¿Qué es la visualización de datos?
+
+> “Una visualización \[de datos\] es cualquier presentación visual destinada a revelar evidencia, haciendo visible lo invisible” Alberto Cairo (2015).
+
+![](images/clipboard-3803538817.png){fig-align="center" width="814"}
+
+## 
+
+En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.
+
+</br>
+
+Las visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.
+
+</br>
+
+. . .
+
+[***La visualización de datos tiene 3 principios...***]{style="color:#023562;"}
+
+::: notes
+As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.
+:::
+
+## ***Principio 1*****:** Formula el mensaje o pregunta
+
+Formúla la pregunta de interés o el mensaje que quieres transmitir.
+
+::: center
+::: columns
+::: {.column width="33%"}
+![](images/clipboard-1758479249.png){width="499"}
+:::
+
+::: {.column width="33%"}
+[![](https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg){alt="Be ready to lose all your money on bitcoin, FCA tells consumers\" Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"}](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&ust=1706894768727000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1023529598.png)
+:::
+:::
+:::
+
+::: notes
+El mensaje puede ser una pregunta
+
+-   ¿Cuál es la comparación importante?
+
+-   ¿Cómo la enfatizamos?
+
+-   Do you have reason to expect that one group/observation might be different?
+
+-   Why might your finding about shape matter?
+
+-   What additional comparison might bring added value to the investigation?
+
+-   Are there any potentially important features to create comparisons with/against?
+
+\[Incluir noticias del new york times\]
+:::
+
+## ***Principio 2*****: *Transforma los datos en información***
+
+Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.
+
+::: center
+::: columns
+::: {.column width="33%"}
+![](images/clipboard-4189732703.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1399795317.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-2893827168.png)
+:::
+:::
+:::
+
+Enriquece tu gráfica con símbolos de color y texto para transmitir información adicional.
+
+## *Principio 3: Aplica los principios del diseño gráfico*
+
+::: center
+::: columns
+::: {.column width="60%"}
+::: {style="font-size: 75%;"}
+::: incremental
+1.  Es fácil identificar objetos por color.
+2.  Utiliza etiquetas directas en lugar de una leyenda.
+3.  Elementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.
+4.  Equilibra gráficos y texto.
+5.  Ten cuidado con las opciones predeterminadas del software de visualización.
+6.  Usa un diseño de cuadrícula para organizar su visualización.
+:::
+:::
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-2746624499.png){width="484" height="339"}
+:::
+:::
+:::
+
+::: notes
+No te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.
+
+También, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones.
+:::
+
+## Ejemplo
+
+[**Principio 1**]{style="color:#023562;"}: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.
+
+::: columns
+::: {.column width="70%"}
+| Ciudad          | Uber | Auto |
+|-----------------|------|------|
+| New York City   | 142  | 218  |
+| Washington D.C. | 96   | 130  |
+| Chicago         | 77   | 116  |
+| Los Angeles     | 62   | 89   |
+| Dallas          | 181  | 65   |
+
+: Costo semanal (en USD) del viaje diario
+:::
+
+::: {.column width="30%"}
+![](images/clipboard-3936281418.png)
+:::
+:::
+
+::: notes
+The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.
+:::
+
+## 
+
+[**Principio 2**]{style="color:#023562;"}: Transforma los datos en información.
+
+```{r}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center
+
+
+library(ggplot2)
+library(ggformula)
+library(plotly)
+# Sample data
+uber <- data.frame(
+  Ciudad = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
+  Tipo = rep(c("Uber", "Auto"), times = 5),
+  Costo = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
+)
+
+slp_plot = ggplot(data = uber, aes(x = Tipo, y = Costo, group = Ciudad, color = factor(Ciudad))) 
+slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
+slp_plot = slp_plot + geom_point(size = 3)
+slp_plot = slp_plot + labs(title = "Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.", x = "", y = "Costo (USD)", color = "Ciudad")
+slp_plot
+```
+
+## 
+
+[**Principio 3**]{style="color:#023562;"}: Aplica los principios del diseño gráfico.
+
+```{r}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center
+
+
+library(ggplot2)
+library(ggformula)
+library(plotly)
+# Sample data
+uber <- data.frame(
+  Ciudad = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
+  Tipo = rep(c("Uber", "Auto"), times = 5),
+  Costo = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
+)
+
+slp_plot = ggplot(data = uber, aes(x = Tipo, y = Costo, group = Ciudad, color = factor(Ciudad))) 
+slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
+slp_plot = slp_plot + geom_point(size = 3)
+slp_plot = slp_plot + labs(title = "Es más barato tomar Uber que poseer un auto en cuatro de las \n cinco ciudades más grandes de USA.", x = "", y = "Costo (USD)", color = "Ciudad")
+slp_plot = slp_plot + scale_color_manual(values = c("Chicago" = "#619CFF", "Dallas" = "red", "Los Angeles" = "#619CFF", "New York City" = "#619CFF", "Washington D.C." = "#619CFF"))
+slp_plot + theme_minimal() + theme(text = element_text(size = 15),
+        axis.text.x = element_text(size = 20), axis.text.y = element_text(size = 15))
+```
+
+## 
+
+::: columns
+::: {.column width="70%"}
+> "*El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.*" John W. Tukey.
+:::
+
+::: {.column width="30%"}
+![](https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg){alt="John Tukey - Wikipedia"}
+:::
+:::
+
+. . .
+
+<https://www.storytellingwithdata.com/> es una excelente guía sobre visualizaciones.
+
+::: notes
+Principios del diseño gráfico
+
+1.  Es más fácil identificar objetos por color que por forma.
+
+2.  Cuando sea posible, utiliza etiquetas directas en lugar de una leyenda.
+
+3.  Elementos como texto, líneas, formas, etc., que tengan la misma naturaleza deben parecerse.
+
+4.  Haz un esfuerzo por lograr un equilibrio entre gráficos y texto.
+
+5.  Ten cuidado con las opciones predeterminadas del software de visualización.
+
+6.  Utiliza un diseño de cuadrícula para organizar su visualización.
+:::
+
+# Actividad
+
+## Actividad (*cooperative* mode)
+
+1.  Júntate con un compañero.
+2.  Encuentren un **buen** y un **mal** ejemplo de una visualización (gráficas) en linea.
+3.  Guarden las visualizaciones (por ejemplo, haciendo una captura de pantalla).
+4.  Escriban una crítica breve (3 a 4 enunciados) de cada visualización.
+5.  Suban un documento con sus criticas e imágenes en Canvas.

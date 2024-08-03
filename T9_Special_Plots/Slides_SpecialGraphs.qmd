@@ -1,0 +1,161 @@
+---
+title: Tópicos Especiales  
+author: 
+  - name: Alan R. Vázquez
+    affiliations:
+      - name: Departamento de Ingeniería Industrial
+format: 
+  revealjs:
+    chalkboard: true
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+editor: visual
+---
+
+## Agenda
+
+1.  Instalación local de R y RStudio.
+
+2.  Gráficas interactivas con \`plotly\`
+
+3.  Creación de dashboards con Quarto
+
+::: notes
+Incluir ejemplo de Datos Nuevo León.
+:::
+
+## Dashboards
+
+Dashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the `flexdashboard::flex_dashboard` output format, as in the .Rmd file below (available [here](https://posit.cloud/content/181966) on RStudio Cloud):
+
+## Creating a dashboard
+
+Summarize the material here
+
+<https://epirhandbook.com/en/dashboards-with-r-markdown.html>
+
+## `plotly`
+
+**Plotly** es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.
+
+Algunas de sus características principales son:
+
+::: incremental
+-   Interactividad.
+
+-   Variedad de gráficos.
+
+-   Compatibilidad con Python, R y ggplot2.
+
+-   Integración con Dash para crear dashboards.
+:::
+
+## Plotly en ggplot2
+
+Las gráficas de `ggplot2` son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería `library(plotly)`.
+
+Para esto, primero guardamos la gráfica de ggplot a un objeto llamado `my_plot` y usamos la función `ggplotly(my_plot)` de la libreria `plotly`.
+
+```{r}
+#| echo: true
+#| output: false
+#| fig-height: 4
+#| fig-pos: center 
+
+# install.packages("plotly)
+library(plotly)
+library(ggformula)
+my_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
+color = ~species) + labs(title = "Profundidad y longitud del pico", 
+subtitle = "Dimensiones para pingüinos en Adelie,
+         Chinstrap, and Gentoo", 
+x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
+color = "Especie") +  scale_color_viridis_d()
+
+ggplotly(my_plot)
+
+```
+
+## 
+
+```{r}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center 
+
+# install.packages("plotly)
+library(plotly)
+my_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
+color = ~species) + labs(title = "Profundidad y longitud del pico", 
+subtitle = "Dimensiones para pingüinos en Adelie,
+         Chinstrap, and Gentoo", 
+x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
+color = "Especie") +  scale_color_viridis_d()
+
+ggplotly(my_plot)
+```
+
+## `plotly`
+
+**Plotly** es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.
+
+Algunas de sus características principales son:
+
+::: incremental
+-   Interactividad.
+
+-   Variedad de gráficos.
+
+-   Compatibilidad con Python, R y ggplot2.
+
+-   Integración con Dash para crear dashboards.
+:::
+
+## Plotly en ggplot2
+
+Las gráficas de `ggplot2` son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería `library(plotly)`.
+
+Para esto, primero guardamos la gráfica de ggplot a un objeto llamado `my_plot` y usamos la función `ggplotly(my_plot)` de la libreria `plotly`.
+
+```{r}
+#| echo: true
+#| output: false
+#| fig-height: 4
+#| fig-pos: center 
+
+# install.packages("plotly)
+library(plotly)
+my_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
+color = ~species) + labs(title = "Profundidad y longitud del pico", 
+subtitle = "Dimensiones para pingüinos en Adelie,
+         Chinstrap, and Gentoo", 
+x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
+color = "Especie") +  scale_color_viridis_d()
+
+ggplotly(my_plot)
+
+```
+
+## 
+
+```{r}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center 
+
+# install.packages("plotly)
+library(plotly)
+my_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
+color = ~species) + labs(title = "Profundidad y longitud del pico", 
+subtitle = "Dimensiones para pingüinos en Adelie,
+         Chinstrap, and Gentoo", 
+x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
+color = "Especie") +  scale_color_viridis_d()
+
+ggplotly(my_plot)
+```

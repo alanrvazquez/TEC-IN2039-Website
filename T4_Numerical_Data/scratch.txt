@@ -1,0 +1,70 @@
+## Valores atípicos o *outliers*
+
+-   Los valores atípicos son puntos que son mucho más grandes o más pequeños que el resto de los puntos de muestra.
+
+-   Ellos pueden ser errores de entrada de datos o pueden ser puntos que realmente son diferentes al resto.
+
+-   Los valores atípicos no deben eliminarse descuidadamente sin una razón válida.
+
+## 
+
+![](images/clipboard-239924690.png)
+
+En presencia de valores atípicos, la mediana es una mejor medida de centralidad que la media.
+
+![](images/clipboard-1917186197.png)
+
+La mediana es muy relevante cuando se estudian ingresos y salarios, por ejemplo.
+
+Te invito a conocer más sobre el uso de la mediana en esta liga: <https://blog.datawrapper.de/weekly-chart-income/>
+
+# Applicando el Principio 3
+
+## 
+
+Histograma de precios.
+
+While this plot accurately displays the data, most of the visible bins are crammed into the left side of the plot. This makes it hard to understand the distribution of prices.
+
+::: notes
+Through data visualization, we want to reveal important features of the data, like the shape of a distribution and the relationship between two or more features. As this example shows, after we produce an initial plot, there are still other aspects we need to consider. In this section, we cover *principles of scale* that help us decide how to adjust the axis limits, place tick marks, and apply transformations. We begin by examining when and how we might adjust a plot to reduce empty space; in other words, we try to fill the data region of our plot with data.
+:::
+
+## Ajustando la escala
+
+Para mejorar la gráfica, puedes ajustar los limites del eje, los tick mars y aplicar transformaciones a la variable.
+
+## Ajustando los límites
+
+Ejemplo de ajustar los límites en ggplot2.
+
+## Ajustando los tick marks
+
+¿Es apropiado incluir el zero o no?
+
+Ejemplo de histograma sin zero y con zero.
+
+## Transformaciones
+
+Another common way to adjust scale is to transform the data or the plot’s axes. We use transformations for skewed data so that it is easier to inspect the distribution.
+
+And when the transformation produces a symmetric distribution, the symmetry carries with it useful properties for modeling (which we will see later).
+
+There are multiple ways to transform data, but the log transformation tends to be especially useful.
+
+## Ejemplo
+
+Ejemplo de histograma con o sin transformación.
+
+## 
+
+The downside of using the log transform is that the actual values aren’t as intuitive—in this example, we needed to convert the values back to dollars to understand the sale price.
+
+Therefore, we often favor transforming the axis to a log scale, rather than the data.
+
+R code con grafica
+
+::: notes
+This histogram with its log-scaled x-axis essentially shows the same shape as the histogram of the transformed data. But since the axis is displayed in the original units, we can directly read off the location of the modes in dollars. Note that the bins get narrower to the right because the bin widths are equal on the USD scale but plotted on the log USD scale. Also note that � on the y-axis is 10−6.
+:::
+

@@ -1,0 +1,415 @@
+---
+title: |
+   | Tipos de Variables  
+author: 
+  - name: Alan R. Vázquez
+    affiliations:
+      - name: Tecnológico de Monterrey
+format: 
+  revealjs:
+    chalkboard: true
+    multiplex: true
+revealjs-plugins:
+  - pointer    
+editor: visual
+slide-number: True
+logo: IN2039_logo.png
+css: style.css
+---
+
+## Agenda
+
+::: columns
+::: {.column width="50%"}
+1.  ¿De qué tipo es mi variable?
+
+    ![](images/clipboard-2750534250.png)
+:::
+
+::: {.column width="50%"}
+2.  dplyr
+
+    ![](images/clipboard-4025446454.png){width="245"}
+:::
+:::
+
+## Tipos de variables
+
+Antes de hacer una gráfica, debemos examinar el tipo de valor que toman las variables de nuestros datos.
+
+. . .
+
+Hay dos tipos principales de variables:
+
+::: incremental
+-   [Variables numéricas.]{style="color:darkblue;"}
+
+-   [Variables categóricas.]{style="color:darkred;"}
+:::
+
+## Variables numéricas
+
+Toman valores que representan medidas numéricas o cantidades.
+
+::: incremental
+-   Altura (en centímetros).
+
+-   Peso (en kilogramos).
+
+-   Edad (en años).
+
+-   Precio (en dolares).
+
+-   Tiempo (en horas o segundos).
+
+-   Puntuación en un examen (número de puntos en base de 100).
+:::
+
+## Tipos de variables numéricas
+
+Las variables numéricas se dividen en dos tipos:
+
+-   [*Discretas*]{style="color:darkblue;"}: variables que toman valores enteros.
+
+. . .
+
+Por ejemplo:
+
+1.  Cantidad de hijos (0, 1, 2, o 3)
+2.  Número de estudiantes en una clase (20, 30, o 35)
+3.  Número de libros en una biblioteca (10000, 15000, 20000)
+
+## 
+
+-   [*Continuas*]{style="color:darkblue;"}: variables con un número de valores diferentes infinito (o muy muy grande).
+
+. . .
+
+Por ejemplo:
+
+1.  Altura de una persona (puede estar en el *rango* de 1.60 m a 1.85 m)
+2.  Temperatura ambiente (puede estar en el *rango* de -30 $^\circ$C a 50 $^\circ$C)
+3.  Tiempo que tarda un Uber en llegar (*entre* 5 y 60 minutos)
+
+## Variables categóricas
+
+Toman valores que se colocan en *categorías*.
+
+. . .
+
+> Una **categoría** es una clase o división de personas o cosas que tienen características particulares compartidas.
+
+. . .
+
+|                  |                                                                 |
+|------------------|------------------------------------------------------|
+| **Variable**     | **Categorias**                                                  |
+| Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
+| País de origen   | México, Canadá, EUA                                             |
+| Código postal    | 72703, 90034, 3000, ...                                         |
+
+## Clasificación de variables categóricas
+
+Las variables categóricas se dividen en dos tipos importantes:
+
+-   [*Nominales*]{style="color:darkred;"}
+-   [*Ordinales*]{style="color:darkgreen;"}
+
+::: notes
+Dependiendo si las categorias tienen orden o no.
+:::
+
+## Variable categórica nominal
+
+Una variable categórica es nominal si sus categorías **no** tienen orden.
+
+. . .
+
+Por ejemplo:
+
+::: incremental
+-   Afiliación a partidos políticos (demócrata o republicano).
+-   Tipo de perro (pastor, sabueso, terrier, otro).
+-   Sistema operativo de la computadora (Windows, macOS, Linux).
+:::
+
+## Variable categórica ordinal
+
+Una variable categórica es ordinal si sus categorías **tienen orden**.
+
+. . .
+
+Por ejemplo:
+
+::: incremental
+-   Talla de camiseta (pequeña, mediana, grande).
+-   Nivel de educación (secundaria, universidad, posgrado).
+-   Nivel de ingreso (menos de \$50K, \$550k-\$5100K, mas de \$100K).
+:::
+
+::: notes
+It is important to note that with an ordinal feature, the difference between, say, small and medium need not be the same as the difference between medium and large. Also, the differences between consecutive categories may not even be quantifiable. Think of the number of stars in a restaurant review and what one star means in comparison to two stars.
+:::
+
+## Interesante...
+
+Valores enteros (por ejemplo, 1, 2, 3, ..., 5) pueden representar categóricas nominales u ordinales.
+
+|                    |        |           |         |             |
+|--------------------|--------|-----------|---------|-------------|
+| Representación     | 1      | 2         | 3       | 4           |
+| **Tipo de Sangre** | *A*    | *B*       | *AB*    | *O*         |
+| **Reseña**         | *Mala* | *Regular* | *Buena* | *Muy Buena* |
+
+<!-- -->
+
+. . .
+
+En la práctica, los valores booleanos (`TRUE` y `FALSE`) a menudo representan categorías nominales.
+
+## Recuerda
+
+![](images/clipboard-2750534250.png)
+
+## Un a diferencia general es ...
+
+-   Variables cuantitativas (discretas o continuas) son en las cuales la suma o resta de sus valores tiene sentido.
+
+-   Variables categóricas (nominales u ordinales) son en las cuales la suma o resta de sus valores **no** tiene sentido.
+
+## ¿Cómo checar el tipo de variable en R?
+
+Una ves cargando los datos en R, podemos ver el tipo de variable al imprimir la tabla de datos. Por ejemplo, consideremos el conjunto de datos `penguins.xlsx`:
+
+```{r}
+#| eval: true
+#| echo: false
+
+library(readxl)
+penguins_data <- read_excel("penguins.xlsx")
+```
+
+```{r}
+#| eval: true
+#| echo: true
+
+# Imprime las primeras 6 filas de los datos.
+head(penguins_data)
+```
+
+## 
+
+Las abreviaturas de letras debajo de los nombres de las columnas. Estos describen el tipo de cada variable:
+
+::: incremental
+-   `dbl` significa dobles o números reales. Para variables [*continuas*]{style="color:darkblue;"}.
+
+-   `int` significa enteros. Para variables [*discretas*]{style="color:darkblue;"}.
+
+-   `fctr` significa factores, que R usa para representar variables categóricas [*nominales*]{style="color:darkred;"} y [*ordinales*]{style="color:darkgreen;"} con valores posibles fijos.
+
+-   `lgl` significa lógico, vectores que solo contienen `TRUE` o `FALSE`. Para variables categóricas [*nominales*]{style="color:darkred;"}.
+:::
+
+## 
+
+También hay otros tres tipos especiales de variables:
+
+-   `dttm` significa fechas y horas (una fecha + una hora).
+
+-   `date` significa fechas.
+
+-   `chr` significa vectores de caracteres o cadenas.
+
+. . .
+
+Más adelante veremos como transformar una variable `chr` en `fctr`.
+
+## Mini-actividad (*cooperative* mode)
+
+1.  Ve al repositorio de conjuntos de datos de la Universidad de California en Irvine: <https://archive.ics.uci.edu/>
+
+2.  Explora el sitio y busca un conjunto de datos que incluya al menos una variable numérica y una categórica.
+
+3.  Descarga los datos y transforma el archivo en un archivo de excel (.xlsx) si es necesario.
+
+4.  Sube los datos a un archivo de Google Colab y cárgalos en R usando las funciones antes vistas.
+
+5.  Describe el tipo de variables en el conjunto de datos.
+
+```{r}
+countdown::countdown(minutes = 30)
+```
+
+# dplyr
+
+## Una nueva librería: dplyr
+
+::: columns
+::: {.column width="50%"}
+![](images/tidyverse.jpeg){fig-align="center" width="465" height="375"}
+:::
+
+::: {.column width="50%"}
+-   **dplyr** permite manipular datos y generar resúmenes estadísticos.
+
+-   Es parte de una colección de paquetes de ciencia de datos llamado *tidyverse*.
+
+-   <https://dplyr.tidyverse.org/>
+:::
+:::
+
+Cárgala en Google Colab con el siguiente código.
+
+```{r}
+#| echo: true
+#| output: false
+
+library(dplyr)
+```
+
+## pipe
+
+Uno de los comandos más importantes de **dplyr** es `pipe` que se ejecuta con el operador `%>%`. Este operador envía un objeto a una función o expresión de llamada.
+
+La grámatica para usar pipe es la siguiente:
+
+![](images/clipboard-3314164992.png){fig-align="center"}
+
+## Otras funciones de dplyr
+
+**dplyr** es una gramática de manipulación de datos que proporciona un conjunto coherente de verbos que le ayudan a resolver los desafíos más comunes de manipulación de datos:
+
+-   `filter()` selecciona casos según sus valores.
+
+-   `select()` selecciona variables según sus nombres.
+
+-   `mutate()` agrega nuevas variables que son funciones de variables existentes
+
+-   `arrange()` cambia el orden de las filas.
+
+-   `summarise()` reduce múltiples valores a un único resumen.
+
+## 
+
+![](images/clipboard-2829866229.png){fig-align="center"}
+
+Para esto, usaremos el conjunto de datos `penguins_data`.
+
+## `filter()`
+
+Filtremos los datos para la especie "Gentoo."
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% filter(species == "Gentoo") %>% head()
+```
+
+> La función `head()` permite imprimir las primeras 6 filas de los datos.
+
+## 
+
+También podemos filtrar los datos para obtener los pingüinos con una masa corporal mayor que 5000.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% filter(body_mass_g > 5000) %>% head()
+```
+
+## `select()`
+
+Selecciona las columnas `species`, `body_mass_g` y `sex`.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% select(species, body_mass_g, sex)
+```
+
+## `select()` y `filter()`
+
+Selecciona las columnas `species`, `body_mass_g` y `sex`. Después, filtra los datos para la especie "Gentoo."
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  select(species, body_mass_g, sex) %>% 
+  filter(species == "Gentoo") %>% 
+  head()
+```
+
+## `mutate()`
+
+Con `mutate()`, podemos agregar nuevas columnas (variables) que son funciones de las columnas en los datos. Por ejemplo, podemos calcular la división de `bill_length_mm` y `bill_depth_mm`.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  mutate("RadioLengthDepth" = bill_length_mm/bill_depth_mm) %>% 
+  select(species, body_mass_g, sex, RadioLengthDepth) %>%
+  head()
+```
+
+## `arrange()`
+
+Podemos ordenar los datos en función de una columna, digamos `bill_length_mm`. Para ordenar de forma descendente usamos `desc(bill_length_mm)` en `arrange()`.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  arrange(desc(bill_length_mm)) %>% 
+  head()
+```
+
+## 
+
+Para ordenar de forma ascendente usamos
+
+`desc(-bill_length_mm)`.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  arrange(desc(-bill_length_mm)) %>% 
+  head()
+```
+
+## `summarise()`
+
+Podemos calcular el promedio de las columnas `bill_length_mm`, `bill_depth_mm`, y `body_mass_g`.
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  select(bill_length_mm, bill_depth_mm, body_mass_g) %>%
+  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), 
+            PromDepth = mean(bill_depth_mm, na.rm = TRUE),
+            PromMass = mean(body_mass_g, na.rm = TRUE))
+```
+
+> El argumento `na.rm == TRUE` permite ignorar los datos faltantes.
+
+## Comentarios finales
+
+-   **dplyr** es una librería que nos permite manipular datos en R.
+
+-   Los tipos de variable ayudan a especificar las operaciones y visualizaciones que podemos aplicar a los datos.
+
+-   Existen gráficas apropiadas o diseñadas para visualizar variables númericas o categóricas.
+
+-   En este curso, veremos varias gráficas para cada tipo de variable y sus combinaciones.

@@ -1,0 +1,8 @@
+- source: Introduccion.qmd
+  quarto-pub:
+    - id: 1587668d-0e9b-4a91-8383-58ae55f1b9f1
+      url: 'https://alanrvazquez.quarto.pub/-sesión-1--¿qué-es-la-visualización-de-datos-'
+- source: Herramientas.qmd
+  quarto-pub:
+    - id: 2064f75a-a575-4953-b6d8-83be7e1c47c9
+      url: 'https://alanrvazquez.quarto.pub/-sesión-2--herramientas-para-construir-gráficas-'
