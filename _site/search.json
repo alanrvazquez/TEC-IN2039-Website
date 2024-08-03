@@ -1,0 +1,78 @@
+[
+  {
+    "objectID": "TEC-IN2039-Website.html",
+    "href": "TEC-IN2039-Website.html",
+    "title": "IN2039 Visualización de Datos",
+    "section": "",
+    "text": "Introducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "TEC-IN2039-Website.html#tópicos-del-curso",
+    "href": "TEC-IN2039-Website.html#tópicos-del-curso",
+    "title": "IN2039 Visualización de Datos",
+    "section": "",
+    "text": "Introducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#agenda",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#agenda",
+    "title": "Tópicos Especiales",
+    "section": "Agenda",
+    "text": "Agenda\n\nInstalación local de R y RStudio.\nGráficas interactivas con `plotly`\nCreación de dashboards con Quarto\n\n\nIncluir ejemplo de Datos Nuevo León."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#dashboards",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#dashboards",
+    "title": "Tópicos Especiales",
+    "section": "Dashboards",
+    "text": "Dashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#creating-a-dashboard",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#creating-a-dashboard",
+    "title": "Tópicos Especiales",
+    "section": "Creating a dashboard",
+    "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-en-ggplot2",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-en-ggplot2",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nlibrary(ggformula)\nlibrary(readxl)\npenguins_data = read_excel(\"penguins.xlsx\")\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-1",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-en-ggplot2-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#plotly-en-ggplot2-1",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.html#section-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.html#section-1",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "Tecnológico de Monterrey"
+  }
+]

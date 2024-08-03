@@ -68,6 +68,8 @@ Para esto, primero guardamos la gráfica de ggplot a un objeto llamado `my_plot`
 # install.packages("plotly)
 library(plotly)
 library(ggformula)
+library(readxl)
+penguins_data = read_excel("penguins.xlsx")
 my_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
 color = ~species) + labs(title = "Profundidad y longitud del pico", 
 subtitle = "Dimensiones para pingüinos en Adelie,
