@@ -4,17 +4,18 @@ title: |
 author: 
   - name: Alan R. Vázquez
     affiliations:
-      - name: Tecnológico de Monterrey
+      - name: Departamento de Ingeniería Industrial
 format: 
   revealjs:
     chalkboard: true
     multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
 revealjs-plugins:
   - pointer    
 editor: visual
-slide-number: True
-logo: IN2039_logo.png
-css: style.css
 ---
 
 ## Agenda
@@ -102,7 +103,7 @@ Toman valores que se colocan en *categorías*.
 . . .
 
 |                  |                                                                 |
-|------------------|-----------------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | **Variable**     | **Categorias**                                                  |
 | Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | País de origen   | México, Canadá, EUA                                             |
