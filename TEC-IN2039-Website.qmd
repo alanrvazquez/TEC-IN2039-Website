@@ -2,6 +2,7 @@
 title: "IN2039 Visualización de Datos"
 subtitle: "Diapositivas Semestre AD 2024"
 author: Alan R. Vazquez
+institute: Tecnológico de Monterrey
 ---
 
 ## Tópicos del Curso
