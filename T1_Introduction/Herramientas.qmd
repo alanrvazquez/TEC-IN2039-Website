@@ -1,5 +1,17 @@
 ---
 title: Herramientas para construir gráficas
+author: Alan R. Vázquez
+institute: Departamento de Ingeniería Industrial
+format: 
+  revealjs:
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+revealjs-plugins:
+  - pointer    
+editor: visual
 ---
 
 ## Agenda

@@ -1,5 +1,537 @@
 [
   {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#agenda",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#agenda",
+    "title": "Variables Categóricas",
+    "section": "Agenda",
+    "text": "Agenda\nEnfocarnos en 1 variable categórica.\n\n\nIntroducción\nResúmenes estadísticos\nGráfica de barras\nTransformando variables categóricas\nActividad: Gráfica circular"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#primero-lo-primero",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#primero-lo-primero",
+    "title": "Variables Categóricas",
+    "section": "Primero lo primero",
+    "text": "Primero lo primero\nHoy usaremos R para construir gráficas y tablas. Para esto, usaremos las librerías que ya vimos antes como readxl, ggplot2, ggformula, y dplyr.\n\nCarguémoslas en R antes de comenzar.\n\n# Nos se te olvide instalar la librería \"ggformula\" en Google Colab.\n# install.packages(ggformula)\nlibrary(readxl)\nlibrary(ggplot2)\nlibrary(ggformula)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#penguins-dataset",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#penguins-dataset",
+    "title": "Variables Categóricas",
+    "section": "Penguins Dataset",
+    "text": "Penguins Dataset\nIlustraremos los conceptos de hoy usando el conjunto de datos penguins.xlsx.\n\n\nSúbelo a Google Colab y cárgalo en R usando el siguiente código.\n\npenguins_data = read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\n\nEn Google Colab, el archivo debe de estar en la carpeta llamada “content” o “contenido.”"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Hoy nos enfocaremos en visualizar las variables categóricas: species, island y sex.\n\npenguins_data %&gt;% \n  select(species, island, sex) %&gt;%\n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#asegúrate-que-r-sabe-que-la-variable-es-categórica",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#asegúrate-que-r-sabe-que-la-variable-es-categórica",
+    "title": "Variables Categóricas",
+    "section": "Asegúrate que R sabe que la variable es categórica",
+    "text": "Asegúrate que R sabe que la variable es categórica\nA pesar de que la variables species, island y sex son claramente categóricas, R no reconoce esto.\nPor default, R determina que esas variables son carácter o chr porque están compuestas por texto.\n\nEn R, las variables categóricas se conocen como factor o fct."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#definiendo-variables-categóricas-en-r",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#definiendo-variables-categóricas-en-r",
+    "title": "Variables Categóricas",
+    "section": "Definiendo variables categóricas en R",
+    "text": "Definiendo variables categóricas en R\nPara asegurarnos que R sepa que la variable es categórica o fct, usamos la función mutate_at() de dplyr:\n\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)\n\n\nNota que acabamos de reemplazar el objeto penguins_data con la nueva versión."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-1",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-1",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Ahora, las etiquetas de las variables son fct.\n\npenguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor) %&gt;% \n  select(species, island, sex) %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#resúmenes-estadísticos-1",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#resúmenes-estadísticos-1",
+    "title": "Variables Categóricas",
+    "section": "Resúmenes Estadísticos",
+    "text": "Resúmenes Estadísticos\n\n\nUn resumen estadístico nos ayuda a resumir un conjunto de observaciones de una manera simple.\n\n\n\nLos resúmenes estadísticos más utilizados para datos categóricos son:\n\nLa frecuencia de una categoría es el número de observaciones que pertenecen a esa categoría.\nLa frecuencia relativa es la frecuencia dividida por el número total de observaciones."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia",
+    "title": "Variables Categóricas",
+    "section": "Tabla de Frecuencia",
+    "text": "Tabla de Frecuencia\nResume una variable categórica contando los valores por categoría.\n\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())\n\n# A tibble: 3 × 2\n  species   Frecuencia\n  &lt;fct&gt;          &lt;int&gt;\n1 Adelie           152\n2 Chinstrap         68\n3 Gentoo           124\n\n\n\n\n\n\nEspecie\nFrecuencia\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\n\n\nFrecuencia: Número de observaciones en cada categoría.\nTotal: Suma total de observaciones.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "penguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())\n\n\nEl código se lee:\n\nDel objeto penguins_data, agrupa los datos por la variable species, y resume los datos usando el el número de elementos por categoría (n())."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-relativa",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-relativa",
+    "title": "Variables Categóricas",
+    "section": "Tabla de Frecuencia Relativa",
+    "text": "Tabla de Frecuencia Relativa\nResume una variable categórica calculando la proporción de valores por categoría.\n\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n()) %&gt;%\n  mutate(\"Freq.Rel\" = \n           Frecuencia/sum(Frecuencia))\n\n# A tibble: 3 × 3\n  species   Frecuencia Freq.Rel\n  &lt;fct&gt;          &lt;int&gt;    &lt;dbl&gt;\n1 Adelie           152    0.442\n2 Chinstrap         68    0.198\n3 Gentoo           124    0.360\n\n\n\n\n\n\nEspecie\nFrecuencia relativa\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSuma\n1\n\n\n\n\n\n\nFrecuencia relativa: Número de observaciones en cada categoría dividida por el total.\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-de-barras-1",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-de-barras-1",
+    "title": "Variables Categóricas",
+    "section": "Gráfica de Barras",
+    "text": "Gráfica de Barras\n\nRepresenta visualmente una tabla de frecuencias o frecuencias relativas.\n\nLa frecuencia (o frecuencia relativa) se representa por una barra de altura proporcional.\n\nPuedes construir una gráfica de barras usando la función gf_bar() así:\n\ngf_bar( ~ species, data = penguins_data)"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-de-barras-1-output",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-de-barras-1-output",
+    "title": "Variables Categóricas",
+    "section": "Gráfica de Barras",
+    "text": "Gráfica de Barras"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-3",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-3",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Si quieres graficar la frecuencia relativa, usa la función gf_percents.\n\ngf_percents( ~ species, data = penguins_data)"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#ejemplo-mejorando-la-gráfica",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#ejemplo-mejorando-la-gráfica",
+    "title": "Variables Categóricas",
+    "section": "Ejemplo: Mejorando la gráfica",
+    "text": "Ejemplo: Mejorando la gráfica\nUsando las herramientas para gráficos en ggplot, podemos mejorar el código anterior para que la gráfica se vea así."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#aplica-el-principio-3",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#aplica-el-principio-3",
+    "title": "Variables Categóricas",
+    "section": "Aplica el Principio 3",
+    "text": "Aplica el Principio 3\n\nAplica los principios del diseño gráfico.\n\n\nPodemos mejorar gráficas de variables categóricas usando estas técnicas:\n\n\nRe-etiquetar las categorías para que sean más informativas.\nRe-ordenar las categorías para que sigan su orden natural.\nColapsar categorías para simplificar la gráfica."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#ejemplo-boston-housing-dataset",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#ejemplo-boston-housing-dataset",
+    "title": "Variables Categóricas",
+    "section": "Ejemplo: Boston Housing Dataset",
+    "text": "Ejemplo: Boston Housing Dataset\nEste conjunto de datos contiene información recopilada por el Servicio del Censo de EE. UU. sobre viviendas en el área de Boston, Massachusetts."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-4",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-4",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Los datos están en el archivo Boston_dataset.xlsx. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.\n\nBoston_dataset = read_excel(\"Boston_dataset.xlsx\")\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus  chas   nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31     0 0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07     0 0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07     0 0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18     0 0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18     0 0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18     0 0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;\n\n\nNos concentraremos en las siguientes variables\n\nchas : Si la casa limita con el río Charles (1: Si y 0: No)\nrad : Indice de accesibilidad a carreteras radiales (Low, Medium, High)."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#recuerda",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#recuerda",
+    "title": "Variables Categóricas",
+    "section": "Recuerda…",
+    "text": "Recuerda…\nAsegúrate de que R sabe que esas variables son categóricas.\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate_at(c(\"chas\", \"rad\"), as.factor)\nBoston_dataset %&gt;% select(chas, rad) %&gt;% head()\n\n# A tibble: 6 × 2\n  chas  rad  \n  &lt;fct&gt; &lt;fct&gt;\n1 0     Low  \n2 0     Low  \n3 0     Low  \n4 0     Low  \n5 0     Low  \n6 0     Low"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-inicial",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-inicial",
+    "title": "Variables Categóricas",
+    "section": "Gráfica inicial",
+    "text": "Gráfica inicial\nVamos a construir una gráfica de barras de chas.\n\ngf_percents( ~ chas, data = Boston_dataset)\n\n\nSin embargo, las categorías en la gráfica no son informativas."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#re-etiquetado-categorías",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#re-etiquetado-categorías",
+    "title": "Variables Categóricas",
+    "section": "Re-etiquetado categorías",
+    "text": "Re-etiquetado categorías\nLo mejor es re-nombrar las categorías de la variable chas para que la gráfica de barras de mas información al usuario.\n\nVerifica los nombres de las categorías en la variable usando la función unique().\n\nBoston_dataset %&gt;% select(chas) %&gt;% unique()\n\n# A tibble: 2 × 1\n  chas \n  &lt;fct&gt;\n1 0    \n2 1"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Re-emplaza por nombres apropiados usando las funciones mutate() y case_match().\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Si\"))\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#veamos-que-sucede-ahora.",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#veamos-que-sucede-ahora.",
+    "title": "Variables Categóricas",
+    "section": "Veamos que sucede ahora.",
+    "text": "Veamos que sucede ahora.\n\ngf_percents( ~ chas, data = Boston_dataset)\n\n\nMucho mejor 😃"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#re-ordenar-categorías",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#re-ordenar-categorías",
+    "title": "Variables Categóricas",
+    "section": "Re-ordenar categorías",
+    "text": "Re-ordenar categorías\nAhora, construyamos una gráfica de barras de rad.\n\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nLas categorías no siguen un orden natural de izquierda a derecha: Low, Medium, y High."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al momento de definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#guardando-gráficas-en-ggplot2",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#guardando-gráficas-en-ggplot2",
+    "title": "Variables Categóricas",
+    "section": "Guardando gráficas en ggplot2",
+    "text": "Guardando gráficas en ggplot2\nPara guardar una gráfica de ggplot2, primero guardamos la gráfica en un objeto de R.\n\nmi_grafica_de_barras = gf_percents( ~ rad, data = Boston_dataset)\n\nLuego, usamos la función ggsave().\n\nggsave(filename = \"Mi_grafica.jpg\", plot = mi_grafica_de_barras, \n       width = NA, height = NA, units = \"cm\", dpi = 300)\n\nAlgunos de los argumentos arriba son:\n\nwidth: ancho del gráfico.\nheight: altura del gráfico.\nunits: unidades de medición.\ndpi: resolución del gráfico."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
+    "title": "Variables Categóricas",
+    "section": "Gráfica circular o de pastel",
+    "text": "Gráfica circular o de pastel\n\n\n\n\nSe construye dividiendo un círculo en varias porciones que representan las categorías de la variable.\nEl diámetro del círculo comprendido por una categoría es su frecuencia relativa.\nPermite dar un vistazo rápido a las proporciones de cada categoría.\n\n\n\n\n\n\n\nPie charts versus bar charts.\nBar charts can serve as a good way to show comparisons between categories. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
+    "title": "Variables Categóricas",
+    "section": "Actividad (solo mode)",
+    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 o plotly en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data.\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#agenda",
+    "href": "T1_Introduction/Introduccion.slides.html#agenda",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\nCiencia de datos\n\n\n\n\nLos 3 principios de visualización\n\n\n\n\n\n\n\nActividad"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#la-ciencia-de-datos-es",
+    "href": "T1_Introduction/Introduccion.slides.html#la-ciencia-de-datos-es",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "La ciencia de datos es …",
+    "text": "La ciencia de datos es …\nun campo multidisciplinario que utiliza métodos, procesos, algoritmos y sistemas científicos para extraer conocimientos e ideas de muchos datos estructurados y no estructurados."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#el-esquema-de-ciencia-de-datos",
+    "href": "T1_Introduction/Introduccion.slides.html#el-esquema-de-ciencia-de-datos",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "El esquema de ciencia de datos",
+    "text": "El esquema de ciencia de datos"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#business-understanding",
+    "href": "T1_Introduction/Introduccion.slides.html#business-understanding",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Business understanding",
+    "text": "Business understanding\n\nLa comprensión empresarial se refiere a definir el problema empresarial a resolver.\nEl objetivo es reformular el problema empresarial como un problema de ciencia de datos.\nA menudo, reformular el problema y diseñar una solución es un proceso iterativo."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#data-understanding",
+    "href": "T1_Introduction/Introduccion.slides.html#data-understanding",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Data understanding",
+    "text": "Data understanding\n\nSi el objetivo es resolver un problema empresarial, los datos que componen la materia prima disponible a partir de la cual se construirá la solución.\n\n\n\nLos datos disponibles rara vez coinciden con el problema.\nPor ejemplo, los datos históricos a menudo se recopilan con fines no relacionados con el problema empresarial actual o sin ningún propósito explícito.\n\n\n\n\nNuestro objetivo es convertir los datos en información que contesten preguntas útiles."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#tipos-de-datos",
+    "href": "T1_Introduction/Introduccion.slides.html#tipos-de-datos",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Tipos de datos",
+    "text": "Tipos de datos\n\n\n\nTexto\n\n\nImágenes\n\nVideo\n\n\nAudio"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#datos-númericos",
+    "href": "T1_Introduction/Introduccion.slides.html#datos-númericos",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Datos númericos",
+    "text": "Datos númericos\nLa metodología de ciencia de datos esta basada en datos númericos dados en tablas.\n\n\nDe hecho, los textos, imágenes, videos o audios son transformados a este formato para procesarlos.\n\n\nEn este curso, asumiremos que los datos están en una tabla.\n\nMas importante, asumiremos que los datos han sido limpiados y no contienen typos o observaciones extrañas."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#la-situación-problema",
+    "href": "T1_Introduction/Introduccion.slides.html#la-situación-problema",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "La Situación Problema",
+    "text": "La Situación Problema\nYouTube es una plataforma para compartir vídeos ampliamente conocida por la diversidad de vídeos subidos por sus usuarios.\nEl sitio permite a sus usuarios cargar, ver, calificar, compartir y comentar vídeos.\nUn tipo particular de usuario es el creador de contenido, quien frecuentemente crea y sube vídeos entretenidos a la plataforma."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#objetivo-de-la-situación-problema",
+    "href": "T1_Introduction/Introduccion.slides.html#objetivo-de-la-situación-problema",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Objetivo de la situación problema",
+    "text": "Objetivo de la situación problema\n\nEsta situación problema concierne la creación de un póster que informe a un creador de contenido de Youtube los aspectos mas importantes del formato miniatura de un video. Es decir, que estén asociadas a un número de vistas grande.\n\nPara esto, tendrás a tu disposición una base de datos con 7242 videos y 51 variables que se encuentra en el archivo “YouTube_Dataset.xlsx.”\nPuedes encontrar más información en nuestra página de Canvas."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#qué-es-la-visualización-de-datos",
+    "href": "T1_Introduction/Introduccion.slides.html#qué-es-la-visualización-de-datos",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "¿Qué es la visualización de datos?",
+    "text": "¿Qué es la visualización de datos?\n\n“Una visualización [de datos] es cualquier presentación visual destinada a revelar evidencia, haciendo visible lo invisible” Alberto Cairo (2015)."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section",
+    "href": "T1_Introduction/Introduccion.slides.html#section",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.\n\nLas visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.\n\n\nLa visualización de datos tiene 3 principios…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#principio-1-formula-el-mensaje-o-pregunta",
+    "href": "T1_Introduction/Introduccion.slides.html#principio-1-formula-el-mensaje-o-pregunta",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Principio 1: Formula el mensaje o pregunta",
+    "text": "Principio 1: Formula el mensaje o pregunta\nFormúla la pregunta de interés o el mensaje que quieres transmitir.\n\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\n¿Cuál es la comparación importante?\n¿Cómo la enfatizamos?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might bring added value to the investigation?\nAre there any potentially important features to create comparisons with/against?\n\n[Incluir noticias del new york times]"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#principio-2-transforma-los-datos-en-información",
+    "href": "T1_Introduction/Introduccion.slides.html#principio-2-transforma-los-datos-en-información",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Principio 2: Transforma los datos en información",
+    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\n\n\n\n\n\n\n\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
+    "href": "T1_Introduction/Introduccion.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Principio 3: Aplica los principios del diseño gráfico",
+    "text": "Principio 3: Aplica los principios del diseño gráfico\n\n\n\n\n\n\nEs fácil identificar objetos por color.\nUtiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.\nEquilibra gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUsa un diseño de cuadrícula para organizar su visualización.\n\n\n\n\n\n\n\n\n\nNo te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.\nTambién, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#ejemplo",
+    "href": "T1_Introduction/Introduccion.slides.html#ejemplo",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Ejemplo",
+    "text": "Ejemplo\nPrincipio 1: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.\n\n\n\nCosto semanal (en USD) del viaje diario\n\n\nCiudad\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-1",
+    "href": "T1_Introduction/Introduccion.slides.html#section-1",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "Principio 2: Transforma los datos en información."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-2",
+    "href": "T1_Introduction/Introduccion.slides.html#section-2",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "Principio 3: Aplica los principios del diseño gráfico."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-3",
+    "href": "T1_Introduction/Introduccion.slides.html#section-3",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "“El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.” John W. Tukey.\n\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ es una excelente guía sobre visualizaciones.\n\nPrincipios del diseño gráfico\n\nEs más fácil identificar objetos por color que por forma.\nCuando sea posible, utiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, formas, etc., que tengan la misma naturaleza deben parecerse.\nHaz un esfuerzo por lograr un equilibrio entre gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUtiliza un diseño de cuadrícula para organizar su visualización."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#actividad-cooperative-mode",
+    "href": "T1_Introduction/Introduccion.slides.html#actividad-cooperative-mode",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "Actividad (cooperative mode)",
+    "text": "Actividad (cooperative mode)\n\nJúntate con un compañero.\nEncuentren un buen y un mal ejemplo de una visualización (gráficas) en linea.\nGuarden las visualizaciones (por ejemplo, haciendo una captura de pantalla).\nEscriban una crítica breve (3 a 4 enunciados) de cada visualización.\nSuban un documento con sus criticas e imágenes en Canvas.\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#agenda",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#agenda",
+    "title": "Tópicos Especiales",
+    "section": "Agenda",
+    "text": "Agenda\n\nInstalación local de R y RStudio.\nGráficas interactivas con `plotly`\nCreación de dashboards con Quarto\n\n\nIncluir ejemplo de Datos Nuevo León."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#dashboards",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#dashboards",
+    "title": "Tópicos Especiales",
+    "section": "Dashboards",
+    "text": "Dashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#creating-a-dashboard",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#creating-a-dashboard",
+    "title": "Tópicos Especiales",
+    "section": "Creating a dashboard",
+    "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nlibrary(ggformula)\nlibrary(readxl)\npenguins_data = read_excel(\"penguins.xlsx\")\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-1",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-1",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#section-1",
+    "href": "T7_Special_Plots/Slides_SpecialGraphs.slides.html#section-1",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "Tecnológico de Monterrey"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#agenda",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#agenda",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroducción\nRelación entre dos variables numéricas\nRegresión lineal simple"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#carguemos-las-librerías",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#carguemos-las-librerías",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Carguemos las librerías",
+    "text": "Carguemos las librerías\nCarguemos las librerías ggplot2, ggformula, readxl, y dplyr en Google Colab y R antes de comenzar.\n\n# Nos se te olvide instalar la librería \"ggformula\" en Google Colab.\n# install.packages(\"ggformula\")\nlibrary(readxl)\nlibrary(ggplot2)\nlibrary(ggformula)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#ejemplo",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#ejemplo",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Ejemplo",
+    "text": "Ejemplo\nUsemos datos de 392 autos sobre sus millas por galón, número de cilindros, caballos de fuerza, peso, aceleración, año, origen, entre otras variables.\nLos datos están en el archivo “auto_dataset.xlsx”.\n\nauto_data = read_excel(\"auto_dataset.xlsx\") \nauto_data %&gt;% head() \n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#principio-1-formula-el-mensaje",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#principio-1-formula-el-mensaje",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Principio 1: Formula el mensaje",
+    "text": "Principio 1: Formula el mensaje\nPreguntas que podemos contestar con la regresión lineal simple\n\n\n¿Existe una relación entre una variable de respuesta y los predictores?\n¿Qué tan fuerte es la relación?\n¿Cuál es la incertidumbre?\n¿Con qué precisión podemos predecir un resultado futuro?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "¿Hay una relación entre el peso de un auto y sus millas por galón?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#problema-de-regresión",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#problema-de-regresión",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Problema de regresión",
+    "text": "Problema de regresión\nObjetivo: encontrar la mejor función \\(f(X)\\) del predictor \\(X\\) que describa la respuesta \\(Y\\).\n\nEn términos matemáticos, queremos establecer la siguiente relación\n\\[\nY = f(X) + \\epsilon,\n\\]\ndonde \\(\\epsilon\\) es un error natural (aleatorio)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-1",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-1",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "En la práctica es muy difícil saber la verdadera estructura de la función \\(f(X)\\).\n\n\n\nLo mejor que podemos hacer es construir una aproximación (función) \\(\\hat{f}(X)\\).\nHay varias estrategias para construir \\(\\hat{f}(X)\\), una de las más utilizadas es:\n\nDefinir una “estructura” o “fórmula” simple.\nEstimar los elementos de la “fórmula” usando los datos."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#modelo-de-regresión-lineal",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#modelo-de-regresión-lineal",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Modelo de regresión lineal",
+    "text": "Modelo de regresión lineal\nUna función \\(f(X)\\) muy común para predecir una respuesta (\\(Y\\)) es el modelo de regresión lineal.\nTiene la forma matemática:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nDonde \\(i\\) es el indice de las \\(n\\) observaciones, y\n\\(\\hat{Y}_i\\) es la predicción del valor real de la respuesta \\(Y\\) asociada a un valor del predictor igual a \\(X_i\\).\nLos valores \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_1\\) se llaman coeficientes del modelo."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#para-nuestro-ejemplo",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#para-nuestro-ejemplo",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Para nuestro ejemplo",
+    "text": "Para nuestro ejemplo\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#la-fórmula",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#la-fórmula",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "La fórmula",
+    "text": "La fórmula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-los-coefficientes",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-los-coefficientes",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Interpretación de los coefficientes",
+    "text": "Interpretación de los coefficientes\n\n¿Qué significa \\(\\hat{\\beta}_0 = 46.32\\)?\n\n\n\\(\\hat{\\beta}_0\\) es el valor promedio de la respuesta cuando \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-2",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-2",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "¿Tiene sentido \\(\\hat{\\beta}_0 = 46.32\\)?\n\n\nNo! Porque no hay autos con un peso igual a 0."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-3",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-3",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "¿Qué significa \\(\\hat{\\beta}_1 = - 0.0076\\)?\n\n\n\\(\\hat{\\beta}_1\\) es el cambio promedio en la respuesta al aumentar \\(X_i\\) en una unidad."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-hatbeta_1",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-hatbeta_1",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Interpretación de \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretación de \\(\\hat{\\beta}_1\\)\nPor cada libra extra en el peso de un auto, el auto tiene una reducción promedio de 0.0076 millas por galón."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#caen-todos-los-puntos-exactamente-sobre-la-linea",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#caen-todos-los-puntos-exactamente-sobre-la-linea",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "¿Caen todos los puntos exactamente sobre la linea?",
+    "text": "¿Caen todos los puntos exactamente sobre la linea?\n\nNo! El modelo tiene errores.\n\n\nTécnicamente, el error de la i-ésima observación es \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#inspeccionar-los-errores",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#inspeccionar-los-errores",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Inspeccionar los errores",
+    "text": "Inspeccionar los errores\nEl comportamiento de los errores indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:\n\nEn promedio, deben de estar alrededor de 0 para cada valor predecido \\(\\hat{Y}_i\\).\nTener una dispersión constante alrededor de cada valor predecido \\(\\hat{Y}_i\\).\nSer independientes los unos de los otros. Es decir, no estar relacionados."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#análisis-gráfico-de-errores",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#análisis-gráfico-de-errores",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Análisis gráfico de errores",
+    "text": "Análisis gráfico de errores\nPara evaluar estos comportamientos, usamos dos gráficas de dispersión de los errores:\n\nEje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (dispersión constante).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#dispersión-constante",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#dispersión-constante",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Dispersión constante",
+    "text": "Dispersión constante\n\n\nCode\nmi_modelo = lm(mpg ~ weight, data = auto_data)\ndatos_modelo = tibble(\"Predicciones\" = mi_modelo$fitted, \n                           \"Errores\" = mi_modelo$residuals)\n\nmi_diagrama_residuos = gf_point(Errores ~ Predicciones, data = datos_modelo, color = \"darkblue\", size = 2) \nmi_diagrama_residuos = mi_diagrama_residuos + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nmi_diagrama_residuos = mi_diagrama_residuos %&gt;% gf_hline(yintercept = 0, lty = 2)\nmi_diagrama_residuos"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#errores-independientes",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#errores-independientes",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Errores independientes",
+    "text": "Errores independientes\n\n\nCode\nmi_modelo = lm(mpg ~ weight, data = auto_data)\ndatos_modelo = tibble(\"Tiempo\" = 1:nrow(auto_data), \n                           \"Errores\" = mi_modelo$residuals)\n\nmi_diagrama_residuos = gf_point(Errores ~ Tiempo, data = datos_modelo, color = \"darkblue\", size = 2) \nmi_diagrama_residuos = mi_diagrama_residuos + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nmi_diagrama_residuos = mi_diagrama_residuos %&gt;% gf_hline(yintercept = 0, lty = 2)\nmi_diagrama_residuos"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comentarios-finales",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comentarios-finales",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Comentarios finales",
+    "text": "Comentarios finales\n\nLas dos gráficas no validan los supuestos del modelo de regresión lineal.\nExisten métodos para corregir esto pero no los veremos aquí.\nSi ambos supuestos no son validados, entonces el modelo de regresión lineal se usa sólo como una linea de tendencia o referencia de los datos."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-4",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-4",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B.\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
     "objectID": "TEC-IN2039-Website.html",
     "href": "TEC-IN2039-Website.html",
     "title": "IN2039 Visualización de Datos",
@@ -10,13 +542,1095 @@
     ]
   },
   {
-    "objectID": "TEC-IN2039-Website.html#tópicos-del-curso",
-    "href": "TEC-IN2039-Website.html#tópicos-del-curso",
+    "objectID": "TEC-IN2039-Website.slides.html#tópicos-del-curso",
+    "href": "TEC-IN2039-Website.slides.html#tópicos-del-curso",
     "title": "IN2039 Visualización de Datos",
+    "section": "Tópicos del Curso",
+    "text": "Tópicos del Curso\n\nIntroducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#agenda",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#agenda",
+    "title": "Tipos de Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\n¿De qué tipo es mi variable?\n\n\n\n\ndplyr"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#tipos-de-variables",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#tipos-de-variables",
+    "title": "Tipos de Variables",
+    "section": "Tipos de variables",
+    "text": "Tipos de variables\nAntes de hacer una gráfica, debemos examinar el tipo de valor que toman las variables de nuestros datos.\n\nHay dos tipos principales de variables:\n\n\nVariables numéricas.\nVariables categóricas."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#variables-numéricas",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#variables-numéricas",
+    "title": "Tipos de Variables",
+    "section": "Variables numéricas",
+    "text": "Variables numéricas\nToman valores que representan medidas numéricas o cantidades.\n\n\nAltura (en centímetros).\nPeso (en kilogramos).\nEdad (en años).\nPrecio (en dolares).\nTiempo (en horas o segundos).\nPuntuación en un examen (número de puntos en base de 100)."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#tipos-de-variables-numéricas",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#tipos-de-variables-numéricas",
+    "title": "Tipos de Variables",
+    "section": "Tipos de variables numéricas",
+    "text": "Tipos de variables numéricas\nLas variables numéricas se dividen en dos tipos:\n\nDiscretas: variables que toman valores enteros.\n\n\nPor ejemplo:\n\nCantidad de hijos (0, 1, 2, o 3)\nNúmero de estudiantes en una clase (20, 30, o 35)\nNúmero de libros en una biblioteca (10000, 15000, 20000)"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section",
+    "title": "Tipos de Variables",
     "section": "",
-    "text": "Introducción\nHerramientas\nTipos de Variable\nVariables Categóricas\nVariables Numércias\nDatos de Múltiples Variables\nIntroducción a la Regresión Lineal Simple",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Continuas: variables con un número de valores diferentes infinito (o muy muy grande).\n\n\nPor ejemplo:\n\nAltura de una persona (puede estar en el rango de 1.60 m a 1.85 m)\nTemperatura ambiente (puede estar en el rango de -30 \\(^\\circ\\)C a 50 \\(^\\circ\\)C)\nTiempo que tarda un Uber en llegar (entre 5 y 60 minutos)"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#variables-categóricas",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#variables-categóricas",
+    "title": "Tipos de Variables",
+    "section": "Variables categóricas",
+    "text": "Variables categóricas\nToman valores que se colocan en categorías.\n\n\nUna categoría es una clase o división de personas o cosas que tienen características particulares compartidas.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategorias\n\n\nReseña en Amazon\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nPaís de origen\nMéxico, Canadá, EUA\n\n\nCódigo postal\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#clasificación-de-variables-categóricas",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#clasificación-de-variables-categóricas",
+    "title": "Tipos de Variables",
+    "section": "Clasificación de variables categóricas",
+    "text": "Clasificación de variables categóricas\nLas variables categóricas se dividen en dos tipos importantes:\n\nNominales\nOrdinales\n\n\nDependiendo si las categorias tienen orden o no."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#variable-categórica-nominal",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#variable-categórica-nominal",
+    "title": "Tipos de Variables",
+    "section": "Variable categórica nominal",
+    "text": "Variable categórica nominal\nUna variable categórica es nominal si sus categorías no tienen orden.\n\nPor ejemplo:\n\n\nAfiliación a partidos políticos (demócrata o republicano).\nTipo de perro (pastor, sabueso, terrier, otro).\nSistema operativo de la computadora (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#variable-categórica-ordinal",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#variable-categórica-ordinal",
+    "title": "Tipos de Variables",
+    "section": "Variable categórica ordinal",
+    "text": "Variable categórica ordinal\nUna variable categórica es ordinal si sus categorías tienen orden.\n\nPor ejemplo:\n\n\nTalla de camiseta (pequeña, mediana, grande).\nNivel de educación (secundaria, universidad, posgrado).\nNivel de ingreso (menos de $50K, $550k-$5100K, mas de $100K).\n\n\n\nIt is important to note that with an ordinal feature, the difference between, say, small and medium need not be the same as the difference between medium and large. Also, the differences between consecutive categories may not even be quantifiable. Think of the number of stars in a restaurant review and what one star means in comparison to two stars."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#interesante",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#interesante",
+    "title": "Tipos de Variables",
+    "section": "Interesante…",
+    "text": "Interesante…\nValores enteros (por ejemplo, 1, 2, 3, …, 5) pueden representar categóricas nominales u ordinales.\n\n\n\nRepresentación\n1\n2\n3\n4\n\n\nTipo de Sangre\nA\nB\nAB\nO\n\n\nReseña\nMala\nRegular\nBuena\nMuy Buena\n\n\n\n\n\nEn la práctica, los valores booleanos (TRUE y FALSE) a menudo representan categorías nominales."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#recuerda",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#recuerda",
+    "title": "Tipos de Variables",
+    "section": "Recuerda",
+    "text": "Recuerda"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#un-a-diferencia-general-es",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#un-a-diferencia-general-es",
+    "title": "Tipos de Variables",
+    "section": "Un a diferencia general es …",
+    "text": "Un a diferencia general es …\n\nVariables cuantitativas (discretas o continuas) son en las cuales la suma o resta de sus valores tiene sentido.\nVariables categóricas (nominales u ordinales) son en las cuales la suma o resta de sus valores no tiene sentido."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#cómo-checar-el-tipo-de-variable-en-r",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#cómo-checar-el-tipo-de-variable-en-r",
+    "title": "Tipos de Variables",
+    "section": "¿Cómo checar el tipo de variable en R?",
+    "text": "¿Cómo checar el tipo de variable en R?\nUna ves cargando los datos en R, podemos ver el tipo de variable al imprimir la tabla de datos. Por ejemplo, consideremos el conjunto de datos penguins.xlsx:\n\n# Imprime las primeras 6 filas de los datos.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section-1",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section-1",
+    "title": "Tipos de Variables",
+    "section": "",
+    "text": "Las abreviaturas de letras debajo de los nombres de las columnas. Estos describen el tipo de cada variable:\n\n\ndbl significa dobles o números reales. Para variables continuas.\nint significa enteros. Para variables discretas.\nfctr significa factores, que R usa para representar variables categóricas nominales y ordinales con valores posibles fijos.\nlgl significa lógico, vectores que solo contienen TRUE o FALSE. Para variables categóricas nominales."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section-2",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section-2",
+    "title": "Tipos de Variables",
+    "section": "",
+    "text": "También hay otros tres tipos especiales de variables:\n\ndttm significa fechas y horas (una fecha + una hora).\ndate significa fechas.\nchr significa vectores de caracteres o cadenas.\n\n\nMás adelante veremos como transformar una variable chr en fctr."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#mini-actividad-cooperative-mode",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#mini-actividad-cooperative-mode",
+    "title": "Tipos de Variables",
+    "section": "Mini-actividad (cooperative mode)",
+    "text": "Mini-actividad (cooperative mode)\n\nVe al repositorio de conjuntos de datos de la Universidad de California en Irvine: https://archive.ics.uci.edu/\nExplora el sitio y busca un conjunto de datos que incluya al menos una variable numérica y una categórica.\nDescarga los datos y transforma el archivo en un archivo de excel (.xlsx) si es necesario.\nSube los datos a un archivo de Google Colab y cárgalos en R usando las funciones antes vistas.\nDescribe el tipo de variables en el conjunto de datos.\n\n\n\n\n−+\n30:00"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#una-nueva-librería-dplyr",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#una-nueva-librería-dplyr",
+    "title": "Tipos de Variables",
+    "section": "Una nueva librería: dplyr",
+    "text": "Una nueva librería: dplyr\n\n\n\n\n\n\n\n\n\ndplyr permite manipular datos y generar resúmenes estadísticos.\nEs parte de una colección de paquetes de ciencia de datos llamado tidyverse.\nhttps://dplyr.tidyverse.org/\n\n\n\nCárgala en Google Colab con el siguiente código.\n\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#pipe",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#pipe",
+    "title": "Tipos de Variables",
+    "section": "pipe",
+    "text": "pipe\nUno de los comandos más importantes de dplyr es pipe que se ejecuta con el operador %&gt;%. Este operador envía un objeto a una función o expresión de llamada.\nLa grámatica para usar pipe es la siguiente:"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#otras-funciones-de-dplyr",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#otras-funciones-de-dplyr",
+    "title": "Tipos de Variables",
+    "section": "Otras funciones de dplyr",
+    "text": "Otras funciones de dplyr\ndplyr es una gramática de manipulación de datos que proporciona un conjunto coherente de verbos que le ayudan a resolver los desafíos más comunes de manipulación de datos:\n\nfilter() selecciona casos según sus valores.\nselect() selecciona variables según sus nombres.\nmutate() agrega nuevas variables que son funciones de variables existentes\narrange() cambia el orden de las filas.\nsummarise() reduce múltiples valores a un único resumen."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section-3",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section-3",
+    "title": "Tipos de Variables",
+    "section": "",
+    "text": "Para esto, usaremos el conjunto de datos penguins_data."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#filter",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#filter",
+    "title": "Tipos de Variables",
+    "section": "filter()",
+    "text": "filter()\nFiltremos los datos para la especie “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\nLa función head() permite imprimir las primeras 6 filas de los datos."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section-4",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section-4",
+    "title": "Tipos de Variables",
+    "section": "",
+    "text": "También podemos filtrar los datos para obtener los pingüinos con una masa corporal mayor que 5000.\n\npenguins_data %&gt;% filter(body_mass_g &gt; 5000) %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           50            16.3               230        5700\n2 Gentoo  Biscoe           50            15.2               218        5700\n3 Gentoo  Biscoe           47.6          14.5               215        5400\n4 Gentoo  Biscoe           46.7          15.3               219        5200\n5 Gentoo  Biscoe           46.8          15.4               215        5150\n6 Gentoo  Biscoe           49            16.1               216        5550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#select",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#select",
+    "title": "Tipos de Variables",
+    "section": "select()",
+    "text": "select()\nSelecciona las columnas species, body_mass_g y sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex)\n\n# A tibble: 344 × 3\n   species body_mass_g sex   \n   &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n 1 Adelie         3750 male  \n 2 Adelie         3800 female\n 3 Adelie         3250 female\n 4 Adelie           NA &lt;NA&gt;  \n 5 Adelie         3450 female\n 6 Adelie         3650 male  \n 7 Adelie         3625 female\n 8 Adelie         4675 male  \n 9 Adelie         3475 NA    \n10 Adelie         4250 NA    \n# ℹ 334 more rows"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#select-y-filter",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#select-y-filter",
+    "title": "Tipos de Variables",
+    "section": "select() y filter()",
+    "text": "select() y filter()\nSelecciona las columnas species, body_mass_g y sex. Después, filtra los datos para la especie “Gentoo.”\n\npenguins_data %&gt;% \n  select(species, body_mass_g, sex) %&gt;% \n  filter(species == \"Gentoo\") %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Gentoo         4500 female\n2 Gentoo         5700 male  \n3 Gentoo         4450 female\n4 Gentoo         5700 male  \n5 Gentoo         5400 male  \n6 Gentoo         4550 female"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#mutate",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#mutate",
+    "title": "Tipos de Variables",
+    "section": "mutate()",
+    "text": "mutate()\nCon mutate(), podemos agregar nuevas columnas (variables) que son funciones de las columnas en los datos. Por ejemplo, podemos calcular la división de bill_length_mm y bill_depth_mm.\n\npenguins_data %&gt;% \n  mutate(\"RadioLengthDepth\" = bill_length_mm/bill_depth_mm) %&gt;% \n  select(species, body_mass_g, sex, RadioLengthDepth) %&gt;%\n  head()\n\n# A tibble: 6 × 4\n  species body_mass_g sex    RadioLengthDepth\n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Adelie         3750 male               2.09\n2 Adelie         3800 female             2.27\n3 Adelie         3250 female             2.24\n4 Adelie           NA &lt;NA&gt;              NA   \n5 Adelie         3450 female             1.90\n6 Adelie         3650 male               1.91"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#arrange",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#arrange",
+    "title": "Tipos de Variables",
+    "section": "arrange()",
+    "text": "arrange()\nPodemos ordenar los datos en función de una columna, digamos bill_length_mm. Para ordenar de forma descendente usamos desc(bill_length_mm) en arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#section-5",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#section-5",
+    "title": "Tipos de Variables",
+    "section": "",
+    "text": "Para ordenar de forma ascendente usamos\ndesc(-bill_length_mm).\n\npenguins_data %&gt;% \n  arrange(desc(-bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#summarise",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#summarise",
+    "title": "Tipos de Variables",
+    "section": "summarise()",
+    "text": "summarise()\nPodemos calcular el promedio de las columnas bill_length_mm, bill_depth_mm, y body_mass_g.\n\npenguins_data %&gt;% \n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), \n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\nEl argumento na.rm == TRUE permite ignorar los datos faltantes."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#comentarios-finales",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#comentarios-finales",
+    "title": "Tipos de Variables",
+    "section": "Comentarios finales",
+    "text": "Comentarios finales\n\ndplyr es una librería que nos permite manipular datos en R.\nLos tipos de variable ayudan a especificar las operaciones y visualizaciones que podemos aplicar a los datos.\nExisten gráficas apropiadas o diseñadas para visualizar variables númericas o categóricas.\nEn este curso, veremos varias gráficas para cada tipo de variable y sus combinaciones.\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#agenda",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#agenda",
+    "title": "Variables Numéricas",
+    "section": "Agenda",
+    "text": "Agenda\nEnfocarnos en 1 variable numérica.\n\n\nIntroducción al ejemplo\nResúmenes estadísticos\nGráficas de variables numéricas"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#ejemplo",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#ejemplo",
+    "title": "Variables Numéricas",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\n\nUn pistón es un dispositivo mecánico presente en la mayoría de los motores.\n\n\n\n\nUna medida del rendimiento de un pistón es el tiempo que lleva en completar un ciclo, lo cual llamamos “tiempo de ciclo” y se mide en segundos.\nEl archivo “CYLT.xlsx” contiene 50 tiempos de ciclo de un pistón operado en condiciones de funcionamiento fijas."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#recuerda-cargar-las-librerías",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#recuerda-cargar-las-librerías",
+    "title": "Variables Numéricas",
+    "section": "Recuerda cargar las librerías",
+    "text": "Recuerda cargar las librerías\nAquí usaremos las librerías ggplot2, ggformula, readxl, y dplyr.\nCarguémoslas en Google Colab y R antes de comenzar.\n\n# Nos se te olvide instalar la librería \"ggformula\" en Google Colab.\n# install.packages(\"ggformula\")\nlibrary(readxl)\nlibrary(ggplot2)\nlibrary(ggformula)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#carga-los-datos",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#carga-los-datos",
+    "title": "Variables Numéricas",
+    "section": "Carga los datos",
+    "text": "Carga los datos\nEn Google Colab, el archivo “CYLT.xlsx” debe de estar en la carpeta llamada “content” o “contenido.”\nAhora carguemos los datos R.\n\n# Leer los datos.\npiston_data = read_excel(\"CYCLT.xlsx\") \n# Ver las primeras 6 observaciones.\npiston_data %&gt;% head()\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07 \n\n\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#tipo-de-variable",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#tipo-de-variable",
+    "title": "Variables Numéricas",
+    "section": "Tipo de variable",
+    "text": "Tipo de variable\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente.\n\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#resumen-estadístico",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#resumen-estadístico",
+    "title": "Variables Numéricas",
+    "section": "Resumen estadístico",
+    "text": "Resumen estadístico\n\nNos ayuda a resumir un conjunto de observaciones de una manera simple.\n\n\nLos resúmenes estadísticos más utilizados para datos numéricos son:\n\n\nPromedio\nVarianza y desviación estándar\nMediana y cuartiles\nMáximo y mínimo"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#promedio",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#promedio",
+    "title": "Variables Numéricas",
+    "section": "Promedio",
+    "text": "Promedio\n\nIndica el centro de las observaciones.\n\nPara calcularlo, considera \\(n\\) observaciones denotadas como \\(y_1, y_2, \\ldots, y_n\\).\nEl promedio es\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "En R, el promedio se calcula usando las funciones summarise() y mean().\n\npiston_data %&gt;% \n  summarise(\"Promedio\" = mean(cycle_time))\n\n# A tibble: 1 × 1\n  Promedio\n     &lt;dbl&gt;\n1    0.652\n\n\n\n\nInterpretación: En promedio, el pistón tarda 0.65246 segundos en completar un ciclo."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#varianza",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#varianza",
+    "title": "Variables Numéricas",
+    "section": "Varianza",
+    "text": "Varianza\n\nIndica que tan dispersos están las observaciones.\n\nPara calcularla, considera \\(n\\) observaciones denotadas usando \\(y_1, y_2, \\ldots, y_n\\) . La varianza es\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nEs como un promedio de las diferencias al cuadrado entre las observaciones y el promedio."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-1",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-1",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "En R, la varianza se calcula usando las funciones summarise() y var().\n\npiston_data %&gt;% \n  summarise(\"Varianza\" = var(cycle_time))\n\n# A tibble: 1 × 1\n  Varianza\n     &lt;dbl&gt;\n1    0.139\n\n\n\n Interpretación: La varianza de los tiempos de ciclo del pistón es 0.1391073.\n Entre mas grande la varianza, mayor la dispersión de los datos alrededor del promedio (centro)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-2",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-2",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "Desafortunadamente, la varianza no está en las mismas unidades que las observaciones, ya que las diferencias entre cada observación y el promedio se elevan al cuadrado.\n\nPor ejemplo, el promedio es 0.65246 segundos mientras que la varianza es 0.1391073 segundos\\(^2\\)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#desviación-estándar",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#desviación-estándar",
+    "title": "Variables Numéricas",
+    "section": "Desviación estándar",
+    "text": "Desviación estándar\nPara obtener una medida de dispersión cuyas unidades sean las mismas que las de las observaciones, tomamos la raíz cuadrada de la varianza.\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nEsta es la desviación estándar, que esta en las mismas unidades que las observaciones."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-3",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-3",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "En R, la desviación estándar se calcula usando las funciones summarise() y sd().\n\npiston_data %&gt;% \n  summarise(\"Desv.Std\" = sd(cycle_time))\n\n# A tibble: 1 × 1\n  Desv.Std\n     &lt;dbl&gt;\n1    0.373\n\n\n\n Interpretación: En promedio, un pistón tarda 0.65246 segundos en completar un ciclo, con una diferencia de mas o menos 0.3729709 segundos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#mediana-y-cuartiles",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#mediana-y-cuartiles",
+    "title": "Variables Numéricas",
+    "section": "Mediana y Cuartiles",
+    "text": "Mediana y Cuartiles\nLa mediana es el número medio de las observaciones ordenadas de menor a mayor.\n\nLos cuartiles dividen las observaciones en cuatro partes. Existen tres de ellos:\n\n\nEl primer cuartil (\\(Q_1\\)) es la mediana de la mitad inferior de las observaciones.\nEl segundo cuartil (\\(Q_2\\)) es la mediana de las observaciones.\nEl tercer cuartil (\\(Q_3\\)) es la mediana de la mitad superior de las observaciones."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-5",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-5",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "En R, la mediana se calcula con las funciones summarise() y median().\n\npiston_data %&gt;% \n  summarise(\"Mediana\" = median(cycle_time))\n\n# A tibble: 1 × 1\n  Mediana\n    &lt;dbl&gt;\n1   0.546\n\n\nInterpretación: El 50% de los tiempos de ciclo del pistón es menor que 0.5455 segundos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un solo valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.3050, 0.5455 y 1.0690 segundos, respectivamente."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
+    "title": "Variables Numéricas",
+    "section": "Máximo y mínimo",
+    "text": "Máximo y mínimo\nOtros estadísticos relevantes son el máximo y el mínimo, que se calculan con las funciones max() y min(), respectivamente.\n\npiston_data %&gt;% summarise(\"Maximo\" = max(cycle_time))\n\n# A tibble: 1 × 1\n  Maximo\n   &lt;dbl&gt;\n1   1.14\n\n\nInterpretación: El tiempo de ciclo máximo del pistón es 1.141 segundos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-7",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-7",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "piston_data %&gt;% summarise(\"Minimo\" = min(cycle_time))\n\n# A tibble: 1 × 1\n  Minimo\n   &lt;dbl&gt;\n1  0.175\n\n\nInterpretación: El tiempo de ciclo mínimo del pistón es 0.175 segundos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-1",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-1",
+    "title": "Variables Numéricas",
+    "section": "Actividad (solo mode) Parte 1",
+    "text": "Actividad (solo mode) Parte 1\nUna empresa fabricante de pernos de retención de condensadores para motores de automóviles implementó un sistema de control de calidad. Como parte de este sistema de control de calidad, un equipo de ingenieros decidió registrar la cantidad de pernos no conformes producidos en cada turno.\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos.\n\nCalcula el promedio, varianza, desviación estándar, cuartiles, mínimo y máximo.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-1",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-1",
+    "title": "Variables Numéricas",
+    "section": "Principio 1",
+    "text": "Principio 1\n\nFormula la pregunta de interés.\n\n\nLas preguntas típicas sobre una variable numérica \\(X\\) son:\n\n\n¿Cuál es la forma de las observaciones de la variable \\(X\\)?\n¿Existen observaciones inusuales o atípicas en la variable \\(X\\)?\n¿La forma de las observaciones de la variable \\(X\\) se parece a una campana?"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-2",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-2",
+    "title": "Variables Numéricas",
+    "section": "Principio 2",
+    "text": "Principio 2\n\nTransforma los datos en información.\n\n\nTres tipos comunes de gráficas para visualizar una variable numérica son:\n\nHistograma.\nGráfica de cajas.\n\n\n\nBásicamente, son maneras distintas de visualizar la “forma” o distribución de la variable."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#histograma",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#histograma",
+    "title": "Variables Numéricas",
+    "section": "Histograma",
+    "text": "Histograma\nVisualiza la distribución de las observaciones, indicando regiones donde las observaciones están concentradas o son escasas.\n\nSe construye usando una tabla de frecuencia.\n\nDefine un número máximo de intervalos o bins (de 5 a 30).\nDefine los rangos de los intervalos.\nAgrupa las observaciones en el intervalo que pertenecen.\n\n\n\nR calcula automáticamente la tabla de frecuencia para datos numéricos. El histograma es una visualización de esta tabla."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-8",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-8",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "En ggplot2, puedes construir un histograma usando el siguiente comando.\n\ngf_histogram( ~ cycle_time, data = piston_data) \n\n\n\nLas barras del histograma se tocan entre sí. Un espacio indica que no hay observaciones en ese intervalo."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#mejora-la-gráfica",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#mejora-la-gráfica",
+    "title": "Variables Numéricas",
+    "section": "Mejora la gráfica",
+    "text": "Mejora la gráfica\nPara transmitir un mejor mensaje, aplicamos el Principio 3: Aplica los principios de diseño gráfico.\n\ngf_histogram( ~ cycle_time, data = piston_data, color = \"black\",\n            fill = \"white\") + labs(title = \"Histograma de tiempo de ciclo\", \n            x = \"Tiempo de ciclo (segundos)\", y = \"Frequencia\", \n            caption = \"Datos de 50 pistones\") + theme_bw()"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#no-es-lo-mismo-que-una-gráfica-de-barras",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#no-es-lo-mismo-que-una-gráfica-de-barras",
+    "title": "Variables Numéricas",
+    "section": "No es lo mismo que una gráfica de barras",
+    "text": "No es lo mismo que una gráfica de barras\nCon datos categóricos, la gráfica de barras se parece al histograma porque presenta la frecuencia de las categorías.\nSin embargo, no podemos interpretar la forma la gráfica de barras igual que un histograma.\n\nLa frecuencia de una categoría está representada por la altura de la barra y el ancho no contiene información.\nUna gráfica de barras no te señalará valores atípicos.\n\n\nTails and symmetry do not make sense in this setting."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#número-de-intervalos",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#número-de-intervalos",
+    "title": "Variables Numéricas",
+    "section": "Número de intervalos",
+    "text": "Número de intervalos\n\nEl número de intervalos es un parámetro del histograma que afecta su aspecto.\n\nEste se fija usando el argumento bins en la función gf_histogram().\n\ngf_histogram( ~ cycle_time, data = piston_data, bins = 5, \n              color = \"black\", fill = \"white\")"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-9",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-9",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "El histograma izquierdo usa bins = 5 y el histograma derecho usa bins = 30.\n\n\n\n\nCode\ngf_histogram( ~ cycle_time, data = piston_data, bins = 5, \n              color = \"black\", fill = \"white\") + labs(title = \"Histograma de tiempo de ciclo\", x = \"Tiempo de ciclo (segundos)\", y = \"Frequencia\", caption = \"Datos de 50 pistones\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\ngf_histogram( ~ cycle_time, data = piston_data, bins = 30, \n              color = \"black\", fill = \"white\") + labs(title = \"Histograma de tiempo de ciclo\", x = \"Tiempo de ciclo (segundos)\", y = \"Frequencia\", caption = \"Datos de 50 pistones\")\n\n\n\n\n\n\n\n\n\n\n\nEn este curso, usaremos el número de bins dado por default.\n\nThe histogram is a familiar type of plot that uses smoothing. A histogram aggregates data values by putting points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points in a bin: the points are smoothly allocated across their bins."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#qué-buscar-en-un-histograma",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#qué-buscar-en-un-histograma",
+    "title": "Variables Numéricas",
+    "section": "¿Qué buscar en un histograma?",
+    "text": "¿Qué buscar en un histograma?\n\nLa simetría y la asimetría de la distribución\nEl número, ubicación y tamaño de las regiones (intervalos) de alta frecuencia.\nLa longitud de las colas.\nBrechas donde no se observan valores.\nValores inusualmente grandes o anómalos.\nUna forma de campana."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#la-obsesión-con-las-campanas",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#la-obsesión-con-las-campanas",
+    "title": "Variables Numéricas",
+    "section": "La obsesión con las campanas",
+    "text": "La obsesión con las campanas\n\n\nLa distribución normal es una distribución de probabilidad muy importante en estadística.\n\n\n\n\nSe caracteriza por tener una forma de campana simétrica alrededor de su media, con la mayor densidad de probabilidad centrada en la media y disminuyendo simétricamente hacia los extremos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-10",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-10",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "Básicamente, si tus observaciones siguen una distribución normal, puedes utilizar métodos estadísticos para sacar conclusiones fundamentadas por teoría matemática.\n\n\n\n\n\nLo que mucha gente no sabe es que esta condición se necesita solo si tienes pocas observaciones (menos de 50)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#gáfica-de-caja",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#gáfica-de-caja",
+    "title": "Variables Numéricas",
+    "section": "Gáfica de caja",
+    "text": "Gáfica de caja\nUna gráfica de caja nos ayuda a visualizar la distribución de las observaciones usando cuartiles.\n\n\nEs muy efectiva para detectar “valores atípicos”.\n\n\n\nUn componente importante de la gráfica es el rango intercuartil (IQR), que es la diferencia entre el tercer cuartil y el primer cuartil (\\(Q_3 - Q_1\\)).\n\n\n\nEl rango intercuartil es la distancia necesaria para abarcar la mitad media de los datos."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#anatomía-de-una-gráfica-de-caja",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#anatomía-de-una-gráfica-de-caja",
+    "title": "Variables Numéricas",
+    "section": "Anatomía de una gráfica de Caja",
+    "text": "Anatomía de una gráfica de Caja\n\nConoce más en esa liga https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-11",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-11",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "Para construir una gráfica de caja, utiliza la función gf_boxplot().\n\n\n\ngf_boxplot(cycle_time ~ 1, \n          data = piston_data)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTiene la syntaxis especial: cycle_time ~ 1. Si usas ~ cycle_time, obtendrás la gráfica de caja en horizontal."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-2",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-2",
+    "title": "Variables Numéricas",
+    "section": "Actividad (solo mode) Parte 2",
+    "text": "Actividad (solo mode) Parte 2\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos. Usando R, crea las siguientes gráficas\n\nHistograma\nGráfica de caja\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#agenda",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#agenda",
+    "title": "Datos de múltiples variables",
+    "section": "Agenda",
+    "text": "Agenda\n\nDatos de más de una variable\nDos variables numéricas\nUna variable numérica y una categórica\nDos variables categóricas\nTres o más variables"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#carguemos-las-librerías",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#carguemos-las-librerías",
+    "title": "Datos de múltiples variables",
+    "section": "Carguemos las librerías",
+    "text": "Carguemos las librerías\nCarguémos las librerías readxl, ggplot2, ggformula, y dplyr en Google Colab y R antes de comenzar.\n\n# Nos se te olvide instalar la librería \"ggformula\" en Google Colab.\n# install.packages(\"ggformula\")\nlibrary(readxl)\nlibrary(ggplot2)\nlibrary(ggformula)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#datos-multivariados",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#datos-multivariados",
+    "title": "Datos de múltiples variables",
+    "section": "Datos multivariados",
+    "text": "Datos multivariados\nLos datos multivariados son conjunto de datos que contienen observaciones de dos o más variables.\n\n\nLas variables pueden ser numéricas o categóricas.\nLas variables pueden o no depender las unas de las otras.\n\n\n\nDe hecho, el objetivo es establecer si hay alguna relación entre las variables, así como el tipo de relación."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-1",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-1",
+    "title": "Datos de múltiples variables",
+    "section": "Ejemplo 1",
+    "text": "Ejemplo 1\nConsideremos datos de 392 autos sobre sus millas por galón, número de cilindros, caballos de fuerza, peso, aceleración, año, origen, entre otras variables.\nLos datos están en el archivo “auto_dataset.xlsx”.\n\n# Leer los datos.\nauto_data = read_excel(\"auto_dataset.xlsx\") \n# Ver las primeras 6 observaciones.\nauto_data %&gt;% head()\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 1",
+    "text": "Principio 1\nEn el contexto de datos de múltiples variables, las preguntas típicas a estudiar son:\n\n\n¿Cómo se relacionan la variable \\(X\\) y la variable \\(Y\\)?\n¿Es la distribución de la variable \\(X\\) la misma en todos los subgrupos definidos por la variable \\(Z\\)?\n¿Hay alguna observación inusual en la combinación de valores de las variables \\(X\\) y \\(Y\\)?\n¿Hay alguna observación inusual en \\(X\\) para un subgrupo de la variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-gráficas",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-gráficas",
+    "title": "Datos de múltiples variables",
+    "section": "Tipos de gráficas",
+    "text": "Tipos de gráficas\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfico de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfico de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfico de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#variable-independiente-y-dependiente",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#variable-independiente-y-dependiente",
+    "title": "Datos de múltiples variables",
+    "section": "Variable independiente y dependiente",
+    "text": "Variable independiente y dependiente\nCuando investigamos la relación entre dos variables (numéricas o categóricas), tenemos una nomenclatura específica para cada una de ellas.\n\nLlamamos a una variable como la variable dependiente o de respuesta. A ella la denotamos con el símbolo \\(Y\\).\n\n\nLa otra variable la llamamos variable independendiente o predictor. A ella la denotamos con el símbolo \\(X\\).\n\n\n\nNuestro objetivo es saber si cambios en la variable \\(X\\) están asociados a cambios en la variable \\(Y\\), y el tipo de asociación."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de dispersión",
+    "text": "Gráfica de dispersión\nLa gráfica mas común para examinar la relación entre dos variables numéricas es la gráfica de dispersión.\nLas variables \\(X\\) y \\(Y\\) se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de \\(X\\) y \\(Y\\).\nCon los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Para construir gráficas de dispersión, usamos la función gf_point(Y ~ X, data = data_set).\n\nPor ejemplo, construyamos una gráfica para explorar la relación entre el peso de un auto (weight) y sus rendimiento en millas por galón (mpg)\n\ngf_point(mpg ~ weight, data = auto_data)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-1",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-1",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "gf_point(mpg ~ weight, data = auto_data)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3",
+    "title": "Datos de múltiples variables",
+    "section": "Aplicando el principio 3",
+    "text": "Aplicando el principio 3\nSiguiendo el principio 3, podemos cambiar los valores pre-establecidos de la función para definir colores o formas diferentes de los puntos de la gráfica.\nEspecíficamente, puedes cambiar el color, la forma, y el tamaño de los puntos usando los argumentos color, shape y size, respectivamente.\n\ngf_point(Y ~ X, data = data_set, color, shape, size)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-2",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-2",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "gf_point(mpg ~ weight, data = auto_data, color = \"blue\", \n         shape = 4, size = 5)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#posibles-formas-de-los-puntos",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#posibles-formas-de-los-puntos",
+    "title": "Datos de múltiples variables",
+    "section": "Posibles formas de los puntos",
+    "text": "Posibles formas de los puntos"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-3",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-3",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Siguiendo con el principio 3, puedes usar funciones antes vistas para mejorar aún más la apariencia del gráfico.\n\n\nCode\nmi_diagrama = gf_point(mpg ~ weight, data = auto_data, color = \"darkblue\", size = 2, linetype = 1) + labs(title = \"Relación de peso y millas por galón en autos\", x = \"Peso (lb)\", y = \"Millas por galón\")\nmi_diagrama = mi_diagrama + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),\n                                   plot.title=element_text(size=25)) \nmi_diagrama"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#incluir-el-cero",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#incluir-el-cero",
+    "title": "Datos de múltiples variables",
+    "section": "Incluir el cero",
+    "text": "Incluir el cero\nEn la gráfica anterior, el valor mínimo del eje vertical está alrededor de 10. Para ajustar el valor mínimo en ese eje a 0 usamos el comando adicional mostrado abajo.\n\nmi_diagrama = mi_diagrama + scale_y_continuous(limits = c(0, 50))\nmi_diagrama"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-4",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-4",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "De ser necesario, también podemos ajustar el eje horizontal para mostrar el 0 también.\n\nmi_diagrama + scale_x_continuous(limits = c(0, 5500))"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-individuales",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-individuales",
+    "title": "Datos de múltiples variables",
+    "section": "Gráficas individuales",
+    "text": "Gráficas individuales\nLas gráficas individuales de variables (como el histograma) no permiten estudiar la relación entre dos variables. Solo dan información de la distribución cada variable.\n\n\n\n\nCode\nhistogram_mpg = gf_histogram( ~ mpg, data = auto_data, fill = \"darkblue\", color = \"black\") \nhistogram_mpg = histogram_mpg + labs(title = \"Distribución de milas por galón\", x = \"Millas por galón\", y = \"Frecuencia\")\nhistogram_mpg = histogram_mpg + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),\n                                       plot.title=element_text(size=25))\nhistogram_mpg\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nhistogram_weight = gf_histogram( ~ weight, data = auto_data, fill = \"darkblue\", color = \"black\") \nhistogram_weight = histogram_weight + labs(title = \"Distribución de peso\", x = \"Peso (lb)\", y = \"Frecuencia\")\nhistogram_weight = histogram_weight + theme(axis.text=element_text(size=20), axis.title=element_text(size=20), plot.title=element_text(size=25))\nhistogram_weight"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-linea",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-linea",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de linea",
+    "text": "Gráfica de linea\nUna gráfica de línea es una representación visual de datos en la que puntos de datos están conectados por una línea. Muestra tendencias a lo largo del tiempo o la evolución de una variable continua. Ejes:\n\n\\(X\\) (horizontal): Representa el tiempo o la variable independiente.\n\\(Y\\) (vertical): Representa la variable dependiente.\n\nEn la gráfica, cada punto representa un valor específico en un momento dado. Las línea conecta los puntos de datos para mostrar la tendencia."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-2",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-2",
+    "title": "Datos de múltiples variables",
+    "section": "Ejemplo 2",
+    "text": "Ejemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.\n\nspotify_data = read_excel(\"spotify.xlsx\") \nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-5",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-5",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Nos enfocaremos en la canción Despacito de Luis Fonsi. Para construir gráficas de dispersión, usamos la función gf_line(Y ~ X, data = data_set).\n\ngf_line(Despacito ~ Date, data = spotify_data)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3-1",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3-1",
+    "title": "Datos de múltiples variables",
+    "section": "Aplicando el principio 3",
+    "text": "Aplicando el principio 3\nPodemos cambiar varios aspectos de la gráfica usando argumentos adicionales gf_line(Y ~ X, linetype, size, color, data = data_set).\n\n\nCode\nmi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = \"darkblue\", size = 2) + labs(title = \"Popularidad de la canción despacito de Luis Fonsi\", x = \"Fecha\", y = \"Número de reproducciones en Spotify\")\nmi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),\n                                plot.title=element_text(size=25)) \nmi_linea"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-linea",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-linea",
+    "title": "Datos de múltiples variables",
+    "section": "Tipos de linea",
+    "text": "Tipos de linea"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos",
+    "title": "Datos de múltiples variables",
+    "section": "!Divide los datos en grupos!",
+    "text": "!Divide los datos en grupos!\nPara examinar la relación entre una variable numérica y una categórica, usamos la variable categórica para dividir los datos en grupos. Así comparamos la distribución de la variable numérica entre estos grupos.\n\nEn este contexto:\n\n\\(X\\) es la variable categórica.\n\\(Y\\) es la variable numérica.\n\n\n\nLa gráfica de cajas lado al lado es la más efectiva para estudiar la relación entre una variable categórica y una numérica."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-cajas-por-grupos",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-cajas-por-grupos",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de cajas por grupos",
+    "text": "Gráfica de cajas por grupos\nLa gráfica de cajas lado a lado compara la distribución de una variable en diferentes grupos.\nLa gráfica se obtiene con la función gf_boxplot(Y ~ X, data = dataset).\n\ngf_boxplot(mpg ~ origin, data = auto_data)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#mejorando-la-gráfica",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#mejorando-la-gráfica",
+    "title": "Datos de múltiples variables",
+    "section": "Mejorando la gráfica",
+    "text": "Mejorando la gráfica\n\n\nCode\nbp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = \"lightblue\", color = \"black\") \nbp_mpg_by_origin = bp_mpg_by_origin + labs(y = \"Millas por galón\", x = \"Origen\")\nbp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nbp_mpg_by_origin"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-6",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-6",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "También podemos cambiar el formato de los puntos atípicos usando los argumentos outlier.color, outlier.shape, y outlier.size.\n\n\nCode\nbp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = \"lightblue\", \n                               color = \"black\", outlier.color = \"red\",\n                               outlier.shape = 4, outlier.size = 4) \nbp_mpg_by_origin = bp_mpg_by_origin + labs(y = \"Millas por galón\", x = \"Origen\")\nbp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nbp_mpg_by_origin"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos-1",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos-1",
+    "title": "Datos de múltiples variables",
+    "section": "!Divide los datos en grupos!",
+    "text": "!Divide los datos en grupos!\nCon dos variables categóricas, comparamos la distribución de una variable entre subgrupos definidos por la otra variable.\nDe hecho, mantenemos constante una variable y trazamos la distribución de la otra.\n\nPara hacer esto, los gráficos más populares son una extensión de las gráficas de barras:\n\nGráficas de barras apiladas\nGráficas de barras lado al lado"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-3",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-3",
+    "title": "Datos de múltiples variables",
+    "section": "Ejemplo 3",
+    "text": "Ejemplo 3\nComo ejemplo, consideremos los datos en el archivo “penguins.xlsx”.\n\npenguins_data = read_excel(\"penguins.xlsx\")\npenguins_data %&gt;% head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-7",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-7",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Los datos tienen dos variables categóricas:\n\nLa especie de pingüinos (species).\nLa isla de donde provienen (island).\n\nAsegúrate que sean especificados como factor en R.\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-apiladas",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-apiladas",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de barras apiladas",
+    "text": "Gráfica de barras apiladas\nLa gráfica de barras lado al lado se genera con la función gf_bar(), asignando la variable \\(X\\) al argumento fill. El nombre de la variable debe de estar precedido por una tilde ~X.\n\nPor ejemplo, para estudiar la distribución de las especies de pingüinos en las tres diferentes islas usamos lo siguiente:\n\ngf_bar( ~ species, data = penguins_data, fill = ~island)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-8",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-8",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "La gráfica muestra la frecuencia de cada especie, separada por el nombre de la isla.\n\ngf_bar( ~ species, data = penguins_data, fill = ~island)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-lado-a-lado",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-lado-a-lado",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de barras lado a lado",
+    "text": "Gráfica de barras lado a lado\nUna alternativa a la gráfica anterior es poner las barras lado al lado para las categorías de la variable \\(X\\).\nEn este caso, se usan los mismos comandos con un argumento extra: position = position_dodge().\n\ngf_bar( ~ species, data = penguins_data, \n        fill = ~island, position = position_dodge())"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-9",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-9",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "gf_bar( ~ species, data = penguins_data, \n        fill = ~island, position = position_dodge())"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#apiladas-o-lado-a-lado",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#apiladas-o-lado-a-lado",
+    "title": "Datos de múltiples variables",
+    "section": "¿Apiladas o lado a lado?",
+    "text": "¿Apiladas o lado a lado?\nLa principal diferencia entre los gráficos de barras apiladas y de lado a lado es que el gráfico de lado a lado muestra los valores en barras separadas dentro de una categoría.\nVentajas de barras apiladas:\n\nEs más fácil entender qué proporciones de un todo se dividen entre segmentos.\nAgrega visualmente cada proporción."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-10",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-10",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Ventajas de barras lado a lado:\n\nEs más fácil comparar las alturas de cada entidad individual.\nMejor para comparar entre grupos."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#resúmenes-estadísticos",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#resúmenes-estadísticos",
+    "title": "Datos de múltiples variables",
+    "section": "Resúmenes estadísticos",
+    "text": "Resúmenes estadísticos\nPara variables categóricas, los resúmenes estadísticos más comunes son la frecuencia y la frecuencia relativa.\nEste código muestra como calcular la frecuencia (n) y la frecuencia relativa (Proporción) usando funciones de la librería dplyr.\n\npenguins_data %&gt;% count(island, species) %&gt;% group_by(island) %&gt;% \n  mutate(\"Proporción\" = prop.table(n))\n\n# A tibble: 5 × 4\n# Groups:   island [3]\n  island    species       n Proporción\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;      &lt;dbl&gt;\n1 Biscoe    Adelie       44      0.262\n2 Biscoe    Gentoo      124      0.738\n3 Dream     Adelie       56      0.452\n4 Dream     Chinstrap    68      0.548\n5 Torgersen Adelie       52      1"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-tres-variables",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-tres-variables",
+    "title": "Datos de múltiples variables",
+    "section": "Gráficas para tres variables",
+    "text": "Gráficas para tres variables\n\nCuando examinamos una distribución o relación, a menudo queremos compararla entre subgrupos de datos.\nEste proceso de condicionamiento sobre variables adicionales conduce a visualizaciones que involucran tres o más variables.\nAquí explicamos cómo crear gráficas para visualizar múltiples variables."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión-por-color",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión-por-color",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de dispersión por color",
+    "text": "Gráfica de dispersión por color\nPara dos variables numéricas y una categórica.\n\ngf_point(mpg ~ weight, color = ~origin, data = auto_data)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-facetas-o-enrejado",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-facetas-o-enrejado",
+    "title": "Datos de múltiples variables",
+    "section": "Gráfica de facetas o enrejado",
+    "text": "Gráfica de facetas o enrejado\nLa gráfica de facetas visualiza la relación o distribución de una o dos variables para cada subgrupo definido por una tercera variable \\(Z\\).\nIdea: Crear una gráfica para cada subgrupo de \\(Z\\).\nPara hacer la gráfica, usa la función gf_facet_grid con la sintaxis %&gt;% de dplyr.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid(origin ~ .)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-11",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-11",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "La función produce una rejilla con 1 columna y 3 filas de gráficas. Cada fila acomoda una categoría de origin.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid(origin ~ .)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-12",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-12",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Si cambiamos el orden de la variable origin en la función gf_facet_grid, obtenemos una rejilla de gráficas con tres columnas y una fila de gráficas.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid( ~ origin)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-de-varias-líneas",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-de-varias-líneas",
+    "title": "Datos de múltiples variables",
+    "section": "Gráficas de varias líneas",
+    "text": "Gráficas de varias líneas\nPodemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo “spotify.xlsx”. Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.\n\nEspecíficamente, necesitamos juntar las columnas Shape of You, Despacito, Something Just Like This, HUMBLE y Unforgettable en dos columnas. Una columna contendrá el número de reproducciones y la otra el título de la canción. Ambas columnas estarán ordenadas por la variable Date."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#una-nueva-librería-tidyr",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#una-nueva-librería-tidyr",
+    "title": "Datos de múltiples variables",
+    "section": "Una nueva librería: tidyr",
+    "text": "Una nueva librería: tidyr\n\n\n\n\n\n\n\n\n\ntidyr permite remodelar y reagrupar un conjunto de datos.\nEs parte de una colección de paquetes de ciencia de datos llamado tidyverse.\nhttps://tidyr.tidyverse.org/\n\n\n\nCárgala en Google Colab con el siguiente código.\n\nlibrary(tidyr)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-13",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-13",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Para hacer el formateo necesario, usamos la función pivot_longer() de la librería tidyr.\n\ndata_lines = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Cancion\", \n               values_to = \"Reproducciones\")\ndata_lines %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-14",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-14",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Ahora, aplicamos funciones similares sobre el objeto data_lines.\n\ngf_line(Reproducciones ~ Date, data = data_lines) %&gt;%\n  gf_facet_grid( ~ Cancion)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-15",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-15",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "O podemos poner todas las lineas en una sola gráfica.\n\ngf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-cuatro-variables",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-cuatro-variables",
+    "title": "Datos de múltiples variables",
+    "section": "Gráficas para cuatro variables",
+    "text": "Gráficas para cuatro variables\nUna gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales categóricas.\n\ngf_point(bill_length_mm ~ bill_depth_mm, size = ~island, \ncolor = ~species, data = penguins_data)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#agenda",
+    "href": "T1_Introduction/Herramientas.slides.html#agenda",
+    "title": "Herramientas para construir gráficas",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\nR Software\n\n\n\n\n\n\n\n\nggplot2\n\n\n\n\n\nEstas diapositivas están basadas en material disponible en https://coursekata.org/"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#r-software",
+    "href": "T1_Introduction/Herramientas.slides.html#r-software",
+    "title": "Herramientas para construir gráficas",
+    "section": "R software",
+    "text": "R software\n\n\n\nR es un lenguaje de programación estadística.\nEs gratuito!\nTe permite crear gráficos y hacer computación estadística.\nSe puede extender con paquetes (librerías) desarrolladas por otros usuarios.\n\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#r-studio",
+    "href": "T1_Introduction/Herramientas.slides.html#r-studio",
+    "title": "Herramientas para construir gráficas",
+    "section": "R Studio",
+    "text": "R Studio\nR Studio es una interfaz conveniente para R llamada IDE (integrated development environment). Comúnmente, yo digo “Escribo código R en RStudio”\nR Studio no es un requisito para programar con R, pero los programadores y científicos de datos de R lo utilizan con mucha frecuencia."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#google-colab",
+    "href": "T1_Introduction/Herramientas.slides.html#google-colab",
+    "title": "Herramientas para construir gráficas",
+    "section": "Google Colab",
+    "text": "Google Colab\nPlataforma de colaboración en la nube gratuita de Google para la creación de documentos de Python o R.\n\nEjecuta R y colabora en notebooks de Jupyter de forma gratuita.\nAprovecha el poder de la GPU de forma gratuita para acelerar tus proyectos de ciencia de datos.\nGuarda y carga fácilmente tus notebooks en Google Drive."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r",
+    "href": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Probemos un comando en R",
+    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Helllo world!\")"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r-1",
+    "href": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "Probemos un comando en R",
+    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Helllo world!\")\n\n[1] \"Helllo world!\""
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#probemos-otro-comando",
+    "href": "T1_Introduction/Herramientas.slides.html#probemos-otro-comando",
+    "title": "Herramientas para construir gráficas",
+    "section": "Probemos otro comando",
+    "text": "Probemos otro comando\n¿Qué crees que suceda si ejecutamos este comando?\n\nsum(1, 5, 10)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#probemos-otro-comando-1",
+    "href": "T1_Introduction/Herramientas.slides.html#probemos-otro-comando-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "Probemos otro comando",
+    "text": "Probemos otro comando\n¿Qué crees que suceda si ejecutamos este comando?\n\nsum(1, 5, 10)\n\n[1] 16"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section",
+    "href": "T1_Introduction/Herramientas.slides.html#section",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "También puedes usar R como una calculadora básica.\n\n5 + 1\n\n[1] 6\n\n\n\n10 - 3\n\n[1] 7\n\n\n\n2 * 4\n\n[1] 8\n\n\n\n9 / 3\n\n[1] 3"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#comentarios",
+    "href": "T1_Introduction/Herramientas.slides.html#comentarios",
+    "title": "Herramientas para construir gráficas",
+    "section": "Comentarios",
+    "text": "Comentarios\nA veces escribimos cosas en la ventana de codificación de R que queremos que R ignore. Estos se llaman comentarios y comienzan con #.\n\nR ignorará los comentarios y simplemente ejecutará el código.\n\n# puedes poner lo que sea despues de #\n# por ejemplo... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#introducción-a-funciones-en-r",
+    "href": "T1_Introduction/Herramientas.slides.html#introducción-a-funciones-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Introducción a funciones en R",
+    "text": "Introducción a funciones en R\nUna de las mejores cosas de R es que hay muchos comandos integrados que puedes usar. Éstas se llaman funciones.\n\nLas funciones tienen dos partes básicas:\n\n\nLa primera parte es el nombre de la función (por ejemplo, sum).\nLa segunda parte es la entrada a la función, que va dentro del paréntesis (sum(1, 5, 15))."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#r-es-exigente",
+    "href": "T1_Introduction/Herramientas.slides.html#r-es-exigente",
+    "title": "Herramientas para construir gráficas",
+    "section": "R es exigente",
+    "text": "R es exigente\nR, al igual que todos los lenguajes de programación, es muy, muy exigente. Por ejemplo, si escribes\n\nsum(1, 100)\n\n[1] 101\n\n\nte dirá la respuesta, 101.\n\nPero si escribes\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\ncon la “s” en mayúscula, ¡actuará como si no tuviera idea de lo que está hablando!\n\nlo mismo si olvidas incluir un parentesis"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#guarda-tu-trabajo-en-objetos-de-r",
+    "href": "T1_Introduction/Herramientas.slides.html#guarda-tu-trabajo-en-objetos-de-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Guarda tu trabajo en objetos de R",
+    "text": "Guarda tu trabajo en objetos de R\nPrácticamente cualquier cosa, incluidos los resultados de cualquier función de R, se puede guardar en un objeto.\nEsto se logra mediante el uso de un operador de asignación, que se parece a una flecha (&lt;- o =).\n\nPuede inventar cualquier nombre que desees para un objeto R. Sin embargo, hay dos reglas básicas para esto:\n\n\nTiene que ser diferente del nombre de una función en R.\nTiene que ser lo más específico posible."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-1",
+    "href": "T1_Introduction/Herramientas.slides.html#section-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "Por ejemplo,\n\n# Este código asignará el numero 18 al objeto llamado mi_numero_favorito\n\nmi_numero_favorito = 18\n\nDespués de ejecutar este código, no sucede nada. Pero si lo ejecutamos el objeto por si solo, podremos ver lo qua hay en el.\n\nmi_numero_favorito = 18\nmi_numero_favorito\n\n[1] 18\n\n\nTambién puedes usar print(mi_numero_favorito)."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#vectores",
+    "href": "T1_Introduction/Herramientas.slides.html#vectores",
+    "title": "Herramientas para construir gráficas",
+    "section": "Vectores",
+    "text": "Vectores\nHasta ahora hemos utilizado objetos R para almacenar un solo número. Pero en estadística estamos tratando con variación, que por definición significa más de un número.\n\nUn objeto R también puede almacenar un conjunto completo de números, llamado vector.\nPuedes pensar en un vector como una lista de números (o valores).\n\n\nLa función c() se puede utilizar para combinar una lista de valores individuales en un vector.\n\npuedes pensar que el c es por combinar"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#por-ejemplo",
+    "href": "T1_Introduction/Herramientas.slides.html#por-ejemplo",
+    "title": "Herramientas para construir gráficas",
+    "section": "Por ejemplo",
+    "text": "Por ejemplo\nEste código crea dos vectores\n\nmi_vector = c(1,2,3,4,5)\nmi_vector_2 = c(10,10,10,10,10)\n\nVeamos su contenido\n\nmi_vector\n\n[1] 1 2 3 4 5\n\n\n\nmi_vector_2\n\n[1] 10 10 10 10 10"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#operaciones",
+    "href": "T1_Introduction/Herramientas.slides.html#operaciones",
+    "title": "Herramientas para construir gráficas",
+    "section": "Operaciones",
+    "text": "Operaciones\nPodemos hacer operaciones simples con vectores. Por ejemplo, podemos multiplicar todos los elementos de un vector por 100.\n\nmi_vector = c(1, 2, 3, 4, 5)\n100*mi_vector\n\n[1] 100 200 300 400 500\n\n\nA pesar de que multiplicaste el vector por un valor, este no se modifica.\n\nmi_vector\n\n[1] 1 2 3 4 5"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
+    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
+    "title": "Herramientas para construir gráficas",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nEscribe código para dividir el vector mi_vector por 2.\nGuarda el resultado en un nuevo vector llamado mi_nuevo_vector.\nPrueba el siguiente comando sum(mi_nuevo_vector). ¿Qué obtuviste?\n\n\n\n\n−+\n08:00"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#indexación",
+    "href": "T1_Introduction/Herramientas.slides.html#indexación",
+    "title": "Herramientas para construir gráficas",
+    "section": "Indexación",
+    "text": "Indexación\nPodemos indexar una posición en el vector usando corchetes con un número como este: [1].\nEntonces, si quisiéramos imprimir el contenido de la primera posición en mi_vector, podríamos escribir\n\nmi_vector[1]\n\n[1] 1"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#un-poco-más-sobre-objetos-en-r",
+    "href": "T1_Introduction/Herramientas.slides.html#un-poco-más-sobre-objetos-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Un poco más sobre objetos en R",
+    "text": "Un poco más sobre objetos en R\nPuedes pensar en los objetos R como depósitos que contienen valores.\nUn objeto R puede contener un solo valor o puede contener un grupo de valores (como en el caso de un vector).\nHasta ahora, sólo hemos puesto números en objetos R.\n\n\nLos objetos R en realidad pueden contener tres tipos de valores: números, caracteres y valores booleanos."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#valores-numéricos",
+    "href": "T1_Introduction/Herramientas.slides.html#valores-numéricos",
+    "title": "Herramientas para construir gráficas",
+    "section": "Valores numéricos",
+    "text": "Valores numéricos\nSi R sabe que estás usando números, puede hacer muchas cosas con ellos. Hemos visto, por ejemplo, que R puede realizar operaciones aritméticas con números: suma, resta, multiplicación y división.\n\n# Aquí hay dos formas de crear un vector numérico con los \n# números del 1 al 10.\nmi_num_1 = c(1,2,3,4,5,6,7,8,9,10)\nmi_num_2 = 1:10\n\nObtenemos lo mismo.\n\nmi_num_1\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\nmi_num_2\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#valores-de-carácter",
+    "href": "T1_Introduction/Herramientas.slides.html#valores-de-carácter",
+    "title": "Herramientas para construir gráficas",
+    "section": "Valores de carácter",
+    "text": "Valores de carácter\nLos caracteres se componen de texto, como palabras u oraciones. Un ejemplo de un vector con caracteres como elementos es:\n\n\nmuchos_holas = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmuchos_holas\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n\n\nEs importante saber que los números también se pueden tratar como caracteres, dependiendo del contexto.\nPor ejemplo, cuando 20 está entre comillas (\"20\") se tratará como un valor de carácter, aunque incluya un número entre comillas."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#valores-booleanos",
+    "href": "T1_Introduction/Herramientas.slides.html#valores-booleanos",
+    "title": "Herramientas para construir gráficas",
+    "section": "Valores booleanos",
+    "text": "Valores booleanos\nLos valores booleanos son TRUE o FALSE.\nQuizás tengamos una pregunta como:\n\n¿El primer elemento del vector muchos_holas es \"hola\"?\n\n\nPodemos pedirle a R que averigüe y devuelva la respuesta TRUE o FALSE.\n\nmuchos_holas[1] == \"hola\"\n\n[1] FALSE"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#operadores-lógicos",
+    "href": "T1_Introduction/Herramientas.slides.html#operadores-lógicos",
+    "title": "Herramientas para construir gráficas",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\nLa mayoría de las preguntas que le pedimos a R que responda con a TRUE o FALSE involucran operadores de comparación como &gt;, &lt;, &gt;=, &lt;= y ==.\nEl doble == signo comprueba si dos valores son iguales. Incluso existe un operador de comparación para comprobar si los valores no son iguales: !=.\nPor ejemplo, 5 != 3 es una declaración TRUE."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
+    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nLee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.\n\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare\n\n\nRepite lo mismo con el siguiente código.\n\n\nmis_numeros = 1:10\nmis_booleanos = mis_numeros &gt;= 5\n\nmis_numeros\nmis_booleanos\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#lista-de-operadores-lógicos-comunes",
+    "href": "T1_Introduction/Herramientas.slides.html#lista-de-operadores-lógicos-comunes",
+    "title": "Herramientas para construir gráficas",
+    "section": "Lista de operadores lógicos comunes",
+    "text": "Lista de operadores lógicos comunes\n\n&gt; (mayor que)\n&gt;= (mayor o igual a que)\n&lt; (menor que)\n&lt;= (menor o igual a que)\n== (igual a)\n!= (diferente de)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#la-cultura-de-programación-prueba-y-error",
+    "href": "T1_Introduction/Herramientas.slides.html#la-cultura-de-programación-prueba-y-error",
+    "title": "Herramientas para construir gráficas",
+    "section": "La cultura de programación: Prueba y error",
+    "text": "La cultura de programación: Prueba y error\nLa mejor manera de aprender a programar es probar cosas y ver qué sucede. Escribe un código, ejecútalo y piensa por qué no funcionó.\nHay muchas maneras de cometer pequeños errores en la programación (por ejemplo, escribir una letra mayúscula cuando se necesita una letra minúscula).\nA menudo tenemos que encontrar estos errores mediante prueba y error."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#librerías-en-r",
+    "href": "T1_Introduction/Herramientas.slides.html#librerías-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Librerías en R",
+    "text": "Librerías en R\n\nLos paquetes son las unidades fundamentales del código R reproducible. Incluyen funciones R re-utilizables, la documentación que describe cómo usarlas y datos de muestra.\nEn septiembre de 2020, hay más de 16, 000 paquetes disponibles en CRAN (la red integral de archivos R)\nTrabajaremos mayormente con las librerías readxl, dplyr, ggplot2, y ggformula."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#organización-de-datos",
+    "href": "T1_Introduction/Herramientas.slides.html#organización-de-datos",
+    "title": "Herramientas para construir gráficas",
+    "section": "Organización de datos",
+    "text": "Organización de datos\nEn estadística, organizamos los datos en filas y columnas.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\nLas filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de casa en este conjunto de datos.\n\n\nDependiendo del estudio, las filas podrían ser personas, estados, parejas, ratones, cualquier caso del que tomes una muestra para estudiarlo."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-2",
+    "href": "T1_Introduction/Herramientas.slides.html#section-2",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "Las columnas representan variables o los atributos de cada caso que se midieron.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\n\n\nEn este estudio, se informó o no a las amas de llaves que su trabajo diario de limpieza de habitaciones de hotel equivalía a hacer ejercicio adecuado para una buena salud.\n\n\n\nEntonces una de las variables, Condition, indica si fueron informados de este hecho o no."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-3",
+    "href": "T1_Introduction/Herramientas.slides.html#section-3",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "Existen otras variables como la edad del ama de llaves (Age), el peso antes de iniciar el estudio (Wt), y su peso al final del estudio (Wt2, medido cuatro semanas después).\n\nPor lo tanto, los valores en cada fila representan los valores de ese caso particular en cada una de las variables medidas.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#cargar-datos-en-r",
+    "href": "T1_Introduction/Herramientas.slides.html#cargar-datos-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "Cargar datos en R",
+    "text": "Cargar datos en R\nEn este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo prenguins.xlsx.\n\n\n\n\n\n\n\nEl archivo debe de ser previamente cargado en Google Colab."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#librería-readxl",
+    "href": "T1_Introduction/Herramientas.slides.html#librería-readxl",
+    "title": "Herramientas para construir gráficas",
+    "section": "Librería readxl",
+    "text": "Librería readxl\n\n\nPara cargar datos en R, usaremos la librería llamada readxl. Primero, debes de instalar esta librería en R utilizando el comando install.packages(\"readxl\")\n\n\n\n\n\n\n\n\n Una vez instalada la librería, la cargamos en R usando el siguiente comando.\n\nlibrary(readxl)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-4",
+    "href": "T1_Introduction/Herramientas.slides.html#section-4",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "El siguiente código muestra como leer los datos en el archivo penguins.xlsx en R.\n\npenguins_data &lt;- read_excel(\"penguins.xlsx\")\n\n# Imprime las primeras 6 filas de los datos.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#ggplot2-1",
+    "href": "T1_Introduction/Herramientas.slides.html#ggplot2-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "ggplot2",
+    "text": "ggplot2\n\n\n\n\n\n\n\n\n\nggplot2 es uno de los mejores paquetes gratuitos para construir gráficas.\nEs parte de una colección de paquetes de ciencia de datos llamado tidyverse.\nEstá basado en la Gramática de las Gráficas.\nhttps://ggplot2-book.org/"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#instalación",
+    "href": "T1_Introduction/Herramientas.slides.html#instalación",
+    "title": "Herramientas para construir gráficas",
+    "section": "Instalación",
+    "text": "Instalación\n\n\n\nInstala la librería usando el comando install.packages(\"ggplot2\")\n\n\n\n\n\n\n\n\n\n\nInstala una librería auxiliar install.packages(\"ggformula\")\n\n3. Carga ambas librerías en R usando el siguiente código.\n\nlibrary(ggplot2)\nlibrary(ggformula)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggplot",
+    "href": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggplot",
+    "title": "Herramientas para construir gráficas",
+    "section": "La estructura de ggplot",
+    "text": "La estructura de ggplot\nggplot tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#ejemplo",
+    "href": "T1_Introduction/Herramientas.slides.html#ejemplo",
+    "title": "Herramientas para construir gráficas",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#ejemplo-1",
+    "href": "T1_Introduction/Herramientas.slides.html#ejemplo-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data,\n         color = ~species)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#ejemplo-2",
+    "href": "T1_Introduction/Herramientas.slides.html#ejemplo-2",
+    "title": "Herramientas para construir gráficas",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\")"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#ejemplo-3",
+    "href": "T1_Introduction/Herramientas.slides.html#ejemplo-3",
+    "title": "Herramientas para construir gráficas",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-2",
+    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-2",
+    "title": "Herramientas para construir gráficas",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nAccede a la siguiente liga:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopia el archivo Google Colab en tu drive.\nContesta las preguntas.\n\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.html",
+    "href": "T1_Introduction/Herramientas.html",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "R Software\n\n\n\n\n\n\n\n\nggplot2\n\n\n\n\n\nEstas diapositivas están basadas en material disponible en https://coursekata.org/"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.html#cómo-cargar-datos-en-r",
+    "href": "T1_Introduction/Herramientas.html#cómo-cargar-datos-en-r",
+    "title": "Herramientas para construir gráficas",
+    "section": "¿Cómo cargar datos en R?",
+    "text": "¿Cómo cargar datos en R?\n\nOrganización de datos\nEn estadística, organizamos los datos en filas y columnas.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n. . .\nLas filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de casa en este conjunto de datos.\n. . .\nDependiendo del estudio, las filas podrían ser personas, estados, parejas, ratones, cualquier caso del que tomes una muestra para estudiarlo.\n\n\n\n\n\nLas columnas representan variables o los atributos de cada caso que se midieron.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\n. . .\n\nEn este estudio, se informó o no a las amas de llaves que su trabajo diario de limpieza de habitaciones de hotel equivalía a hacer ejercicio adecuado para una buena salud.\n. . .\n\nEntonces una de las variables, Condition, indica si fueron informados de este hecho o no.\n\n\n\nExisten otras variables como la edad del ama de llaves (Age), el peso antes de iniciar el estudio (Wt), y su peso al final del estudio (Wt2, medido cuatro semanas después).\n\nPor lo tanto, los valores en cada fila representan los valores de ese caso particular en cada una de las variables medidas.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?\n\n\n\nCargar datos en R\nEn este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo prenguins.xlsx.\n\n\n\n\n\n\n\nEl archivo debe de ser previamente cargado en Google Colab.\n\n\nLibrería readxl\n\n\nPara cargar datos en R, usaremos la librería llamada readxl. Primero, debes de instalar esta librería en R utilizando el comando install.packages(\"readxl\")\n\n\n\n\n\n\n\n\n Una vez instalada la librería, la cargamos en R usando el siguiente comando.\n\nlibrary(readxl)\n\n\n\n\nEl siguiente código muestra como leer los datos en el archivo penguins.xlsx en R.\n\npenguins_data &lt;- read_excel(\"penguins.xlsx\")\n\n# Imprime las primeras 6 filas de los datos.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.html#ggplot2",
+    "href": "T1_Introduction/Herramientas.html#ggplot2",
+    "title": "Herramientas para construir gráficas",
+    "section": "ggplot2",
+    "text": "ggplot2\n\nggplot2\n\n\n\n\n\n\n\n\n\nggplot2 es uno de los mejores paquetes gratuitos para construir gráficas.\nEs parte de una colección de paquetes de ciencia de datos llamado tidyverse.\nEstá basado en la Gramática de las Gráficas.\nhttps://ggplot2-book.org/\n\n\n\n\n\nInstalación\n\n\n\nInstala la librería usando el comando install.packages(\"ggplot2\")\n\n\n\n\n\n\n\n\n\n\nInstala una librería auxiliar install.packages(\"ggformula\")\n\n3. Carga ambas librerías en R usando el siguiente código.\n\nlibrary(ggplot2)\nlibrary(ggformula)\n\nLoading required package: scales\n\n\nLoading required package: ggridges\n\n\n\nNew to ggformula?  Try the tutorials: \n    learnr::run_tutorial(\"introduction\", package = \"ggformula\")\n    learnr::run_tutorial(\"refining\", package = \"ggformula\")\n\n\n\n\nLa estructura de ggplot\nggplot tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()\n\n\nEjemplo\n¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?\n\n\n\n\n\n\n\nEjemplo\n¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data,\n         color = ~species) \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nEjemplo\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\")\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nEjemplo\n\ngf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nMini-actividad (solo mode)\n\nAccede a la siguiente liga:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopia el archivo Google Colab en tu drive.\nContesta las preguntas."
   }
 ]
