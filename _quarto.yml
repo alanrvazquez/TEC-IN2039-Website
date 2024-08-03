@@ -1,5 +1,13 @@
 project:
-  title: "TEC-IN2039-Website"
-
+  title: "TEC-IN2039 Data Visualization"
+  type: website
+output-dir: docs
 editor: visual
 
+website:
+  title: "IN2039 Data Visualization"
+  page-navigation: true
+  sidebar:
+    contents:
+      - href: TEC-IN2039-Website.qmd
+        text: Home
