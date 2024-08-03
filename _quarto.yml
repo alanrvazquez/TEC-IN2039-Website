@@ -11,3 +11,26 @@ website:
     contents:
       - href: TEC-IN2039-Website.qmd
         text: Home
+
+author: 
+  - name: Alan R. Vázquez
+    affiliations:
+      - name: Departamento de Ingeniería Industrial
+        
+format:
+  html:
+    theme: [serif, shared.scss, html-style.scss]
+    toc: true
+    shift-heading-level-by: 1
+
+  revealjs:
+    output-ext: "slides.html"
+    chalkboard: true
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+revealjs-plugins:
+  - pointer 
+
