@@ -1,6 +1,6 @@
 ---
-title: |
-   | Variables Categóricas  
+title: Variables Categóricas  
+subtitle: "IN2039: Visualización de Datos"
 author: 
   - name: Alan R. Vázquez
     affiliations:

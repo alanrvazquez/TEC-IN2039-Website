@@ -1,6 +1,6 @@
 ---
-title: |
-   | Datos de múltiples variables  
+title: Datos de múltiples variables  
+subtitle: "IN2039: Visualización de Datos"
 author: 
   - name: Alan R. Vázquez
     affiliations:

@@ -1,5 +1,6 @@
 ---
 title: Herramientas para construir gráficas
+subtitle: "IN2039: Visualización de Datos"
 author: Alan R. Vázquez
 institute: Departamento de Ingeniería Industrial
 format: 

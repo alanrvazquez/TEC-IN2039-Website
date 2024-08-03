@@ -1,5 +1,6 @@
 ---
 title: ¿Qué es la visualización de datos?
+subtitle: "IN2039: Visualización de Datos"
 author: Alan R. Vázquez
 institute: Departamento de Ingeniería Industrial
 format: 
@@ -390,3 +391,5 @@ Principios del diseño gráfico
 3.  Guarden las visualizaciones (por ejemplo, haciendo una captura de pantalla).
 4.  Escriban una crítica breve (3 a 4 enunciados) de cada visualización.
 5.  Suban un documento con sus criticas e imágenes en Canvas.
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

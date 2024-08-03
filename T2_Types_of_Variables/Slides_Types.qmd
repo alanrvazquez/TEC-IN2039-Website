@@ -1,6 +1,6 @@
 ---
-title: |
-   | Tipos de Variables  
+title: Tipos de Variables  
+subtitle: "IN2039: Visualización de Datos"
 author: 
   - name: Alan R. Vázquez
     affiliations:
@@ -103,7 +103,7 @@ Toman valores que se colocan en *categorías*.
 . . .
 
 |                  |                                                                 |
-|-------------------|-----------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | **Variable**     | **Categorias**                                                  |
 | Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | País de origen   | México, Canadá, EUA                                             |

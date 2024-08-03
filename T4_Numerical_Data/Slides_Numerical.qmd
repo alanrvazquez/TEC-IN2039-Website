@@ -1,6 +1,6 @@
 ---
-title: |
-   | Variables Numéricas  
+title: Variables Numéricas  
+subtitle: "IN2039: Visualización de Datos"
 author: 
   - name: Alan R. Vázquez
     affiliations:

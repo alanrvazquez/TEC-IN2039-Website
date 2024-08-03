@@ -1,6 +1,6 @@
 ---
-title: |
-   | Introducción a la Regresión Lineal Simple 
+title: Introducción a la Regresión Lineal Simple 
+subtitle: "IN2039: Visualización de Datos"
 author: 
   - name: Alan R. Vázquez
     affiliations:
