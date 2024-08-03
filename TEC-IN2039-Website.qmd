@@ -1,11 +1,19 @@
 ---
-title: "TEC-IN2039-Website"
+title: "IN2039 Visualización de Datos"
+subtitle: "Diapositivas Semestre AD 2024"
+author: Alan R. Vazquez
+csl: apa.csl
+format:
+  html: default
 ---
 
-## Quarto
+## Tópicos del Curso
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+1. [Introducción](/T1_Introduction/Introduccion.html)
+2. [Herramientas](/T1_Introduction/Herramientas.html)
+3. [Tipos de Variable](/T2_Types_of_Variables/Slides_Types.html)
+4. [Variables Categóricas](/T3_Categorical_Data/Slides_Categorical.html)
+5. [Variables Numércias](/T4_Numerical_Data/Slides_Numerical.html)
+6. [Datos de Múltiples Variables](/T5_Multivariate_Data/Slides_Multivariate.html)
+7. [Introducción a la Regresión Lineal Simple](/T6_Introduction_Linear_Regression/Slides_LR.html)
 
-```{r}
-1 + 1
-```
