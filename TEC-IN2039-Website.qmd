@@ -1,8 +1,11 @@
 ---
 title: "IN2039 Visualización de Datos"
 subtitle: "Diapositivas Semestre AD 2024"
-author: Alan R. Vazquez
-institute: Tecnológico de Monterrey
+author: 
+  - name: Alan R. Vazquez
+    orcid: 0000-0002-3658-0911
+    affiliations:
+      - name: Tecnologico de Monterrey
 ---
 
 ## Tópicos del Curso
@@ -15,4 +18,9 @@ institute: Tecnológico de Monterrey
 6. Datos de Múltiples Variables ([slides](/T5_Multivariate_Data/Slides_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WfAsvSng0tZGVZV3XmFrrEIlPuqnYPBa/view?usp=sharing))
 7. Introducción a la Regresión Lineal Simple ([slides](/T6_Introduction_Linear_Regression/Slides_LR.slides.html)) ([colab](https://drive.google.com/file/d/1Vr2KThpsLCdEsxabA3baFx-NlMxhKJfN/view?usp=sharing))
 8. Tópicos Especiales
+
+### Sobre el Autor
+
+Alan R. Vazquez ([website](https://alanrvazquez.netlify.app/)) es Profesor Investigador en el Departamento de Ingeniería Industrial del Tecnológico de Monterrey, Campus Monterrey. 
+
 
