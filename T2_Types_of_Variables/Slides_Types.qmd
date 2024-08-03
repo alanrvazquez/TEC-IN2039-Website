@@ -414,3 +414,5 @@ penguins_data %>%
 -   Existen gráficas apropiadas o diseñadas para visualizar variables númericas o categóricas.
 
 -   En este curso, veremos varias gráficas para cada tipo de variable y sus combinaciones.
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

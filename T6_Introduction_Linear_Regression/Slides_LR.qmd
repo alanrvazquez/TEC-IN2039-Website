@@ -290,3 +290,5 @@ mi_diagrama_residuos
 -   Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre $Y$ y $X$.
 
 -   Veremos más sobre regresión lineal en IN1002B e IN1001B.
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

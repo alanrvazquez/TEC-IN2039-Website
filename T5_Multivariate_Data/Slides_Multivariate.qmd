@@ -636,3 +636,5 @@ color = ~species, data = penguins_data)
 # Más gráficas
 
 <https://www.mosaic-web.org/ggformula/articles/pkgdown/ggformula-long.html>
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

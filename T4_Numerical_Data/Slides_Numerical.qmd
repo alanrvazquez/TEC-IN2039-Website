@@ -493,3 +493,5 @@ El archivo `bolts.xlsx` contiene la cantidad de pernos no conformes durante los 
 
 -   Histograma
 -   Gráfica de caja
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

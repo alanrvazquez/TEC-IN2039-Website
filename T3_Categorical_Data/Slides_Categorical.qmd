@@ -499,3 +499,5 @@ Pie charts versus bar charts.
 1.  Ve ChatGPT en <https://chat.openai.com/>
 2.  Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de *pastel*) usando **ggplot2** o **plotly** en R.
 3.  Adapta tu código para producir una gráfica circular de la variable `island` en `penguin_data`.
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)
