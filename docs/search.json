@@ -2003,5 +2003,26 @@
     "title": "Tópicos Especiales",
     "section": "Dashboards",
     "text": "Dashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.html",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.html",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "Instalación local de R y R Studio.\nGráficas interactivas con plotly\nCreación de dashboards con Quarto\n\n\nIncluir ejemplo de Datos Nuevo León."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.html#gráficas-con-plotly",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.html#gráficas-con-plotly",
+    "title": "Tópicos Especiales",
+    "section": "Gráficas con plotly",
+    "text": "Gráficas con plotly\n\nPlotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Plotly se destaca por su capacidad para generar gráficos que pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards.\n\n\n\n\nInstalación de plotly\nEn R, plotly está disponible a través de una librería con el mismo nombre.\n\nInstalamos la librería usando install.packages(\"plotly\").\nLlamamos usando library(plotly).\n\n\n\nPlotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario.\nPara hacerlas interactivas con plotly, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n\nEjemplo\nTBD\n\n\n\n\n# install.packages(\"plotly)\nlibrary(plotly)\nlibrary(ggformula)\nlibrary(readxl)\npenguins_data = read_excel(\"penguins.xlsx\")\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.html#dashboards",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.html#dashboards",
+    "title": "Tópicos Especiales",
+    "section": "Dashboards",
+    "text": "Dashboards\n\nDashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):\n\n\nCreating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html"
   }
 ]

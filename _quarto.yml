@@ -7,6 +7,13 @@ editor: visual
 website:
   title: "IN2039 Data Visualization"
   page-navigation: true
+  navbar:
+    search: true
+    background: light
+    collapse-below: lg
+    type: light
+    logo: "IN2039_logo.png"
+  
   sidebar:
     contents:
       - href: TEC-IN2039-Website.qmd
