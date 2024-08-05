@@ -236,7 +236,9 @@ penguins_data %>%
 :::
 :::
 
+::: {style="font-size: 85%;"}
 -   **Frecuencia relativa**: Número de observaciones en cada categoría dividida por el total.
+:::
 
 ::: notes
 La ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información.
@@ -326,7 +328,7 @@ Este conjunto de datos contiene información recopilada por el Servicio del Cens
 
 ## 
 
-Los datos están en el archivo `Boston_dataset.xlsx`. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.
+Los datos están en `Boston_dataset.xlsx`. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.
 
 ```{r}
 #| echo: true
@@ -461,10 +463,12 @@ ggsave(filename = "Mi_grafica.jpg", plot = mi_grafica_de_barras,
 
 Algunos de los argumentos arriba son:
 
+::: {style="font-size: 85%;"}
 -   `width`: ancho del gráfico.
 -   `height`: altura del gráfico.
 -   `units`: unidades de medición.
 -   `dpi`: resolución del gráfico.
+:::
 
 # Gráfica circular
 

@@ -103,7 +103,7 @@ Toman valores que se colocan en *categorías*.
 . . .
 
 |                  |                                                                 |
-|--------------------|----------------------------------------------------|
+|---------------------|---------------------------------------------------|
 | **Variable**     | **Categorias**                                                  |
 | Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | País de origen   | México, Canadá, EUA                                             |
