@@ -1211,7 +1211,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#carga-los-datos",
     "title": "Variables Numéricas",
     "section": "Carga los datos",
-    "text": "Carga los datos\nEn Google Colab, el archivo “CYLT.xlsx” debe de estar en la carpeta llamada “content” o “contenido.”\nAhora carguemos los datos R.\n\n# Leer los datos.\npiston_data = read_excel(\"CYCLT.xlsx\") \n# Ver las primeras 6 observaciones.\npiston_data %&gt;% head()\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07 \n\n\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente."
+    "text": "Carga los datos\nEn Google Colab, el archivo “CYLT.xlsx” debe de estar en la carpeta llamada “content” o “contenido.”\n\n# Leer los datos.\npiston_data = read_excel(\"CYCLT.xlsx\") \n# Ver las primeras 6 observaciones.\npiston_data %&gt;% head()\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07 \n\n\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#tipo-de-variable",
@@ -1295,7 +1295,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un solo valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.3050, 0.5455 y 1.0690 segundos, respectivamente."
+    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.3050, 0.5455 y 1.0690 segundos, respectivamente."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
