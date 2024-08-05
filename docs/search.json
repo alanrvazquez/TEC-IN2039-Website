@@ -417,7 +417,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#cargar-datos-en-r",
     "title": "Herramientas para construir gráficas",
     "section": "Cargar datos en R",
-    "text": "Cargar datos en R\nEn este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo prenguins.xlsx.\n\n\n\n\n\n\n\nEl archivo debe de ser previamente cargado en Google Colab."
+    "text": "Cargar datos en R\nEn este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo prenguins.xlsx.\n\n\n\n\n\n\n\n\nEl archivo debe de ser previamente cargado en Google Colab."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#librería-readxl",

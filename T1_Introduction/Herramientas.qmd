@@ -562,15 +562,17 @@ En este curso, asumiremos que los datos están almacenados en un archivo Excel c
 
 ::: columns
 ::: {.column width="50%"}
-![](images/print_excel.png){width="478"}
+![](images/print_excel.png){width="418"}
 :::
 
 ::: {.column width="50%"}
-![](images/clipboard-1776523589.png){width="475"}
+![](images/clipboard-1776523589.png){width="396"}
 :::
 :::
 
+::: {style="font-size: 85%;"}
 [***El archivo debe de ser previamente cargado en Google Colab.***]{style="color:red;"}
+:::
 
 ## Librería `readxl`
 
@@ -672,6 +674,7 @@ ggplot tiene una estructura para crear gráficas por pasos.
 #| code-overflow: wrap
 #| fig-pos: center
 #| output-location: fragment
+#| out.width: "80%"
 
 gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data,
          color = ~species) 
@@ -686,6 +689,7 @@ gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data,
 #| fig-pos: center
 #| code-line-numbers: "2-6"
 #| output-location: fragment
+#| out.width: "80%"
 
 gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
 color = ~species) + labs(title = "Profundidad y longitud del pico", 
