@@ -1849,5 +1849,159 @@
     "title": "Herramientas para construir gráficas",
     "section": "Regresar a página principal",
     "text": "Regresar a página principal"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#agenda",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#agenda",
+    "title": "Tópicos Especiales",
+    "section": "Agenda",
+    "text": "Agenda\n\nInstalación local de R y R Studio.\nGráficas interactivas con plotly\nCreación de dashboards con Quarto\n\n\nIncluir ejemplo de Datos Nuevo León."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#r-software",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#r-software",
+    "title": "Tópicos Especiales",
+    "section": "R software",
+    "text": "R software\n\n\nHasta ahora, hemos utilizado R a través de Google Colab. Todos los cálculos se han hecho en la nube de Google.\nSin embargo, hay funciones avanzadas de R que no actualmente están disponibles en Google Colab, como la creación de gráficas interactivas y dashboards.\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-r",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-r",
+    "title": "Tópicos Especiales",
+    "section": "Instalación de R",
+    "text": "Instalación de R\nVe a la siguiente liga: https://www.r-project.org/"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#r-studio",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#r-studio",
+    "title": "Tópicos Especiales",
+    "section": "R Studio",
+    "text": "R Studio\nPara usar estas funciones, debemos de instalar R en nuestra computadora, para hacer todos los cálculos localmente.\nTambién, debemos de instalar una interfaz para R. La más común y poderosa es R Studio."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-rstudio",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-rstudio",
+    "title": "Tópicos Especiales",
+    "section": "Instalación de RStudio",
+    "text": "Instalación de RStudio\nVe a la siguiente liga: https://posit.co/\n\nTambién puedes ir mas directo a la descarga del programa aquí https://posit.co/download/rstudio-desktop/"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#dashboards",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#dashboards",
+    "title": "Tópicos Especiales",
+    "section": "Dashboards",
+    "text": "Dashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#creating-a-dashboard",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#creating-a-dashboard",
+    "title": "Tópicos Especiales",
+    "section": "Creating a dashboard",
+    "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly",
+    "title": "Tópicos Especiales",
+    "section": "Plotly",
+    "text": "Plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Plotly se destaca por su capacidad para generar gráficos que pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario.\nPara hacerlas interactivas con plotly, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-1",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-1",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-1",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-1",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nlibrary(ggformula)\nlibrary(readxl)\npenguins_data = read_excel(\"penguins.xlsx\")\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section-1",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section-1",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "# install.packages(\"plotly)\nlibrary(plotly)\nlibrary(ggformula)\nlibrary(readxl)\npenguins_data = read_excel(\"penguins.xlsx\")\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-1-instalación-de-r",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-1-instalación-de-r",
+    "title": "Tópicos Especiales",
+    "section": "Paso 1: Instalación de R",
+    "text": "Paso 1: Instalación de R\nVe a la siguiente liga: https://www.r-project.org/"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-2-instalación-de-rstudio",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-2-instalación-de-rstudio",
+    "title": "Tópicos Especiales",
+    "section": "Paso 2: Instalación de RStudio",
+    "text": "Paso 2: Instalación de RStudio\nVe a la siguiente liga: https://posit.co/\n\nTambién puedes ir mas directo a la descarga del programa aquí https://posit.co/download/rstudio-desktop/"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-3-instalación-de-las-librerías",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#paso-3-instalación-de-las-librerías",
+    "title": "Tópicos Especiales",
+    "section": "Paso 3: Instalación de las librerías",
+    "text": "Paso 3: Instalación de las librerías\nUna vez instalado el software, debemos de instalar las librerías dplyr, readxl, ggplot y ggformula.\nPara esto, podemos instalar una única libreria llamada tidyverse que contiene todas estas librerías.\nPara esto, corre el siguiente comando en la consola de R: install.packages(\"tidyverse\")."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "La instalación de todos los programas necesarios para manipular y visualizar datos en tu computadora requiere de tres pasos:\n\nInstalación de R\nInstalación de RStudio\nInstalación de las librerías: dplyr, ggplot, readxl, y ggformula."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section-2",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#section-2",
+    "title": "Tópicos Especiales",
+    "section": "",
+    "text": "Tecnológico de Monterrey"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-2",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-2",
+    "title": "Tópicos Especiales",
+    "section": "plotly",
+    "text": "plotly\nPlotly es una biblioteca de visualización de datos que permite crear gráficos interactivos y atractivos de manera fácil y eficiente. Los gráficos pueden interactuar con el usuario final, lo que resulta ideal para aplicaciones web y dashboards.\nAlgunas de sus características principales son:\n\n\nInteractividad.\nVariedad de gráficos.\nCompatibilidad con Python, R y ggplot2.\nIntegración con Dash para crear dashboards."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-2",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#plotly-en-ggplot2-2",
+    "title": "Tópicos Especiales",
+    "section": "Plotly en ggplot2",
+    "text": "Plotly en ggplot2\nLas gráficas de ggplot2 son estáticas porque no permiten interacción con el usuario. Para hacerlas más interactivas, usamos la librería library(plotly).\nPara esto, primero guardamos la gráfica de ggplot a un objeto llamado my_plot y usamos la función ggplotly(my_plot) de la libreria plotly.\n\n# install.packages(\"plotly)\nlibrary(plotly)\nmy_plot = gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, \ncolor = ~species) + labs(title = \"Profundidad y longitud del pico\", \nsubtitle = \"Dimensiones para pingüinos en Adelie,\n         Chinstrap, and Gentoo\", \nx = \"Profundidad del pico (mm)\", y = \"Longitud del pico (mm)\",\ncolor = \"Especie\") +  scale_color_viridis_d()\n\nggplotly(my_plot)"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-plotly",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#instalación-de-plotly",
+    "title": "Tópicos Especiales",
+    "section": "Instalación de plotly",
+    "text": "Instalación de plotly\nEn R, plotly está disponible a través de una librería con el mismo nombre.\n\nInstalamos la librería usando install.packages(\"plotly\").\nLlamamos usando library(plotly)."
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#ejemplo",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#ejemplo",
+    "title": "Tópicos Especiales",
+    "section": "Ejemplo",
+    "text": "Ejemplo\nTBD"
+  },
+  {
+    "objectID": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#dashboards-1",
+    "href": "T7_Special_Topics/Slides_SpecialGraphs.slides.html#dashboards-1",
+    "title": "Tópicos Especiales",
+    "section": "Dashboards",
+    "text": "Dashboards\nDashboards are a useful way to communicate large amounts of information visually and quickly. Create one with the flexdashboard::flex_dashboard output format, as in the .Rmd file below (available here on RStudio Cloud):"
   }
 ]
