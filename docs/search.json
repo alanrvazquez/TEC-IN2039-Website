@@ -1477,14 +1477,14 @@
     "href": "T1_Introduction/Introduccion.slides.html#la-situación-problema",
     "title": "¿Qué es la visualización de datos?",
     "section": "La Situación Problema",
-    "text": "La Situación Problema\nYouTube es una plataforma para compartir vídeos ampliamente conocida por la diversidad de vídeos subidos por sus usuarios.\nEl sitio permite a sus usuarios cargar, ver, calificar, compartir y comentar vídeos.\nUn tipo particular de usuario es el creador de contenido, quien frecuentemente crea y sube vídeos entretenidos a la plataforma."
+    "text": "La Situación Problema\nLa inseguridad alimentaria en México es un problema persistente que afecta a una proporción significativa de la población.\nEste fenómeno se caracteriza por la falta de disponibilidad y acceso regular a alimentos nutritivos y suficientes, lo que impacta negativamente en la salud y el bienestar de los individuos."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#objetivo-de-la-situación-problema",
     "href": "T1_Introduction/Introduccion.slides.html#objetivo-de-la-situación-problema",
     "title": "¿Qué es la visualización de datos?",
     "section": "Objetivo de la situación problema",
-    "text": "Objetivo de la situación problema\n\nEsta situación problema concierne la creación de un póster que informe a un creador de contenido de Youtube los aspectos mas importantes del formato miniatura de un video. Es decir, que estén asociadas a un número de vistas grande.\n\nPara esto, tendrás a tu disposición una base de datos con 7242 videos y 51 variables que se encuentra en el archivo “YouTube_Dataset.xlsx.”\nPuedes encontrar más información en nuestra página de Canvas."
+    "text": "Objetivo de la situación problema\n\nEsta situación problema concierne la creación de un póster que informe a la sociedad sobre el estatus de inseguridad alimentaria que existe en México.\n\nPara esto, usarás una base de datos con información de 63,855 viviendas y 15 variables que se encuentra en el archivo “IngresosViviendasMexicanas.xlsx.”\nPuedes encontrar más información en nuestra página de Canvas."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#qué-es-la-visualización-de-datos",
@@ -1512,7 +1512,7 @@
     "href": "T1_Introduction/Introduccion.slides.html#principio-2-transforma-los-datos-en-información",
     "title": "¿Qué es la visualización de datos?",
     "section": "Principio 2: Transforma los datos en información",
-    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\n\n\n\n\n\n\n\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
+    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\n\n\n\n\n\n\n\n\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
@@ -1526,7 +1526,7 @@
     "href": "T1_Introduction/Introduccion.slides.html#ejemplo",
     "title": "¿Qué es la visualización de datos?",
     "section": "Ejemplo",
-    "text": "Ejemplo\nPrincipio 1: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.\n\n\n\nCosto semanal (en USD) del viaje diario\n\n\nCiudad\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
+    "text": "Ejemplo\n\nPrincipio 1: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.\n\n\n\n\nCosto semanal (en USD) del viaje diario\n\n\nCiudad\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#section-1",

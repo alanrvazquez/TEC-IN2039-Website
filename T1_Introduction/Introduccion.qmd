@@ -135,19 +135,17 @@ Mas importante, asumiremos que los datos han sido limpiados y no contienen typos
 
 ## La Situación Problema
 
-YouTube es una plataforma para compartir vídeos ampliamente conocida por la diversidad de vídeos subidos por sus usuarios.
+La inseguridad alimentaria en México es un problema persistente que afecta a una proporción significativa de la población.
 
-El sitio permite a sus usuarios cargar, ver, calificar, compartir y comentar vídeos.
+Este fenómeno se caracteriza por la falta de disponibilidad y acceso regular a alimentos nutritivos y suficientes, lo que impacta negativamente en la salud y el bienestar de los individuos.
 
-Un tipo particular de usuario es el *creador de contenido*, quien frecuentemente crea y sube vídeos entretenidos a la plataforma.
-
-![](images/clipboard-2009057073.png){fig-align="right" width="437"}
+![](images/44741e_bb67f59e71284597b653f6637673f1a4~mv2.webp){fig-align="center" width="378"}
 
 ## Objetivo de la situación problema
 
-> Esta situación problema concierne la creación de un póster que informe a un creador de contenido de Youtube los aspectos mas importantes del formato miniatura de un video. Es decir, que estén asociadas a un número de vistas grande.
+> Esta situación problema concierne la creación de un póster que informe a la sociedad sobre el estatus de inseguridad alimentaria que existe en México.
 
-Para esto, tendrás a tu disposición una base de datos con 7242 videos y 51 variables que se encuentra en el archivo “YouTube_Dataset.xlsx.”
+Para esto, usarás una base de datos con información de 63,855 viviendas y 15 variables que se encuentra en el archivo “IngresosViviendasMexicanas.xlsx.”
 
 Puedes encontrar más información en nuestra página de Canvas.
 
@@ -235,7 +233,9 @@ Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pre
 :::
 :::
 
+::: {style="font-size: 85%;"}
 Enriquece tu gráfica con símbolos de color y texto para transmitir información adicional.
+:::
 
 ## *Principio 3: Aplica los principios del diseño gráfico*
 
@@ -268,7 +268,9 @@ También, agrega una leyenda a la gráfica que describa las características imp
 
 ## Ejemplo
 
+::: {style="font-size: 75%;"}
 [**Principio 1**]{style="color:#023562;"}: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.
+:::
 
 ::: columns
 ::: {.column width="70%"}
