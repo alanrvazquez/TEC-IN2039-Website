@@ -165,6 +165,7 @@ $\hat{\beta}_0$ es el valor promedio de la respuesta cuando $X_i = 0$.
 ```{r}
 #| fig-pos: center
 #| echo: false
+#| out-width: 80%
 
 grafica_intercepto <- grafica_modelo + scale_y_continuous(limits = c(0, 50)) + scale_x_continuous(limits = c(0, 5500))
 grafica_intercepto %>% gf_hline(yintercept = 46.317364, lty = 2) %>% gf_vline(xintercept = 0, lty = 2)
@@ -197,6 +198,7 @@ $\hat{\beta}_1$ es el cambio promedio en la respuesta al aumentar $X_i$ en una u
 ```{r}
 #| fig-pos: center
 #| echo: false
+#| out-width: 80%
 
 grafica_modelo
 ```
