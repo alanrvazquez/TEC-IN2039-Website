@@ -1442,14 +1442,14 @@
     "href": "T1_Introduction/Introduccion.slides.html#el-esquema-de-ciencia-de-datos",
     "title": "¿Qué es la visualización de datos?",
     "section": "El esquema de ciencia de datos",
-    "text": "El esquema de ciencia de datos"
+    "text": "El esquema de ciencia de datos\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#business-understanding",
     "href": "T1_Introduction/Introduccion.slides.html#business-understanding",
     "title": "¿Qué es la visualización de datos?",
     "section": "Business understanding",
-    "text": "Business understanding\n\nLa comprensión empresarial se refiere a definir el problema empresarial a resolver.\nEl objetivo es reformular el problema empresarial como un problema de ciencia de datos.\nA menudo, reformular el problema y diseñar una solución es un proceso iterativo."
+    "text": "Business understanding\n\n\nLa comprensión empresarial se refiere a definir el problema empresarial a resolver.\nEl objetivo es reformular el problema empresarial como un problema de ciencia de datos.\nA menudo, reformular el problema y diseñar una solución es un proceso iterativo."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#data-understanding",
@@ -1498,7 +1498,7 @@
     "href": "T1_Introduction/Introduccion.slides.html#section",
     "title": "¿Qué es la visualización de datos?",
     "section": "",
-    "text": "En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.\n\nLas visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.\n\n\nLa visualización de datos tiene 3 principios…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
+    "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#principio-1-formula-el-mensaje-o-pregunta",
@@ -1512,14 +1512,14 @@
     "href": "T1_Introduction/Introduccion.slides.html#principio-2-transforma-los-datos-en-información",
     "title": "¿Qué es la visualización de datos?",
     "section": "Principio 2: Transforma los datos en información",
-    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\n\n\n\n\n\n\n\n\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
+    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
     "href": "T1_Introduction/Introduccion.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
     "title": "¿Qué es la visualización de datos?",
     "section": "Principio 3: Aplica los principios del diseño gráfico",
-    "text": "Principio 3: Aplica los principios del diseño gráfico\n\n\n\n\n\n\nEs fácil identificar objetos por color.\nUtiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.\nEquilibra gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUsa un diseño de cuadrícula para organizar su visualización.\n\n\n\n\n\n\n\n\n\nNo te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.\nTambién, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones."
+    "text": "Principio 3: Aplica los principios del diseño gráfico\n\n\n\n\n\n\nEs fácil identificar objetos por color.\nUtiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.\nEquilibra gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUsa un diseño de cuadrícula para organizar su visualización.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.\nTambién, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#ejemplo",
@@ -1533,21 +1533,21 @@
     "href": "T1_Introduction/Introduccion.slides.html#section-1",
     "title": "¿Qué es la visualización de datos?",
     "section": "",
-    "text": "Principio 2: Transforma los datos en información."
+    "text": "https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#section-2",
     "href": "T1_Introduction/Introduccion.slides.html#section-2",
     "title": "¿Qué es la visualización de datos?",
     "section": "",
-    "text": "Principio 3: Aplica los principios del diseño gráfico."
+    "text": "https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#section-3",
     "href": "T1_Introduction/Introduccion.slides.html#section-3",
     "title": "¿Qué es la visualización de datos?",
     "section": "",
-    "text": "“El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.” John W. Tukey.\n\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ es una excelente guía sobre visualizaciones.\n\nPrincipios del diseño gráfico\n\nEs más fácil identificar objetos por color que por forma.\nCuando sea posible, utiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, formas, etc., que tengan la misma naturaleza deben parecerse.\nHaz un esfuerzo por lograr un equilibrio entre gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUtiliza un diseño de cuadrícula para organizar su visualización."
+    "text": "En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.\n\nLas visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.\n\n\nLa visualización de datos tiene 3 principios…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
   },
   {
     "objectID": "T1_Introduction/Introduccion.slides.html#actividad-cooperative-mode",
@@ -1653,5 +1653,26 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-4",
+    "href": "T1_Introduction/Introduccion.slides.html#section-4",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "Principio 2: Transforma los datos en información."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-5",
+    "href": "T1_Introduction/Introduccion.slides.html#section-5",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "Principio 3: Aplica los principios del diseño gráfico."
+  },
+  {
+    "objectID": "T1_Introduction/Introduccion.slides.html#section-6",
+    "href": "T1_Introduction/Introduccion.slides.html#section-6",
+    "title": "¿Qué es la visualización de datos?",
+    "section": "",
+    "text": "“El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.” John W. Tukey.\n\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ es una excelente guía sobre visualizaciones.\n\nPrincipios del diseño gráfico\n\nEs más fácil identificar objetos por color que por forma.\nCuando sea posible, utiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, formas, etc., que tengan la misma naturaleza deben parecerse.\nHaz un esfuerzo por lograr un equilibrio entre gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUtiliza un diseño de cuadrícula para organizar su visualización."
   }
 ]

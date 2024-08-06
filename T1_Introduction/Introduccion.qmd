@@ -67,13 +67,19 @@ un campo multidisciplinario que utiliza métodos, procesos, algoritmos y sistema
 
 ![](images/clipboard-4096324521.png){fig-align="center"}
 
+::: {style="font-size: 50%;"}
+Provost, F., & Fawcett, T. (2013). [Data Science for Business: What you need to know about data mining and data-analytic thinking](https://www.amazon.com.mx/Data-Science-Business-Data-Analytic-Thinking/dp/1449361323). O'Reilly Media, Inc.
+:::
+
 ## Business understanding
 
+::: incremental
 -   La comprensión empresarial se refiere a definir el problema empresarial a resolver.
 
 -   El objetivo es reformular el problema empresarial como un problema de ciencia de datos.
 
 -   A menudo, reformular el problema y diseñar una solución es un proceso iterativo.
+:::
 
 ## Data understanding
 
@@ -159,6 +165,30 @@ Puedes encontrar más información en nuestra página de Canvas.
 
 ## 
 
+![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html>
+:::
+
+## 
+
+![](images/costhurricanesLN-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html>
+:::
+
+## 
+
+![](images/GlobalFastFoodLN-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html>
+:::
+
+## 
+
 En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.
 
 </br>
@@ -217,21 +247,7 @@ El mensaje puede ser una pregunta
 
 Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.
 
-::: center
-::: columns
-::: {.column width="33%"}
-![](images/clipboard-4189732703.png)
-:::
-
-::: {.column width="33%"}
-![](images/clipboard-1399795317.png)
-:::
-
-::: {.column width="33%"}
-![](images/clipboard-2893827168.png)
-:::
-:::
-:::
+![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
 
 ::: {style="font-size: 85%;"}
 Enriquece tu gráfica con símbolos de color y texto para transmitir información adicional.
@@ -241,7 +257,7 @@ Enriquece tu gráfica con símbolos de color y texto para transmitir informació
 
 ::: center
 ::: columns
-::: {.column width="60%"}
+::: {.column width="55%"}
 ::: {style="font-size: 75%;"}
 ::: incremental
 1.  Es fácil identificar objetos por color.
@@ -254,8 +270,8 @@ Enriquece tu gráfica con símbolos de color y texto para transmitir informació
 :::
 :::
 
-::: {.column width="40%"}
-![](images/clipboard-2746624499.png){width="484" height="339"}
+::: {.column width="45%"}
+![](images/GlobalFastFoodLN-superJumbo.png){fig-align="center"}
 :::
 :::
 :::
