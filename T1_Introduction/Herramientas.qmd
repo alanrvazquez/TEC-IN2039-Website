@@ -570,7 +570,7 @@ Por lo tanto, los valores en cada fila representan los valores de ese caso parti
 
 ## Cargar datos en R
 
-En este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo `prenguins.xlsx`.
+En este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo `penguins.xlsx`.
 
 ::: columns
 ::: {.column width="50%"}
