@@ -203,11 +203,11 @@
     "text": "Agenda\n\n\n\nIntroducción a R\n\n\n\n\n\n\n\n\nCargando datos en R con readxl\n\n\n\n\n\n\n\nGráficas con ggplot2\n\n\n\n\n\n\nEstas diapositivas están basadas en material disponible en https://coursekata.org/"
   },
   {
-    "objectID": "T1_Introduction/Herramientas.slides.html#r-software",
-    "href": "T1_Introduction/Herramientas.slides.html#r-software",
+    "objectID": "T1_Introduction/Herramientas.slides.html#r",
+    "href": "T1_Introduction/Herramientas.slides.html#r",
     "title": "Herramientas para construir gráficas",
-    "section": "R software",
-    "text": "R software\n\n\n\nR es un lenguaje de programación estadística.\nEs gratuito!\nTe permite crear gráficos y hacer computación estadística.\nSe puede extender con paquetes (librerías) desarrolladas por otros usuarios.\n\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
+    "section": "R",
+    "text": "R\n\n\n\nEs un lenguaje de programación estadística.\nEs gratuito!\nTe permite crear gráficos y hacer computación estadística.\nSe puede extender con paquetes (librerías) desarrolladas por otros usuarios.\n\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#r-studio",
@@ -315,18 +315,18 @@
     "text": "Operaciones\nPodemos hacer operaciones simples con vectores. Por ejemplo, podemos multiplicar todos los elementos de un vector por 100.\n\nmi_vector = c(1, 2, 3, 4, 5)\n100*mi_vector\n\n[1] 100 200 300 400 500\n\n\nA pesar de que multiplicaste el vector por un valor, este no se modifica.\n\nmi_vector\n\n[1] 1 2 3 4 5"
   },
   {
-    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
-    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
-    "title": "Herramientas para construir gráficas",
-    "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nEscribe código para dividir el vector mi_vector por 2.\nGuarda el resultado en un nuevo vector llamado mi_nuevo_vector.\nPrueba el siguiente comando sum(mi_nuevo_vector). ¿Qué obtuviste?\n\n\n\n\n−+\n05:00"
-  },
-  {
     "objectID": "T1_Introduction/Herramientas.slides.html#indexación",
     "href": "T1_Introduction/Herramientas.slides.html#indexación",
     "title": "Herramientas para construir gráficas",
     "section": "Indexación",
     "text": "Indexación\nPodemos indexar una posición en el vector usando corchetes con un número como este: [1].\nEntonces, si quisiéramos imprimir el contenido de la primera posición en mi_vector, podríamos escribir\n\nmi_vector[1]\n\n[1] 1"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
+    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
+    "title": "Herramientas para construir gráficas",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nEscribe código para dividir el vector mi_vector por 2.\nGuarda el resultado en un nuevo vector llamado mi_nuevo_vector.\nPrueba el siguiente comando sum(mi_nuevo_vector). ¿Qué obtuviste?\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#un-poco-más-sobre-objetos-en-r",
@@ -364,18 +364,18 @@
     "text": "Operadores lógicos\nLa mayoría de las preguntas que le pedimos a R que responda con a TRUE o FALSE involucran operadores de comparación como &gt;, &lt;, &gt;=, &lt;= y ==.\nEl doble == signo comprueba si dos valores son iguales. Incluso existe un operador de comparación para comprobar si los valores no son iguales: !=.\nPor ejemplo, 5 != 3 es una declaración TRUE."
   },
   {
-    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
-    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
-    "title": "Herramientas para construir gráficas",
-    "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nLee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.\n\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare\n\n\nRepite lo mismo con el siguiente código.\n\n\nmis_numeros = 1:10\nmis_booleanos = mis_numeros &gt;= 5\n\nmis_numeros\nmis_booleanos\n\n\n\n\n−+\n05:00"
-  },
-  {
     "objectID": "T1_Introduction/Herramientas.slides.html#lista-de-operadores-lógicos-comunes",
     "href": "T1_Introduction/Herramientas.slides.html#lista-de-operadores-lógicos-comunes",
     "title": "Herramientas para construir gráficas",
     "section": "Lista de operadores lógicos comunes",
     "text": "Lista de operadores lógicos comunes\n\n&gt; (mayor que)\n&gt;= (mayor o igual a que)\n&lt; (menor que)\n&lt;= (menor o igual a que)\n== (igual a)\n!= (diferente de)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
+    "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
+    "title": "Herramientas para construir gráficas",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nLee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.\n\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare\n\n\nRepite lo mismo con el siguiente código.\n\n\nmis_numeros = 1:10\nmis_booleanos = mis_numeros &gt;= 5\n\nmis_numeros\nmis_booleanos\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#la-cultura-de-programación-prueba-y-error",
@@ -441,18 +441,25 @@
     "text": "ggplot2\n\n\n\n\n\n\n\n\n\nggplot2 es uno de los mejores paquetes gratuitos para construir gráficas.\nEs parte de una colección de paquetes de ciencia de datos llamado tidyverse.\nEstá basado en la Gramática de las Gráficas.\nhttps://ggplot2-book.org/"
   },
   {
-    "objectID": "T1_Introduction/Herramientas.slides.html#instalación",
-    "href": "T1_Introduction/Herramientas.slides.html#instalación",
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-5",
+    "href": "T1_Introduction/Herramientas.slides.html#section-5",
     "title": "Herramientas para construir gráficas",
-    "section": "Instalación",
-    "text": "Instalación\nggplot2 ya está pre-instalada en Google Colab. Simplemente, la cargamos con el siguiente comando.\n\nlibrary(ggplot2)\n\nPara hacer más simple nuestra interacción con ggplot2, usaremos una librería llamada ggformula. Sin embargo, está ggformula no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: install.packages(\"ggformula\")\nUna vez, hecho esto, procedemos a cargar la librería en R\n\nlibrary(ggformula)"
+    "section": "",
+    "text": "ggplot2 ya está pre-instalada en Google Colab.\n\nSimplemente, la cargamos con el siguiente comando.\n\nlibrary(ggplot2)"
   },
   {
-    "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggplot",
-    "href": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggplot",
+    "objectID": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
+    "href": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
     "title": "Herramientas para construir gráficas",
-    "section": "La estructura de ggplot",
-    "text": "La estructura de ggplot\nggplot tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()"
+    "section": "Una librería auxiliar",
+    "text": "Una librería auxiliar\nPara hacer más simple nuestra interacción con ggplot2, usaremos una librería llamada ggformula.\n\nSin embargo, ggformula no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: install.packages(\"ggformula\")\n\nUna vez, hecho esto, procedemos a cargar la librería en R\n\nlibrary(ggformula)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
+    "href": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
+    "title": "Herramientas para construir gráficas",
+    "section": "La estructura de ggformula",
+    "text": "La estructura de ggformula\nggformula tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#ejemplo",
@@ -1674,40 +1681,5 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
-  },
-  {
-    "objectID": "T1_Introduction/Herramientas.slides.html#r",
-    "href": "T1_Introduction/Herramientas.slides.html#r",
-    "title": "Herramientas para construir gráficas",
-    "section": "R",
-    "text": "R\n\n\n\nEs un lenguaje de programación estadística.\nEs gratuito!\nTe permite crear gráficos y hacer computación estadística.\nSe puede extender con paquetes (librerías) desarrolladas por otros usuarios.\n\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
-  },
-  {
-    "objectID": "T1_Introduction/Herramientas.slides.html#operadores-lógicos-comunes",
-    "href": "T1_Introduction/Herramientas.slides.html#operadores-lógicos-comunes",
-    "title": "Herramientas para construir gráficas",
-    "section": "Operadores lógicos comunes",
-    "text": "Operadores lógicos comunes\n\n&gt; (mayor que)\n&gt;= (mayor o igual a que)\n&lt; (menor que)\n&lt;= (menor o igual a que)\n== (igual a)\n!= (diferente de)"
-  },
-  {
-    "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
-    "href": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
-    "title": "Herramientas para construir gráficas",
-    "section": "La estructura de ggformula",
-    "text": "La estructura de ggformula\nggformula tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()"
-  },
-  {
-    "objectID": "T1_Introduction/Herramientas.slides.html#section-5",
-    "href": "T1_Introduction/Herramientas.slides.html#section-5",
-    "title": "Herramientas para construir gráficas",
-    "section": "",
-    "text": "ggplot2 ya está pre-instalada en Google Colab.\n\nSimplemente, la cargamos con el siguiente comando.\n\nlibrary(ggplot2)"
-  },
-  {
-    "objectID": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
-    "href": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
-    "title": "Herramientas para construir gráficas",
-    "section": "Una librería auxiliar",
-    "text": "Una librería auxiliar\nPara hacer más simple nuestra interacción con ggplot2, usaremos una librería llamada ggformula.\n\nSin embargo, ggformula no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: install.packages(\"ggformula\")\n\nUna vez, hecho esto, procedemos a cargar la librería en R\n\nlibrary(ggformula)"
   }
 ]
