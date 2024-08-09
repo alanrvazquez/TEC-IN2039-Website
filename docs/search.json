@@ -200,7 +200,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#agenda",
     "title": "Herramientas para construir gráficas",
     "section": "Agenda",
-    "text": "Agenda\n\n\n\nR Software\n\n\n\n\n\n\n\n\nggplot2\n\n\n\n\n\nEstas diapositivas están basadas en material disponible en https://coursekata.org/"
+    "text": "Agenda\n\n\n\nIntroducción a R\n\n\n\n\n\n\n\n\nCargando datos en R con readxl\n\n\n\n\n\n\n\nGráficas con ggplot2\n\n\n\n\n\n\nEstas diapositivas están basadas en material disponible en https://coursekata.org/"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#r-software",
@@ -214,7 +214,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#r-studio",
     "title": "Herramientas para construir gráficas",
     "section": "R Studio",
-    "text": "R Studio\nR Studio es una interfaz conveniente para R llamada IDE (integrated development environment). Comúnmente, yo digo “Escribo código R en RStudio”\nR Studio no es un requisito para programar con R, pero los programadores y científicos de datos de R lo utilizan con mucha frecuencia."
+    "text": "R Studio\nR Studio es una interfaz conveniente para R llamada IDE (integrated development environment). Comúnmente, decimos “Escribo código R en RStudio”\nR Studio no es un requisito para programar con R, pero los programadores y científicos de datos de R lo utilizan con mucha frecuencia."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#google-colab",
@@ -277,28 +277,28 @@
     "href": "T1_Introduction/Herramientas.slides.html#r-es-exigente",
     "title": "Herramientas para construir gráficas",
     "section": "R es exigente",
-    "text": "R es exigente\nR, al igual que todos los lenguajes de programación, es muy, muy exigente. Por ejemplo, si escribes\n\nsum(1, 100)\n\n[1] 101\n\n\nte dirá la respuesta, 101.\n\nPero si escribes\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\ncon la “s” en mayúscula, ¡actuará como si no tuviera idea de lo que está hablando!\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "R es exigente\nR, al igual que todos los lenguajes de programación, es muy exigente. Por ejemplo, si escribes\n\nsum(1, 100)\n\n[1] 101\n\n\nte dirá la respuesta, 101.\n\nPero si escribes\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\ncon la “s” en mayúscula, ¡actuará como si no tuviera idea de lo que estamos hablando!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#guarda-tu-trabajo-en-objetos-de-r",
     "href": "T1_Introduction/Herramientas.slides.html#guarda-tu-trabajo-en-objetos-de-r",
     "title": "Herramientas para construir gráficas",
     "section": "Guarda tu trabajo en objetos de R",
-    "text": "Guarda tu trabajo en objetos de R\nPrácticamente cualquier cosa, incluidos los resultados de cualquier función de R, se puede guardar en un objeto.\nEsto se logra mediante el uso de un operador de asignación, que se parece a una flecha (&lt;- o =).\n\nPuede inventar cualquier nombre que desees para un objeto R. Sin embargo, hay dos reglas básicas para esto:\n\n\nTiene que ser diferente del nombre de una función en R.\nTiene que ser lo más específico posible."
+    "text": "Guarda tu trabajo en objetos de R\nPrácticamente cualquier cosa, incluidos los resultados de cualquier función de R, se puede guardar en un objeto.\nEsto se logra mediante el uso de un operador de asignación, que puede ser un símbolo de igual (=) o uno que se parece a una flecha (&lt;-).\n\nPuede inventar cualquier nombre que desees para un objeto R. Sin embargo, hay dos reglas básicas para esto:\n\n\nTiene que ser diferente del nombre de una función en R.\nTiene que ser lo más específico posible."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#section-1",
     "href": "T1_Introduction/Herramientas.slides.html#section-1",
     "title": "Herramientas para construir gráficas",
     "section": "",
-    "text": "Por ejemplo,\n\n# Este código asignará el numero 18 al objeto llamado mi_numero_favorito\n\nmi_numero_favorito = 18\n\nDespués de ejecutar este código, no sucede nada. Pero si lo ejecutamos el objeto por si solo, podremos ver lo qua hay en el.\n\nmi_numero_favorito = 18\nmi_numero_favorito\n\n[1] 18\n\n\nTambién puedes usar print(mi_numero_favorito)."
+    "text": "Por ejemplo,\n\n# Este código asignará el numero 18 al objeto llamado mi_numero_favorito\n\nmi_numero_favorito = 18\n\nDespués de ejecutar este código, no sucede nada. Pero si ejecutamos el objeto por si solo, podremos ver lo que hay en el.\n\nmi_numero_favorito = 18\nmi_numero_favorito\n\n[1] 18\n\n\nTambién puedes usar print(mi_numero_favorito)."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#vectores",
     "href": "T1_Introduction/Herramientas.slides.html#vectores",
     "title": "Herramientas para construir gráficas",
     "section": "Vectores",
-    "text": "Vectores\nHasta ahora hemos utilizado objetos R para almacenar un solo número. Pero en estadística estamos tratando con variación, que por definición significa más de un número.\n\nUn objeto R también puede almacenar un conjunto completo de números, llamado vector.\nPuedes pensar en un vector como una lista de números (o valores).\n\n\nLa función c() se puede utilizar para combinar una lista de valores individuales en un vector.\n\npuedes pensar que el c es por combinar"
+    "text": "Vectores\nHasta ahora hemos utilizado objetos R para almacenar un solo número. Pero en estadística estamos tratando con variación, que por definición necesita más de un número.\n\nUn objeto R también puede almacenar un conjunto completo de números, llamado vector.\nPuedes pensar en un vector como una lista de números (o valores).\n\n\nLa función c() se puede utilizar para combinar una lista de valores individuales en un vector.\n\npuedes pensar que el c es por combinar"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#por-ejemplo",
@@ -319,7 +319,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode",
     "title": "Herramientas para construir gráficas",
     "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nEscribe código para dividir el vector mi_vector por 2.\nGuarda el resultado en un nuevo vector llamado mi_nuevo_vector.\nPrueba el siguiente comando sum(mi_nuevo_vector). ¿Qué obtuviste?\n\n\n\n\n−+\n08:00"
+    "text": "Mini-actividad (solo mode)\n\nEscribe código para dividir el vector mi_vector por 2.\nGuarda el resultado en un nuevo vector llamado mi_nuevo_vector.\nPrueba el siguiente comando sum(mi_nuevo_vector). ¿Qué obtuviste?\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#indexación",
@@ -368,7 +368,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#mini-actividad-solo-mode-1",
     "title": "Herramientas para construir gráficas",
     "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nLee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.\n\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare\n\n\nRepite lo mismo con el siguiente código.\n\n\nmis_numeros = 1:10\nmis_booleanos = mis_numeros &gt;= 5\n\nmis_numeros\nmis_booleanos\n\n\n\n\n−+\n10:00"
+    "text": "Mini-actividad (solo mode)\n\nLee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.\n\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare\n\n\nRepite lo mismo con el siguiente código.\n\n\nmis_numeros = 1:10\nmis_booleanos = mis_numeros &gt;= 5\n\nmis_numeros\nmis_booleanos\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#lista-de-operadores-lógicos-comunes",
@@ -389,14 +389,14 @@
     "href": "T1_Introduction/Herramientas.slides.html#librerías-en-r",
     "title": "Herramientas para construir gráficas",
     "section": "Librerías en R",
-    "text": "Librerías en R\n\nLos paquetes son las unidades fundamentales del código R reproducible. Incluyen funciones R re-utilizables, la documentación que describe cómo usarlas y datos de muestra.\nEn septiembre de 2020, hay más de 16, 000 paquetes disponibles en CRAN (la red integral de archivos R)\nTrabajaremos mayormente con las librerías readxl, dplyr, ggplot2, y ggformula."
+    "text": "Librerías en R\n\nLos paquetes son las unidades fundamentales del código R reproducible. Incluyen funciones R re-utilizables, la documentación que describe cómo usarlas y datos de muestra.\nHasta Septiembre de 2020, había ya más de 16,000 paquetes disponibles en CRAN (la red integral de archivos R)\nTrabajaremos mayormente con las librerías readxl, dplyr, ggplot2, y ggformula."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#organización-de-datos",
     "href": "T1_Introduction/Herramientas.slides.html#organización-de-datos",
     "title": "Herramientas para construir gráficas",
     "section": "Organización de datos",
-    "text": "Organización de datos\nEn estadística, organizamos los datos en filas y columnas.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\nLas filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de casa en este conjunto de datos.\n\n\nDependiendo del estudio, las filas podrían ser personas, estados, parejas, ratones, cualquier caso del que tomes una muestra para estudiarlo."
+    "text": "Organización de datos\nEn estadística, organizamos los datos en filas y columnas.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\nLas filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de llaves en este conjunto de datos.\n\n\nDependiendo del estudio, las filas podrían ser personas, estados, parejas, ratones, cualquier caso del que tomes una muestra para estudiarlo."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#section-2",
@@ -410,7 +410,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#section-3",
     "title": "Herramientas para construir gráficas",
     "section": "",
-    "text": "Existen otras variables como la edad del ama de llaves (Age), el peso antes de iniciar el estudio (Wt), y su peso al final del estudio (Wt2, medido cuatro semanas después).\n\nPor lo tanto, los valores en cada fila representan los valores de ese caso particular en cada una de las variables medidas.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?"
+    "text": "Existen otras variables como la edad del ama de llaves (Age), el peso antes de iniciar el estudio (Wt), y su peso al final del estudio (Wt2), medido cuatro semanas después.\n\nPor lo tanto, los valores en cada fila representan los valores de ese caso particular en cada una de las variables medidas.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#cargar-datos-en-r",
@@ -424,14 +424,14 @@
     "href": "T1_Introduction/Herramientas.slides.html#librería-readxl",
     "title": "Herramientas para construir gráficas",
     "section": "Librería readxl",
-    "text": "Librería readxl\n\n\nPara cargar datos en R, usaremos la librería llamada readxl. Primero, debes de instalar esta librería en R utilizando el comando install.packages(\"readxl\")\n\n\n\n\n\n\n\n\n Una vez instalada la librería, la cargamos en R usando el siguiente comando.\n\nlibrary(readxl)"
+    "text": "Librería readxl\n\n\nPara cargar datos en R, usaremos la librería llamada readxl. Por fortuna, la librería ya viene pre-instalada en Google Colab.\n\n\n\n\n\n\n\n\nSin embargo, debemos informar a Google Colab que queremos usar readxl y sus funciones. Cargarmos la librería en R usando el siguiente comando.\n\nlibrary(readxl)"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#section-4",
     "href": "T1_Introduction/Herramientas.slides.html#section-4",
     "title": "Herramientas para construir gráficas",
     "section": "",
-    "text": "El siguiente código muestra como leer los datos en el archivo penguins.xlsx en R.\n\npenguins_data &lt;- read_excel(\"penguins.xlsx\")\n\n# Imprime las primeras 6 filas de los datos.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+    "text": "El siguiente código muestra como leer los datos en el archivo penguins.xlsx en R.\n\npenguins_data = read_excel(\"penguins.xlsx\")\n\n# Imprime las primeras 6 filas de los datos.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#ggplot2-1",
@@ -445,7 +445,7 @@
     "href": "T1_Introduction/Herramientas.slides.html#instalación",
     "title": "Herramientas para construir gráficas",
     "section": "Instalación",
-    "text": "Instalación\n\n\n\nInstala la librería usando el comando install.packages(\"ggplot2\")\n\n\n\n\n\n\n\n\n\n\nInstala una librería auxiliar install.packages(\"ggformula\")\n\n3. Carga ambas librerías en R usando el siguiente código.\n\nlibrary(ggplot2)\nlibrary(ggformula)"
+    "text": "Instalación\nggplot2 ya está pre-instalada en Google Colab. Simplemente, la cargamos con el siguiente comando.\n\nlibrary(ggplot2)\n\nPara hacer más simple nuestra interacción con ggplot2, usaremos una librería llamada ggformula. Sin embargo, está ggformula no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: install.packages(\"ggformula\")\nUna vez, hecho esto, procedemos a cargar la librería en R\n\nlibrary(ggformula)"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggplot",
@@ -1674,5 +1674,40 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#r",
+    "href": "T1_Introduction/Herramientas.slides.html#r",
+    "title": "Herramientas para construir gráficas",
+    "section": "R",
+    "text": "R\n\n\n\nEs un lenguaje de programación estadística.\nEs gratuito!\nTe permite crear gráficos y hacer computación estadística.\nSe puede extender con paquetes (librerías) desarrolladas por otros usuarios.\n\n\n\n\n\n\n\n\n\n\nPara hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.\nEl conocer r te ayudara a tu CV porque, después de este curso, puedes poner conocimiento básico de analysis de datos con R."
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#operadores-lógicos-comunes",
+    "href": "T1_Introduction/Herramientas.slides.html#operadores-lógicos-comunes",
+    "title": "Herramientas para construir gráficas",
+    "section": "Operadores lógicos comunes",
+    "text": "Operadores lógicos comunes\n\n&gt; (mayor que)\n&gt;= (mayor o igual a que)\n&lt; (menor que)\n&lt;= (menor o igual a que)\n== (igual a)\n!= (diferente de)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
+    "href": "T1_Introduction/Herramientas.slides.html#la-estructura-de-ggformula",
+    "title": "Herramientas para construir gráficas",
+    "section": "La estructura de ggformula",
+    "text": "La estructura de ggformula\nggformula tiene una estructura para crear gráficas por pasos.\ngf_PLOTTYPE(Variable2 ~ Variable1, data = my_data, color = ~Variable3, shape = ~Variable4)\n+ labs(title, subtitle, caption, x, y, color, shape)\n+ more_options()"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#section-5",
+    "href": "T1_Introduction/Herramientas.slides.html#section-5",
+    "title": "Herramientas para construir gráficas",
+    "section": "",
+    "text": "ggplot2 ya está pre-instalada en Google Colab.\n\nSimplemente, la cargamos con el siguiente comando.\n\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
+    "href": "T1_Introduction/Herramientas.slides.html#una-librería-auxiliar",
+    "title": "Herramientas para construir gráficas",
+    "section": "Una librería auxiliar",
+    "text": "Una librería auxiliar\nPara hacer más simple nuestra interacción con ggplot2, usaremos una librería llamada ggformula.\n\nSin embargo, ggformula no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: install.packages(\"ggformula\")\n\nUna vez, hecho esto, procedemos a cargar la librería en R\n\nlibrary(ggformula)"
   }
 ]

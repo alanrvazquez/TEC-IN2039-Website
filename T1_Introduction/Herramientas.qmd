@@ -19,15 +19,24 @@ editor: visual
 
 ::: columns
 ::: {.column width="50%"}
-1.  R Software
+1.  Introducción a R
 
-    ![](images/clipboard-148304512.png){fig-align="center" width="281"}
+    ![](images/clipboard-148304512.png){fig-align="center" width="150"}
 :::
 
 ::: {.column width="50%"}
-2.  ggplot2
+2.  Cargando datos en R con **readxl**
 
-    ![](images/clipboard-4021595969.png){width="265"}
+    ![](images/clipboard-2627775172.png){width="170"}
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+3.  Gráficas con **ggplot2**
+:::
+::: {.column width="50%"}
+![](images/clipboard-4021595969.png){width="140"}
 :::
 :::
 
@@ -35,11 +44,11 @@ editor: visual
 Estas diapositivas están basadas en material disponible en <https://coursekata.org/>
 :::
 
-## R software
+## R 
 
 ::: columns
 ::: {.column width="70%"}
--   R es un lenguaje de programación estadística.
+-   Es un lenguaje de programación estadística.
 
 -   Es gratuito!
 
@@ -61,7 +70,7 @@ El conocer r te ayudara a tu CV porque, después de este curso, puedes poner con
 
 ## R Studio
 
-R Studio es una interfaz conveniente para R llamada IDE (*integrated development environment*). Comúnmente, yo digo "Escribo código R en RStudio"
+R Studio es una interfaz conveniente para R llamada IDE (*integrated development environment*). Comúnmente, decimos "Escribo código R en RStudio"
 
 R Studio no es un requisito para programar con R, pero los programadores y científicos de datos de R lo utilizan con mucha frecuencia.
 
@@ -182,7 +191,7 @@ Las funciones tienen dos partes básicas:
 
 ## R es exigente
 
-R, al igual que todos los lenguajes de programación, es muy, muy exigente. Por ejemplo, si escribes
+R, al igual que todos los lenguajes de programación, es muy exigente. Por ejemplo, si escribes
 
 ```{r}
 #| echo: true
@@ -201,7 +210,7 @@ Pero si escribes
 Sum(1, 100)
 ```
 
-con la “s” en mayúscula, ¡actuará como si no tuviera idea de lo que está hablando!
+con la “s” en mayúscula, ¡actuará como si no tuviera idea de lo que estamos hablando!
 
 ::: notes
 lo mismo si olvidas incluir un parentesis
@@ -211,7 +220,7 @@ lo mismo si olvidas incluir un parentesis
 
 Prácticamente cualquier cosa, incluidos los resultados de cualquier función de R, se puede guardar en un *objeto*.
 
-Esto se logra mediante el uso de un operador de asignación, que se parece a una flecha (`<-` o `=`).
+Esto se logra mediante el uso de un operador de asignación, que puede ser un símbolo de igual (`=`) o uno que se parece a una flecha (`<-`).
 
 . . .
 
@@ -234,7 +243,7 @@ Por ejemplo,
 mi_numero_favorito = 18
 ```
 
-Después de ejecutar este código, no sucede nada. Pero si lo ejecutamos el objeto por si solo, podremos ver lo qua hay en el.
+Después de ejecutar este código, no sucede nada. Pero si ejecutamos el objeto por si solo, podremos ver lo que hay en el.
 
 ```{r}
 #| echo: true
@@ -248,7 +257,7 @@ También puedes usar `print(mi_numero_favorito)`.
 
 ## Vectores
 
-Hasta ahora hemos utilizado objetos R para almacenar un solo número. Pero en estadística estamos tratando con variación, que por definición significa más de un número.
+Hasta ahora hemos utilizado objetos R para almacenar un solo número. Pero en estadística estamos tratando con variación, que por definición necesita más de un número.
 
 . . .
 
@@ -306,16 +315,6 @@ A pesar de que multiplicaste el vector por un valor, este no se modifica.
 mi_vector
 ```
 
-## Mini-actividad (*solo* mode)
-
-1.  Escribe código para dividir el vector `mi_vector` por 2.
-2.  Guarda el resultado en un nuevo vector llamado `mi_nuevo_vector`.
-3.  Prueba el siguiente comando `sum(mi_nuevo_vector)`. ¿Qué obtuviste?
-
-```{r}
-countdown::countdown(minutes = 8)
-```
-
 ## Indexación
 
 Podemos indexar una posición en el vector usando corchetes con un número como este: `[1]`.
@@ -327,6 +326,18 @@ Entonces, si quisiéramos imprimir el contenido de la primera posición en `mi_v
 
 mi_vector[1]
 ```
+
+
+## Mini-actividad (*solo* mode)
+
+1.  Escribe código para dividir el vector `mi_vector` por 2.
+2.  Guarda el resultado en un nuevo vector llamado `mi_nuevo_vector`.
+3.  Prueba el siguiente comando `sum(mi_nuevo_vector)`. ¿Qué obtuviste?
+
+```{r}
+countdown::countdown(minutes = 5)
+```
+
 
 ## Un poco más sobre objetos en R
 
@@ -414,6 +425,21 @@ El doble `==` signo comprueba si dos valores son iguales. Incluso existe un oper
 
 Por ejemplo, `5 != 3` es una declaración `TRUE`.
 
+## Lista de operadores lógicos comunes
+
+-   `>` (*mayor que*)
+
+-   `>=` (*mayor o igual a que*)
+
+-   `<` (*menor que*)
+
+-   `<=` (*menor o igual a que*)
+
+-   `==` (*igual a*)
+
+-   `!=` (*diferente de*)
+
+
 ## Mini-actividad (*solo* mode)
 
 1.  Lee este código y predice su respuesta. Después, corre el código en Google Colab y valida si estabas en lo correcto.
@@ -443,22 +469,8 @@ mis_booleanos
 ```
 
 ```{r}
-countdown::countdown(minutes = 10)
+countdown::countdown(minutes = 5)
 ```
-
-## Lista de operadores lógicos comunes
-
--   `>` (*mayor que*)
-
--   `>=` (*mayor o igual a que*)
-
--   `<` (*menor que*)
-
--   `<=` (*menor o igual a que*)
-
--   `==` (*igual a*)
-
--   `!=` (*diferente de*)
 
 ## La cultura de programación: Prueba y error
 
@@ -472,7 +484,7 @@ A menudo tenemos que encontrar estos errores mediante prueba y error.
 
 -   Los paquetes son las unidades fundamentales del código R reproducible. Incluyen funciones R re-utilizables, la documentación que describe cómo usarlas y datos de muestra.
 
--   En septiembre de 2020, hay más de 16, 000 paquetes disponibles en CRAN (la red integral de archivos R)
+-   Hasta Septiembre de 2020, había ya más de 16,000 paquetes disponibles en CRAN (la red integral de archivos R)
 
 -   Trabajaremos mayormente con las librerías `readxl`, `dplyr`, `ggplot2`, y `ggformula`.
 
@@ -496,7 +508,7 @@ En estadística, organizamos los datos en filas y columnas.
 
 . . .
 
-Las filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de casa en este conjunto de datos.
+Las filas son los casos muestreados. En este ejemplo, las filas son amas de llaves de diferentes hoteles. Hay seis filas, por lo que hay seis amas de llaves en este conjunto de datos.
 
 . . .
 
@@ -536,7 +548,7 @@ Entonces una de las variables, `Condition`, indica si fueron informados de este 
 
 ## 
 
-Existen otras variables como la edad del ama de llaves (`Age`), el peso antes de iniciar el estudio (`Wt`), y su peso al final del estudio (`Wt2`, medido cuatro semanas después).
+Existen otras variables como la edad del ama de llaves (`Age`), el peso antes de iniciar el estudio (`Wt`), y su peso al final del estudio (`Wt2`), medido cuatro semanas después.
 
 <br/>
 
@@ -574,11 +586,11 @@ En este curso, asumiremos que los datos están almacenados en un archivo Excel c
 [***El archivo debe de ser previamente cargado en Google Colab.***]{style="color:red;"}
 :::
 
-## Librería `readxl`
+## Librería readxl
 
 ::: columns
 ::: {.column width="70%"}
-Para cargar datos en R, usaremos la librería llamada `readxl`. Primero, debes de instalar esta librería en R utilizando el comando `install.packages("readxl")`
+Para cargar datos en R, usaremos la librería llamada **readxl**. Por fortuna, la librería ya viene pre-instalada en Google Colab.
 :::
 
 ::: {.column width="30%"}
@@ -586,7 +598,7 @@ Para cargar datos en R, usaremos la librería llamada `readxl`. Primero, debes d
 :::
 :::
 
-<br/> Una vez instalada la librería, la cargamos en R usando el siguiente comando.
+Sin embargo, debemos informar a Google Colab que queremos usar **readxl** y sus funciones. Cargarmos la librería en R usando el siguiente comando.
 
 ```{r}
 #| echo: true
@@ -602,7 +614,7 @@ El siguiente código muestra como leer los datos en el archivo `penguins.xlsx` e
 #| output: true
 #| echo: true
 
-penguins_data <- read_excel("penguins.xlsx")
+penguins_data = read_excel("penguins.xlsx")
 
 # Imprime las primeras 6 filas de los datos.
 head(penguins_data)
@@ -610,7 +622,7 @@ head(penguins_data)
 
 # ggplot2
 
-## `ggplot2`
+## ggplot2
 
 ::: columns
 ::: {.column width="50%"}
@@ -625,32 +637,41 @@ head(penguins_data)
 :::
 :::
 
-## Instalación
+## 
 
-::: columns
-::: {.column width="80%"}
-1.  Instala la librería usando el comando `install.packages("ggplot2")`
-:::
+**ggplot2** ya está pre-instalada en Google Colab. 
 
-::: {.column width="20%"}
-![](images/clipboard-4021595969.png){fig-align="right" width="146"}
-:::
-:::
+</br>
 
-2.  Instala una librería auxiliar `install.packages("ggformula")`
-
-3\. Carga ambas librerías en R usando el siguiente código.
+Simplemente, la cargamos con el siguiente comando.
 
 ```{r}
 #| echo: true
 
 library(ggplot2)
+```
+
+## Una librería auxiliar
+
+Para hacer más simple nuestra interacción con **ggplot2**, usaremos una librería llamada **ggformula**. 
+
+</br>
+
+Sin embargo, **ggformula** no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: `install.packages("ggformula")`
+
+</br>
+
+Una vez, hecho esto, procedemos a cargar la librería en R
+
+```{r}
+#| echo: true
+
 library(ggformula)
 ```
 
-## La estructura de ggplot
+## La estructura de ggformula
 
-ggplot tiene una estructura para crear gráficas por pasos.
+**ggformula** tiene una estructura para crear gráficas por pasos.
 
 [gf_PLOTTYPE(Variable2 \~ Variable1, data = my_data, color = \~Variable3, shape = \~Variable4)]{style="color:#619CFF;"}
 
