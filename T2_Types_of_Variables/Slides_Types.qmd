@@ -226,20 +226,14 @@ También hay otros tres tipos especiales de variables:
 
 Más adelante veremos como transformar una variable `chr` en `fctr`.
 
-## Mini-actividad (*cooperative* mode)
+## Actividad (*solo* mode)
 
-1.  Ve al repositorio de conjuntos de datos de la Universidad de California en Irvine: <https://archive.ics.uci.edu/>
+1.  Ve a la sección de **Módulos** en nuestra página de CANVAS.
 
-2.  Explora el sitio y busca un conjunto de datos que incluya al menos una variable numérica y una categórica.
-
-3.  Descarga los datos y transforma el archivo en un archivo de excel (.xlsx) si es necesario.
-
-4.  Sube los datos a un archivo de Google Colab y cárgalos en R usando las funciones antes vistas.
-
-5.  Describe el tipo de variables en el conjunto de datos.
+2.  Realiza la [**Actividad 2.1: Tipos de Variable**]{style="color:darkblue;"} individualmente.
 
 ```{r}
-countdown::countdown(minutes = 30)
+countdown::countdown(minutes = 20)
 ```
 
 # dplyr
