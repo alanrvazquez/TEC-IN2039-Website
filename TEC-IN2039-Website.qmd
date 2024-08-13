@@ -12,7 +12,7 @@ author:
 
 1.  Introducción ([slides](/T1_Introduction/Introduccion.slides.html))
 2.  Herramientas ([slides](/T1_Introduction/Herramientas.slides.html)) ([colab](https://drive.google.com/file/d/1VwqGFnJ1k2A7GYPc5SCP9BXpSK1DIvV5/view?usp=sharing))
-3.  Tipos de Variable ([slides](/T2_Types_of_Variables/Slides_Types.slides.html)) ([colab](https://drive.google.com/file/d/1qislqsWfymnjqzcKHzt7eTaXHDcjrfRt/view?usp=sharing))
+3.  Tipos de Variable ([slides](/T2_Types_of_Variables/Slides_Types.slides.html)) ([colab](https://drive.google.com/file/d/1qislqsWfymnjqzcKHzt7eTaXHDcjrfRt/view?usp=sharing)) ([**dplyr** cheat sheet](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf))
 4.  Variables Categóricas ([slides](/T3_Categorical_Data/Slides_Categorical.slides.html)) ([colab](https://drive.google.com/file/d/1WHunI2M0mlTOJhXRlgzw0Q4LJ9cEEPBg/view?usp=sharing))
 5.  Variables Numéricas ([slides](/T4_Numerical_Data/Slides_Numerical.slides.html)) ([colab](https://drive.google.com/file/d/1WexwLHB0sY14umxsuF-DfsbxGH_CgnnZ/view?usp=sharing))
 6.  Datos de Múltiples Variables ([slides](/T5_Multivariate_Data/Slides_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WfAsvSng0tZGVZV3XmFrrEIlPuqnYPBa/view?usp=sharing))
