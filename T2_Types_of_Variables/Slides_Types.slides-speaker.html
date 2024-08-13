@@ -496,8 +496,8 @@ Alan R. Vázquez
 <div class="fragment">
 <table class="caption-top">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -564,7 +564,7 @@ Alan R. Vázquez
 <ul>
 <li class="fragment">Talla de camiseta (pequeña, mediana, grande).</li>
 <li class="fragment">Nivel de educación (secundaria, universidad, posgrado).</li>
-<li class="fragment">Nivel de ingreso (menos de $50K, $550k-$5100K, mas de $100K).</li>
+<li class="fragment">Nivel de ingreso (menos de $250K, $250k-$500K, mas de $500K).</li>
 </ul>
 </div>
 <aside class="notes">
@@ -678,7 +678,7 @@ Alan R. Vázquez
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_43f3051f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e0e53ed5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -839,33 +839,11 @@ Alan R. Vázquez
 </section>
 <section id="arrange" class="slide level2">
 <h2><code>arrange()</code></h2>
-<p>Podemos ordenar los datos en función de una columna, digamos <code>bill_length_mm</code>. Para ordenar de forma descendente usamos <code>desc(bill_length_mm)</code> en <code>arrange()</code>.</p>
+<p>Podemos ordenar los datos en función de una columna, digamos <code>bill_length_mm</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_length_mm)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">arrange</span>(bill_length_mm) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-3"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Gentoo    Biscoe           59.6          17                 230        6050
-2 Chinstrap Dream            58            17.8               181        3700
-3 Gentoo    Biscoe           55.9          17                 228        5600
-4 Chinstrap Dream            55.8          19.8               207        4000
-5 Gentoo    Biscoe           55.1          16                 230        5850
-6 Gentoo    Biscoe           54.3          15.7               231        5650
-# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<p>Para ordenar de forma ascendente usamos</p>
-<p><code>desc(-bill_length_mm)</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="sc">-</span>bill_length_mm)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -876,6 +854,27 @@ Alan R. Vázquez
 4 Adelie  Dream               34            17.1               185        3400
 5 Adelie  Torgersen           34.1          18.1               193        3475
 6 Adelie  Torgersen           34.4          18.4               184        3325
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Para ordenar de forma descendente usamos <code>desc(bill_length_mm)</code> en <code>arrange()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_length_mm)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo    Biscoe           59.6          17                 230        6050
+2 Chinstrap Dream            58            17.8               181        3700
+3 Gentoo    Biscoe           55.9          17                 228        5600
+4 Chinstrap Dream            55.8          19.8               207        4000
+5 Gentoo    Biscoe           55.1          16                 230        5850
+6 Gentoo    Biscoe           54.3          15.7               231        5650
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>

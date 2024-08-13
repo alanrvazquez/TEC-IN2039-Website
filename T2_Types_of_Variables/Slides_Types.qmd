@@ -103,7 +103,7 @@ Toman valores que se colocan en *categorías*.
 . . .
 
 |                  |                                                                 |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | **Variable**     | **Categorias**                                                  |
 | Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | País de origen   | México, Canadá, EUA                                             |
@@ -145,7 +145,7 @@ Por ejemplo:
 ::: incremental
 -   Talla de camiseta (pequeña, mediana, grande).
 -   Nivel de educación (secundaria, universidad, posgrado).
--   Nivel de ingreso (menos de \$50K, \$550k-\$5100K, mas de \$100K).
+-   Nivel de ingreso (menos de \$250K, \$250k-\$500K, mas de \$500K).
 :::
 
 ::: notes
@@ -286,6 +286,7 @@ La grámatica para usar pipe es la siguiente:
 
 -   `summarise()` reduce múltiples valores a un único resumen numérico.
 :::
+
 ## 
 
 ![](images/clipboard-2829866229.png){fig-align="center"}
@@ -357,7 +358,20 @@ penguins_data %>%
 
 ## `arrange()`
 
-Podemos ordenar los datos en función de una columna, digamos `bill_length_mm`. Para ordenar de forma descendente usamos `desc(bill_length_mm)` en `arrange()`.
+Podemos ordenar los datos en función de una columna, digamos `bill_length_mm`. 
+
+```{r}
+#| eval: true
+#| echo: true
+
+penguins_data %>% 
+  arrange(bill_length_mm) %>% 
+  head()
+```
+
+## 
+
+Para ordenar de forma descendente usamos `desc(bill_length_mm)` en `arrange()`.
 
 ```{r}
 #| eval: true
@@ -365,21 +379,6 @@ Podemos ordenar los datos en función de una columna, digamos `bill_length_mm`. 
 
 penguins_data %>% 
   arrange(desc(bill_length_mm)) %>% 
-  head()
-```
-
-## 
-
-Para ordenar de forma ascendente usamos
-
-`desc(-bill_length_mm)`.
-
-```{r}
-#| eval: true
-#| echo: true
-
-penguins_data %>% 
-  arrange(desc(-bill_length_mm)) %>% 
   head()
 ```
 
