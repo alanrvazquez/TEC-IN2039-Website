@@ -1148,7 +1148,7 @@
     "href": "T2_Types_of_Variables/Slides_Types.slides.html#select",
     "title": "Tipos de Variables",
     "section": "select()",
-    "text": "select()\nSelecciona las columnas species, body_mass_g y sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex)\n\n# A tibble: 344 × 3\n   species body_mass_g sex   \n   &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n 1 Adelie         3750 male  \n 2 Adelie         3800 female\n 3 Adelie         3250 female\n 4 Adelie           NA &lt;NA&gt;  \n 5 Adelie         3450 female\n 6 Adelie         3650 male  \n 7 Adelie         3625 female\n 8 Adelie         4675 male  \n 9 Adelie         3475 NA    \n10 Adelie         4250 NA    \n# ℹ 334 more rows"
+    "text": "select()\nSelecciona las columnas species, body_mass_g y sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex) %&gt;% head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Adelie         3750 male  \n2 Adelie         3800 female\n3 Adelie         3250 female\n4 Adelie           NA &lt;NA&gt;  \n5 Adelie         3450 female\n6 Adelie         3650 male"
   },
   {
     "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#select-y-filter",
@@ -1695,5 +1695,19 @@
     "title": "Tipos de Variables",
     "section": "Actividad (solo mode)",
     "text": "Actividad (solo mode)\n\nVe a la sección de Módulos en nuestra página de CANVAS.\nRealiza la Actividad 2.1: Tipos de Variable individualmente.\n\n\n\n\n−+\n20:00"
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#los-verbos-de-dplyr",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#los-verbos-de-dplyr",
+    "title": "Tipos de Variables",
+    "section": "Los verbos de dplyr",
+    "text": "Los verbos de dplyr\ndplyr es una gramática de manipulación de datos que proporciona un conjunto de verbos (funciones) para resolver los desafíos más comunes de manipulación de datos:\n\n\nfilter() selecciona observaciones según sus valores.\nselect() selecciona variables según sus nombres.\nmutate() agrega nuevas variables que son funciones de variables existentes\narrange() cambia el orden de las filas.\nsummarise() reduce múltiples valores a un único resumen numérico."
+  },
+  {
+    "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#guardando-en-nuevos-objetos",
+    "href": "T2_Types_of_Variables/Slides_Types.slides.html#guardando-en-nuevos-objetos",
+    "title": "Tipos de Variables",
+    "section": "Guardando en nuevos objetos",
+    "text": "Guardando en nuevos objetos\nDespués de las operaciones en nuestros datos, podemos guardar el conjunto de datos resultante en otro objeto.\n\nresumen_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\nY aplicar los verbos de dplyr al nuevo objeto.\n\nresumen_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202."
   }
 ]

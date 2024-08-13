@@ -271,11 +271,12 @@ La grámatica para usar pipe es la siguiente:
 
 ![](images/clipboard-3314164992.png){fig-align="center"}
 
-## Otras funciones de dplyr
+## Los verbos de dplyr
 
-**dplyr** es una gramática de manipulación de datos que proporciona un conjunto coherente de verbos que le ayudan a resolver los desafíos más comunes de manipulación de datos:
+**dplyr** es una gramática de manipulación de datos que proporciona un conjunto de verbos (funciones) para resolver los desafíos más comunes de manipulación de datos:
 
--   `filter()` selecciona casos según sus valores.
+::: incremental
+-   `filter()` selecciona observaciones según sus valores.
 
 -   `select()` selecciona variables según sus nombres.
 
@@ -283,8 +284,8 @@ La grámatica para usar pipe es la siguiente:
 
 -   `arrange()` cambia el orden de las filas.
 
--   `summarise()` reduce múltiples valores a un único resumen.
-
+-   `summarise()` reduce múltiples valores a un único resumen numérico.
+:::
 ## 
 
 ![](images/clipboard-2829866229.png){fig-align="center"}
@@ -323,7 +324,7 @@ Selecciona las columnas `species`, `body_mass_g` y `sex`.
 #| eval: true
 #| echo: true
 
-penguins_data %>% select(species, body_mass_g, sex)
+penguins_data %>% select(species, body_mass_g, sex) %>% head()
 ```
 
 ## `select()` y `filter()`
@@ -398,6 +399,30 @@ penguins_data %>%
 ```
 
 > El argumento `na.rm == TRUE` permite ignorar los datos faltantes.
+
+## Guardando en nuevos objetos
+
+Después de las operaciones en nuestros datos, podemos guardar el conjunto de datos resultante en otro objeto.
+
+```{r}
+#| eval: true
+#| echo: true
+
+resumen_penguins_data = penguins_data %>%
+  select(bill_length_mm, bill_depth_mm, body_mass_g) %>%
+  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),
+            PromDepth = mean(bill_depth_mm, na.rm = TRUE),
+            PromMass = mean(body_mass_g, na.rm = TRUE))
+```
+
+Y aplicar los verbos de **dplyr** al nuevo objeto.
+
+```{r}
+#| eval: true
+#| echo: true
+
+resumen_penguins_data %>% head()
+```
 
 ## Comentarios finales
 
