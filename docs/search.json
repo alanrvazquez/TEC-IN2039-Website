@@ -1022,7 +1022,7 @@
     "href": "T2_Types_of_Variables/Slides_Types.slides.html#section",
     "title": "Tipos de Variables",
     "section": "",
-    "text": "Continuas: variables con un número de valores diferentes infinito (o muy muy grande).\n\n\nPor ejemplo:\n\nAltura de una persona (puede estar en el rango de 1.60 m a 1.85 m)\nTemperatura ambiente (puede estar en el rango de -30 \\(^\\circ\\)C a 50 \\(^\\circ\\)C)\nTiempo que tarda un Uber en llegar (entre 5 y 60 minutos)"
+    "text": "Continuas: variables con un número muy grande de posibles valores.\n\n\nPor ejemplo:\n\nAltura de una persona (puede estar en el rango de 1.60 m a 1.85 m)\nTemperatura ambiente (puede estar en el rango de -30 \\(^\\circ\\)C a 50 \\(^\\circ\\)C)\nTiempo que tarda un Uber en llegar (entre 5 y 60 minutos)"
   },
   {
     "objectID": "T2_Types_of_Variables/Slides_Types.slides.html#variables-categóricas",
