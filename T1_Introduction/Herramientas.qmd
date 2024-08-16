@@ -35,6 +35,7 @@ editor: visual
 ::: {.column width="50%"}
 3.  Gráficas con **ggplot2**
 :::
+
 ::: {.column width="50%"}
 ![](images/clipboard-4021595969.png){width="140"}
 :::
@@ -44,7 +45,7 @@ editor: visual
 Estas diapositivas están basadas en material disponible en <https://coursekata.org/>
 :::
 
-## R 
+## R
 
 ::: columns
 ::: {.column width="70%"}
@@ -327,7 +328,6 @@ Entonces, si quisiéramos imprimir el contenido de la primera posición en `mi_v
 mi_vector[1]
 ```
 
-
 ## Mini-actividad (*solo* mode)
 
 1.  Escribe código para dividir el vector `mi_vector` por 2.
@@ -337,7 +337,6 @@ mi_vector[1]
 ```{r}
 countdown::countdown(minutes = 5)
 ```
-
 
 ## Un poco más sobre objetos en R
 
@@ -438,7 +437,6 @@ Por ejemplo, `5 != 3` es una declaración `TRUE`.
 -   `==` (*igual a*)
 
 -   `!=` (*diferente de*)
-
 
 ## Mini-actividad (*solo* mode)
 
@@ -639,7 +637,7 @@ head(penguins_data)
 
 ## 
 
-**ggplot2** ya está pre-instalada en Google Colab. 
+**ggplot2** ya está pre-instalada en Google Colab.
 
 </br>
 
@@ -653,7 +651,7 @@ library(ggplot2)
 
 ## Una librería auxiliar
 
-Para hacer más simple nuestra interacción con **ggplot2**, usaremos una librería llamada **ggformula**. 
+Para hacer más simple nuestra interacción con **ggplot2**, usaremos una librería llamada **ggformula**.
 
 </br>
 

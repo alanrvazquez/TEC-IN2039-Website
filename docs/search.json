@@ -4,7 +4,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#agenda",
     "title": "Variables Categóricas",
     "section": "Agenda",
-    "text": "Agenda\nEnfocarnos en 1 variable categórica.\n\n\nIntroducción\nResúmenes estadísticos\nGráfica de barras\nTransformando variables categóricas\nActividad: Gráfica circular"
+    "text": "Agenda\nEnfocarnos en 1 variable categórica.\n\n\nIntroducción\nResúmenes estadísticos\nGráfica de barras\nGráfica circular y Actividad\nTransformando variables categóricas"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#primero-lo-primero",
@@ -46,7 +46,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-1",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Ahora, las etiquetas de las variables son fct.\n\npenguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor) %&gt;% \n  select(species, island, sex) %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+    "text": "Ahora, las etiquetas de las variables son fct.\n\npenguins_data %&gt;% \n  select(species, island, sex) %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#resúmenes-estadísticos-1",
@@ -193,7 +193,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
     "title": "Variables Categóricas",
     "section": "Actividad (solo mode)",
-    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 y ggformula en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data."
+    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 y ggformula en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data.\n\n\n\n\n−+\n20:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#agenda",
@@ -1702,5 +1702,26 @@
     "title": "Variables Categóricas",
     "section": "",
     "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
+    "title": "Variables Categóricas",
+    "section": "Colapsando categorías",
+    "text": "Colapsando categorías\nAlgunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica.\nUna estrategia para desarrollar una visualización efectiva es colapsar categorías.\nPor ejemplo, en la variable rad, podemos collapsar las categorías Medium y High en una sola categoría llamada Other."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Para colapsar categorías en dplyr, usamos la función case_when() junto con mutate(). La función case_when() permite remplazar categorías usando expreciones lógicas en variables específicas.\n\nBoston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\")) %&gt;% \n      head()\n\n# A tibble: 6 × 14\n     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "El colapsamiento de categorías simplifica nuestra gráfica.\n\nBoston_dataset_simple = Boston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\ngf_percents( ~ rad, data = Boston_dataset_simple)\n\n\nTambién, nos permite enfatizar alguna categoría como Low y ver se compara con las otras categorías (como un todo)."
   }
 ]
