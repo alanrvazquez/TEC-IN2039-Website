@@ -63,6 +63,13 @@
     "text": "Tabla de Frecuencia\nResume una variable categórica contando los valores por categoría.\n\n\n\nEspecie\nFrecuencia\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\nFrecuencia: Número de observaciones en cada categoría.\nTotal: Suma total de observaciones.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
   },
   {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
+    "title": "Variables Categóricas",
+    "section": "Tabla de frecuencia en R",
+    "text": "Tabla de frecuencia en R\nPara construir una tabla de frecuencia en dplyr, usamos las funciones group_by(), summarise(), y n().\nLa función group_by() toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan “por grupo”.\nLa función n() cuenta los valores de una categoría.\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())"
+  },
+  {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
     "title": "Variables Categóricas",
@@ -105,6 +112,20 @@
     "text": "Ejemplo: Mejorando la gráfica\nUsando las herramientas para gráficos en ggplot, podemos mejorar el código anterior para que la gráfica se vea así."
   },
   {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
+    "title": "Variables Categóricas",
+    "section": "Gráfica circular o de pastel",
+    "text": "Gráfica circular o de pastel\n\n\n\n\nSe construye dividiendo un círculo en varias porciones que representan las categorías de la variable.\nEl diámetro del círculo comprendido por una categoría es su frecuencia relativa.\nPermite dar un vistazo rápido a las proporciones de cada categoría.\n\n\n\n\n\n\n\nPie charts versus bar charts.\nBar charts can serve as a good way to show comparisons between categories. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
+    "title": "Variables Categóricas",
+    "section": "Actividad (solo mode)",
+    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 y ggformula en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data.\n\n\n\n\n−+\n20:00"
+  },
+  {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#aplica-el-principio-3",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#aplica-el-principio-3",
     "title": "Variables Categóricas",
@@ -124,6 +145,13 @@
     "title": "Variables Categóricas",
     "section": "",
     "text": "Los datos están en Boston_dataset.xlsx. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.\n\nBoston_dataset = read_excel(\"Boston_dataset.xlsx\")\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus  chas   nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31     0 0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07     0 0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07     0 0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18     0 0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18     0 0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18     0 0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Nos concentraremos en las siguientes variables:\n\nchas : Si la casa limita con el río Charles (1: Si y 0: No)\nrad : Indice de accesibilidad a carreteras radiales (Low, Medium, High)."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#recuerda",
@@ -147,11 +175,11 @@
     "text": "Re-etiquetado categorías\nLo mejor es re-nombrar las categorías de la variable chas para que la gráfica de barras de mas información al usuario.\n\nVerifica los nombres de las categorías en la variable usando la función unique().\n\n\nBoston_dataset %&gt;% select(chas) %&gt;% unique()\n\n# A tibble: 2 × 1\n  chas \n  &lt;fct&gt;\n1 0    \n2 1"
   },
   {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Nos concentraremos en las siguientes variables:\n\nchas : Si la casa limita con el río Charles (1: Si y 0: No)\nrad : Indice de accesibilidad a carreteras radiales (Low, Medium, High)."
+    "text": "Re-emplaza por nombres apropiados usando las funciones mutate() y case_match().\n\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Si\"))\nBoston_dataset %&gt;% select(crim, zn, indus, chas) %&gt;% head()\n\n# A tibble: 6 × 4\n     crim    zn indus chas \n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n1 0.00632    18  2.31 No   \n2 0.0273      0  7.07 No   \n3 0.0273      0  7.07 No   \n4 0.0324      0  2.18 No   \n5 0.0690      0  2.18 No   \n6 0.0298      0  2.18 No"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#veamos-que-sucede-ahora.",
@@ -168,11 +196,32 @@
     "text": "Re-ordenar categorías\nAhora, construyamos una gráfica de barras de rad.\n\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nLas categorías no siguen un orden natural de izquierda a derecha: Low, Medium, y High."
   },
   {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Re-emplaza por nombres apropiados usando las funciones mutate() y case_match().\n\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Si\"))\nBoston_dataset %&gt;% select(crim, zn, indus, chas) %&gt;% head()\n\n# A tibble: 6 × 4\n     crim    zn indus chas \n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n1 0.00632    18  2.31 No   \n2 0.0273      0  7.07 No   \n3 0.0273      0  7.07 No   \n4 0.0324      0  2.18 No   \n5 0.0690      0  2.18 No   \n6 0.0298      0  2.18 No"
+    "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
+    "title": "Variables Categóricas",
+    "section": "Colapsando categorías",
+    "text": "Colapsando categorías\nAlgunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica.\nUna estrategia para desarrollar una visualización efectiva es colapsar categorías.\nPor ejemplo, en la variable rad, podemos collapsar las categorías Medium y High en una sola categoría llamada Other."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Para colapsar categorías en dplyr, usamos la función case_when() junto con mutate(). La función case_when() permite remplazar categorías usando expreciones lógicas en variables específicas.\n\nBoston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\")) %&gt;% \n      head()\n\n# A tibble: 6 × 14\n     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "El colapsamiento de categorías simplifica nuestra gráfica.\n\nBoston_dataset_simple = Boston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\ngf_percents( ~ rad, data = Boston_dataset_simple)\n\n\nTambién, nos permite enfatizar alguna categoría como Low y ver se compara con las otras categorías (como un todo)."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#guardando-gráficas-en-ggplot2",
@@ -180,20 +229,6 @@
     "title": "Variables Categóricas",
     "section": "Guardando gráficas en ggplot2",
     "text": "Guardando gráficas en ggplot2\nPara guardar una gráfica de ggplot2, primero guardamos la gráfica en un objeto de R.\n\nmi_grafica_de_barras = gf_percents( ~ rad, data = Boston_dataset)\n\nLuego, usamos la función ggsave().\n\nggsave(filename = \"Mi_grafica.jpg\", plot = mi_grafica_de_barras, \n       width = NA, height = NA, units = \"cm\", dpi = 300)\n\nAlgunos de los argumentos arriba son:\n\n\nwidth: ancho del gráfico.\nheight: altura del gráfico.\nunits: unidades de medición.\ndpi: resolución del gráfico."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-circular-o-de-pastel",
-    "title": "Variables Categóricas",
-    "section": "Gráfica circular o de pastel",
-    "text": "Gráfica circular o de pastel\n\n\n\n\nSe construye dividiendo un círculo en varias porciones que representan las categorías de la variable.\nEl diámetro del círculo comprendido por una categoría es su frecuencia relativa.\nPermite dar un vistazo rápido a las proporciones de cada categoría.\n\n\n\n\n\n\n\nPie charts versus bar charts.\nBar charts can serve as a good way to show comparisons between categories. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
-    "title": "Variables Categóricas",
-    "section": "Actividad (solo mode)",
-    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 y ggformula en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data.\n\n\n\n\n−+\n20:00"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#agenda",
@@ -1688,40 +1723,5 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
-    "title": "Variables Categóricas",
-    "section": "Tabla de frecuencia en R",
-    "text": "Tabla de frecuencia en R\nPara construir una tabla de frecuencia en dplyr, usamos las funciones group_by(), summarise(), y n().\nLa función group_by() toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan “por grupo”.\nLa función n() cuenta los valores de una categoría.\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
-    "title": "Variables Categóricas",
-    "section": "",
-    "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#colapsando-categorías",
-    "title": "Variables Categóricas",
-    "section": "Colapsando categorías",
-    "text": "Colapsando categorías\nAlgunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica.\nUna estrategia para desarrollar una visualización efectiva es colapsar categorías.\nPor ejemplo, en la variable rad, podemos collapsar las categorías Medium y High en una sola categoría llamada Other."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-8",
-    "title": "Variables Categóricas",
-    "section": "",
-    "text": "Para colapsar categorías en dplyr, usamos la función case_when() junto con mutate(). La función case_when() permite remplazar categorías usando expreciones lógicas en variables específicas.\n\nBoston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\")) %&gt;% \n      head()\n\n# A tibble: 6 × 14\n     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
-    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-9",
-    "title": "Variables Categóricas",
-    "section": "",
-    "text": "El colapsamiento de categorías simplifica nuestra gráfica.\n\nBoston_dataset_simple = Boston_dataset %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\ngf_percents( ~ rad, data = Boston_dataset_simple)\n\n\nTambién, nos permite enfatizar alguna categoría como Low y ver se compara con las otras categorías (como un todo)."
   }
 ]
