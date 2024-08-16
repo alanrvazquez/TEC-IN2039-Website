@@ -39,7 +39,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#definiendo-variables-categóricas-en-r",
     "title": "Variables Categóricas",
     "section": "Definiendo variables categóricas en R",
-    "text": "Definiendo variables categóricas en R\nPara asegurarnos que R sepa que la variable es categórica o fct, usamos la función mutate_at() de dplyr:\n\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)\n\n\nNota que acabamos de reemplazar el objeto penguins_data con la nueva versión."
+    "text": "Definiendo variables categóricas en R\nPara asegurarnos que R sepa que la variable es categórica o fct, usamos la función mutate_at() de dplyr:\n\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)\n\n\nNota que acabamos de reemplazar el objeto penguins_data con su nueva versión."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-1",
@@ -53,28 +53,28 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#resúmenes-estadísticos-1",
     "title": "Variables Categóricas",
     "section": "Resúmenes Estadísticos",
-    "text": "Resúmenes Estadísticos\n\n\nUn resumen estadístico nos ayuda a resumir un conjunto de observaciones de una manera simple.\n\n\n\nLos resúmenes estadísticos más utilizados para datos categóricos son:\n\nLa frecuencia de una categoría es el número de observaciones que pertenecen a esa categoría.\nLa frecuencia relativa es la frecuencia dividida por el número total de observaciones."
+    "text": "Resúmenes Estadísticos\n\nUn resumen estadístico nos ayuda a resumir un conjunto de observaciones de una manera simple.\n\n\nLos resúmenes estadísticos más utilizados para datos categóricos son:\n\n\nLa frecuencia de una categoría es el número de observaciones que pertenecen a esa categoría.\nLa frecuencia relativa es la frecuencia dividida por el número total de observaciones."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia",
     "title": "Variables Categóricas",
     "section": "Tabla de Frecuencia",
-    "text": "Tabla de Frecuencia\nResume una variable categórica contando los valores por categoría.\n\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())\n\n# A tibble: 3 × 2\n  species   Frecuencia\n  &lt;fct&gt;          &lt;int&gt;\n1 Adelie           152\n2 Chinstrap         68\n3 Gentoo           124\n\n\n\n\n\n\nEspecie\nFrecuencia\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\n\n\nFrecuencia: Número de observaciones en cada categoría.\nTotal: Suma total de observaciones.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
+    "text": "Tabla de Frecuencia\nResume una variable categórica contando los valores por categoría.\n\n\n\nEspecie\nFrecuencia\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\nFrecuencia: Número de observaciones en cada categoría.\nTotal: Suma total de observaciones.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-2",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "penguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())\n\n\nEl código se lee:\n\nDel objeto penguins_data, agrupa los datos por la variable species, y resume los datos usando el el número de elementos por categoría (n())."
+    "text": "El código se lee:\n\nDel objeto penguins_data, agrupa los datos por la variable species, y resume los datos usando el número de elementos por categoría (n()).\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())\n\n# A tibble: 3 × 2\n  species   Frecuencia\n  &lt;fct&gt;          &lt;int&gt;\n1 Adelie           152\n2 Chinstrap         68\n3 Gentoo           124"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-relativa",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-relativa",
     "title": "Variables Categóricas",
     "section": "Tabla de Frecuencia Relativa",
-    "text": "Tabla de Frecuencia Relativa\nResume una variable categórica calculando la proporción de valores por categoría.\n\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n()) %&gt;%\n  mutate(\"Freq.Rel\" = \n           Frecuencia/sum(Frecuencia))\n\n# A tibble: 3 × 3\n  species   Frecuencia Freq.Rel\n  &lt;fct&gt;          &lt;int&gt;    &lt;dbl&gt;\n1 Adelie           152    0.442\n2 Chinstrap         68    0.198\n3 Gentoo           124    0.360\n\n\n\n\n\n\nEspecie\nFrecuencia relativa\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSuma\n1\n\n\n\n\n\n\n\nFrecuencia relativa: Número de observaciones en cada categoría dividida por el total.\n\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
+    "text": "Tabla de Frecuencia Relativa\nResume una variable categórica calculando la proporción de valores por categoría.\n\n\n\n\n\nEspecie\nFrecuencia relativa\n\n\n\n\nAdelie\n0.442\n\n\nChinstrap\n0.198\n\n\nGentoo\n0.360\n\n\nSuma\n1\n\n\n\n\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n()) %&gt;%\n  mutate(\"Freq.Rel\" = \n           Frecuencia/sum(Frecuencia))\n\n# A tibble: 3 × 3\n  species   Frecuencia Freq.Rel\n  &lt;fct&gt;          &lt;int&gt;    &lt;dbl&gt;\n1 Adelie           152    0.442\n2 Chinstrap         68    0.198\n3 Gentoo           124    0.360\n\n\n\n\n\n\nFrecuencia relativa: Número de observaciones en cada categoría dividida por el total.\n\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#gráfica-de-barras-1",
@@ -123,7 +123,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-4",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Los datos están en Boston_dataset.xlsx. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.\n\nBoston_dataset = read_excel(\"Boston_dataset.xlsx\")\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus  chas   nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31     0 0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07     0 0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07     0 0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18     0 0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18     0 0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18     0 0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;\n\n\nNos concentraremos en las siguientes variables\n\nchas : Si la casa limita con el río Charles (1: Si y 0: No)\nrad : Indice de accesibilidad a carreteras radiales (Low, Medium, High)."
+    "text": "Los datos están en Boston_dataset.xlsx. Súbelos a Google Colab y cárgalos en R usando el siguiente comando.\n\nBoston_dataset = read_excel(\"Boston_dataset.xlsx\")\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus  chas   nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31     0 0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07     0 0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07     0 0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18     0 0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18     0 0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18     0 0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#recuerda",
@@ -144,14 +144,14 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#re-etiquetado-categorías",
     "title": "Variables Categóricas",
     "section": "Re-etiquetado categorías",
-    "text": "Re-etiquetado categorías\nLo mejor es re-nombrar las categorías de la variable chas para que la gráfica de barras de mas información al usuario.\n\nVerifica los nombres de las categorías en la variable usando la función unique().\n\nBoston_dataset %&gt;% select(chas) %&gt;% unique()\n\n# A tibble: 2 × 1\n  chas \n  &lt;fct&gt;\n1 0    \n2 1"
+    "text": "Re-etiquetado categorías\nLo mejor es re-nombrar las categorías de la variable chas para que la gráfica de barras de mas información al usuario.\n\nVerifica los nombres de las categorías en la variable usando la función unique().\n\n\nBoston_dataset %&gt;% select(chas) %&gt;% unique()\n\n# A tibble: 2 × 1\n  chas \n  &lt;fct&gt;\n1 0    \n2 1"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-5",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Re-emplaza por nombres apropiados usando las funciones mutate() y case_match().\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Si\"))\nBoston_dataset %&gt;% head()\n\n# A tibble: 6 × 14\n     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.\n2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.\n3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.\n4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.\n5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.\n6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.\n# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;"
+    "text": "Nos concentraremos en las siguientes variables:\n\nchas : Si la casa limita con el río Charles (1: Si y 0: No)\nrad : Indice de accesibilidad a carreteras radiales (Low, Medium, High)."
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#veamos-que-sucede-ahora.",
@@ -172,7 +172,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-6",
     "title": "Variables Categóricas",
     "section": "",
-    "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al momento de definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
+    "text": "Re-emplaza por nombres apropiados usando las funciones mutate() y case_match().\n\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Si\"))\nBoston_dataset %&gt;% select(crim, zn, indus, chas) %&gt;% head()\n\n# A tibble: 6 × 4\n     crim    zn indus chas \n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n1 0.00632    18  2.31 No   \n2 0.0273      0  7.07 No   \n3 0.0273      0  7.07 No   \n4 0.0324      0  2.18 No   \n5 0.0690      0  2.18 No   \n6 0.0298      0  2.18 No"
   },
   {
     "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#guardando-gráficas-en-ggplot2",
@@ -193,7 +193,7 @@
     "href": "T3_Categorical_Data/Slides_Categorical.slides.html#actividad-solo-mode",
     "title": "Variables Categóricas",
     "section": "Actividad (solo mode)",
-    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 o plotly en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data."
+    "text": "Actividad (solo mode)\nPreguntale a ChatGPT\n\nVe ChatGPT en https://chat.openai.com/\nPidele a ChatGPT que te muestre como generar una gráfica de circular (o de pastel) usando ggplot2 y ggformula en R.\nAdapta tu código para producir una gráfica circular de la variable island en penguin_data."
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#agenda",
@@ -1688,5 +1688,19 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#tabla-de-frecuencia-en-r",
+    "title": "Variables Categóricas",
+    "section": "Tabla de frecuencia en R",
+    "text": "Tabla de frecuencia en R\nPara construir una tabla de frecuencia en dplyr, usamos las funciones group_by(), summarise(), y n().\nLa función group_by() toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan “por grupo”.\nLa función n() cuenta los valores de una categoría.\n\npenguins_data %&gt;% \n  group_by(species) %&gt;% \n  summarise(\"Frecuencia\" = n())"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
+    "href": "T3_Categorical_Data/Slides_Categorical.slides.html#section-7",
+    "title": "Variables Categóricas",
+    "section": "",
+    "text": "Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.\n\nBoston_dataset = Boston_dataset %&gt;% \n      mutate(rad = factor(rad, levels = c(\"Low\", \"Medium\", \"High\")))\ngf_percents( ~ rad, data = Boston_dataset)\n\n\nMucho mejor 😃"
   }
 ]

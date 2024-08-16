@@ -493,7 +493,7 @@ Alan R. Vázquez
 <span id="cb5-2"><a></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"species"</span>, <span class="st">"island"</span>, <span class="st">"sex"</span>), as.factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p>Nota que acabamos de reemplazar el objeto <code>penguins_data</code> con la nueva versión.</p>
+<p>Nota que acabamos de reemplazar el objeto <code>penguins_data</code> con su nueva versión.</p>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -523,38 +523,22 @@ Alan R. Vázquez
 </section>
 <section id="resúmenes-estadísticos-1" class="slide level2">
 <h2>Resúmenes Estadísticos</h2>
-<div class="fragment">
 <blockquote>
 <p>Un <strong>resumen estadístico</strong> nos ayuda a resumir un conjunto de observaciones de una manera simple.</p>
 </blockquote>
-</div>
 <div class="fragment">
 <p>Los resúmenes estadísticos más utilizados para datos categóricos son:</p>
+<div>
 <ul>
-<li><p>La <span style="color:darkblue;"><strong>frecuencia</strong></span> de una categoría es el número de observaciones que pertenecen a esa categoría.</p></li>
-<li><p>La <span style="color:darkblue;"><strong>frecuencia relativa</strong></span> es la frecuencia dividida por el número total de observaciones.</p></li>
+<li class="fragment"><p>La <span style="color:darkblue;"><strong>frecuencia</strong></span> de una categoría es el número de observaciones que pertenecen a esa categoría.</p></li>
+<li class="fragment"><p>La <span style="color:darkblue;"><strong>frecuencia relativa</strong></span> es la frecuencia dividida por el número total de observaciones.</p></li>
 </ul>
+</div>
 </div>
 </section>
 <section id="tabla-de-frecuencia" class="slide level2">
 <h2>Tabla de Frecuencia</h2>
 <p>Resume una variable categórica contando los valores por categoría.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r code-overflow-wrap number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a></a>  <span class="fu">summarise</span>(<span class="st">"Frecuencia"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  species   Frecuencia
-  &lt;fct&gt;          &lt;int&gt;
-1 Adelie           152
-2 Chinstrap         68
-3 Gentoo           124</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -581,8 +565,6 @@ Alan R. Vázquez
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <ul>
 <li><p><strong>Frecuencia</strong>: Número de observaciones en cada categoría.</p></li>
 <li><p><strong>Total</strong>: Suma total de observaciones.</p></li>
@@ -606,24 +588,69 @@ Alan R. Vázquez
           display:block!important;
       }</style></aside>
 </section>
+<section id="tabla-de-frecuencia-en-r" class="slide level2">
+<h2>Tabla de frecuencia en R</h2>
+<p>Para construir una tabla de frecuencia en <strong>dplyr</strong>, usamos las funciones <code>group_by()</code>, <code>summarise()</code>, y <code>n()</code>.</p>
+<p>La función <code>group_by()</code> toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan “por grupo”.</p>
+<p>La función <code>n()</code> cuenta los valores de una categoría.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a></a>  <span class="fu">summarise</span>(<span class="st">"Frecuencia"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a></a>  <span class="fu">summarise</span>(<span class="st">"Frecuencia"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
 <p>El código se lee:</p>
 <blockquote>
-<p>Del objeto <code>penguins_data</code>, agrupa los datos por la variable <code>species</code>, y resume los datos usando el el número de elementos por categoría (<code>n()</code>).</p>
+<p>Del objeto <code>penguins_data</code>, agrupa los datos por la variable <code>species</code>, y resume los datos usando el número de elementos por categoría (<code>n()</code>).</p>
 </blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">summarise</span>(<span class="st">"Frecuencia"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  species   Frecuencia
+  &lt;fct&gt;          &lt;int&gt;
+1 Adelie           152
+2 Chinstrap         68
+3 Gentoo           124</code></pre>
+</div>
+</div>
 </section>
 <section id="tabla-de-frecuencia-relativa" class="slide level2">
 <h2>Tabla de Frecuencia Relativa</h2>
 <p>Resume una variable categórica calculando la <em>proporción de valores</em> por categoría.</p>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:45%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><strong>Especie</strong></th>
+<th><strong>Frecuencia relativa</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Adelie</td>
+<td>0.442</td>
+</tr>
+<tr class="even">
+<td>Chinstrap</td>
+<td>0.198</td>
+</tr>
+<tr class="odd">
+<td>Gentoo</td>
+<td>0.360</td>
+</tr>
+<tr class="even">
+<td><strong>Suma</strong></td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:55%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r code-overflow-wrap number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
@@ -639,33 +666,6 @@ Alan R. Vázquez
 3 Gentoo           124    0.360</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:45%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><strong>Especie</strong></th>
-<th><strong>Frecuencia relativa</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Adelie</td>
-<td>0.4418605</td>
-</tr>
-<tr class="even">
-<td>Chinstrap</td>
-<td>0.1976744</td>
-</tr>
-<tr class="odd">
-<td>Gentoo</td>
-<td>0.3604651</td>
-</tr>
-<tr class="even">
-<td><strong>Suma</strong></td>
-<td><strong>1</strong></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div style="font-size: 85%;">
@@ -778,7 +778,10 @@ Alan R. Vázquez
 # ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>Nos concentraremos en las siguientes variables</p>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Nos concentraremos en las siguientes variables:</p>
 <ul>
 <li><p><code>chas</code> : Si la casa limita con el río Charles (1: Si y 0: No)</p></li>
 <li><p><code>rad</code> : Indice de accesibilidad a carreteras radiales (<code>Low</code>, <code>Medium</code>, <code>High</code>).</p></li>
@@ -817,7 +820,8 @@ Alan R. Vázquez
 <h2>Re-etiquetado categorías</h2>
 <p>Lo mejor es re-nombrar las categorías de la variable <code>chas</code> para que la gráfica de barras de mas información al usuario.</p>
 <ol type="1">
-<li><p>Verifica los nombres de las categorías en la variable usando la función <code>unique()</code>.</p>
+<li>Verifica los nombres de las categorías en la variable usando la función <code>unique()</code>.</li>
+</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(chas) <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -827,31 +831,29 @@ Alan R. Vázquez
 1 0    
 2 1    </code></pre>
 </div>
-</div></li>
-</ol>
+</div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <ol start="2" type="1">
-<li><p>Re-emplaza por nombres apropiados usando las funciones <code>mutate()</code> y <code>case_match()</code>.</p>
+<li>Re-emplaza por nombres apropiados usando las funciones <code>mutate()</code> y <code>case_match()</code>.</li>
+</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>Boston_dataset <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a></a>  <span class="fu">mutate</span>(<span class="at">chas =</span> <span class="fu">case_match</span>(chas, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Si"</span>))</span>
-<span id="cb22-3"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(crim, zn, indus, chas) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 14
-     crim    zn indus chas    nox    rm   age   dis rad     tax ptratio black
-    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-1 0.00632    18  2.31 No    0.538  6.58  65.2  4.09 Low     296    15.3  397.
-2 0.0273      0  7.07 No    0.469  6.42  78.9  4.97 Low     242    17.8  397.
-3 0.0273      0  7.07 No    0.469  7.18  61.1  4.97 Low     242    17.8  393.
-4 0.0324      0  2.18 No    0.458  7.00  45.8  6.06 Low     222    18.7  395.
-5 0.0690      0  2.18 No    0.458  7.15  54.2  6.06 Low     222    18.7  397.
-6 0.0298      0  2.18 No    0.458  6.43  58.7  6.06 Low     222    18.7  394.
-# ℹ 2 more variables: lstat &lt;dbl&gt;, medv &lt;dbl&gt;</code></pre>
+<pre><code># A tibble: 6 × 4
+     crim    zn indus chas 
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+1 0.00632    18  2.31 No   
+2 0.0273      0  7.07 No   
+3 0.0273      0  7.07 No   
+4 0.0324      0  2.18 No   
+5 0.0690      0  2.18 No   
+6 0.0298      0  2.18 No   </code></pre>
 </div>
-</div></li>
-</ol>
+</div>
 </section>
 <section id="veamos-que-sucede-ahora." class="slide level2">
 <h2>Veamos que sucede ahora.</h2>
@@ -870,9 +872,9 @@ Alan R. Vázquez
 </div>
 <img data-src="Slides_Categorical_files/figure-revealjs/unnamed-chunk-18-1.png" data-fig-pos="center" width="960" class="r-stretch"><p>Las categorías no siguen un orden natural de izquierda a derecha: <code>Low</code>, <code>Medium</code>, y <code>High</code>.</p>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
-<p>Para tener el orden de las categorías deseado, debemos de ser más explícitos al momento de definir la variable categórica en R.</p>
+<p>Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>Boston_dataset <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
 <span id="cb26-2"><a></a>      <span class="fu">mutate</span>(<span class="at">rad =</span> <span class="fu">factor</span>(rad, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>)))</span>
@@ -942,7 +944,7 @@ Alan R. Vázquez
 <p><span style="color:darkgreen;">Preguntale a ChatGPT</span></p>
 <ol type="1">
 <li>Ve ChatGPT en <a href="https://chat.openai.com/" class="uri">https://chat.openai.com/</a></li>
-<li>Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de <em>pastel</em>) usando <strong>ggplot2</strong> o <strong>plotly</strong> en R.</li>
+<li>Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de <em>pastel</em>) usando <strong>ggplot2</strong> y <strong>ggformula</strong> en R.</li>
 <li>Adapta tu código para producir una gráfica circular de la variable <code>island</code> en <code>penguin_data</code>.</li>
 </ol>
 </section></section>

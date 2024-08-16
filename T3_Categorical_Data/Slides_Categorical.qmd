@@ -115,7 +115,7 @@ penguins_data = penguins_data %>%
 
 </br>
 
-Nota que acabamos de reemplazar el objeto `penguins_data` con la nueva versión.
+Nota que acabamos de reemplazar el objeto `penguins_data` con su nueva versión.
 
 ## 
 
@@ -136,44 +136,30 @@ penguins_data %>%
 
 ## Resúmenes Estadísticos
 
-. . .
-
 > Un **resumen estadístico** nos ayuda a resumir un conjunto de observaciones de una manera simple.
 
 . . .
 
 Los resúmenes estadísticos más utilizados para datos categóricos son:
 
+::: incremental
 -   La [**frecuencia**]{style="color:darkblue;"} de una categoría es el número de observaciones que pertenecen a esa categoría.
 
 -   La [**frecuencia relativa**]{style="color:darkblue;"} es la frecuencia dividida por el número total de observaciones.
+:::
 
 ## Tabla de Frecuencia
 
 Resume una variable categórica contando los valores por categoría.
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| output: true
-#| code-overflow: wrap
 
-penguins_data %>% 
-  group_by(species) %>% 
-  summarise("Frecuencia" = n())
-```
-:::
-
-::: {.column width="50%"}
 | **Especie** | **Frecuencia** |
 |-------------|----------------|
 | Adelie      | 152            |
 | Chinstrap   | 68             |
 | Gentoo      | 124            |
 | **Total**   | **344**        |
-:::
-:::
+
 
 -   **Frecuencia**: Número de observaciones en cada categoría.
 
@@ -189,7 +175,13 @@ penguins_data %>%
 4.  Ayuda en la toma de decisiones informadas.
 :::
 
-## 
+## Tabla de frecuencia en R
+
+Para construir una tabla de frecuencia en **dplyr**, usamos las funciones `group_by()`, `summarise()`, y `n()`. 
+
+La función `group_by()` toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan "por grupo". 
+
+La función `n()` cuenta los valores de una categoría.
 
 ```{r}
 #| fig-pos: center
@@ -201,17 +193,35 @@ penguins_data %>%
   summarise("Frecuencia" = n())
 ```
 
-</br>
+## 
 
 El código se lee:
 
-> Del objeto `penguins_data`, agrupa los datos por la variable `species`, y resume los datos usando el el número de elementos por categoría (`n()`).
+> Del objeto `penguins_data`, agrupa los datos por la variable `species`, y resume los datos usando el número de elementos por categoría (`n()`).
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+penguins_data %>% 
+  group_by(species) %>% 
+  summarise("Frecuencia" = n())
+```
 
 ## Tabla de Frecuencia Relativa
 
 Resume una variable categórica calculando la *proporción de valores* por categoría.
 
 ::: columns
+::: {.column width="45%"}
+| **Especie** | **Frecuencia relativa** |
+|-------------|-------------------------|
+| Adelie      | 0.442               |
+| Chinstrap   | 0.198               |
+| Gentoo      | 0.360               |
+| **Suma**    | **1**                   |
+:::
 ::: {.column width="55%"}
 ```{r}
 #| echo: true
@@ -224,15 +234,6 @@ penguins_data %>%
   mutate("Freq.Rel" = 
            Frecuencia/sum(Frecuencia))
 ```
-:::
-
-::: {.column width="45%"}
-| **Especie** | **Frecuencia relativa** |
-|-------------|-------------------------|
-| Adelie      | 0.4418605               |
-| Chinstrap   | 0.1976744               |
-| Gentoo      | 0.3604651               |
-| **Suma**    | **1**                   |
 :::
 :::
 
@@ -338,7 +339,9 @@ Boston_dataset = read_excel("Boston_dataset.xlsx")
 Boston_dataset %>% head()
 ```
 
-Nos concentraremos en las siguientes variables
+## 
+
+Nos concentraremos en las siguientes variables:
 
 -   `chas` : Si la casa limita con el río Charles (1: Si y 0: No)
 
@@ -377,25 +380,25 @@ Lo mejor es re-nombrar las categorías de la variable `chas` para que la gráfic
 
 1.  Verifica los nombres de las categorías en la variable usando la función `unique()`.
 
-    ```{r}
-    #| echo: true
-    #| output: true
+```{r}
+#| echo: true
+#| output: true
 
-    Boston_dataset %>% select(chas) %>% unique()
-    ```
+Boston_dataset %>% select(chas) %>% unique()
+```
 
 ## 
 
 2.  Re-emplaza por nombres apropiados usando las funciones `mutate()` y `case_match()`.
 
-    ```{r}
-    #| echo: true
-    #| output: true
+```{r}
+#| echo: true
+#| output: true
 
-    Boston_dataset = Boston_dataset %>% 
-      mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Si"))
-    Boston_dataset %>% head()
-    ```
+Boston_dataset = Boston_dataset %>% 
+  mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Si"))
+Boston_dataset %>% select(crim, zn, indus, chas) %>% head()
+```
 
 ## Veamos que sucede ahora.
 
@@ -425,7 +428,7 @@ Las categorías no siguen un orden natural de izquierda a derecha: `Low`, `Mediu
 
 ## 
 
-Para tener el orden de las categorías deseado, debemos de ser más explícitos al momento de definir la variable categórica en R.
+Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.
 
 ```{r}
 #| echo: true
@@ -501,7 +504,7 @@ Pie charts versus bar charts.
 [Preguntale a ChatGPT]{style="color:darkgreen;"}
 
 1.  Ve ChatGPT en <https://chat.openai.com/>
-2.  Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de *pastel*) usando **ggplot2** o **plotly** en R.
+2.  Pidele a ChatGPT que te muestre como generar una gráfica de circular (o de *pastel*) usando **ggplot2** y **ggformula** en R.
 3.  Adapta tu código para producir una gráfica circular de la variable `island` en `penguin_data`.
 
 # [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)
