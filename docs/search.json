@@ -1333,6 +1333,13 @@
     "text": "Mediana y Cuartiles\nLa mediana es el número medio de las observaciones ordenadas de menor a mayor.\n\nLos cuartiles dividen las observaciones en cuatro partes. Existen tres de ellos:\n\n\nEl primer cuartil (\\(Q_1\\)) es la mediana de la mitad inferior de las observaciones.\nEl segundo cuartil (\\(Q_2\\)) es la mediana de las observaciones.\nEl tercer cuartil (\\(Q_3\\)) es la mediana de la mitad superior de las observaciones."
   },
   {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-4",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-4",
+    "title": "Variables Numéricas",
+    "section": "",
+    "text": "Los percentiles también se conocen como quantiles."
+  },
+  {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-5",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-5",
     "title": "Variables Numéricas",
@@ -1344,7 +1351,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.305, 0.546 y 1.07 segundos, respectivamente."
+    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\n# Define los quantiles.\nmis.quantiles = c(0.25, 0.5, 0.75)\n# Calcula los quantiles de los datos.\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time, mis.quantiles)) %&gt;%\n  mutate(\"Quantile\" = mis.quantiles)\n\n# A tibble: 3 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.305     0.25\n2 0.546     0.5 \n3 1.07      0.75\n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.305, 0.546 y 1.07 segundos, respectivamente."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
@@ -1428,7 +1435,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#mejora-la-gráfica",
     "title": "Variables Numéricas",
     "section": "Mejora la gráfica",
-    "text": "Mejora la gráfica\nPara transmitir un mejor mensaje, aplicamos el Principio 3: Aplica los principios de diseño gráfico.\n\ngf_histogram( ~ cycle_time, data = piston_data, color = \"black\",\n            fill = \"white\") + labs(title = \"Histograma de tiempo de ciclo\", \n            x = \"Tiempo de ciclo (segundos)\", y = \"Frequencia\", \n            caption = \"Datos de 50 pistones\") + theme_bw()"
+    "text": "Mejora la gráfica\nPara transmitir un mejor mensaje, aplicamos el Principio 3: Aplica los principios de diseño gráfico.\n\ngf_histogram( ~ cycle_time, data = piston_data, color = \"black\",\n            fill = \"pink\") + labs(title = \"Histograma de tiempo de ciclo\", \n            x = \"Tiempo de ciclo (segundos)\", y = \"Frequencia\", \n            caption = \"Datos de 50 pistones\") + theme_bw()"
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#no-es-lo-mismo-que-una-gráfica-de-barras",

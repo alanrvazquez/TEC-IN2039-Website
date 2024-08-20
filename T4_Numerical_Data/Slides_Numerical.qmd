@@ -223,6 +223,7 @@ Los [**cuartiles**]{style="color:darkgreen;"} dividen las observaciones en cuatr
 ## 
 
 ![](images/clipboard-1950324610.png)
+Los percentiles también se conocen como quantiles.
 
 ## 
 
@@ -240,9 +241,12 @@ piston_data %>%
 Los cuartiles se calculan con las funciones `quantile()` y `reframe()`. Como la función quantile da 5 valores, es mejor usar `reframe()` que `summarise()` en este caso `summarise()` trabaja con funciones cuya salida es un valor.
 
 ```{r}
+# Define los quantiles.
+mis.quantiles = c(0.25, 0.5, 0.75)
+# Calcula los quantiles de los datos.
 piston_data %>% 
-  reframe("Value" = quantile(cycle_time)) %>%
-  mutate("Quantile" = c(0, 0.25, 0.5, 0.75, 1))
+  reframe("Value" = quantile(cycle_time, mis.quantiles)) %>%
+  mutate("Quantile" = mis.quantiles)
 ```
 
 ::: {style="font-size: 90%;"}
@@ -385,7 +389,7 @@ Para transmitir un mejor mensaje, aplicamos el *Principio 3: Aplica los principi
 #| fig-pos: center
 
 gf_histogram( ~ cycle_time, data = piston_data, color = "black",
-            fill = "white") + labs(title = "Histograma de tiempo de ciclo", 
+            fill = "pink") + labs(title = "Histograma de tiempo de ciclo", 
             x = "Tiempo de ciclo (segundos)", y = "Frequencia", 
             caption = "Datos de 50 pistones") + theme_bw()
 ```

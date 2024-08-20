@@ -617,8 +617,8 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
-
-<img data-src="images/clipboard-1950324610.png" class="r-stretch"></section>
+<p><img data-src="images/clipboard-1950324610.png"> Los percentiles también se conocen como quantiles.</p>
+</section>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>En R, la mediana se calcula con las funciones <code>summarise()</code> y <code>median()</code>.</p>
@@ -638,18 +638,19 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 <h2></h2>
 <p>Los cuartiles se calculan con las funciones <code>quantile()</code> y <code>reframe()</code>. Como la función quantile da 5 valores, es mejor usar <code>reframe()</code> que <code>summarise()</code> en este caso <code>summarise()</code> trabaja con funciones cuya salida es un valor.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>piston_data <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">reframe</span>(<span class="st">"Value"</span> <span class="ot">=</span> <span class="fu">quantile</span>(cycle_time)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">mutate</span>(<span class="st">"Quantile"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Define los quantiles.</span></span>
+<span id="cb13-2"><a></a>mis.quantiles <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)</span>
+<span id="cb13-3"><a></a><span class="co"># Calcula los quantiles de los datos.</span></span>
+<span id="cb13-4"><a></a>piston_data <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a></a>  <span class="fu">reframe</span>(<span class="st">"Value"</span> <span class="ot">=</span> <span class="fu">quantile</span>(cycle_time, mis.quantiles)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">mutate</span>(<span class="st">"Quantile"</span> <span class="ot">=</span> mis.quantiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
+<pre><code># A tibble: 3 × 2
   Value Quantile
   &lt;dbl&gt;    &lt;dbl&gt;
-1 0.175     0   
-2 0.305     0.25
-3 0.546     0.5 
-4 1.07      0.75
-5 1.14      1   </code></pre>
+1 0.305     0.25
+2 0.546     0.5 
+3 1.07      0.75</code></pre>
 </div>
 </div>
 <div style="font-size: 90%;">
@@ -730,7 +731,7 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2aaddf88" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_7755b798" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -815,7 +816,7 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 <p>Para transmitir un mejor mensaje, aplicamos el <em>Principio 3: Aplica los principios de diseño gráfico.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">gf_histogram</span>( <span class="sc">~</span> cycle_time, <span class="at">data =</span> piston_data, <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb22-2"><a></a>            <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de tiempo de ciclo"</span>, </span>
+<span id="cb22-2"><a></a>            <span class="at">fill =</span> <span class="st">"pink"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de tiempo de ciclo"</span>, </span>
 <span id="cb22-3"><a></a>            <span class="at">x =</span> <span class="st">"Tiempo de ciclo (segundos)"</span>, <span class="at">y =</span> <span class="st">"Frequencia"</span>, </span>
 <span id="cb22-4"><a></a>            <span class="at">caption =</span> <span class="st">"Datos de 50 pistones"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
