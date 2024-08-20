@@ -1260,14 +1260,14 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#carga-los-datos",
     "title": "Variables Numéricas",
     "section": "Carga los datos",
-    "text": "Carga los datos\nEn Google Colab, el archivo “CYLT.xlsx” debe de estar en la carpeta llamada “content” o “contenido.”\n\n# Leer los datos.\npiston_data = read_excel(\"CYCLT.xlsx\") \n# Ver las primeras 6 observaciones.\npiston_data %&gt;% head()\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07 \n\n\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente."
+    "text": "Carga los datos\nEn Google Colab, el archivo “CYLT.xlsx” debe de estar en la carpeta llamada “content” o “contenido.”\n\n# Leer los datos.\npiston_data = read_excel(\"CYCLT.xlsx\") \n# Ver las primeras 6 observaciones.\npiston_data %&gt;% head()\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07"
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#tipo-de-variable",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#tipo-de-variable",
     "title": "Variables Numéricas",
     "section": "Tipo de variable",
-    "text": "Tipo de variable\nEn R, los datos numéricos se llaman dbl. Vemos que R si reconoce nuestros datos correctamente.\n\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07"
+    "text": "Tipo de variable\nEn R, los datos numéricos se llaman dbl.\n\n\n# A tibble: 6 × 1\n  cycle_time\n       &lt;dbl&gt;\n1      1.01 \n2      1.10 \n3      1.12 \n4      0.423\n5      1.02 \n6      1.07 \n\n\nVemos que R si reconoce nuestros datos correctamente."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#resumen-estadístico",
@@ -1288,42 +1288,42 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "En R, el promedio se calcula usando las funciones summarise() y mean().\n\npiston_data %&gt;% \n  summarise(\"Promedio\" = mean(cycle_time))\n\n# A tibble: 1 × 1\n  Promedio\n     &lt;dbl&gt;\n1    0.652\n\n\n\n\nInterpretación: En promedio, el pistón tarda 0.65246 segundos en completar un ciclo."
+    "text": "En R, el promedio se calcula usando las funciones summarise() y mean().\n\npiston_data %&gt;% \n  summarise(\"Promedio\" = mean(cycle_time))\n\n# A tibble: 1 × 1\n  Promedio\n     &lt;dbl&gt;\n1    0.652\n\n\n\n\nInterpretación: En promedio, el pistón tarda 0.652 segundos en completar un ciclo."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#varianza",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#varianza",
     "title": "Variables Numéricas",
     "section": "Varianza",
-    "text": "Varianza\n\nIndica que tan dispersos están las observaciones.\n\nPara calcularla, considera \\(n\\) observaciones denotadas usando \\(y_1, y_2, \\ldots, y_n\\) . La varianza es\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nEs como un promedio de las diferencias al cuadrado entre las observaciones y el promedio."
+    "text": "Varianza\n\nIndica que tan dispersos están las observaciones.\n\n\nPara calcularla, considera \\(n\\) observaciones denotadas usando \\(y_1, y_2, \\ldots, y_n\\) . La varianza es\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\n\nEs como un promedio de las diferencias al cuadrado entre las observaciones y el promedio."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-1",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-1",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "En R, la varianza se calcula usando las funciones summarise() y var().\n\npiston_data %&gt;% \n  summarise(\"Varianza\" = var(cycle_time))\n\n# A tibble: 1 × 1\n  Varianza\n     &lt;dbl&gt;\n1    0.139\n\n\n\n Interpretación: La varianza de los tiempos de ciclo del pistón es 0.1391073.\n Entre mas grande la varianza, mayor la dispersión de los datos alrededor del promedio (centro)."
+    "text": "En R, la varianza se calcula usando las funciones summarise() y var().\n\npiston_data %&gt;% \n  summarise(\"Varianza\" = var(cycle_time))\n\n# A tibble: 1 × 1\n  Varianza\n     &lt;dbl&gt;\n1    0.139\n\n\n\n Interpretación: La varianza de los tiempos de ciclo del pistón es 0.139.\n Entre mas grande la varianza, mayor la dispersión de los datos alrededor del promedio (centro)."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-2",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-2",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "Desafortunadamente, la varianza no está en las mismas unidades que las observaciones, ya que las diferencias entre cada observación y el promedio se elevan al cuadrado.\n\nPor ejemplo, el promedio es 0.65246 segundos mientras que la varianza es 0.1391073 segundos\\(^2\\)."
+    "text": "Desafortunadamente, la varianza no está en las mismas unidades que las observaciones, ya que las diferencias entre cada observación y el promedio se elevan al cuadrado.\n\nPor ejemplo, el promedio es 0.652 segundos mientras que la varianza es 0.139 segundos\\(^2\\)."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#desviación-estándar",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#desviación-estándar",
     "title": "Variables Numéricas",
     "section": "Desviación estándar",
-    "text": "Desviación estándar\nPara obtener una medida de dispersión cuyas unidades sean las mismas que las de las observaciones, tomamos la raíz cuadrada de la varianza.\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nEsta es la desviación estándar, que esta en las mismas unidades que las observaciones."
+    "text": "Desviación estándar\nPara obtener una medida de dispersión cuyas unidades sean las mismas que las de las observaciones, tomamos la raíz cuadrada de la varianza:\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nEsta es la desviación estándar, que esta en las mismas unidades que las observaciones. Es como la distancia promedio entre las observaciones y el promedio."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-3",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-3",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "En R, la desviación estándar se calcula usando las funciones summarise() y sd().\n\npiston_data %&gt;% \n  summarise(\"Desv.Std\" = sd(cycle_time))\n\n# A tibble: 1 × 1\n  Desv.Std\n     &lt;dbl&gt;\n1    0.373\n\n\n\n Interpretación: En promedio, un pistón tarda 0.65246 segundos en completar un ciclo, con una diferencia de mas o menos 0.3729709 segundos."
+    "text": "En R, la desviación estándar se calcula usando las funciones summarise() y sd().\n\npiston_data %&gt;% \n  summarise(\"Desv.Std\" = sd(cycle_time))\n\n# A tibble: 1 × 1\n  Desv.Std\n     &lt;dbl&gt;\n1    0.373\n\n\n\n Interpretación: En promedio, un pistón tarda 0.652 segundos en completar un ciclo, con una diferencia de mas o menos 0.373 segundos.\nO, la diferencia promedio entre los tiempos de ciclo de un pistón y su tiempo promedio es de 0.373 segundos."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#mediana-y-cuartiles",
@@ -1337,21 +1337,21 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-5",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "En R, la mediana se calcula con las funciones summarise() y median().\n\npiston_data %&gt;% \n  summarise(\"Mediana\" = median(cycle_time))\n\n# A tibble: 1 × 1\n  Mediana\n    &lt;dbl&gt;\n1   0.546\n\n\nInterpretación: El 50% de los tiempos de ciclo del pistón es menor que 0.5455 segundos."
+    "text": "En R, la mediana se calcula con las funciones summarise() y median().\n\npiston_data %&gt;% \n  summarise(\"Mediana\" = median(cycle_time))\n\n# A tibble: 1 × 1\n  Mediana\n    &lt;dbl&gt;\n1   0.546\n\n\nInterpretación: El 50% de los tiempos de ciclo del pistón es menor que 0.546 segundos."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#section-6",
     "title": "Variables Numéricas",
     "section": "",
-    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.3050, 0.5455 y 1.0690 segundos, respectivamente."
+    "text": "Los cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.305, 0.546 y 1.07 segundos, respectivamente."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#máximo-y-mínimo",
     "title": "Variables Numéricas",
     "section": "Máximo y mínimo",
-    "text": "Máximo y mínimo\nOtros estadísticos relevantes son el máximo y el mínimo, que se calculan con las funciones max() y min(), respectivamente.\n\npiston_data %&gt;% summarise(\"Maximo\" = max(cycle_time))\n\n# A tibble: 1 × 1\n  Maximo\n   &lt;dbl&gt;\n1   1.14\n\n\nInterpretación: El tiempo de ciclo máximo del pistón es 1.141 segundos."
+    "text": "Máximo y mínimo\nOtros estadísticos relevantes son el máximo y el mínimo, que se calculan con las funciones max() y min(), respectivamente.\n\npiston_data %&gt;% summarise(\"Maximo\" = max(cycle_time))\n\n# A tibble: 1 × 1\n  Maximo\n   &lt;dbl&gt;\n1   1.14\n\n\nInterpretación: El tiempo de ciclo máximo del pistón es 1.14 segundos."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#section-7",
@@ -1365,7 +1365,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#actividad-solo-mode-parte-1",
     "title": "Variables Numéricas",
     "section": "Actividad (solo mode) Parte 1",
-    "text": "Actividad (solo mode) Parte 1\nUna empresa fabricante de pernos de retención de condensadores para motores de automóviles implementó un sistema de control de calidad. Como parte de este sistema de control de calidad, un equipo de ingenieros decidió registrar la cantidad de pernos no conformes producidos en cada turno.\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos.\n\nCalcula el promedio, varianza, desviación estándar, cuartiles, mínimo y máximo.\n\n\n\n\n−+\n10:00"
+    "text": "Actividad (solo mode) Parte 1\nUna empresa fabricante de pernos de retención de condensadores para motores de automóviles implementó un sistema de control de calidad. Como parte de este sistema de control de calidad, un equipo de ingenieros decidió registrar la cantidad de pernos no conformes producidos en cada turno.\nEl archivo bolts.xlsx contiene la cantidad de pernos no conformes durante los últimos 45 turnos.\n\nCalcula e interpreta el promedio, varianza, desviación estándar, cuartiles, mínimo y máximo.\n\n\n\n\n−+\n15:00"
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-1",
@@ -1379,7 +1379,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#principio-2",
     "title": "Variables Numéricas",
     "section": "Principio 2",
-    "text": "Principio 2\n\nTransforma los datos en información.\n\n\nTres tipos comunes de gráficas para visualizar una variable numérica son:\n\nHistograma.\nGráfica de cajas.\n\n\n\nBásicamente, son maneras distintas de visualizar la “forma” o distribución de la variable."
+    "text": "Principio 2\n\nTransforma los datos en información.\n\n\nDos tipos comunes de gráficas para visualizar una variable numérica son:\n\nHistograma.\nGráfica de cajas.\n\n\n\nBásicamente, son maneras distintas de visualizar la “forma” o distribución de la variable."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#histograma",
@@ -1428,7 +1428,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#qué-buscar-en-un-histograma",
     "title": "Variables Numéricas",
     "section": "¿Qué buscar en un histograma?",
-    "text": "¿Qué buscar en un histograma?\n\nLa simetría y la asimetría de la distribución\nEl número, ubicación y tamaño de las regiones (intervalos) de alta frecuencia.\nLa longitud de las colas.\nBrechas donde no se observan valores.\nValores inusualmente grandes o anómalos.\nUna forma de campana."
+    "text": "¿Qué buscar en un histograma?\n\nLa simetría y la asimetría de la distribución\nEl número, ubicación y tamaño de las regiones (intervalos) de alta frecuencia.\nBrechas donde no se observan valores.\nValores inusualmente grandes o anómalos.\nUna forma de campana."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#la-obsesión-con-las-campanas",
@@ -1449,7 +1449,7 @@
     "href": "T4_Numerical_Data/Slides_Numerical.slides.html#gáfica-de-caja",
     "title": "Variables Numéricas",
     "section": "Gáfica de caja",
-    "text": "Gáfica de caja\nUna gráfica de caja nos ayuda a visualizar la distribución de las observaciones usando cuartiles.\n\n\nEs muy efectiva para detectar “valores atípicos”.\n\n\n\nUn componente importante de la gráfica es el rango intercuartil (IQR), que es la diferencia entre el tercer cuartil y el primer cuartil (\\(Q_3 - Q_1\\)).\n\n\n\nEl rango intercuartil es la distancia necesaria para abarcar la mitad media de los datos."
+    "text": "Gáfica de caja\nUna gráfica de caja nos ayuda a visualizar la distribución de las observaciones usando cuartiles.\n\n\nEs muy efectiva para detectar “valores atípicos”.\n\n\n\nUn componente importante de la gráfica es el rango intercuartil (IQR), que es la diferencia entre el tercer cuartil y el primer cuartil (\\(Q_3 - Q_1\\)).\n\n\nEl rango intercuartil es la distancia necesaria para abarcar la mitad media de los datos."
   },
   {
     "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#anatomía-de-una-gráfica-de-caja",
@@ -1723,5 +1723,54 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#alternativamente",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#alternativamente",
+    "title": "Variables Numéricas",
+    "section": "Alternativamente…",
+    "text": "Alternativamente…\nTambién podemos usar la función summary() para dar un vistazo rápido a los quartiles de una variable.\n\npiston_data %&gt;% summary()\n\n   cycle_time    \n Min.   :0.1750  \n 1st Qu.:0.3050  \n Median :0.5455  \n Mean   :0.6525  \n 3rd Qu.:1.0690  \n Max.   :1.1410"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#cuartiles-en-r",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#cuartiles-en-r",
+    "title": "Variables Numéricas",
+    "section": "Cuartiles en R",
+    "text": "Cuartiles en R\nLos cuartiles se calculan con las funciones quantile() y reframe(). Como la función quantile da 5 valores, es mejor usar reframe() que summarise() en este caso summarise() trabaja con funciones cuya salida es un valor.\n\npiston_data %&gt;% \n  reframe(\"Value\" = quantile(cycle_time)) %&gt;%\n  mutate(\"Quantile\" = c(0, 0.25, 0.5, 0.75, 1))\n\n# A tibble: 5 × 2\n  Value Quantile\n  &lt;dbl&gt;    &lt;dbl&gt;\n1 0.175     0   \n2 0.305     0.25\n3 0.546     0.5 \n4 1.07      0.75\n5 1.14      1   \n\n\n\nInterpretación: El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.305, 0.546 y 1.07 segundos, respectivamente."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#promedio-contra-mediana",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#promedio-contra-mediana",
+    "title": "Variables Numéricas",
+    "section": "Promedio contra Mediana",
+    "text": "Promedio contra Mediana\nEl promedio y la mediana estiman el valor central de los datos de diferentes maneras.\n\nEl promedio es la suma de los valores dividido por el total.\nLa mediana es el valor central de un conjunto de datos ordenado."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#cuando-usamos-el-promedio",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#cuando-usamos-el-promedio",
+    "title": "Variables Numéricas",
+    "section": "¿Cuando usamos el promedio?",
+    "text": "¿Cuando usamos el promedio?\nEl promedio se usa cuando los datos están distribuidos de manera uniforme y no hay valores atípicos significativos.\nPor ejemplo, la estatura de una muestra grande de personas en una población homogénea."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#cuando-usamos-la-mediana",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#cuando-usamos-la-mediana",
+    "title": "Variables Numéricas",
+    "section": "¿Cuando usamos la mediana?",
+    "text": "¿Cuando usamos la mediana?\nLa mediana se usa cuando cuando hay valores atípicos que podrían sesgar la media.\nPor ejemplo:\n\nIngresos anuales de los hogares en un país (donde hay pocos multimillonarios que distorsionan la media).\nEjemplo 2: Precio de viviendas en una ciudad (donde unas pocas propiedades muy caras pueden inflar la media)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#cuándo-usamos-el-promedio",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#cuándo-usamos-el-promedio",
+    "title": "Variables Numéricas",
+    "section": "¿Cuándo usamos el promedio?",
+    "text": "¿Cuándo usamos el promedio?\nEl promedio se usa cuando los datos están distribuidos de manera simétrica o uniforme y no hay valores atípicos significativos.\nPor ejemplo, la estatura de una muestra grande de personas en una población homogénea."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Slides_Numerical.slides.html#cuándo-usamos-la-mediana",
+    "href": "T4_Numerical_Data/Slides_Numerical.slides.html#cuándo-usamos-la-mediana",
+    "title": "Variables Numéricas",
+    "section": "¿Cuándo usamos la mediana?",
+    "text": "¿Cuándo usamos la mediana?\nLa mediana se usa cuando cuando hay valores atípicos que podrían sesgar la media.\nPor ejemplo:\n\nIngresos anuales de los hogares en un país (donde hay pocos multimillonarios que distorsionan la media).\nPrecio de viviendas en una ciudad (donde unas pocas propiedades muy caras pueden inflar la media)."
   }
 ]

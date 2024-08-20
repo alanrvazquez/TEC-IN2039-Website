@@ -68,7 +68,7 @@ library(dplyr)
 
 ## Carga los datos
 
-En Google Colab, el archivo "CYLT.xlsx" debe de estar en la carpeta llamada "content" o "contenido." 
+En Google Colab, el archivo "CYLT.xlsx" debe de estar en la carpeta llamada "content" o "contenido."
 
 ```{r}
 # Leer los datos.
@@ -77,11 +77,10 @@ piston_data = read_excel("CYCLT.xlsx")
 piston_data %>% head()
 ```
 
-En R, los datos numéricos se llaman `dbl`. Vemos que R si reconoce nuestros datos correctamente.
 
 ## Tipo de variable
 
-En R, los datos numéricos se llaman `dbl`. Vemos que R si reconoce nuestros datos correctamente.
+En R, los datos numéricos se llaman `dbl`. 
 
 ```{r}
 #| output: true
@@ -89,6 +88,10 @@ En R, los datos numéricos se llaman `dbl`. Vemos que R si reconoce nuestros dat
 
 piston_data %>% head()
 ```
+
+Vemos que R si reconoce nuestros datos correctamente.
+
+# Resúmenes estadísticos
 
 ## Resumen estadístico
 
@@ -130,11 +133,13 @@ piston_data %>%
 
 . . .
 
-[*Interpretación:*]{style="color:darkgray;"} En promedio, el pistón tarda 0.65246 segundos en completar un ciclo.
+[*Interpretación:*]{style="color:darkgray;"} En promedio, el pistón tarda 0.652 segundos en completar un ciclo.
 
 ## Varianza
 
 > Indica que tan dispersos están las observaciones.
+
+. . .
 
 Para calcularla, considera $n$ observaciones denotadas usando $y_1, y_2, \ldots, y_n$ . La varianza es
 
@@ -159,7 +164,7 @@ piston_data %>%
 
 . . .
 
-<br/> [*Interpretación:*]{style="color:darkgray;"} La varianza de los tiempos de ciclo del pistón es 0.1391073.
+<br/> [*Interpretación:*]{style="color:darkgray;"} La varianza de los tiempos de ciclo del pistón es 0.139.
 
 <br/> *Entre mas grande la varianza, mayor la dispersión de los datos alrededor del promedio (centro).*
 
@@ -169,17 +174,18 @@ Desafortunadamente, la varianza no está en las mismas unidades que las observac
 
 <br/>
 
-Por ejemplo, el promedio es 0.65246 segundos mientras que la varianza es 0.1391073 segundos$^2$.
+Por ejemplo, el promedio es 0.652 segundos mientras que la varianza es 0.139 segundos$^2$.
 
 ## Desviación estándar
 
-Para obtener una medida de dispersión cuyas unidades sean las mismas que las de las observaciones, tomamos la raíz cuadrada de la varianza.
+Para obtener una medida de dispersión cuyas unidades sean las mismas que las de las observaciones, tomamos la raíz cuadrada de la varianza:
 
 $$
 s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 $$
 
-Esta es la desviación estándar, que esta en las mismas unidades que las observaciones.
+Esta es la desviación estándar, que esta en las mismas unidades que las observaciones. *Es como la distancia promedio entre las observaciones y el promedio.*
+
 
 ## 
 
@@ -194,11 +200,13 @@ piston_data %>%
 
 . . .
 
-<br/> [*Interpretación:*]{style="color:darkgray;"} En promedio, un pistón tarda 0.65246 segundos en completar un ciclo, con una diferencia de mas o menos 0.3729709 segundos.
+<br/> [*Interpretación:*]{style="color:darkgray;"} En promedio, un pistón tarda 0.652 segundos en completar un ciclo, con una diferencia de mas o menos 0.373 segundos. 
+
+O, la diferencia promedio entre los tiempos de ciclo de un pistón y su tiempo promedio es de 0.373 segundos.
 
 ## Mediana y Cuartiles
 
-La [**mediana**]{style="color:darkgreen;"} es el número medio de las observaciones ordenadas de menor a mayor.
+La [**mediana**]{style="color:darkgreen;"} es el número medio de las observaciones ordenadas de menor a mayor. 
 
 . . .
 
@@ -225,7 +233,7 @@ piston_data %>%
   summarise("Mediana" = median(cycle_time))
 ```
 
-[*Interpretación:*]{style="color:darkgray;"} El 50% de los tiempos de ciclo del pistón es menor que 0.5455 segundos.
+[*Interpretación:*]{style="color:darkgray;"} El 50% de los tiempos de ciclo del pistón es menor que 0.546 segundos.
 
 ## 
 
@@ -238,7 +246,7 @@ piston_data %>%
 ```
 
 ::: {style="font-size: 90%;"}
-[*Interpretación:*]{style="color:darkgray;"} El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.3050, 0.5455 y 1.0690 segundos, respectivamente.
+[*Interpretación:*]{style="color:darkgray;"} El 25%, 50% y 75% de los tiempos de ciclo del pistón es menor que 0.305, 0.546 y 1.07 segundos, respectivamente.
 :::
 
 ## Máximo y mínimo
@@ -249,7 +257,7 @@ Otros estadísticos relevantes son el **máximo** y el **mínimo**, que se calcu
 piston_data %>% summarise("Maximo" = max(cycle_time))
 ```
 
-[*Interpretación:*]{style="color:darkgray;"} El tiempo de ciclo máximo del pistón es 1.141 segundos.
+[*Interpretación:*]{style="color:darkgray;"} El tiempo de ciclo máximo del pistón es 1.14 segundos.
 
 ## 
 
@@ -259,18 +267,51 @@ piston_data %>% summarise("Minimo" = min(cycle_time))
 
 [*Interpretación:*]{style="color:darkgray;"} El tiempo de ciclo mínimo del pistón es 0.175 segundos.
 
+## Alternativamente...
+
+También podemos usar la función `summary()` para dar un vistazo rápido a los quartiles de una variable.
+
+```{r}
+piston_data %>% summary()
+```
+
+## Promedio contra Mediana
+
+El promedio y la mediana estiman el valor central de los datos de diferentes maneras. 
+
+- El promedio es la suma de los valores dividido por el total. 
+
+- La mediana es el valor central de un conjunto de datos ordenado. 
+
+## ¿Cuándo usamos el promedio?
+
+El promedio se usa cuando los datos están distribuidos de manera simétrica o uniforme y no hay valores atípicos significativos. 
+
+Por ejemplo, la estatura de una muestra grande de personas en una población homogénea.
+
+## ¿Cuándo usamos la mediana?
+
+La mediana se usa cuando cuando hay valores atípicos que podrían sesgar la media. 
+
+Por ejemplo: 
+
+- Ingresos anuales de los hogares en un país (donde hay pocos multimillonarios que distorsionan la media).
+
+- Precio de viviendas en una ciudad (donde unas pocas propiedades muy caras pueden inflar la media).
+
+
 ## Actividad (*solo* mode) Parte 1
 
 Una empresa fabricante de pernos de retención de condensadores para motores de automóviles implementó un sistema de control de calidad. Como parte de este sistema de control de calidad, un equipo de ingenieros decidió registrar la cantidad de pernos no conformes producidos en cada turno.
 
 El archivo `bolts.xlsx` contiene la cantidad de pernos no conformes durante los últimos 45 turnos.
 
--   Calcula el promedio, varianza, desviación estándar, cuartiles, mínimo y máximo.
+-   Calcula e interpreta el promedio, varianza, desviación estándar, cuartiles, mínimo y máximo.
 
 ```{r}
 #| echo: false
 
-countdown::countdown(minutes = 10)
+countdown::countdown(minutes = 15)
 ```
 
 # Gráficas para datos numéricos
@@ -297,7 +338,7 @@ Las preguntas típicas sobre una variable numérica $X$ son:
 
 . . .
 
-Tres tipos comunes de gráficas para visualizar una variable numérica son:
+Dos tipos comunes de gráficas para visualizar una variable numérica son:
 
 -   Histograma.
 -   Gráfica de cajas.
@@ -412,7 +453,6 @@ The histogram is a familiar type of plot that uses smoothing. A histogram aggreg
 
 -   La simetría y la asimetría de la distribución
 -   El número, ubicación y tamaño de las regiones (intervalos) de alta frecuencia.
--   La longitud de las colas.
 -   Brechas donde no se observan valores.
 -   Valores inusualmente grandes o anómalos.
 -   Una forma de [**campana**]{style="color:#1e3f5a;"}.
@@ -445,7 +485,7 @@ Una gráfica de caja nos ayuda a visualizar la distribución de las observacione
 
 . . .
 
--   Es muy efectiva para detectar "valores atípicos".
+> Es muy efectiva para detectar "valores atípicos".
 
 . . .
 
@@ -453,7 +493,7 @@ Un componente importante de la gráfica es el **rango intercuartil** (*IQR*), qu
 
 . . .
 
-> El rango intercuartil es la distancia necesaria para abarcar la mitad media de los datos.
+El rango intercuartil es la distancia necesaria para abarcar la mitad media de los datos.
 
 ## Anatomía de una gráfica de Caja
 

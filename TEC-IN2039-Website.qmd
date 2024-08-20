@@ -1,5 +1,5 @@
 ---
-title: "IN2039 Visualización de Datos"
+title: "IN2039 Visualización de Datos para la Toma de Decisiones"
 subtitle: "Materiales Semestre AD 2024"
 author: 
   - name: Alan R. Vazquez
