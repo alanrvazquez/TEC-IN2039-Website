@@ -557,7 +557,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-1",
     "title": "Datos de múltiples variables",
     "section": "Ejemplo 1",
-    "text": "Ejemplo 1\nConsideremos datos de 392 autos sobre sus millas por galón, número de cilindros, caballos de fuerza, peso, aceleración, año, origen, entre otras variables.\nLos datos están en el archivo “auto_dataset.xlsx”.\n\n# Leer los datos.\nauto_data = read_excel(\"auto_dataset.xlsx\") \n# Ver las primeras 6 observaciones.\nauto_data %&gt;% head()\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+    "text": "Ejemplo 1\nConsideremos datos de 392 autos sobre sus millas por galón, número de cilindros, caballos de fuerza, peso, aceleración, año, origen, entre otras variables.\nLos datos están en el archivo “auto_dataset.xlsx”.\n\nauto_data = read_excel(\"auto_dataset.xlsx\") \nauto_data %&gt;% head()\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1",
@@ -571,21 +571,21 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-gráficas",
     "title": "Datos de múltiples variables",
     "section": "Tipos de gráficas",
-    "text": "Tipos de gráficas\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfico de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfico de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfico de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+    "text": "Tipos de gráficas\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#variable-independiente-y-dependiente",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#variable-independiente-y-dependiente",
     "title": "Datos de múltiples variables",
     "section": "Variable independiente y dependiente",
-    "text": "Variable independiente y dependiente\nCuando investigamos la relación entre dos variables (numéricas o categóricas), tenemos una nomenclatura específica para cada una de ellas.\n\nLlamamos a una variable como la variable dependiente o de respuesta. A ella la denotamos con el símbolo \\(Y\\).\n\n\nLa otra variable la llamamos variable independendiente o predictor. A ella la denotamos con el símbolo \\(X\\).\n\n\n\nNuestro objetivo es saber si cambios en la variable \\(X\\) están asociados a cambios en la variable \\(Y\\), y el tipo de asociación."
+    "text": "Variable independiente y dependiente\nCuando investigamos la relación entre dos variables (numéricas o categóricas), tenemos una nomenclatura específica para cada una de ellas.\n\nLlamamos a una variable como la variable dependiente o de respuesta, denotandola con la letra \\(Y\\).\n\n\nLa otra variable la llamamos variable independendiente o predictor, denotandola con la letra \\(X\\).\n\n\n\nNuestro objetivo es saber si cambios en la variable \\(X\\) están asociados a cambios en la variable \\(Y\\), y el tipo de asociación."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de dispersión",
-    "text": "Gráfica de dispersión\nLa gráfica mas común para examinar la relación entre dos variables numéricas es la gráfica de dispersión.\nLas variables \\(X\\) y \\(Y\\) se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de \\(X\\) y \\(Y\\).\nCon los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones."
+    "text": "Gráfica de dispersión\nLa gráfica más común para examinar la relación entre dos variables numéricas es la gráfica de dispersión.\nLas variables \\(X\\) y \\(Y\\) se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de \\(X\\) y \\(Y\\).\nCon los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section",
@@ -606,7 +606,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3",
     "title": "Datos de múltiples variables",
     "section": "Aplicando el principio 3",
-    "text": "Aplicando el principio 3\nSiguiendo el principio 3, podemos cambiar los valores pre-establecidos de la función para definir colores o formas diferentes de los puntos de la gráfica.\nEspecíficamente, puedes cambiar el color, la forma, y el tamaño de los puntos usando los argumentos color, shape y size, respectivamente.\n\ngf_point(Y ~ X, data = data_set, color, shape, size)"
+    "text": "Aplicando el principio 3\nPodemos cambiar varios aspectos de la gráfica usando argumentos adicionales linetype, size, y color.\n\ngf_line(Y ~ X, linetype, size, color, data = data_set)."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-2",
@@ -620,7 +620,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#posibles-formas-de-los-puntos",
     "title": "Datos de múltiples variables",
     "section": "Posibles formas de los puntos",
-    "text": "Posibles formas de los puntos"
+    "text": "Posibles formas de los puntos\nPara alterar los símbolos que denotan los puntos en una gráifca de dispersión, fijamos el parametro shape a algún número o caracter mostrado abajo."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-3",
@@ -662,7 +662,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-2",
     "title": "Datos de múltiples variables",
     "section": "Ejemplo 2",
-    "text": "Ejemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.\n\nspotify_data = read_excel(\"spotify.xlsx\") \nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+    "text": "Ejemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.\n\nspotify_data = read_excel(\"spotify.xlsx\") \nspotify_data %&gt;% head(3)\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-5",
@@ -675,15 +675,15 @@
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3-1",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#aplicando-el-principio-3-1",
     "title": "Datos de múltiples variables",
-    "section": "Aplicando el principio 3",
-    "text": "Aplicando el principio 3\nPodemos cambiar varios aspectos de la gráfica usando argumentos adicionales gf_line(Y ~ X, linetype, size, color, data = data_set).\n\n\nCode\nmi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = \"darkblue\", size = 2) + labs(title = \"Popularidad de la canción despacito de Luis Fonsi\", x = \"Fecha\", y = \"Número de reproducciones en Spotify\")\nmi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),\n                                plot.title=element_text(size=25)) \nmi_linea"
+    "section": "Aplicando el Principio 3",
+    "text": "Aplicando el Principio 3\n\n\nCode\nbp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = \"lightblue\", color = \"black\") \nbp_mpg_by_origin = bp_mpg_by_origin + labs(y = \"Millas por galón\", x = \"Origen\")\nbp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nbp_mpg_by_origin"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-linea",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#tipos-de-linea",
     "title": "Datos de múltiples variables",
     "section": "Tipos de linea",
-    "text": "Tipos de linea"
+    "text": "Tipos de linea\nPara cambiar el tipo de linea, fijamos el parametro linetype a algún número o palabra mostrada abajo."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos",
@@ -697,7 +697,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-cajas-por-grupos",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de cajas por grupos",
-    "text": "Gráfica de cajas por grupos\nLa gráfica de cajas lado a lado compara la distribución de una variable en diferentes grupos.\nLa gráfica se obtiene con la función gf_boxplot(Y ~ X, data = dataset).\n\ngf_boxplot(mpg ~ origin, data = auto_data)"
+    "text": "Gráfica de cajas por grupos\nLa gráfica de cajas lado a lado compara la distribución de una variable en diferentes grupos.\n\nLa gráfica se obtiene con la función\ngf_boxplot(Y ~ X, data = dataset)."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#mejorando-la-gráfica",
@@ -711,7 +711,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-6",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "También podemos cambiar el formato de los puntos atípicos usando los argumentos outlier.color, outlier.shape, y outlier.size.\n\n\nCode\nbp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = \"lightblue\", \n                               color = \"black\", outlier.color = \"red\",\n                               outlier.shape = 4, outlier.size = 4) \nbp_mpg_by_origin = bp_mpg_by_origin + labs(y = \"Millas por galón\", x = \"Origen\")\nbp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nbp_mpg_by_origin"
+    "text": "Code\nmi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = \"darkblue\", size = 1.3) + labs(title = \"Popularidad de la canción despacito de Luis Fonsi\", x = \"Fecha\", y = \"Número de reproducciones en Spotify\")\nmi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=18),\n                                plot.title=element_text(size=25)) \nmi_linea"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#divide-los-datos-en-grupos-1",
@@ -732,35 +732,35 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-7",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "Los datos tienen dos variables categóricas:\n\nLa especie de pingüinos (species).\nLa isla de donde provienen (island).\n\nAsegúrate que sean especificados como factor en R.\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)"
+    "text": "Por ejemplo, si queremos comparar las distribuciones de las millas por galón de los autos construídos en America, Europa, o Japón, usamos el siguiente comando:\n\ngf_boxplot(mpg ~ origin, data = auto_data)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-apiladas",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-apiladas",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de barras apiladas",
-    "text": "Gráfica de barras apiladas\nLa gráfica de barras lado al lado se genera con la función gf_bar(), asignando la variable \\(X\\) al argumento fill. El nombre de la variable debe de estar precedido por una tilde ~X.\n\nPor ejemplo, para estudiar la distribución de las especies de pingüinos en las tres diferentes islas usamos lo siguiente:\n\ngf_bar( ~ species, data = penguins_data, fill = ~island)"
+    "text": "Gráfica de barras apiladas\nLa gráfica de barras lado al lado se genera con la función gf_bar(), asignando la variable \\(X\\) al argumento fill.\nEl nombre de la variable debe de estar precedido por una tilde ~X.\n\n\nPor ejemplo, para estudiar la distribución de las especies de pingüinos en las tres diferentes islas usamos lo siguiente:\n\ngf_bar( ~ species, data = penguins_data, fill = ~island)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-8",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-8",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "La gráfica muestra la frecuencia de cada especie, separada por el nombre de la isla.\n\ngf_bar( ~ species, data = penguins_data, fill = ~island)"
+    "text": "También, podemos cambiar el formato de los puntos atípicos usando los argumentos outlier.color, outlier.shape, y outlier.size.\n\n\nCode\nbp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = \"lightblue\", \n                               color = \"black\", outlier.color = \"red\",\n                               outlier.shape = 4, outlier.size = 4) \nbp_mpg_by_origin = bp_mpg_by_origin + labs(y = \"Millas por galón\", x = \"Origen\")\nbp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20))\nbp_mpg_by_origin"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-lado-a-lado",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-barras-lado-a-lado",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de barras lado a lado",
-    "text": "Gráfica de barras lado a lado\nUna alternativa a la gráfica anterior es poner las barras lado al lado para las categorías de la variable \\(X\\).\nEn este caso, se usan los mismos comandos con un argumento extra: position = position_dodge().\n\ngf_bar( ~ species, data = penguins_data, \n        fill = ~island, position = position_dodge())"
+    "text": "Gráfica de barras lado a lado\nUna alternativa a la gráfica anterior es poner las barras lado al lado para las categorías de la variable \\(X\\).\nEn este caso, se usan los mismos comandos con un argumento extra: position = position_dodge().\n\ngf_bar( ~ species, fill = ~island, \n        data = penguins_data, position = position_dodge())"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-9",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-9",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "gf_bar( ~ species, data = penguins_data, \n        fill = ~island, position = position_dodge())"
+    "text": "Los datos tienen dos variables categóricas:\n\nLa especie de pingüinos (species).\nLa isla de donde provienen (island).\n\n¡Asegúrate que sean especificados como factor en R!\n\npenguins_data = penguins_data %&gt;% \n  mutate_at(c(\"species\", \"island\", \"sex\"), as.factor)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#apiladas-o-lado-a-lado",
@@ -774,14 +774,14 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-10",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "Ventajas de barras lado a lado:\n\nEs más fácil comparar las alturas de cada entidad individual.\nMejor para comparar entre grupos."
+    "text": "La gráfica muestra la frecuencia de cada especie, separada por el nombre de la isla.\n\ngf_bar( ~ species, fill = ~island, data = penguins_data)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#resúmenes-estadísticos",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#resúmenes-estadísticos",
     "title": "Datos de múltiples variables",
     "section": "Resúmenes estadísticos",
-    "text": "Resúmenes estadísticos\nPara variables categóricas, los resúmenes estadísticos más comunes son la frecuencia y la frecuencia relativa.\nEste código muestra como calcular la frecuencia (n) y la frecuencia relativa (Proporción) usando funciones de la librería dplyr.\n\npenguins_data %&gt;% count(island, species) %&gt;% group_by(island) %&gt;% \n  mutate(\"Proporción\" = prop.table(n))\n\n# A tibble: 5 × 4\n# Groups:   island [3]\n  island    species       n Proporción\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;      &lt;dbl&gt;\n1 Biscoe    Adelie       44      0.262\n2 Biscoe    Gentoo      124      0.738\n3 Dream     Adelie       56      0.452\n4 Dream     Chinstrap    68      0.548\n5 Torgersen Adelie       52      1"
+    "text": "Resúmenes estadísticos\nPara variables categóricas, los resúmenes estadísticos más comunes son la frecuencia y la frecuencia relativa.\nCon dplyr, calculamos la frecuencia usando la función count(), que cuenta los valores únicos de una o más variables.\n\npenguins_data %&gt;% count(island, species) %&gt;% group_by(island)\n\n# A tibble: 5 × 3\n# Groups:   island [3]\n  island    species       n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Biscoe    Adelie       44\n2 Biscoe    Gentoo      124\n3 Dream     Adelie       56\n4 Dream     Chinstrap    68\n5 Torgersen Adelie       52"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-tres-variables",
@@ -802,28 +802,28 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-facetas-o-enrejado",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de facetas o enrejado",
-    "text": "Gráfica de facetas o enrejado\nLa gráfica de facetas visualiza la relación o distribución de una o dos variables para cada subgrupo definido por una tercera variable \\(Z\\).\nIdea: Crear una gráfica para cada subgrupo de \\(Z\\).\nPara hacer la gráfica, usa la función gf_facet_grid con la sintaxis %&gt;% de dplyr.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid(origin ~ .)"
+    "text": "Gráfica de facetas o enrejado\nLa gráfica de facetas visualiza la relación o distribución de una o dos variables para cada subgrupo definido por una tercera variable \\(Z\\).\nIdea: Crear una gráfica para cada subgrupo de \\(Z\\).\nPara hacer la gráfica, usa la función gf_facet_grid con la siguiente sintaxis:\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_facet_grid(origin ~ .)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-11",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-11",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "La función produce una rejilla con 1 columna y 3 filas de gráficas. Cada fila acomoda una categoría de origin.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid(origin ~ .)"
+    "text": "gf_bar( ~ species, data = penguins_data, \n        fill = ~island, position = position_dodge())"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-12",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-12",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "Si cambiamos el orden de la variable origin en la función gf_facet_grid, obtenemos una rejilla de gráficas con tres columnas y una fila de gráficas.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid( ~ origin)"
+    "text": "Ventajas de barras lado a lado:\n\nEs más fácil comparar las alturas de cada entidad individual.\nMejor para comparar entre grupos."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-de-varias-líneas",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-de-varias-líneas",
     "title": "Datos de múltiples variables",
     "section": "Gráficas de varias líneas",
-    "text": "Gráficas de varias líneas\nPodemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo “spotify.xlsx”. Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.\n\nEspecíficamente, necesitamos juntar las columnas Shape of You, Despacito, Something Just Like This, HUMBLE y Unforgettable en dos columnas. Una columna contendrá el número de reproducciones y la otra el título de la canción. Ambas columnas estarán ordenadas por la variable Date."
+    "text": "Gráficas de varias líneas\nPodemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo “spotify.xlsx”.\n\nSin embargo, requerimos manipular los datos para obtener el formato deseado por la función."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#una-nueva-librería-tidyr",
@@ -837,28 +837,28 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-13",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "Para hacer el formateo necesario, usamos la función pivot_longer() de la librería tidyr.\n\ndata_lines = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Cancion\", \n               values_to = \"Reproducciones\")\ndata_lines %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+    "text": "Para calcular la frecuencia relativa, usamos mutate() junto con la función prop.table(), que calcula las proporciones de una columna.\n\ntabla.resumen = penguins_data %&gt;% \n  count(island, species) %&gt;% \n  group_by(island) \ntabla.resumen %&gt;% mutate(\"Proporción\" = prop.table(n))\n\n# A tibble: 5 × 4\n# Groups:   island [3]\n  island    species       n Proporción\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;      &lt;dbl&gt;\n1 Biscoe    Adelie       44      0.262\n2 Biscoe    Gentoo      124      0.738\n3 Dream     Adelie       56      0.452\n4 Dream     Chinstrap    68      0.548\n5 Torgersen Adelie       52      1"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-14",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-14",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "Ahora, aplicamos funciones similares sobre el objeto data_lines.\n\ngf_line(Reproducciones ~ Date, data = data_lines) %&gt;%\n  gf_facet_grid( ~ Cancion)"
+    "text": "La función produce una rejilla con 1 columna y 3 filas de gráficas. Cada fila acomoda una categoría de origin.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid(origin ~ .)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-15",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-15",
     "title": "Datos de múltiples variables",
     "section": "",
-    "text": "O podemos poner todas las lineas en una sola gráfica.\n\ngf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)"
+    "text": "Si cambiamos el orden de la variable origin en la función gf_facet_grid, obtenemos una rejilla de gráficas con tres columnas y una fila de gráficas.\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_facet_grid( ~ origin)"
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-cuatro-variables",
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráficas-para-cuatro-variables",
     "title": "Datos de múltiples variables",
     "section": "Gráficas para cuatro variables",
-    "text": "Gráficas para cuatro variables\nUna gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales categóricas.\n\ngf_point(bill_length_mm ~ bill_depth_mm, size = ~island, \ncolor = ~species, data = penguins_data)"
+    "text": "Gráficas para cuatro variables\nUna gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales categóricas.\n\n\ngf_point(bill_length_mm ~ bill_depth_mm, size = ~island, \ncolor = ~species, data = penguins_data)"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#agenda",
@@ -1758,5 +1758,82 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 2",
+    "text": "Principio 2\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1-formula-el-mensaje-o-pregunta",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1-formula-el-mensaje-o-pregunta",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 1: Formula el mensaje o pregunta",
+    "text": "Principio 1: Formula el mensaje o pregunta\nEn el contexto de datos de múltiples variables, las preguntas típicas a estudiar son:\n\n\n¿Cómo se relacionan la variable \\(X\\) y la variable \\(Y\\)?\n¿Es la distribución de la variable \\(X\\) la misma en todos los subgrupos definidos por la variable \\(Z\\)?\n¿Hay alguna observación inusual en la combinación de valores de las variables \\(X\\) y \\(Y\\)?\n¿Hay alguna observación inusual en \\(X\\) para un subgrupo de la variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2-transforma-los-datos-en-información",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2-transforma-los-datos-en-información",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 2: Transforma los datos en información",
+    "text": "Principio 2: Transforma los datos en información\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1-formula-la-pregunta",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-1-formula-la-pregunta",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 1: Formula la pregunta",
+    "text": "Principio 1: Formula la pregunta\nEn el contexto de datos de múltiples variables, las preguntas típicas a estudiar son:\n\n\n¿Cómo se relacionan la variable \\(X\\) y la variable \\(Y\\)?\n¿Es la distribución de la variable \\(X\\) la misma en todos los subgrupos definidos por la variable \\(Z\\)?\n¿Hay alguna observación inusual en la combinación de valores de las variables \\(X\\) y \\(Y\\)?\n¿Hay alguna observación inusual en \\(X\\) para un subgrupo de la variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2-convierte-los-datos-en-información",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2-convierte-los-datos-en-información",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 2: Convierte los datos en información",
+    "text": "Principio 2: Convierte los datos en información\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-3-aplica-diseño-gráfico",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-3-aplica-diseño-gráfico",
+    "title": "Datos de múltiples variables",
+    "section": "Principio 3: Aplica diseño gráfico",
+    "text": "Principio 3: Aplica diseño gráfico\nSiguiendo el principio 3, podemos cambiar los valores pre-establecidos de la función para definir colores o formas diferentes de los puntos de la gráfica.\nEspecíficamente, puedes cambiar el color, la forma, y el tamaño de los puntos usando los argumentos color, shape y size, respectivamente.\n\ngf_point(Y ~ X, data = data_set, color, shape, size)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-16",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-16",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Para hacer el formateo necesario, usamos la función pivot_longer() de la librería tidyr.\n\ndata_lines = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Cancion\", \n               values_to = \"Reproducciones\")\ndata_lines %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-17",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-17",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "Ahora, aplicamos funciones similares sobre el objeto data_lines.\n\ngf_line(Reproducciones ~ Date, data = data_lines) %&gt;%\n  gf_facet_grid( ~ Cancion)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-18",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-18",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "O podemos poner todas las lineas en una sola gráfica.\n\ngf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#el-formato-requerido",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#el-formato-requerido",
+    "title": "Datos de múltiples variables",
+    "section": "El formato requerido",
+    "text": "El formato requerido\nEn el formato para una gráfica de varias, necesitamos juntar las columnas Shape of You, Despacito, Something Just Like This, HUMBLE y Unforgettable en dos columnas.\nUna columna contendrá el número de reproducciones y la otra el título de la canción.\nAmbas columnas estarán ordenadas por la variable Date."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-19",
+    "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section-19",
+    "title": "Datos de múltiples variables",
+    "section": "",
+    "text": "gf_point(bill_length_mm ~ bill_depth_mm, size = ~island, \ncolor = ~species, data = penguins_data)"
   }
 ]

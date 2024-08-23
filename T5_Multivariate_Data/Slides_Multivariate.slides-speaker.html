@@ -451,10 +451,8 @@ Alan R. Vázquez
 <p>Consideremos datos de 392 autos sobre sus millas por galón, número de cilindros, caballos de fuerza, peso, aceleración, año, origen, entre otras variables.</p>
 <p>Los datos están en el archivo “auto_dataset.xlsx”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Leer los datos.</span></span>
-<span id="cb2-2"><a></a>auto_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"auto_dataset.xlsx"</span>) </span>
-<span id="cb2-3"><a></a><span class="co"># Ver las primeras 6 observaciones.</span></span>
-<span id="cb2-4"><a></a>auto_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>auto_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"auto_dataset.xlsx"</span>) </span>
+<span id="cb2-2"><a></a>auto_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
     mpg cylinders displacement horsepower weight acceleration  year origin  
@@ -469,8 +467,8 @@ Alan R. Vázquez
 </div>
 </div>
 </section>
-<section id="principio-1" class="slide level2">
-<h2>Principio 1</h2>
+<section id="principio-1-formula-la-pregunta" class="slide level2">
+<h2>Principio 1: Formula la pregunta</h2>
 <p>En el contexto de datos de múltiples variables, las preguntas típicas a estudiar son:</p>
 <div>
 <ul>
@@ -481,8 +479,8 @@ Alan R. Vázquez
 </ul>
 </div>
 </section>
-<section id="tipos-de-gráficas" class="slide level2">
-<h2>Tipos de gráficas</h2>
+<section id="principio-2-convierte-los-datos-en-información" class="slide level2">
+<h2>Principio 2: Convierte los datos en información</h2>
 <p>Existen varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.</p>
 <div class="center">
 <table class="caption-top">
@@ -499,15 +497,15 @@ Alan R. Vázquez
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Numéricas</td>
-<td style="text-align: left;">Gráfico de dispersión, gráfico de lineas</td>
+<td style="text-align: left;">Gráfica de dispersión, gráfico de lineas</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Categóricas</td>
-<td style="text-align: left;">Gráfico de barras lado a lado, gráfico de barras apiladas</td>
+<td style="text-align: left;">Gráfica de barras lado a lado, gráfico de barras apiladas</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mixta</td>
-<td style="text-align: left;">Gráfico de caja uno al lado del otro</td>
+<td style="text-align: left;">Gráfica de caja uno al lado del otro</td>
 </tr>
 </tbody>
 </table>
@@ -535,10 +533,10 @@ Alan R. Vázquez
 <h2>Variable independiente y dependiente</h2>
 <p>Cuando investigamos la relación entre dos variables (numéricas o categóricas), tenemos una nomenclatura específica para cada una de ellas.</p>
 <div class="fragment">
-<p>Llamamos a una variable como la <em>variable dependiente</em> o de <em>respuesta</em>. A ella la denotamos con el símbolo <span class="math inline">\(Y\)</span>.</p>
+<p>Llamamos a una variable como la <em>variable dependiente</em> o de <em>respuesta</em>, denotandola con la letra <span class="math inline">\(Y\)</span>.</p>
 </div>
 <div class="fragment">
-<p>La otra variable la llamamos variable <em>independendiente</em> o <em>predictor</em>. A ella la denotamos con el símbolo <span class="math inline">\(X\)</span>.</p>
+<p>La otra variable la llamamos variable <em>independendiente</em> o <em>predictor</em>, denotandola con la letra <span class="math inline">\(X\)</span>.</p>
 </div>
 <div class="fragment">
 <blockquote>
@@ -548,7 +546,7 @@ Alan R. Vázquez
 </section>
 <section id="gráfica-de-dispersión" class="slide level2">
 <h2>Gráfica de dispersión</h2>
-<p>La gráfica mas común para examinar la relación entre dos variables numéricas es la <strong><em>gráfica de dispersión</em></strong>.</p>
+<p>La gráfica más común para examinar la relación entre dos variables numéricas es la <span style="color:#174062;"><strong><em>gráfica de dispersión</em></strong></span>.</p>
 <p>Las variables <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
 <p>Con los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones.</p>
 </section>
@@ -569,8 +567,8 @@ Alan R. Vázquez
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-4-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="aplicando-el-principio-3" class="slide level2">
-<h2>Aplicando el principio 3</h2>
+<section id="principio-3-aplica-diseño-gráfico" class="slide level2">
+<h2>Principio 3: Aplica diseño gráfico</h2>
 <p>Siguiendo el principio 3, podemos cambiar los valores pre-establecidos de la función para definir colores o formas diferentes de los puntos de la gráfica.</p>
 <p>Específicamente, puedes cambiar el color, la forma, y el tamaño de los puntos usando los argumentos <code>color</code>, <code>shape</code> y <code>size</code>, respectivamente.</p>
 <p><br></p>
@@ -586,6 +584,7 @@ Alan R. Vázquez
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-5-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
 <section id="posibles-formas-de-los-puntos" class="slide level2">
 <h2>Posibles formas de los puntos</h2>
+<p>Para alterar los símbolos que denotan los puntos en una gráifca de dispersión, fijamos el parametro <code>shape</code> a algún número o caracter mostrado abajo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/FIG-SCATTER-SHAPES-CHART-1.png" class="quarto-figure quarto-figure-center" width="530" height="344"></p>
@@ -679,17 +678,14 @@ Alan R. Vázquez
 <p>Considera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>spotify_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"spotify.xlsx"</span>) </span>
-<span id="cb12-2"><a></a>spotify_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a></a>spotify_data <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
+<pre><code># A tibble: 3 × 7
   Date                  Day `Shape of You` Despacito `Something Just Like This`
   &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;
 1 2017-01-06 00:00:00     1       12287078        NA                         NA
 2 2017-01-07 00:00:00     2       13190270        NA                         NA
 3 2017-01-08 00:00:00     3       13099919        NA                         NA
-4 2017-01-09 00:00:00     4       14506351        NA                         NA
-5 2017-01-10 00:00:00     5       14275628        NA                         NA
-6 2017-01-11 00:00:00     6       14372699        NA                         NA
 # ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -702,14 +698,19 @@ Alan R. Vázquez
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
-<section id="aplicando-el-principio-3-1" class="slide level2">
+<section id="aplicando-el-principio-3" class="slide level2">
 <h2>Aplicando el principio 3</h2>
-<p>Podemos cambiar varios aspectos de la gráfica usando argumentos adicionales <code>gf_line(Y ~ X, linetype, size, color, data = data_set)</code>.</p>
+<p>Podemos cambiar varios aspectos de la gráfica usando argumentos adicionales <code>linetype</code>, <code>size</code>, y <code>color</code>.</p>
+<p><br></p>
+<p><code>gf_line(Y ~ X, linetype, size, color, data = data_set)</code>.</p>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>mi_linea <span class="ot">=</span> <span class="fu">gf_line</span>(Despacito <span class="sc">~</span> Date, <span class="at">data =</span> spotify_data, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Popularidad de la canción despacito de Luis Fonsi"</span>, <span class="at">x =</span> <span class="st">"Fecha"</span>, <span class="at">y =</span> <span class="st">"Número de reproducciones en Spotify"</span>)</span>
-<span id="cb15-2"><a></a>mi_linea <span class="ot">=</span> mi_linea <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>),</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>mi_linea <span class="ot">=</span> <span class="fu">gf_line</span>(Despacito <span class="sc">~</span> Date, <span class="at">data =</span> spotify_data, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="fl">1.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Popularidad de la canción despacito de Luis Fonsi"</span>, <span class="at">x =</span> <span class="st">"Fecha"</span>, <span class="at">y =</span> <span class="st">"Número de reproducciones en Spotify"</span>)</span>
+<span id="cb15-2"><a></a>mi_linea <span class="ot">=</span> mi_linea <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>),</span>
 <span id="cb15-3"><a></a>                                <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">25</span>)) </span>
 <span id="cb15-4"><a></a>mi_linea</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -718,6 +719,7 @@ Alan R. Vázquez
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section id="tipos-de-linea" class="slide level2">
 <h2>Tipos de linea</h2>
+<p>Para cambiar el tipo de linea, fijamos el parametro <code>linetype</code> a algún número o palabra mostrada abajo.</p>
 
 <img data-src="images/clipboard-2759814636.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
@@ -736,20 +738,26 @@ Alan R. Vázquez
 </ul>
 </div>
 <div class="fragment">
-<p>La <span style="color:darkblue;">gráfica de cajas lado al lado</span> es la más efectiva para estudiar la relación entre una variable categórica y una numérica.</p>
+<p>La <span style="color:#D70040;">gráfica de cajas lado al lado</span> es la más efectiva para estudiar la relación entre una variable categórica y una numérica.</p>
 </div>
 </section>
 <section id="gráfica-de-cajas-por-grupos" class="slide level2">
 <h2>Gráfica de cajas por grupos</h2>
 <p>La gráfica de cajas lado a lado compara la distribución de una variable en diferentes grupos.</p>
-<p>La gráfica se obtiene con la función <code>gf_boxplot(Y ~ X, data = dataset)</code>.</p>
+<p><br></p>
+<p>La gráfica se obtiene con la función</p>
+<p><code>gf_boxplot(Y ~ X, data = dataset)</code>.</p>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>Por ejemplo, si queremos comparar las distribuciones de las millas por galón de los autos construídos en America, Europa, o Japón, usamos el siguiente comando:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">gf_boxplot</span>(mpg <span class="sc">~</span> origin, <span class="at">data =</span> auto_data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-14-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="mejorando-la-gráfica" class="slide level2">
-<h2>Mejorando la gráfica</h2>
+<section id="aplicando-el-principio-3-1" class="slide level2">
+<h2>Aplicando el Principio 3</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -761,9 +769,9 @@ Alan R. Vázquez
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-15-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="section-6" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
-<p>También podemos cambiar el formato de los puntos atípicos usando los argumentos <code>outlier.color</code>, <code>outlier.shape</code>, y <code>outlier.size</code>.</p>
+<p>También, podemos cambiar el formato de los puntos atípicos usando los argumentos <code>outlier.color</code>, <code>outlier.shape</code>, y <code>outlier.size</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -814,14 +822,14 @@ Alan R. Vázquez
 </div>
 </div>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p>Los datos tienen dos variables categóricas:</p>
 <ul>
 <li>La especie de pingüinos (<code>species</code>).</li>
 <li>La isla de donde provienen (<code>island</code>).</li>
 </ul>
-<p>Asegúrate que sean especificados como <code>factor</code> en R.</p>
+<p>¡Asegúrate que sean especificados como <code>factor</code> en R!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>penguins_data <span class="ot">=</span> penguins_data <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"species"</span>, <span class="st">"island"</span>, <span class="st">"sex"</span>), as.factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -829,18 +837,21 @@ Alan R. Vázquez
 </section>
 <section id="gráfica-de-barras-apiladas" class="slide level2">
 <h2>Gráfica de barras apiladas</h2>
-<p>La gráfica de barras lado al lado se genera con la función <code>gf_bar()</code>, asignando la variable <span class="math inline">\(X\)</span> al argumento <code>fill</code>. El nombre de la variable debe de estar precedido por una tilde <code>~X</code>.</p>
+<p>La gráfica de barras lado al lado se genera con la función <code>gf_bar()</code>, asignando la variable <span class="math inline">\(X\)</span> al argumento <code>fill</code>.</p>
+<p>El nombre de la variable debe de estar precedido por una tilde <code>~X</code>.</p>
 <p><br></p>
+<div class="fragment">
 <p>Por ejemplo, para estudiar la distribución de las especies de pingüinos en las tres diferentes islas usamos lo siguiente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">data =</span> penguins_data, <span class="at">fill =</span> <span class="sc">~</span>island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p>La gráfica muestra la frecuencia de cada especie, separada por el nombre de la isla.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">data =</span> penguins_data, <span class="at">fill =</span> <span class="sc">~</span>island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">fill =</span> <span class="sc">~</span>island, <span class="at">data =</span> penguins_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-20-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
@@ -849,11 +860,11 @@ Alan R. Vázquez
 <p>Una alternativa a la gráfica anterior es poner las barras lado al lado para las categorías de la variable <span class="math inline">\(X\)</span>.</p>
 <p>En este caso, se usan los mismos comandos con un argumento extra: <code>position = position_dodge()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">data =</span> penguins_data, </span>
-<span id="cb24-2"><a></a>        <span class="at">fill =</span> <span class="sc">~</span>island, <span class="at">position =</span> <span class="fu">position_dodge</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">fill =</span> <span class="sc">~</span>island, </span>
+<span id="cb24-2"><a></a>        <span class="at">data =</span> penguins_data, <span class="at">position =</span> <span class="fu">position_dodge</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">gf_bar</span>( <span class="sc">~</span> species, <span class="at">data =</span> penguins_data, </span>
@@ -870,7 +881,7 @@ Alan R. Vázquez
 <li><p>Agrega visualmente cada proporción.</p></li>
 </ul>
 </section>
-<section id="section-10" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
 <p>Ventajas de barras lado a lado:</p>
 <ul>
@@ -881,10 +892,30 @@ Alan R. Vázquez
 <section id="resúmenes-estadísticos" class="slide level2">
 <h2>Resúmenes estadísticos</h2>
 <p>Para variables categóricas, los resúmenes estadísticos más comunes son la frecuencia y la frecuencia relativa.</p>
-<p>Este código muestra como calcular la frecuencia (<code>n</code>) y la frecuencia relativa (<code>Proporción</code>) usando funciones de la librería <code>dplyr</code>.</p>
+<p>Con <strong>dplyr</strong>, calculamos la frecuencia usando la función <code>count()</code>, que cuenta los valores únicos de una o más variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>penguins_data <span class="sc">%&gt;%</span> <span class="fu">count</span>(island, species) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(island) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a></a>  <span class="fu">mutate</span>(<span class="st">"Proporción"</span> <span class="ot">=</span> <span class="fu">prop.table</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>penguins_data <span class="sc">%&gt;%</span> <span class="fu">count</span>(island, species) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+# Groups:   island [3]
+  island    species       n
+  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+1 Biscoe    Adelie       44
+2 Biscoe    Gentoo      124
+3 Dream     Adelie       56
+4 Dream     Chinstrap    68
+5 Torgersen Adelie       52</code></pre>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p>Para calcular la frecuencia relativa, usamos <code>mutate()</code> junto con la función <code>prop.table()</code>, que calcula las proporciones de una columna.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>tabla.resumen <span class="ot">=</span> penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a></a>  <span class="fu">count</span>(island, species) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a></a>  <span class="fu">group_by</span>(island) </span>
+<span id="cb28-4"><a></a>tabla.resumen <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="st">"Proporción"</span> <span class="ot">=</span> <span class="fu">prop.table</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
 # Groups:   island [3]
@@ -915,40 +946,47 @@ Alan R. Vázquez
 <h2>Gráfica de dispersión por color</h2>
 <p>Para dos variables numéricas y una categórica.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">color =</span> <span class="sc">~</span>origin, <span class="at">data =</span> auto_data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">color =</span> <span class="sc">~</span>origin, <span class="at">data =</span> auto_data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-24-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-25-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
 <section id="gráfica-de-facetas-o-enrejado" class="slide level2">
 <h2>Gráfica de facetas o enrejado</h2>
 <p>La gráfica de facetas visualiza la relación o distribución de una o dos variables para cada subgrupo definido por una tercera variable <span class="math inline">\(Z\)</span>.</p>
 <p><strong>Idea:</strong> Crear una gráfica para cada subgrupo de <span class="math inline">\(Z\)</span>.</p>
-<p>Para hacer la gráfica, usa la función <code>gf_facet_grid</code> con la sintaxis <code>%&gt;%</code> de <code>dplyr</code>.</p>
+<p>Para hacer la gráfica, usa la función <code>gf_facet_grid</code> con la siguiente sintaxis:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_facet_grid</span>(origin <span class="sc">~</span> .) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a></a>  <span class="fu">gf_facet_grid</span>(origin <span class="sc">~</span> .) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <p>La función produce una rejilla con 1 columna y 3 filas de gráficas. Cada fila acomoda una categoría de <code>origin</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_facet_grid</span>(origin <span class="sc">~</span> .) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-26-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="section-12" class="slide level2">
-<h2></h2>
-<p>Si cambiamos el orden de la variable <code>origin</code> en la función <code>gf_facet_grid</code>, obtenemos una rejilla de gráficas con tres columnas y una fila de gráficas.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_facet_grid</span>( <span class="sc">~</span> origin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_facet_grid</span>(origin <span class="sc">~</span> .) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-27-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<p>Si cambiamos el orden de la variable <code>origin</code> en la función <code>gf_facet_grid</code>, obtenemos una rejilla de gráficas con tres columnas y una fila de gráficas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_facet_grid</span>( <span class="sc">~</span> origin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-28-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
 <section id="gráficas-de-varias-líneas" class="slide level2">
 <h2>Gráficas de varias líneas</h2>
-<p>Podemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo “spotify.xlsx”. Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.</p>
+<p>Podemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo “spotify.xlsx”.</p>
 <p><br></p>
-<p>Específicamente, necesitamos juntar las columnas <code>Shape of You</code>, <code>Despacito</code>, <code>Something Just Like This</code>, <code>HUMBLE</code> y <code>Unforgettable</code> en dos columnas. Una columna contendrá el número de reproducciones y la otra el título de la canción. Ambas columnas estarán ordenadas por la variable <code>Date</code>.</p>
+<p>Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.</p>
+</section>
+<section id="el-formato-requerido" class="slide level2">
+<h2>El formato requerido</h2>
+<p>En el formato para una gráfica de varias, necesitamos juntar las columnas <code>Shape of You</code>, <code>Despacito</code>, <code>Something Just Like This</code>, <code>HUMBLE</code> y <code>Unforgettable</code> en dos columnas.</p>
+<p>Una columna contendrá el número de reproducciones y la otra el título de la canción.</p>
+<p>Ambas columnas estarán ordenadas por la variable <code>Date</code>.</p>
 </section>
 <section id="una-nueva-librería-tidyr" class="slide level2">
 <h2>Una nueva librería: tidyr</h2>
@@ -969,19 +1007,19 @@ Alan R. Vázquez
 </div>
 <p>Cárgala en Google Colab con el siguiente código.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-13" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <p>Para hacer el formateo necesario, usamos la función <code>pivot_longer()</code> de la librería <strong>tidyr</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>data_lines <span class="ot">=</span> spotify_data <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, <span class="st">"Something Just Like This"</span>, </span>
-<span id="cb33-3"><a></a>                 <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>), </span>
-<span id="cb33-4"><a></a>               <span class="at">names_to =</span> <span class="st">"Cancion"</span>, </span>
-<span id="cb33-5"><a></a>               <span class="at">values_to =</span> <span class="st">"Reproducciones"</span>)</span>
-<span id="cb33-6"><a></a>data_lines <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>data_lines <span class="ot">=</span> spotify_data <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, <span class="st">"Something Just Like This"</span>, </span>
+<span id="cb35-3"><a></a>                 <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>), </span>
+<span id="cb35-4"><a></a>               <span class="at">names_to =</span> <span class="st">"Cancion"</span>, </span>
+<span id="cb35-5"><a></a>               <span class="at">values_to =</span> <span class="st">"Reproducciones"</span>)</span>
+<span id="cb35-6"><a></a>data_lines <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   Date                  Day Cancion                  Reproducciones
@@ -995,32 +1033,40 @@ Alan R. Vázquez
 </div>
 </div>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
 <p>Ahora, aplicamos funciones similares sobre el objeto <code>data_lines</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">gf_line</span>(Reproducciones <span class="sc">~</span> Date, <span class="at">data =</span> data_lines) <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a></a>  <span class="fu">gf_facet_grid</span>( <span class="sc">~</span> Cancion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-30-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="section-15" class="slide level2">
-<h2></h2>
-<p>O podemos poner todas las lineas en una sola gráfica.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">gf_line</span>(Reproducciones <span class="sc">~</span> Date, <span class="at">color =</span> <span class="sc">~</span>Cancion, <span class="at">data =</span> data_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">gf_line</span>(Reproducciones <span class="sc">~</span> Date, <span class="at">data =</span> data_lines) <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">gf_facet_grid</span>( <span class="sc">~</span> Cancion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-31-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
-<section id="gráficas-para-cuatro-variables" class="slide level2">
-<h2>Gráficas para cuatro variables</h2>
-<p>Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales <strong>categóricas</strong>.</p>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<p>O podemos poner todas las lineas en una sola gráfica.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">gf_point</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, <span class="at">size =</span> <span class="sc">~</span>island, </span>
-<span id="cb37-2"><a></a><span class="at">color =</span> <span class="sc">~</span>species, <span class="at">data =</span> penguins_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">gf_line</span>(Reproducciones <span class="sc">~</span> Date, <span class="at">color =</span> <span class="sc">~</span>Cancion, <span class="at">data =</span> data_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-32-1.png" data-fig-pos="center" width="960" class="r-stretch"></section></section>
+<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-32-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<section id="gráficas-para-cuatro-variables" class="slide level2">
+<h2>Gráficas para cuatro variables</h2>
+<p>Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales <span style="color:#8B8000;"><strong>categóricas</strong></span>.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">gf_point</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, <span class="at">size =</span> <span class="sc">~</span>island, </span>
+<span id="cb39-2"><a></a><span class="at">color =</span> <span class="sc">~</span>species, <span class="at">data =</span> penguins_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">gf_point</span>(bill_length_mm <span class="sc">~</span> bill_depth_mm, <span class="at">size =</span> <span class="sc">~</span>island, </span>
+<span id="cb40-2"><a></a><span class="at">color =</span> <span class="sc">~</span>species, <span class="at">data =</span> penguins_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_Multivariate_files/figure-revealjs/unnamed-chunk-34-1.png" data-fig-pos="center" width="960" class="r-stretch"></section></section>
 <section id="más-gráficas" class="title-slide slide level1 center">
 <h1>Más gráficas</h1>
 <p><a href="https://www.mosaic-web.org/ggformula/articles/pkgdown/ggformula-long.html" class="uri">https://www.mosaic-web.org/ggformula/articles/pkgdown/ggformula-long.html</a></p>

@@ -68,13 +68,11 @@ Los datos están en el archivo "auto_dataset.xlsx".
 
 ```{r}
 #| echo: true
-# Leer los datos.
 auto_data = read_excel("auto_dataset.xlsx") 
-# Ver las primeras 6 observaciones.
 auto_data %>% head()
 ```
 
-## Principio 1
+## Principio 1: Formula la pregunta
 
 En el contexto de datos de múltiples variables, las preguntas típicas a estudiar son:
 
@@ -88,16 +86,16 @@ En el contexto de datos de múltiples variables, las preguntas típicas a estudi
 -   ¿Hay alguna observación inusual en $X$ para un subgrupo de la variable $Z$?
 :::
 
-## Tipos de gráficas
+## Principio 2: Convierte los datos en información
 
 Existen varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.
 
 ::: center
 | Tipo        | Gráfica                                                   |
 |:------------|:----------------------------------------------------------|
-| Numéricas   | Gráfico de dispersión, gráfico de lineas                  |
-| Categóricas | Gráfico de barras lado a lado, gráfico de barras apiladas |
-| Mixta       | Gráfico de caja uno al lado del otro                      |
+| Numéricas   | Gráfica de dispersión, gráfico de lineas                  |
+| Categóricas | Gráfica de barras lado a lado, gráfico de barras apiladas |
+| Mixta       | Gráfica de caja uno al lado del otro                      |
 :::
 
 ::: notes
@@ -112,11 +110,11 @@ Cuando investigamos la relación entre dos variables (numéricas o categóricas)
 
 . . .
 
-Llamamos a una variable como la *variable dependiente* o de *respuesta*. A ella la denotamos con el símbolo $Y$.
+Llamamos a una variable como la *variable dependiente* o de *respuesta*, denotandola con la letra $Y$.
 
 . . .
 
-La otra variable la llamamos variable *independendiente* o *predictor*. A ella la denotamos con el símbolo $X$.
+La otra variable la llamamos variable *independendiente* o *predictor*, denotandola con la letra $X$.
 
 . . .
 
@@ -124,7 +122,7 @@ La otra variable la llamamos variable *independendiente* o *predictor*. A ella l
 
 ## Gráfica de dispersión
 
-La gráfica mas común para examinar la relación entre dos variables numéricas es la ***gráfica de dispersión***.
+La gráfica más común para examinar la relación entre dos variables numéricas es la [***gráfica de dispersión***]{style="color:#174062;"}.
 
 Las variables $X$ y $Y$ se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de $X$ y $Y$.
 
@@ -158,7 +156,7 @@ gf_point(mpg ~ weight, data = auto_data)
 gf_point(mpg ~ weight, data = auto_data)
 ```
 
-## Aplicando el principio 3
+## Principio 3: Aplica diseño gráfico
 
 Siguiendo el principio 3, podemos cambiar los valores pre-establecidos de la función para definir colores o formas diferentes de los puntos de la gráfica.
 
@@ -179,6 +177,8 @@ gf_point(mpg ~ weight, data = auto_data, color = "blue",
 ```
 
 ## Posibles formas de los puntos
+
+Para alterar los símbolos que denotan los puntos en una gráifca de dispersión, fijamos el parametro `shape` a algún número o caracter mostrado abajo.
 
 ![](images/FIG-SCATTER-SHAPES-CHART-1.png){fig-align="center" width="530" height="344"}
 
@@ -270,7 +270,7 @@ Considera los datos en el archivo "spotify.xlsx". El conjunto de datos de este c
 #| echo: true
 
 spotify_data = read_excel("spotify.xlsx") 
-spotify_data %>% head()
+spotify_data %>% head(3)
 ```
 
 ## 
@@ -285,20 +285,28 @@ gf_line(Despacito ~ Date, data = spotify_data)
 
 ## Aplicando el principio 3
 
-Podemos cambiar varios aspectos de la gráfica usando argumentos adicionales `gf_line(Y ~ X, linetype, size, color, data = data_set)`.
+Podemos cambiar varios aspectos de la gráfica usando argumentos adicionales `linetype`, `size`, y `color`.
+
+</br>
+
+`gf_line(Y ~ X, linetype, size, color, data = data_set)`.
+
+##
 
 ```{r}
 #| echo: true
 #| code-fold: true
 
 
-mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", size = 2) + labs(title = "Popularidad de la canción despacito de Luis Fonsi", x = "Fecha", y = "Número de reproducciones en Spotify")
-mi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", size = 1.3) + labs(title = "Popularidad de la canción despacito de Luis Fonsi", x = "Fecha", y = "Número de reproducciones en Spotify")
+mi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=18),
                                 plot.title=element_text(size=25)) 
 mi_linea
 ```
 
 ## Tipos de linea
+
+Para cambiar el tipo de linea, fijamos el parametro `linetype` a algún número o palabra mostrada abajo.
 
 ![](images/clipboard-2759814636.png){fig-align="center"}
 
@@ -317,13 +325,21 @@ En este contexto:
 
 . . .
 
-La [gráfica de cajas lado al lado]{style="color:darkblue;"} es la más efectiva para estudiar la relación entre una variable categórica y una numérica.
+La [gráfica de cajas lado al lado]{style="color:#D70040;"} es la más efectiva para estudiar la relación entre una variable categórica y una numérica.
 
 ## Gráfica de cajas por grupos
 
 La gráfica de cajas lado a lado compara la distribución de una variable en diferentes grupos.
 
-La gráfica se obtiene con la función `gf_boxplot(Y ~ X, data = dataset)`.
+</br>
+
+La gráfica se obtiene con la función 
+
+`gf_boxplot(Y ~ X, data = dataset)`.
+
+## 
+
+Por ejemplo, si queremos comparar las distribuciones de las millas por galón de los autos construídos en America, Europa, o Japón, usamos el siguiente comando:
 
 ```{r}
 #| fig-pos: center
@@ -332,7 +348,7 @@ La gráfica se obtiene con la función `gf_boxplot(Y ~ X, data = dataset)`.
 gf_boxplot(mpg ~ origin, data = auto_data) 
 ```
 
-## Mejorando la gráfica
+## Aplicando el Principio 3
 
 ```{r}
 #| fig-pos: center
@@ -347,7 +363,7 @@ bp_mpg_by_origin
 
 ## 
 
-También podemos cambiar el formato de los puntos atípicos usando los argumentos `outlier.color`, `outlier.shape`, y `outlier.size`.
+También, podemos cambiar el formato de los puntos atípicos usando los argumentos `outlier.color`, `outlier.shape`, y `outlier.size`.
 
 ```{r}
 #| fig-pos: center
@@ -395,7 +411,7 @@ Los datos tienen dos variables categóricas:
 -   La especie de pingüinos (`species`).
 -   La isla de donde provienen (`island`).
 
-Asegúrate que sean especificados como `factor` en R.
+¡Asegúrate que sean especificados como `factor` en R!
 
 ```{r}
 #| echo: true
@@ -406,9 +422,13 @@ penguins_data = penguins_data %>%
 
 ## Gráfica de barras apiladas
 
-La gráfica de barras lado al lado se genera con la función `gf_bar()`, asignando la variable $X$ al argumento `fill`. El nombre de la variable debe de estar precedido por una tilde `~X`.
+La gráfica de barras lado al lado se genera con la función `gf_bar()`, asignando la variable $X$ al argumento `fill`. 
+
+El nombre de la variable debe de estar precedido por una tilde `~X`.
 
 </br>
+
+. . .
 
 Por ejemplo, para estudiar la distribución de las especies de pingüinos en las tres diferentes islas usamos lo siguiente:
 
@@ -428,7 +448,7 @@ La gráfica muestra la frecuencia de cada especie, separada por el nombre de la 
 #| fig-pos: center
 #| echo: true
 
-gf_bar( ~ species, data = penguins_data, fill = ~island)
+gf_bar( ~ species, fill = ~island, data = penguins_data)
 ```
 
 ## Gráfica de barras lado a lado
@@ -442,8 +462,8 @@ En este caso, se usan los mismos comandos con un argumento extra: `position = po
 #| echo: true
 #| output: false
 
-gf_bar( ~ species, data = penguins_data, 
-        fill = ~island, position = position_dodge())
+gf_bar( ~ species, fill = ~island, 
+        data = penguins_data, position = position_dodge())
 ```
 
 ## 
@@ -478,16 +498,31 @@ Ventajas de barras lado a lado:
 
 Para variables categóricas, los resúmenes estadísticos más comunes son la frecuencia y la frecuencia relativa.
 
-Este código muestra como calcular la frecuencia (`n`) y la frecuencia relativa (`Proporción`) usando funciones de la librería `dplyr`.
+Con **dplyr**, calculamos la frecuencia usando la función `count()`, que cuenta los valores únicos de una o más variables.
 
 ```{r}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-penguins_data %>% count(island, species) %>% group_by(island) %>% 
-  mutate("Proporción" = prop.table(n))
+penguins_data %>% count(island, species) %>% group_by(island)
 ```
+
+##
+
+Para calcular la frecuencia relativa, usamos `mutate()` junto con la función `prop.table()`, que calcula las proporciones de una columna.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+tabla.resumen = penguins_data %>% 
+  count(island, species) %>% 
+  group_by(island) 
+tabla.resumen %>% mutate("Proporción" = prop.table(n))
+```
+
 
 # Más de una variable
 
@@ -516,7 +551,7 @@ La gráfica de facetas visualiza la relación o distribución de una o dos varia
 
 **Idea:** Crear una gráfica para cada subgrupo de $Z$.
 
-Para hacer la gráfica, usa la función `gf_facet_grid` con la sintaxis `%>%` de `dplyr`.
+Para hacer la gráfica, usa la función `gf_facet_grid` con la siguiente sintaxis:
 
 ```{r}
 #| fig-pos: center
@@ -524,7 +559,8 @@ Para hacer la gráfica, usa la función `gf_facet_grid` con la sintaxis `%>%` de
 #| code-fold: false
 #| output: false
 
-gf_point(mpg ~ weight, data = auto_data) %>% gf_facet_grid(origin ~ .) 
+gf_point(mpg ~ weight, data = auto_data) %>% 
+  gf_facet_grid(origin ~ .) 
 ```
 
 ## 
@@ -551,11 +587,19 @@ gf_point(mpg ~ weight, data = auto_data) %>% gf_facet_grid( ~ origin)
 
 ## Gráficas de varias líneas
 
-Podemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx". Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.
+Podemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx". 
 
 </br>
 
-Específicamente, necesitamos juntar las columnas `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` y `Unforgettable` en dos columnas. Una columna contendrá el número de reproducciones y la otra el título de la canción. Ambas columnas estarán ordenadas por la variable `Date`.
+Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.
+
+## El formato requerido
+
+En el formato para una gráfica de varias, necesitamos juntar las columnas `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` y `Unforgettable` en dos columnas. 
+
+Una columna contendrá el número de reproducciones y la otra el título de la canción. 
+
+Ambas columnas estarán ordenadas por la variable `Date`.
 
 ## Una nueva librería: tidyr
 
@@ -623,7 +667,20 @@ gf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)
 
 ## Gráficas para cuatro variables
 
-Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales **categóricas**.
+Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales [**categóricas**]{style="color:#8B8000;"}.
+
+</br>
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+gf_point(bill_length_mm ~ bill_depth_mm, size = ~island, 
+color = ~species, data = penguins_data)
+```
+
+##
 
 ```{r}
 #| fig-pos: center

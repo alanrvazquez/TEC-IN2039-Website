@@ -151,14 +151,12 @@ Los resúmenes estadísticos más utilizados para datos categóricos son:
 
 Resume una variable categórica contando los valores por categoría.
 
-
 | **Especie** | **Frecuencia** |
 |-------------|----------------|
 | Adelie      | 152            |
 | Chinstrap   | 68             |
 | Gentoo      | 124            |
 | **Total**   | **344**        |
-
 
 -   **Frecuencia**: Número de observaciones en cada categoría.
 
@@ -176,9 +174,9 @@ Resume una variable categórica contando los valores por categoría.
 
 ## Tabla de frecuencia en R
 
-Para construir una tabla de frecuencia en **dplyr**, usamos las funciones `group_by()`, `summarise()`, y `n()`. 
+Para construir una tabla de frecuencia en **dplyr**, usamos las funciones `group_by()`, `summarise()`, y `n()`.
 
-La función `group_by()` toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan "por grupo". 
+La función `group_by()` toma una tabla existente y la convierte en una tabla agrupada donde las operaciones se realizan "por grupo".
 
 La función `n()` cuenta los valores de una categoría.
 
@@ -216,11 +214,12 @@ Resume una variable categórica calculando la *proporción de valores* por categ
 ::: {.column width="40%"}
 | **Especie** | **Frecuencia relativa** |
 |-------------|-------------------------|
-| Adelie      | 0.442               |
-| Chinstrap   | 0.198               |
-| Gentoo      | 0.360               |
+| Adelie      | 0.442                   |
+| Chinstrap   | 0.198                   |
+| Gentoo      | 0.360                   |
 | **Suma**    | **1**                   |
 :::
+
 ::: {.column width="60%"}
 ```{r}
 #| echo: true
@@ -481,13 +480,13 @@ Mucho mejor 😃
 
 ## Colapsando categorías
 
-Algunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica. 
+Algunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica.
 
 Una estrategia para desarrollar una visualización efectiva es colapsar categorías.
 
-Por ejemplo, en la variable `rad`, podemos collapsar las categorías `Medium` y `High` en una sola categoría llamada `Other`. 
+Por ejemplo, en la variable `rad`, podemos collapsar las categorías `Medium` y `High` en una sola categoría llamada `Other`.
 
-##
+## 
 
 Para colapsar categorías en **dplyr**, usamos la función `case_when()` junto con `mutate()`. La función `case_when()` permite remplazar categorías usando expreciones lógicas en variables específicas.
 
@@ -502,9 +501,9 @@ Boston_dataset %>%
       head()
 ```
 
-##
+## 
 
-El colapsamiento de categorías simplifica nuestra gráfica. 
+El colapsamiento de categorías simplifica nuestra gráfica.
 
 ```{r}
 #| echo: true
