@@ -571,7 +571,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#principio-2-convierte-los-datos-en-información",
     "title": "Datos de múltiples variables",
     "section": "Principio 2: Convierte los datos en información",
-    "text": "Principio 2: Convierte los datos en información\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja uno al lado del otro\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+    "text": "Principio 2: Convierte los datos en información\nExisten varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nGráfica de dispersión, gráfico de lineas\n\n\nCategóricas\nGráfica de barras lado a lado, gráfico de barras apiladas\n\n\nMixta\nGráfica de caja una al lado de la otro, gráfica de burbujas\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#variable-independiente-y-dependiente",
@@ -585,7 +585,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-dispersión",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de dispersión",
-    "text": "Gráfica de dispersión\nLa gráfica más común para examinar la relación entre dos variables numéricas es la gráfica de dispersión.\nLas variables \\(X\\) y \\(Y\\) se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de \\(X\\) y \\(Y\\).\nCon los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones."
+    "text": "Gráfica de dispersión\nLa gráfica más común para examinar la relación entre dos variables numéricas es la gráfica de dispersión.\n\nLas variables \\(X\\) y \\(Y\\) se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de \\(X\\) y \\(Y\\).\n\n\n\nEl objetivo es explorar relaciones lineales o no lineales entre las variables."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#section",
@@ -655,7 +655,7 @@
     "href": "T5_Multivariate_Data/Slides_Multivariate.slides.html#gráfica-de-linea",
     "title": "Datos de múltiples variables",
     "section": "Gráfica de linea",
-    "text": "Gráfica de linea\nUna gráfica de línea es una representación visual de datos en la que puntos de datos están conectados por una línea. Muestra tendencias a lo largo del tiempo o la evolución de una variable continua. Ejes:\n\n\\(X\\) (horizontal): Representa el tiempo o la variable independiente.\n\\(Y\\) (vertical): Representa la variable dependiente.\n\nEn la gráfica, cada punto representa un valor específico en un momento dado. Las línea conecta los puntos de datos para mostrar la tendencia."
+    "text": "Gráfica de linea\nUna gráfica de línea es una representación visual de datos en la que puntos de datos están conectados por una línea. Ejes:\n\n\\(X\\) (horizontal): Representa el tiempo o la variable independiente.\n\\(Y\\) (vertical): Representa la variable dependiente.\n\nCada punto representa un valor en un momento dado.\n\n\nEl objetivo es explorar tendencias a lo largo del tiempo o la evolución de una variable continua."
   },
   {
     "objectID": "T5_Multivariate_Data/Slides_Multivariate.slides.html#ejemplo-2",

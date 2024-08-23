@@ -95,7 +95,7 @@ Existen varios tipos de gráficas que nos ayudan a explorar relaciones entre dos
 |:------------|:----------------------------------------------------------|
 | Numéricas   | Gráfica de dispersión, gráfico de lineas                  |
 | Categóricas | Gráfica de barras lado a lado, gráfico de barras apiladas |
-| Mixta       | Gráfica de caja uno al lado del otro                      |
+| Mixta       | Gráfica de caja una al lado de la otro, gráfica de burbujas                      |
 :::
 
 ::: notes
@@ -124,9 +124,13 @@ La otra variable la llamamos variable *independendiente* o *predictor*, denotand
 
 La gráfica más común para examinar la relación entre dos variables numéricas es la [***gráfica de dispersión***]{style="color:#174062;"}.
 
+. . .
+
 Las variables $X$ y $Y$ se colocan en el eje horizontal y vertical, respectivamente. Cada punto en la gráfica marca la posición de un par de valores de $X$ y $Y$.
 
-Con los diagramas de dispersión, buscamos relaciones lineales y no lineales, y examinamos el nivel de las relaciones.
+. . .
+
+> El objetivo es explorar relaciones lineales o no lineales entre las variables.
 
 ## 
 
@@ -255,12 +259,16 @@ histogram_weight
 
 ## Gráfica de linea
 
-Una gráfica de línea es una representación visual de datos en la que puntos de datos están conectados por una línea. Muestra tendencias a lo largo del tiempo o la evolución de una variable continua. Ejes:
+Una gráfica de línea es una representación visual de datos en la que puntos de datos están conectados por una línea. Ejes:
 
 -   $X$ (horizontal): Representa el tiempo o la variable independiente.
 -   $Y$ (vertical): Representa la variable dependiente.
 
-En la gráfica, cada punto representa un valor específico en un momento dado. Las línea conecta los puntos de datos para mostrar la tendencia.
+Cada punto representa un valor en un momento dado. 
+
+. . .
+
+> El objetivo es explorar tendencias a lo largo del tiempo o la evolución de una variable continua.
 
 ## Ejemplo 2
 
