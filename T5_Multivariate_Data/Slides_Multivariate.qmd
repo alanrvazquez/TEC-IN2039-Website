@@ -386,6 +386,99 @@ bp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axi
 bp_mpg_by_origin
 ```
 
+## Gráficando resúmenes estadísticos por grupos
+
+Alternativamente, podemos resumir los valores de la variable numérica $Y$ para cada categoría de la variable $X$ usando la mediana o el promedio.
+
+Por ejemplo, gráfiquemos el promedio de millas por galón de los autos producidos en America, Europa, y Japón. Para esto, primero calculamos el promedio por cada categoría usando `group_by()` y `summarise()`.
+
+```{r}
+#| echo: true
+#| output: true
+
+resumen_autos = auto_data %>% 
+  group_by(origin) %>% 
+  summarise("Promedio.mpg" = mean(mpg))
+```
+
+## 
+
+Los datos a graficar son:
+
+```{r}
+#| echo: true
+#| output: true
+
+resumen_autos
+```
+
+Dos tipos de visualizaciones comúnes para graficar una variable numérica y una discreta cuando cada solo hay un valor de la variable categorica por categoría son:
+
+- Gráfica de puntos de Cleveland
+- Gráfica de barras
+
+## Gráfica de puntos de Cleveland
+
+La gráfica de puntos de Cleveland codifica datos cuantitativos en distintas categorías. Es una alternativa a un gráfico de barras. Se obtiene con la función `gf_point()`.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| code-fold: false
+
+gf_point(origin ~ Promedio.mpg, data = resumen_autos) 
+
+```
+
+## Mejorando la gráfica
+
+Aplicamos el Principio 3 mejorar la gráfica.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| code-fold: true
+
+gf_point(origin ~ Promedio.mpg, size = 10, color = "pink", data = resumen_autos) +
+  labs(y = "Origen", x = "Promedio de Millas por Galón", 
+       title = "Comparación de autos de diferences regiones") + 
+  scale_x_continuous(limits = c(0, 35)) + 
+  theme_bw() + 
+  theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+        plot.title=element_text(size=20))
+
+```
+
+## Gráfica de barras
+
+Para hacer una gráfica de barras donde la longitud de la barra sea igual a un valor específico, usamos la función `gf_col()` de la librería **ggformula**.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| code-fold: false
+
+gf_col(origin ~ Promedio.mpg, data = resumen_autos) 
+```
+
+##
+
+Podemos usar comandos similares a la gráfica de puntos de Cleveland para mejorar la gráfica de barras.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| code-fold: true
+
+gf_col(origin ~ Promedio.mpg, fill = "pink", data = resumen_autos) +
+  labs(y = "Origen", x = "Promedio de Millas por Galón", 
+       title = "Comparación de autos de diferences regiones") + 
+  theme_bw() + 
+  theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+        plot.title=element_text(size=20))
+
+```
+
 # Dos variables categóricas
 
 ## !Divide los datos en grupos!
@@ -488,7 +581,7 @@ gf_bar( ~ species, data = penguins_data,
 
 La principal diferencia entre los gráficos de barras apiladas y de lado a lado es que el gráfico de lado a lado muestra los valores en barras separadas dentro de una categoría.
 
-Ventajas de barras apiladas:
+Ventajas de barras **apiladas**:
 
 -   Es más fácil entender qué proporciones de un todo se dividen entre segmentos.
 
@@ -496,7 +589,7 @@ Ventajas de barras apiladas:
 
 ## 
 
-Ventajas de barras lado a lado:
+Ventajas de barras **lado a lado**:
 
 -   Es más fácil comparar las alturas de cada entidad individual.
 
@@ -509,7 +602,6 @@ Para variables categóricas, los resúmenes estadísticos más comunes son la fr
 Con **dplyr**, calculamos la frecuencia usando la función `count()`, que cuenta los valores únicos de una o más variables.
 
 ```{r}
-#| fig-pos: center
 #| echo: true
 #| output: true
 
@@ -557,7 +649,11 @@ gf_point(mpg ~ weight, color = ~origin, data = auto_data)
 
 La gráfica de facetas visualiza la relación o distribución de una o dos variables para cada subgrupo definido por una tercera variable $Z$.
 
+. . .
+
 **Idea:** Crear una gráfica para cada subgrupo de $Z$.
+
+. . .
 
 Para hacer la gráfica, usa la función `gf_facet_grid` con la siguiente sintaxis:
 
@@ -595,11 +691,11 @@ gf_point(mpg ~ weight, data = auto_data) %>% gf_facet_grid( ~ origin)
 
 ## Gráficas de varias líneas
 
-Podemos utilizar estos comandos para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx". 
+Podemos utilizar las funciones `gf_line()` y `gf_facet_grid()` para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx" a través del tiempo. 
 
 </br>
 
-Sin embargo, requerimos manipular los datos para obtener el formato deseado por la función.
+Sin embargo, requerimos manipular los datos para obtener el formato requerido por estas funciones.
 
 ## El formato requerido
 
@@ -673,9 +769,35 @@ O podemos poner todas las lineas en una sola gráfica.
 gf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)
 ```
 
+
+## Gráfica de area
+
+Es una forma especializada de la gráfica de líneas, donde conectamos los puntos con una línea continua y rellenamos la región debajo de esa línea con un color sólido. Se genera usando la función `gf_area()` de **ggformula**.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+
+gf_area(Reproducciones ~ Date, color = ~Cancion, 
+        fill = ~Cancion, data = data_lines)
+```
+
+## Aplicando el Principio 3
+
+Además de las funciones antes vistas, podemos hacer las areas trasnparentes usando el parametro `alpha`.
+
+```{r}
+#| fig-pos: center
+#| code-fold: true
+#| echo: true
+
+gf_area(Reproducciones ~ Date, color = ~Cancion, 
+        fill = ~Cancion, data = data_lines, alpha = 0.5) + theme_bw()
+```
+
 ## Gráficas para cuatro variables
 
-Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables adicionales [**categóricas**]{style="color:#8B8000;"}.
+Una gráfica común para 4 variables es la gráfica de dispersión, donde el color y el tamaño de los símbolos dependen de dos variables [**categóricas**]{style="color:#8B8000;"}.
 
 </br>
 
