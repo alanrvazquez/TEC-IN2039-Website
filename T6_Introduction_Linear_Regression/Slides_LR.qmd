@@ -13,6 +13,7 @@ format:
     logo: IN2039_logo.png
     css: style.css
     slide-number: True
+    html-math-method: mathjax
 execute:
   echo: true
 editor: visual
@@ -59,7 +60,7 @@ auto_data %>% head()
 
 ## Principio 1: Formula el mensaje
 
-Preguntas que podemos contestar con la regresión lineal simple
+Preguntas que podemos contestar con la regresión lineal simple:
 
 ::: incremental
 -   ¿Existe una relación entre una variable de respuesta y los predictores?
@@ -117,7 +118,7 @@ donde $\epsilon$ es un error natural (aleatorio).
 
 ## Modelo de regresión lineal
 
-Una función $f(X)$ muy común para predecir una respuesta ($Y$) es el **modelo de regresión lineal**.
+Una función $f(X)$ muy común para predecir una respuesta $Y$ es el **modelo de regresión lineal**.
 
 Tiene la forma matemática:
 
@@ -127,9 +128,43 @@ $$
 
 ::: incremental
 -   Donde $i$ es el indice de las $n$ observaciones, y
--   $\hat{Y}_i$ es la predicción del valor real de la respuesta $Y$ asociada a un valor del predictor igual a $X_i$.
+-   $\hat{Y}_i$ es la predicción del valor real de la respuesta $Y_i$ asociada a un valor del predictor igual a $X_i$.
 -   Los valores $\hat{\beta}_0$ y $\hat{\beta}_1$ se llaman [coeficientes]{style="color:darkblue;"} del modelo.
 :::
+
+## Principio 2: Convierte los datos en información
+
+Los valores de $\hat{\beta}_0$ y $\hat{\beta}_1$ se obtienen usando los datos. Específicamente, las formulas para los coefficientes son:
+
+$$\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{i=1}^{n} (X_i - \bar{X})^2} \text{  y  } \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X},$$
+
+donde $\bar{X} = \sum_{i=1}^n X_i/n$ y $\bar{Y} = \sum_{i=1}^n Y_i/n$.
+
+
+Estas fórmulas se obtienen del método de [*mínimos cuadrados*]{style="color:orange;"}.
+
+## Ajustando modelos de regresión en R
+
+Para ajustar un modelo de regresión lineal usamos el comando pipe `%>%` junto con la función `gf_lm()`.
+
+```{r}
+#| echo: true
+#| output: true
+
+gf_point(mpg ~ weight, data = auto_data) %>% gf_lm(mpg ~ weight)
+```
+
+##
+
+Podemos afectar el color, tamaño y tipo de linea usando los argumentos en la función `gf_lm()`.
+
+```{r}
+#| echo: true
+#| output: true
+
+gf_point(mpg ~ weight, data = auto_data) %>% 
+  gf_lm(mpg ~ weight, color = "red", lty = 1, size = 3)
+```
 
 ## Para nuestro ejemplo
 
@@ -205,13 +240,19 @@ grafica_modelo
 
 ## Interpretación de $\hat{\beta}_1$
 
+</br>
+
+</br>
+
 *Por cada libra extra en el peso de un auto, el auto tiene una reducción promedio de 0.0076 millas por galón.*
 
 ## ¿Caen todos los puntos exactamente sobre la linea?
 
+</br>
+
 . . .
 
-No! El modelo tiene [errores]{style="color:darkgreen;"}.
+No! El modelo tiene [**errores**]{style="color:darkgreen;"}.
 
 . . .
 
@@ -219,31 +260,31 @@ Técnicamente, el error de la *i*-ésima observación es $e_i = Y_i - \hat{Y}_i 
 
 # De hecho ...
 
-Los coeficientes $\hat{\beta}_0$ y $\hat{\beta}_1$ se obtienen al minimizar la suma de cuadrados de los errores.
+Las fórmulas para $\hat{\beta}_0$ y $\hat{\beta}_1$ se obtienen al minimizar la suma de cuadrados de los errores. 
 
-En otras palabras, $\hat{\beta}_0$ y $\hat{\beta}_1$ son los valores que minimizan la siguiente expresión:
+Específicamente, el [método de mínimos cuadrados]{style="color:orange;"} obtiene $\hat{\beta}_0$ y $\hat{\beta}_1$ al minimizar la función:
 
-$$
-(Y_1 - (\hat{\beta}_0 + \hat{\beta}_1 X_1 ))^2 + (Y_2 - (\hat{\beta}_0 + \hat{\beta}_1 X_2 ))^2 + \cdots + (Y_{n} - (\hat{\beta}_0 + \hat{\beta}_1 X_{n} ))^2 
-$$
-
-para las $n$ observaciones.
+\begin{align}
+g(\hat{\beta}_0, \hat{\beta}_1) & = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2. 
+\end{align}
 
 ## Inspeccionar los errores
 
-El comportamiento de los errores indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:
+El comportamiento de los errores ($e_i$'s) indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:
 
-1.  En promedio, deben de estar alrededor de 0 para cada valor predecido $\hat{Y}_i$.
-2.  Tener una dispersión constante alrededor de cada valor predecido $\hat{Y}_i$.
-3.  Ser independientes los unos de los otros. Es decir, no estar relacionados.
+::: incremental
+1.  En promedio, deben de **estar alrededor de 0** para cada valor predecido $\hat{Y}_i$.
+2.  Tener una **dispersión constante** alrededor de cada valor predecido $\hat{Y}_i$.
+3.  Ser **independientes** los unos de los otros. Es decir, no estar relacionados.
+:::
 
 ## Análisis gráfico de errores
 
 Para evaluar estos comportamientos, usamos dos gráficas de dispersión de los errores:
 
--   Eje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (*dispersión constante*).
+-   Eje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (**errores alrededor de 0 y con dispersión constante**).
 
--   Eje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (*independencia*).
+-   Eje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (**independencia**).
 
 ## Dispersión constante
 

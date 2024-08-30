@@ -459,7 +459,7 @@ Alan R. Vázquez
 </section>
 <section id="principio-1-formula-el-mensaje" class="slide level2">
 <h2>Principio 1: Formula el mensaje</h2>
-<p>Preguntas que podemos contestar con la regresión lineal simple</p>
+<p>Preguntas que podemos contestar con la regresión lineal simple:</p>
 <div>
 <ul>
 <li class="fragment"><p>¿Existe una relación entre una variable de respuesta y los predictores?</p></li>
@@ -508,7 +508,7 @@ Y = f(X) + \epsilon,
 </section>
 <section id="modelo-de-regresión-lineal" class="slide level2">
 <h2>Modelo de regresión lineal</h2>
-<p>Una función <span class="math inline">\(f(X)\)</span> muy común para predecir una respuesta (<span class="math inline">\(Y\)</span>) es el <strong>modelo de regresión lineal</strong>.</p>
+<p>Una función <span class="math inline">\(f(X)\)</span> muy común para predecir una respuesta <span class="math inline">\(Y\)</span> es el <strong>modelo de regresión lineal</strong>.</p>
 <p>Tiene la forma matemática:</p>
 <p><span class="math display">\[
 \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
@@ -516,21 +516,45 @@ Y = f(X) + \epsilon,
 <div>
 <ul>
 <li class="fragment">Donde <span class="math inline">\(i\)</span> es el indice de las <span class="math inline">\(n\)</span> observaciones, y</li>
-<li class="fragment"><span class="math inline">\(\hat{Y}_i\)</span> es la predicción del valor real de la respuesta <span class="math inline">\(Y\)</span> asociada a un valor del predictor igual a <span class="math inline">\(X_i\)</span>.</li>
+<li class="fragment"><span class="math inline">\(\hat{Y}_i\)</span> es la predicción del valor real de la respuesta <span class="math inline">\(Y_i\)</span> asociada a un valor del predictor igual a <span class="math inline">\(X_i\)</span>.</li>
 <li class="fragment">Los valores <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> se llaman <span style="color:darkblue;">coeficientes</span> del modelo.</li>
 </ul>
 </div>
 </section>
+<section id="principio-2-convierte-los-datos-en-información" class="slide level2">
+<h2>Principio 2: Convierte los datos en información</h2>
+<p>Los valores de <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> se obtienen usando los datos. Específicamente, las formulas para los coefficientes son:</p>
+<p><span class="math display">\[\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{i=1}^{n} (X_i - \bar{X})^2} \text{  y  } \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X},\]</span></p>
+<p>donde <span class="math inline">\(\bar{X} = \sum_{i=1}^n X_i/n\)</span> y <span class="math inline">\(\bar{Y} = \sum_{i=1}^n Y_i/n\)</span>.</p>
+<p>Estas fórmulas se obtienen del método de <span style="color:orange;"><em>mínimos cuadrados</em></span>.</p>
+</section>
+<section id="ajustando-modelos-de-regresión-en-r" class="slide level2">
+<h2>Ajustando modelos de regresión en R</h2>
+<p>Para ajustar un modelo de regresión lineal usamos el comando pipe <code>%&gt;%</code> junto con la función <code>gf_lm()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> <span class="fu">gf_lm</span>(mpg <span class="sc">~</span> weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>Podemos afectar el color, tamaño y tipo de linea usando los argumentos en la función <code>gf_lm()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a></a>  <span class="fu">gf_lm</span>(mpg <span class="sc">~</span> weight, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="para-nuestro-ejemplo" class="slide level2">
 <h2>Para nuestro ejemplo</h2>
 <p><span class="math inline">\(\hat{Y}_i = 46.32 -0.0076 X_i\)</span></p>
 
-<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-4-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-6-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
 <section id="la-fórmula" class="slide level2">
 <h2>La fórmula</h2>
 <p><span class="math inline">\(\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i\)</span></p>
 
-<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-5-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-7-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
 <section id="interpretación-de-los-coefficientes" class="slide level2">
 <h2>Interpretación de los coefficientes</h2>
 <blockquote>
@@ -542,22 +566,22 @@ Y = f(X) + \epsilon,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:80.0%" data-fig-pos="center"></p>
+<p><img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" data-fig-pos="center"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <p>¿Tiene sentido <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span>?</p>
 
-<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-7-1.png" data-fig-pos="center" width="960" class="r-stretch"><div class="fragment">
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-9-1.png" data-fig-pos="center" width="960" class="r-stretch"><div class="fragment">
 <p>No! Porque no hay autos con un peso igual a 0.</p>
 </div>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <blockquote>
 <p>¿Qué significa <span class="math inline">\(\hat{\beta}_1 = - 0.0076\)</span>?</p>
@@ -568,7 +592,7 @@ Y = f(X) + \epsilon,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" data-fig-pos="center"></p>
+<p><img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:80.0%" data-fig-pos="center"></p>
 </figure>
 </div>
 </div>
@@ -577,12 +601,15 @@ Y = f(X) + \epsilon,
 </section>
 <section id="interpretación-de-hatbeta_1" class="slide level2">
 <h2>Interpretación de <span class="math inline">\(\hat{\beta}_1\)</span></h2>
+<p><br></p>
+<p><br></p>
 <p><em>Por cada libra extra en el peso de un auto, el auto tiene una reducción promedio de 0.0076 millas por galón.</em></p>
 </section>
 <section id="caen-todos-los-puntos-exactamente-sobre-la-linea" class="slide level2">
 <h2>¿Caen todos los puntos exactamente sobre la linea?</h2>
+<p><br></p>
 <div class="fragment">
-<p>No! El modelo tiene <span style="color:darkgreen;">errores</span>.</p>
+<p>No! El modelo tiene <span style="color:darkgreen;"><strong>errores</strong></span>.</p>
 </div>
 <div class="fragment">
 <p>Técnicamente, el error de la <em>i</em>-ésima observación es <span class="math inline">\(e_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i\)</span>.</p>
@@ -591,28 +618,29 @@ Y = f(X) + \epsilon,
 <section>
 <section id="de-hecho" class="title-slide slide level1 center">
 <h1>De hecho …</h1>
-<p>Los coeficientes <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> se obtienen al minimizar la suma de cuadrados de los errores.</p>
-<p>En otras palabras, <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> son los valores que minimizan la siguiente expresión:</p>
-<p><span class="math display">\[
-(Y_1 - (\hat{\beta}_0 + \hat{\beta}_1 X_1 ))^2 + (Y_2 - (\hat{\beta}_0 + \hat{\beta}_1 X_2 ))^2 + \cdots + (Y_{n} - (\hat{\beta}_0 + \hat{\beta}_1 X_{n} ))^2
-\]</span></p>
-<p>para las <span class="math inline">\(n\)</span> observaciones.</p>
+<p>Las fórmulas para <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> se obtienen al minimizar la suma de cuadrados de los errores.</p>
+<p>Específicamente, el <span style="color:orange;">método de mínimos cuadrados</span> obtiene <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> al minimizar la función:</p>
+<p><span class="math display">\[\begin{align}
+g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2.
+\end{align}\]</span></p>
 </section>
 <section id="inspeccionar-los-errores" class="slide level2">
 <h2>Inspeccionar los errores</h2>
-<p>El comportamiento de los errores indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:</p>
+<p>El comportamiento de los errores (<span class="math inline">\(e_i\)</span>’s) indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:</p>
+<div>
 <ol type="1">
-<li>En promedio, deben de estar alrededor de 0 para cada valor predecido <span class="math inline">\(\hat{Y}_i\)</span>.</li>
-<li>Tener una dispersión constante alrededor de cada valor predecido <span class="math inline">\(\hat{Y}_i\)</span>.</li>
-<li>Ser independientes los unos de los otros. Es decir, no estar relacionados.</li>
+<li class="fragment">En promedio, deben de <strong>estar alrededor de 0</strong> para cada valor predecido <span class="math inline">\(\hat{Y}_i\)</span>.</li>
+<li class="fragment">Tener una <strong>dispersión constante</strong> alrededor de cada valor predecido <span class="math inline">\(\hat{Y}_i\)</span>.</li>
+<li class="fragment">Ser <strong>independientes</strong> los unos de los otros. Es decir, no estar relacionados.</li>
 </ol>
+</div>
 </section>
 <section id="análisis-gráfico-de-errores" class="slide level2">
 <h2>Análisis gráfico de errores</h2>
 <p>Para evaluar estos comportamientos, usamos dos gráficas de dispersión de los errores:</p>
 <ul>
-<li><p>Eje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (<em>dispersión constante</em>).</p></li>
-<li><p>Eje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (<em>independencia</em>).</p></li>
+<li><p>Eje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (<strong>errores alrededor de 0 y con dispersión constante</strong>).</p></li>
+<li><p>Eje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (<strong>independencia</strong>).</p></li>
 </ul>
 </section>
 <section id="dispersión-constante" class="slide level2">
@@ -620,35 +648,35 @@ Y = f(X) + \epsilon,
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>mi_modelo <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data)</span>
-<span id="cb4-2"><a></a>datos_modelo <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">"Predicciones"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>fitted, </span>
-<span id="cb4-3"><a></a>                           <span class="st">"Errores"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>residuals)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a>mi_diagrama_residuos <span class="ot">=</span> <span class="fu">gf_point</span>(Errores <span class="sc">~</span> Predicciones, <span class="at">data =</span> datos_modelo, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) </span>
-<span id="cb4-6"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>))</span>
-<span id="cb4-7"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">%&gt;%</span> <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb4-8"><a></a>mi_diagrama_residuos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>mi_modelo <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data)</span>
+<span id="cb6-2"><a></a>datos_modelo <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">"Predicciones"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>fitted, </span>
+<span id="cb6-3"><a></a>                           <span class="st">"Errores"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>residuals)</span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>mi_diagrama_residuos <span class="ot">=</span> <span class="fu">gf_point</span>(Errores <span class="sc">~</span> Predicciones, <span class="at">data =</span> datos_modelo, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) </span>
+<span id="cb6-6"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>))</span>
+<span id="cb6-7"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">%&gt;%</span> <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb6-8"><a></a>mi_diagrama_residuos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="errores-independientes" class="slide level2">
 <h2>Errores independientes</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>mi_modelo <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data)</span>
-<span id="cb5-2"><a></a>datos_modelo <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">"Tiempo"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(auto_data), </span>
-<span id="cb5-3"><a></a>                           <span class="st">"Errores"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>residuals)</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>mi_diagrama_residuos <span class="ot">=</span> <span class="fu">gf_point</span>(Errores <span class="sc">~</span> Tiempo, <span class="at">data =</span> datos_modelo, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) </span>
-<span id="cb5-6"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>))</span>
-<span id="cb5-7"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">%&gt;%</span> <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb5-8"><a></a>mi_diagrama_residuos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>mi_modelo <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data)</span>
+<span id="cb7-2"><a></a>datos_modelo <span class="ot">=</span> <span class="fu">tibble</span>(<span class="st">"Tiempo"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(auto_data), </span>
+<span id="cb7-3"><a></a>                           <span class="st">"Errores"</span> <span class="ot">=</span> mi_modelo<span class="sc">$</span>residuals)</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a>mi_diagrama_residuos <span class="ot">=</span> <span class="fu">gf_point</span>(Errores <span class="sc">~</span> Tiempo, <span class="at">data =</span> datos_modelo, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) </span>
+<span id="cb7-6"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>))</span>
+<span id="cb7-7"><a></a>mi_diagrama_residuos <span class="ot">=</span> mi_diagrama_residuos <span class="sc">%&gt;%</span> <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb7-8"><a></a>mi_diagrama_residuos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="comentarios-finales" class="slide level2">
 <h2>Comentarios finales</h2>
 <ul>
@@ -657,7 +685,7 @@ Y = f(X) + \epsilon,
 <li><p>Si ambos supuestos no son validados, entonces el modelo de regresión lineal se usa sólo como una linea de tendencia o referencia de los datos.</p></li>
 </ul>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <ul>
 <li><p>Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre <span class="math inline">\(Y\)</span> y <span class="math inline">\(X\)</span>.</p></li>
@@ -865,7 +893,7 @@ Y = f(X) + \epsilon,
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

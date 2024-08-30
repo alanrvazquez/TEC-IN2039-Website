@@ -977,7 +977,7 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#principio-1-formula-el-mensaje",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Principio 1: Formula el mensaje",
-    "text": "Principio 1: Formula el mensaje\nPreguntas que podemos contestar con la regresión lineal simple\n\n\n¿Existe una relación entre una variable de respuesta y los predictores?\n¿Qué tan fuerte es la relación?\n¿Cuál es la incertidumbre?\n¿Con qué precisión podemos predecir un resultado futuro?"
+    "text": "Principio 1: Formula el mensaje\nPreguntas que podemos contestar con la regresión lineal simple:\n\n\n¿Existe una relación entre una variable de respuesta y los predictores?\n¿Qué tan fuerte es la relación?\n¿Cuál es la incertidumbre?\n¿Con qué precisión podemos predecir un resultado futuro?"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section",
@@ -1005,7 +1005,7 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#modelo-de-regresión-lineal",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Modelo de regresión lineal",
-    "text": "Modelo de regresión lineal\nUna función \\(f(X)\\) muy común para predecir una respuesta (\\(Y\\)) es el modelo de regresión lineal.\nTiene la forma matemática:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nDonde \\(i\\) es el indice de las \\(n\\) observaciones, y\n\\(\\hat{Y}_i\\) es la predicción del valor real de la respuesta \\(Y\\) asociada a un valor del predictor igual a \\(X_i\\).\nLos valores \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_1\\) se llaman coeficientes del modelo."
+    "text": "Modelo de regresión lineal\nUna función \\(f(X)\\) muy común para predecir una respuesta \\(Y\\) es el modelo de regresión lineal.\nTiene la forma matemática:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nDonde \\(i\\) es el indice de las \\(n\\) observaciones, y\n\\(\\hat{Y}_i\\) es la predicción del valor real de la respuesta \\(Y_i\\) asociada a un valor del predictor igual a \\(X_i\\).\nLos valores \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_1\\) se llaman coeficientes del modelo."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#para-nuestro-ejemplo",
@@ -1033,42 +1033,42 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-2",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
-    "text": "¿Tiene sentido \\(\\hat{\\beta}_0 = 46.32\\)?\n\n\nNo! Porque no hay autos con un peso igual a 0."
+    "text": "Podemos afectar el color, tamaño y tipo de linea usando los argumentos en la función gf_lm().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_lm(mpg ~ weight, color = \"red\", lty = 1, size = 3)"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-3",
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-3",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
-    "text": "¿Qué significa \\(\\hat{\\beta}_1 = - 0.0076\\)?\n\n\n\\(\\hat{\\beta}_1\\) es el cambio promedio en la respuesta al aumentar \\(X_i\\) en una unidad."
+    "text": "¿Tiene sentido \\(\\hat{\\beta}_0 = 46.32\\)?\n\n\nNo! Porque no hay autos con un peso igual a 0."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-hatbeta_1",
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#interpretación-de-hatbeta_1",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Interpretación de \\(\\hat{\\beta}_1\\)",
-    "text": "Interpretación de \\(\\hat{\\beta}_1\\)\nPor cada libra extra en el peso de un auto, el auto tiene una reducción promedio de 0.0076 millas por galón."
+    "text": "Interpretación de \\(\\hat{\\beta}_1\\)\n\n\nPor cada libra extra en el peso de un auto, el auto tiene una reducción promedio de 0.0076 millas por galón."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#caen-todos-los-puntos-exactamente-sobre-la-linea",
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#caen-todos-los-puntos-exactamente-sobre-la-linea",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "¿Caen todos los puntos exactamente sobre la linea?",
-    "text": "¿Caen todos los puntos exactamente sobre la linea?\n\nNo! El modelo tiene errores.\n\n\nTécnicamente, el error de la i-ésima observación es \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
+    "text": "¿Caen todos los puntos exactamente sobre la linea?\n\n\nNo! El modelo tiene errores.\n\n\nTécnicamente, el error de la i-ésima observación es \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#inspeccionar-los-errores",
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#inspeccionar-los-errores",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Inspeccionar los errores",
-    "text": "Inspeccionar los errores\nEl comportamiento de los errores indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:\n\nEn promedio, deben de estar alrededor de 0 para cada valor predecido \\(\\hat{Y}_i\\).\nTener una dispersión constante alrededor de cada valor predecido \\(\\hat{Y}_i\\).\nSer independientes los unos de los otros. Es decir, no estar relacionados."
+    "text": "Inspeccionar los errores\nEl comportamiento de los errores (\\(e_i\\)’s) indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:\n\n\nEn promedio, deben de estar alrededor de 0 para cada valor predecido \\(\\hat{Y}_i\\).\nTener una dispersión constante alrededor de cada valor predecido \\(\\hat{Y}_i\\).\nSer independientes los unos de los otros. Es decir, no estar relacionados."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#análisis-gráfico-de-errores",
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#análisis-gráfico-de-errores",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Análisis gráfico de errores",
-    "text": "Análisis gráfico de errores\nPara evaluar estos comportamientos, usamos dos gráficas de dispersión de los errores:\n\nEje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (dispersión constante).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
+    "text": "Análisis gráfico de errores\nPara evaluar estos comportamientos, usamos dos gráficas de dispersión de los errores:\n\nEje Horizontal = Errores y Eje Vertical = Predicciones. Está gráfica permite validar los primeros dos supuestos (errores alrededor de 0 y con dispersión constante).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#dispersión-constante",
@@ -1096,7 +1096,7 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-4",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
-    "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B."
+    "text": "¿Qué significa \\(\\hat{\\beta}_1 = - 0.0076\\)?\n\n\n\\(\\hat{\\beta}_1\\) es el cambio promedio en la respuesta al aumentar \\(X_i\\) en una unidad."
   },
   {
     "objectID": "TEC-IN2039-Website.html",
@@ -1849,5 +1849,26 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#principio-2-convierte-los-datos-en-información",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#principio-2-convierte-los-datos-en-información",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Principio 2: Convierte los datos en información",
+    "text": "Principio 2: Convierte los datos en información\nLos valores de \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_1\\) se obtienen usando los datos. Específicamente, las formulas para los coefficientes son:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\ndonde \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) y \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nEstas fórmulas se obtienen del método de mínimos cuadrados."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#ajustando-modelos-de-regresión-en-r",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#ajustando-modelos-de-regresión-en-r",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Ajustando modelos de regresión en R",
+    "text": "Ajustando modelos de regresión en R\nPara ajustar un modelo de regresión lineal usamos el comando pipe %&gt;% junto con la función gf_lm().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% gf_lm(mpg ~ weight)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-5",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-5",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B."
   }
 ]
