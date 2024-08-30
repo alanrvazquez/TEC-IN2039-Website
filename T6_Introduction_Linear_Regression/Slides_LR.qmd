@@ -27,6 +27,8 @@ editor: visual
 
 3.  Regresión lineal simple
 
+4. Regresión local
+
 ## Carguemos las librerías
 
 Carguemos las librerías `ggplot2`, `ggformula`, `readxl`, y `dplyr` en Google Colab y R antes de comenzar.
@@ -320,7 +322,7 @@ mi_diagrama_residuos = mi_diagrama_residuos %>% gf_hline(yintercept = 0, lty = 2
 mi_diagrama_residuos
 ```
 
-## Comentarios finales
+## Comentarios
 
 -   Las dos gráficas **no** validan los supuestos del modelo de regresión lineal.
 
@@ -333,5 +335,82 @@ mi_diagrama_residuos
 -   Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre $Y$ y $X$.
 
 -   Veremos más sobre regresión lineal en IN1002B e IN1001B.
+
+# Regresión Local
+
+## Regresión local
+
+Es una alternativa moderna al modelo de regresión lineal simple para capturar relaciones complejas entre dos variables.
+
+[**Idea básica**]{style="color:darkgray;"}: Ajusta modelos de regresión lineal a pequeños subconjuntos de los datos. Los subconjuntos están formados por observaciones cercanas entre sí.
+
+El método más común para ajustar una regresión local a los datos es **loess**. Aquí omitiremos los detalles del método porque requieren de conceptos avanzados de estadística.
+
+##
+
+En R, ajustamos una regresión local usando la función `gf_smooth()`.
+
+```{r}
+gf_point(mpg ~ weight, data = auto_data) %>% 
+  gf_smooth(mpg ~ weight, method = "loess")
+```
+
+## 
+
+Podemos cambiar el color, grosor, y tipo de linea usando los argumentos `color`, `linewidth`, y `lty`, respectivamente, en la función `gf_smooth()`.
+
+```{r}
+gf_point(mpg ~ weight, data = auto_data) %>% 
+  gf_smooth(mpg ~ weight, method = "loess",
+            color = "red", linewidth = 2, lty = 2)
+```
+
+
+## Otro ejemplo
+
+Consideremos la relación entre la aceleración de los autos (`acceleration`) y el volumen total de todos los cilindros del motor (`displacement`).  
+
+
+```{r}
+gf_point(acceleration ~ displacement, data = auto_data)
+```
+
+## Regresión lineal
+
+```{r}
+#| echo: true
+#| code-fold: false
+gf_point(acceleration ~ displacement, data = auto_data) %>% 
+  gf_lm(acceleration ~ displacement)
+```
+
+## Regresión local
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+gf_point(acceleration ~ displacement, data = auto_data) %>% 
+  gf_smooth(acceleration ~ displacement, method = "loess")
+```
+
+
+## Discusión
+
+- El modelo de regresión lineal simple es fácil de interpretar debido a su estructura:
+
+$$
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.
+$$ 
+
+- Sin embargo, puede ser inflexible para capturar relaciones complejas entre dos variables.
+
+##
+
+</br>
+
+- La regresión local es flexible y permite capturar relaciones complejas entre dos variables. 
+
+- Sin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor $X$ con la respuesta $Y$.
 
 # [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

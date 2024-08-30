@@ -417,6 +417,7 @@ Alan R. Vázquez
 <li><p>Introducción</p></li>
 <li><p>Relación entre dos variables numéricas</p></li>
 <li><p>Regresión lineal simple</p></li>
+<li><p>Regresión local</p></li>
 </ol>
 </section>
 <section id="carguemos-las-librerías" class="slide level2">
@@ -677,8 +678,8 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 
 </div>
 <img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
-<section id="comentarios-finales" class="slide level2">
-<h2>Comentarios finales</h2>
+<section id="comentarios" class="slide level2">
+<h2>Comentarios</h2>
 <ul>
 <li><p>Las dos gráficas <strong>no</strong> validan los supuestos del modelo de regresión lineal.</p></li>
 <li><p>Existen métodos para corregir esto pero no los veremos aquí.</p></li>
@@ -690,6 +691,80 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 <ul>
 <li><p>Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre <span class="math inline">\(Y\)</span> y <span class="math inline">\(X\)</span>.</p></li>
 <li><p>Veremos más sobre regresión lineal en IN1002B e IN1001B.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="regresión-local" class="title-slide slide level1 center">
+<h1>Regresión Local</h1>
+
+</section>
+<section id="regresión-local-1" class="slide level2">
+<h2>Regresión local</h2>
+<p>Es una alternativa moderna al modelo de regresión lineal simple para capturar relaciones complejas entre dos variables.</p>
+<p><span style="color:darkgray;"><strong>Idea básica</strong></span>: Ajusta modelos de regresión lineal a pequeños subconjuntos de los datos. Los subconjuntos están formados por observaciones cercanas entre sí.</p>
+<p>El método más común para ajustar una regresión local a los datos es <strong>loess</strong>. Aquí omitiremos los detalles del método porque requieren de conceptos avanzados de estadística.</p>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p>En R, ajustamos una regresión local usando la función <code>gf_smooth()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a></a>  <span class="fu">gf_smooth</span>(mpg <span class="sc">~</span> weight, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>Podemos cambiar el color, grosor, y tipo de linea usando los argumentos <code>color</code>, <code>linewidth</code>, y <code>lty</code>, respectivamente, en la función <code>gf_smooth()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">gf_smooth</span>(mpg <span class="sc">~</span> weight, <span class="at">method =</span> <span class="st">"loess"</span>,</span>
+<span id="cb9-3"><a></a>            <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="otro-ejemplo" class="slide level2">
+<h2>Otro ejemplo</h2>
+<p>Consideremos la relación entre la aceleración de los autos (<code>acceleration</code>) y el volumen total de todos los cilindros del motor (<code>displacement</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">gf_point</span>(acceleration <span class="sc">~</span> displacement, <span class="at">data =</span> auto_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="regresión-lineal" class="slide level2">
+<h2>Regresión lineal</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">gf_point</span>(acceleration <span class="sc">~</span> displacement, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">gf_lm</span>(acceleration <span class="sc">~</span> displacement)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<section id="regresión-local-2" class="slide level2">
+<h2>Regresión local</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">gf_point</span>(acceleration <span class="sc">~</span> displacement, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">gf_smooth</span>(acceleration <span class="sc">~</span> displacement, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="discusión" class="slide level2">
+<h2>Discusión</h2>
+<ul>
+<li>El modelo de regresión lineal simple es fácil de interpretar debido a su estructura:</li>
+</ul>
+<p><span class="math display">\[
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.
+\]</span></p>
+<ul>
+<li>Sin embargo, puede ser inflexible para capturar relaciones complejas entre dos variables.</li>
+</ul>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p><br></p>
+<ul>
+<li><p>La regresión local es flexible y permite capturar relaciones complejas entre dos variables.</p></li>
+<li><p>Sin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor <span class="math inline">\(X\)</span> con la respuesta <span class="math inline">\(Y\)</span>.</p></li>
 </ul>
 </section></section>
 <section id="regresar-a-página-principal" class="title-slide slide level1 center">

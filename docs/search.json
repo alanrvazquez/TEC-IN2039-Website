@@ -956,7 +956,7 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#agenda",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroducción\nRelación entre dos variables numéricas\nRegresión lineal simple"
+    "text": "Agenda\n\nIntroducción\nRelación entre dos variables numéricas\nRegresión lineal simple\nRegresión local"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#carguemos-las-librerías",
@@ -1870,5 +1870,89 @@
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
     "text": "Si se validan ambos supuestos, entonces el modelo se puede usar para predecir la respuesta en nuevas observaciones y para verificar si existe una relación significativa entre \\(Y\\) y \\(X\\).\nVeremos más sobre regresión lineal en IN1002B e IN1001B."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-polinomial-local-1",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-polinomial-local-1",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Regresión polinomial local",
+    "text": "Regresión polinomial local\nEs una alternativa moderna al modelo de regresión lineal simple. Permite para capturar relaciones complejas entre dos variables.\nIdea básica: Agrupa los datos en subconjuntos con observaciones cercanas las unas a las otras. Para cada subconjunto, ajusta un modelo de regresión lineal a un pequeño subconjunto localizado de los datos alrededor de cada punto, lo que permite que el modelo se adapte a diferentes patrones en todo el conjunto de datos.\nEl método más común para ajustar un una regresión polinomial local a los datos es loess."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-6",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-6",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "En R, ajustamos una regresión local usando la función gf_smooth().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_smooth(mpg ~ weight, method = \"loess\")"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-7",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-7",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "Podemos cambiar el color, grosor, y tipo de linea usando los argumentos color, linewidth, y lty, respectivamente, en la función gf_smooth().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_smooth(mpg ~ weight, method = \"loess\",\n            color = \"red\", linewidth = 2, lty = 2)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comparación",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comparación",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Comparación",
+    "text": "Comparación\n\nEl modelo de regresión lineal simple es fácil de interpretar debido a su estructura en términos de los coefficientes \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_2\\). Sin embargo, puede ser inflexible para capturar relaciones entre dos variables.\nLa regresión polinomial local es flexible y permite capturar relaciones complejas entre dos variables. Sin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor \\(X\\) con la respuesta \\(Y\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#discusión",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#discusión",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Discusión",
+    "text": "Discusión\n\nEl modelo de regresión lineal simple es fácil de interpretar debido a su estructura:\n\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\n\\]\n\nSin embargo, puede ser inflexible para capturar relaciones complejas entre dos variables."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comentarios",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#comentarios",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Comentarios",
+    "text": "Comentarios\n\nLas dos gráficas no validan los supuestos del modelo de regresión lineal.\nExisten métodos para corregir esto pero no los veremos aquí.\nSi ambos supuestos no son validados, entonces el modelo de regresión lineal se usa sólo como una linea de tendencia o referencia de los datos."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-local-1",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-local-1",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Regresión local",
+    "text": "Regresión local\nEs una alternativa moderna al modelo de regresión lineal simple para capturar relaciones complejas entre dos variables.\nIdea básica: Ajusta modelos de regresión lineal a pequeños subconjuntos de los datos. Los subconjuntos están formados por observaciones cercanas entre sí.\nEl método más común para ajustar una regresión local a los datos es loess. Aquí omitiremos los detalles del método porque requieren de conceptos avanzados de estadística."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-8",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-8",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "La regresión local es flexible y permite capturar relaciones complejas entre dos variables.\nSin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor \\(X\\) con la respuesta \\(Y\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#otro-ejemplo",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#otro-ejemplo",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Otro ejemplo",
+    "text": "Otro ejemplo\nConsideremos la relación entre la aceleración de los autos (acceleration) y el volumen total de todos los cilindros del motor (displacement).\n\ngf_point(acceleration ~ displacement, data = auto_data)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-9",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-9",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "",
+    "text": "La regresión local es flexible y permite capturar relaciones complejas entre dos variables.\nSin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor \\(X\\) con la respuesta \\(Y\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-lineal",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-lineal",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Regresión lineal",
+    "text": "Regresión lineal\n\ngf_point(acceleration ~ displacement, data = auto_data) %&gt;% \n  gf_lm(acceleration ~ displacement)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-local-2",
+    "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#regresión-local-2",
+    "title": "Introducción a la Regresión Lineal Simple",
+    "section": "Regresión local",
+    "text": "Regresión local\n\ngf_point(acceleration ~ displacement, data = auto_data) %&gt;% \n  gf_smooth(acceleration ~ displacement, method = \"loess\")"
   }
 ]
