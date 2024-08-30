@@ -538,10 +538,10 @@ Y = f(X) + \epsilon,
 <img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<p>Podemos afectar el color, tamaño y tipo de linea usando los argumentos en la función <code>gf_lm()</code>.</p>
+<p>Podemos afectar el color, grosor, y tipo de linea usando los argumentos <code>color</code>, <code>linewidth</code>, y <code>lty</code>, respectivamente, en la función <code>gf_lm()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">gf_point</span>(mpg <span class="sc">~</span> weight, <span class="at">data =</span> auto_data) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a></a>  <span class="fu">gf_lm</span>(mpg <span class="sc">~</span> weight, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a></a>  <span class="fu">gf_lm</span>(mpg <span class="sc">~</span> weight, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">linewidth =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="Slides_LR_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>

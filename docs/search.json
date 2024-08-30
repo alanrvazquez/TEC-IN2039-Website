@@ -1033,7 +1033,7 @@
     "href": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-2",
     "title": "Introducción a la Regresión Lineal Simple",
     "section": "",
-    "text": "Podemos afectar el color, tamaño y tipo de linea usando los argumentos en la función gf_lm().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_lm(mpg ~ weight, color = \"red\", lty = 1, size = 3)"
+    "text": "Podemos afectar el color, grosor, y tipo de linea usando los argumentos color, linewidth, y lty, respectivamente, en la función gf_lm().\n\ngf_point(mpg ~ weight, data = auto_data) %&gt;% \n  gf_lm(mpg ~ weight, color = \"red\", lty = 1, linewidth = 3)"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/Slides_LR.slides.html#section-3",
