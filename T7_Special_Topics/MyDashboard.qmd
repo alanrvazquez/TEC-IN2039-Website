@@ -1,0 +1,82 @@
+---
+title: "Análisis de Autos"
+author: "Alan R. Vazquez"
+format: dashboard
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readxl)
+library(ggformula)
+```
+
+```{r}
+auto_data = read_excel("auto_dataset.xlsx")
+```
+
+# Gráficas
+
+## Quarto
+
+Analizamos varias características de 392 autos producidos en America, Europa, y Japón.
+
+## Primera Fila
+
+```{r}
+histogram_mpg = gf_histogram( ~ mpg, data = auto_data, fill = "darkblue", color = "black") 
+    histogram_mpg = histogram_mpg + labs(title = "Distribución de milas por galón de los autos", x = "Millas por galón", y = "Frecuencia")
+    histogram_mpg = histogram_mpg + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+                                          plot.title=element_text(size=25))
+histogram_mpg
+```
+
+```{r}
+
+histogram_weight = gf_histogram( ~ weight, data = auto_data, fill = "darkblue", color = "black") 
+    histogram_weight = histogram_weight + labs(title = "Distribución de peso de los autos", x = "Peso (lb)", y = "Frecuencia")
+    histogram_weight = histogram_weight + theme(axis.text=element_text(size=20), axis.title=element_text(size=20), plot.title=element_text(size=25))
+histogram_weight
+```
+
+## Segunda Fila
+
+```{r}
+mi_diagrama = gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2) +
+  labs(x = "Peso (lb)", y = "Millas por galón", title = "Relación entre el peso y las millas por galón")
+mi_diagrama = mi_diagrama + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+                                  plot.title=element_text(size=25))
+mi_diagrama = mi_diagrama %>% gf_smooth(mpg~weight, color = "darkgray", size = 2)
+mi_diagrama
+```
+
+```{r}
+bp_mpg_by_origin = gf_boxplot(mpg ~ origin, data = auto_data, fill = "lightblue", color = "black")
+bp_mpg_by_origin = bp_mpg_by_origin + labs(y = "Millas por galón", x = "Origen",
+                                           title = "Distribución de mpg por región")
+bp_mpg_by_origin = bp_mpg_by_origin + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),plot.title=element_text(size=25))
+bp_mpg_by_origin
+```
+
+# Resumenes
+
+Estudiamos el promedio de las millas por galón para los autos por región.
+
+```{r}
+resumen_autos = auto_data %>% 
+  group_by(origin) %>% 
+  summarise("Promedio.mpg" = mean(mpg))
+```
+
+## Primera Fila 
+
+```{r}
+grafica_resumen = gf_point(origin ~ Promedio.mpg, size = 10, color = "pink", data = resumen_autos) +
+  labs(y = "Origen", x = "Promedio de Millas por Galón", 
+       title = "Comparación de autos de diferences regiones")  
+grafica_resumen = grafica_resumen +  scale_x_continuous(limits = c(0, 35))  
+grafica_resumen = grafica_resumen +  theme_bw() 
+grafica_resumen = grafica_resumen + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+        plot.title=element_text(size=20))
+grafica_resumen
+```
