@@ -40,14 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
-<script src="../site_libs/quarto-dashboard/stickythead.js"></script>
-<script src="../site_libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
-<script src="../site_libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
-<script src="../site_libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
-<script src="../site_libs/quarto-dashboard/web-components.js" type="module"></script>
-<script src="../site_libs/quarto-dashboard/components.js"></script>
-<link href="../site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,39 +71,132 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="quarto-dashboard nav-sidebar dashboard-fill fullcontent">
+<body class="nav-sidebar floating">
 
-<header id="quarto-dashboard-header">
-<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
-  <div class="navbar-container container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
-
-
-    <div class="navbar-brand-container">       
-
-      <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">¿Qué es la visualización de datos?</a></div>
-        <div class="navbar-subtitle">IN2039: Visualización de Datos</div>
-        <div class="navbar-author">Alan R. Vázquez</div>
-      </div>
-    </div>
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-introducción-a-ciencia-de-datos" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#introducción-a-ciencia-de-datos" data-scrolling="false" href="#introducción-a-ciencia-de-datos" aria-controls="introducción-a-ciencia-de-datos" aria-selected="true"><span class="nav-link-text">Introducción a Ciencia de Datos</span></a></li><li class="nav-item" role="presentation"><a id="tab-los-3-principios-de-la-visualización-de-datos" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#los-3-principios-de-la-visualización-de-datos" data-scrolling="false" href="#los-3-principios-de-la-visualización-de-datos" aria-controls="los-3-principios-de-la-visualización-de-datos" aria-selected="false"><span class="nav-link-text">Los 3 principios de la visualización de datos</span></a></li><li class="nav-item" role="presentation"><a id="tab-actividad" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#actividad" data-scrolling="false" href="#actividad" aria-controls="actividad" aria-selected="false"><span class="nav-link-text">Actividad</span></a></li><li class="nav-item" role="presentation"><a id="tab-regresar-a-página-principal" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#regresar-a-página-principal" data-scrolling="false" href="#regresar-a-página-principal" aria-controls="regresar-a-página-principal" aria-selected="false"><span class="nav-link-text">Regresar a página principal</span></a></li></ul></div></div>
-</nav>
-</header>
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      IN2039 Data Visualization
+      </li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">IN2039 Data Visualization</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TEC-IN2039-Website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#introducción-a-ciencia-de-datos" id="toc-introducción-a-ciencia-de-datos" class="nav-link" data-scroll-target="#introducción-a-ciencia-de-datos">Introducción a Ciencia de Datos</a>
+  <ul class="collapse">
+  <li><a href="#la-ciencia-de-datos-es" id="toc-la-ciencia-de-datos-es" class="nav-link" data-scroll-target="#la-ciencia-de-datos-es">La ciencia de datos es …</a></li>
+  <li><a href="#el-esquema-de-ciencia-de-datos" id="toc-el-esquema-de-ciencia-de-datos" class="nav-link" data-scroll-target="#el-esquema-de-ciencia-de-datos">El esquema de ciencia de datos</a></li>
+  <li><a href="#business-understanding" id="toc-business-understanding" class="nav-link" data-scroll-target="#business-understanding">Business understanding</a></li>
+  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding">Data understanding</a></li>
+  <li><a href="#tipos-de-datos" id="toc-tipos-de-datos" class="nav-link" data-scroll-target="#tipos-de-datos">Tipos de datos</a></li>
+  <li><a href="#datos-númericos" id="toc-datos-númericos" class="nav-link" data-scroll-target="#datos-númericos">Datos númericos</a></li>
+  <li><a href="#la-situación-problema" id="toc-la-situación-problema" class="nav-link" data-scroll-target="#la-situación-problema">La Situación Problema</a></li>
+  <li><a href="#objetivo-de-la-situación-problema" id="toc-objetivo-de-la-situación-problema" class="nav-link" data-scroll-target="#objetivo-de-la-situación-problema">Objetivo de la situación problema</a></li>
+  </ul></li>
+  <li><a href="#los-3-principios-de-la-visualización-de-datos" id="toc-los-3-principios-de-la-visualización-de-datos" class="nav-link" data-scroll-target="#los-3-principios-de-la-visualización-de-datos">Los 3 principios de la visualización de datos</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-la-visualización-de-datos" id="toc-qué-es-la-visualización-de-datos" class="nav-link" data-scroll-target="#qué-es-la-visualización-de-datos">¿Qué es la visualización de datos?</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#principio-1-formula-el-mensaje-o-pregunta" id="toc-principio-1-formula-el-mensaje-o-pregunta" class="nav-link" data-scroll-target="#principio-1-formula-el-mensaje-o-pregunta"><strong><em>Principio 1</em>:</strong> Formula el mensaje o pregunta</a></li>
+  <li><a href="#principio-2-convierte-los-datos-en-información" id="toc-principio-2-convierte-los-datos-en-información" class="nav-link" data-scroll-target="#principio-2-convierte-los-datos-en-información"><strong><em>Principio 2</em>: <em>Convierte los datos en información</em></strong></a></li>
+  <li><a href="#principio-3-aplica-los-principios-del-diseño-gráfico" id="toc-principio-3-aplica-los-principios-del-diseño-gráfico" class="nav-link" data-scroll-target="#principio-3-aplica-los-principios-del-diseño-gráfico"><em>Principio 3: Aplica los principios del diseño gráfico</em></a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  </ul></li>
+  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a>
+  <ul class="collapse">
+  <li><a href="#actividad-cooperative-mode" id="toc-actividad-cooperative-mode" class="nav-link" data-scroll-target="#actividad-cooperative-mode">Actividad (<em>cooperative</em> mode)</a></li>
+  </ul></li>
+  <li><a href="#regresar-a-página-principal" id="toc-regresar-a-página-principal" class="nav-link" data-scroll-target="#regresar-a-página-principal">Regresar a página principal</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Introduccion.slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
+<main class="content" id="quarto-document-content">
 
-<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">¿Qué es la visualización de datos?</h1>
+<p class="subtitle lead">IN2039: Visualización de Datos</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Alan R. Vázquez </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Departamento de Ingeniería Industrial
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda" class="level3">
+<h3 class="anchored" data-anchor-id="agenda">Agenda</h3>
+<div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
 <li><p>Ciencia de datos</p>
@@ -123,8 +208,8 @@ grid-auto-rows: minmax(0, 1fr);">
 <p><img src="images/clipboard-1163901538.png" class="img-fluid" width="345"></p></li>
 </ol>
 </div>
-</div><div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
+</div>
+<div class="columns">
 <div class="column" style="width:30%;">
 <ol start="3" type="1">
 <li>Actividad</li>
@@ -137,284 +222,197 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div>
 </div>
-</div>
-<div id="introducción-a-ciencia-de-datos" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-introducción-a-ciencia-de-datos">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="introducción-a-ciencia-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-a-ciencia-de-datos">Introducción a Ciencia de Datos</h2>
+<section id="la-ciencia-de-datos-es" class="level3">
+<h3 class="anchored" data-anchor-id="la-ciencia-de-datos-es">La ciencia de datos es …</h3>
 <p>un campo multidisciplinario que utiliza métodos, procesos, algoritmos y sistemas científicos para extraer conocimientos e ideas de muchos datos estructurados y no estructurados.</p>
-<br>
+<p><br></p>
 <p>. . .</p>
-<div class="center html-fill-item html-fill-container">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:40%;">
-<img src="images/clipboard-2707460623.png" class="img-fluid quarto-figure quarto-figure-center" width="377">
-</div><div class="column html-fill-item html-fill-container" style="width:50%;">
-<img src="images/clipboard-3242954590.png" class="img-fluid quarto-figure quarto-figure-center" width="485">
+<div class="center">
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2707460623.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="377"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3242954590.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="485"></p>
+</figure>
 </div>
 </div>
 </div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</section>
+<section id="el-esquema-de-ciencia-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="el-esquema-de-ciencia-de-datos">El esquema de ciencia de datos</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-4096324521.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<img src="images/clipboard-4096324521.png" class="img-fluid quarto-figure quarto-figure-center">
-<div style="font-size: 50%;" class="html-fill-item html-fill-container">
+<div style="font-size: 50%;">
 <p>Provost, F., &amp; Fawcett, T. (2013). <a href="https://www.amazon.com.mx/Data-Science-Business-Data-Analytic-Thinking/dp/1449361323">Data Science for Business: What you need to know about data mining and data-analytic thinking</a>. O’Reilly Media, Inc.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="incremental html-fill-item html-fill-container">
+</section>
+<section id="business-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="business-understanding">Business understanding</h3>
+<div class="incremental">
 <ul class="incremental">
 <li><p>La comprensión empresarial se refiere a definir el problema empresarial a resolver.</p></li>
 <li><p>El objetivo es reformular el problema empresarial como un problema de ciencia de datos.</p></li>
 <li><p>A menudo, reformular el problema y diseñar una solución es un proceso iterativo.</p></li>
 </ul>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="data-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="data-understanding">Data understanding</h3>
 <ul>
 <li>Si el objetivo es resolver un problema empresarial, los datos que componen la materia prima disponible a partir de la cual se construirá la solución.</li>
 </ul>
-<div class="incremental html-fill-item html-fill-container">
+<div class="incremental">
 <ul class="incremental">
 <li><p>Los datos disponibles rara vez coinciden con el problema.</p></li>
 <li><p>Por ejemplo, los datos históricos a menudo se recopilan con fines no relacionados con el problema empresarial actual o sin ningún propósito explícito.</p></li>
 </ul>
 </div>
 <p>. . .</p>
-</div>
-<div class="card-footer">
+<blockquote class="blockquote">
 <p>Nuestro objetivo es convertir los datos en información que contesten preguntas útiles.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="center html-fill-item html-fill-container">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:30%;">
-<span style="color:green;"><strong>Texto</strong></span>
-<img src="images/clipboard-4167942809.png" class="img-fluid" width="511">
-</div><div class="column html-fill-item html-fill-container" style="width:30%;">
-<span style="color:orange;"><strong>Imágenes</strong></span>
-<img src="images/clipboard-3296722573.png" class="img-fluid" width="527">
-<span style="color:lightblue;"><strong>Video</strong></span>
-<img src="images/clipboard-2123600827.png" class="img-fluid" width="401">
-</div><div class="column html-fill-item html-fill-container" style="width:30%;">
-<span style="color:green;"><strong>Audio</strong></span>
-<img src="images/clipboard-2206237365.png" class="img-fluid">
+</blockquote>
+</section>
+<section id="tipos-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="tipos-de-datos">Tipos de datos</h3>
+<div class="center">
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><span style="color:green;"><strong>Texto</strong></span></p>
+<p><img src="images/clipboard-4167942809.png" class="img-fluid" width="511"></p>
+</div><div class="column" style="width:30%;">
+<p><span style="color:orange;"><strong>Imágenes</strong></span></p>
+<p><img src="images/clipboard-3296722573.png" class="img-fluid" width="527"></p>
+<p><span style="color:lightblue;"><strong>Video</strong></span></p>
+<p><img src="images/clipboard-2123600827.png" class="img-fluid" width="401"></p>
+</div><div class="column" style="width:30%;">
+<p><span style="color:green;"><strong>Audio</strong></span></p>
+<p><img src="images/clipboard-2206237365.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="datos-númericos" class="level3">
+<h3 class="anchored" data-anchor-id="datos-númericos">Datos númericos</h3>
 <p>La metodología de ciencia de datos esta basada en datos númericos dados en tablas.</p>
-<img src="images/9a292b70-64d7-475e-9ffa-22c019609752_lossy.png" class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/9a292b70-64d7-475e-9ffa-22c019609752_lossy.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>De hecho, los textos, imágenes, videos o audios son transformados a este formato para procesarlos.</p>
+</blockquote>
 <p>. . .</p>
-<span style="color:#023562;"><strong><em>En este curso, asumiremos que los datos están en una tabla.</em></strong></span>
-<div class="notes html-fill-item html-fill-container">
+<p><span style="color:#023562;"><strong><em>En este curso, asumiremos que los datos están en una tabla.</em></strong></span></p>
+<div class="notes">
 <p>Mas importante, asumiremos que los datos han sido limpiados y no contienen typos o observaciones extrañas.</p>
 </div>
-</div>
-<div class="card-footer">
-<p>De hecho, los textos, imágenes, videos o audios son transformados a este formato para procesarlos.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="la-situación-problema" class="level3">
+<h3 class="anchored" data-anchor-id="la-situación-problema">La Situación Problema</h3>
 <p>La inseguridad alimentaria en México es un problema persistente que afecta a una proporción significativa de la población.</p>
 <p>Este fenómeno se caracteriza por la falta de disponibilidad y acceso regular a alimentos nutritivos y suficientes, lo que impacta negativamente en la salud y el bienestar de los individuos.</p>
-<img src="images/44741e_bb67f59e71284597b653f6637673f1a4~mv2.webp" class="img-fluid quarto-figure quarto-figure-center" width="378">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/44741e_bb67f59e71284597b653f6637673f1a4~mv2.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="378"></p>
+</figure>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="objetivo-de-la-situación-problema" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-de-la-situación-problema">Objetivo de la situación problema</h3>
+<blockquote class="blockquote">
+<p>Esta situación problema concierne la creación de un póster que informe a la sociedad sobre el estatus de inseguridad alimentaria que existe en México.</p>
+</blockquote>
 <p>Para esto, usarás una base de datos con información de 63,855 viviendas y 15 variables que se encuentra en el archivo “IngresosViviendasMexicanas.xlsx.”</p>
 <p>Puedes encontrar más información en nuestra página de Canvas.</p>
-</div>
-<div class="card-footer">
-<p>Esta situación problema concierne la creación de un póster que informe a la sociedad sobre el estatus de inseguridad alimentaria que existe en México.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div>
-</div>
-<div id="los-3-principios-de-la-visualización-de-datos" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-los-3-principios-de-la-visualización-de-datos">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<img src="images/clipboard-3803538817.png" class="img-fluid quarto-figure quarto-figure-center" width="814">
-</div>
-<div class="card-footer">
+</section>
+</section>
+<section id="los-3-principios-de-la-visualización-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="los-3-principios-de-la-visualización-de-datos">Los 3 principios de la visualización de datos</h2>
+<section id="qué-es-la-visualización-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="qué-es-la-visualización-de-datos">¿Qué es la visualización de datos?</h3>
+<blockquote class="blockquote">
 <p>“Una visualización [de datos] es cualquier presentación visual destinada a revelar evidencia, haciendo visible lo invisible” Alberto Cairo (2015).</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3803538817.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="814"></p>
+</figure>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/TobaccoGraph-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<img src="images/TobaccoGraph-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center">
-<div style="font-size: 50%;" class="html-fill-item html-fill-container">
-<a href="https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html" class="uri">https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html</a>
+<div style="font-size: 50%;">
+<p><a href="https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html" class="uri">https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html</a></p>
 </div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/costhurricanesLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div style="font-size: 50%;">
+<p><a href="https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html" class="uri">https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html</a></p>
 </div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<img src="images/costhurricanesLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center">
-<div style="font-size: 50%;" class="html-fill-item html-fill-container">
-<a href="https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html" class="uri">https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html</a>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GlobalFastFoodLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
+<div style="font-size: 50%;">
+<p><a href="https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html" class="uri">https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html</a></p>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<img src="images/GlobalFastFoodLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center">
-<div style="font-size: 50%;" class="html-fill-item html-fill-container">
-<a href="https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html" class="uri">https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html</a>
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3"></h3>
 <p>En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.</p>
-<br>
+<p><br></p>
 <p>Las visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.</p>
-<br>
+<p><br></p>
 <p>. . .</p>
-<span style="color:#023562;"><strong><em>La visualización de datos tiene 3 principios…</em></strong></span>
-<div class="notes html-fill-item html-fill-container">
+<p><span style="color:#023562;"><strong><em>La visualización de datos tiene 3 principios…</em></strong></span></p>
+<div class="notes">
 <p>As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="principio-1-formula-el-mensaje-o-pregunta" class="level3">
+<h3 class="anchored" data-anchor-id="principio-1-formula-el-mensaje-o-pregunta"><strong><em>Principio 1</em>:</strong> Formula el mensaje o pregunta</h3>
 <p>Formúla la pregunta de interés o el mensaje que quieres transmitir.</p>
-<div class="center html-fill-item html-fill-container">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:33%;">
-<img src="images/clipboard-1758479249.png" class="img-fluid" width="499">
-</div><div class="column html-fill-item html-fill-container" style="width:33%;">
-<a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&amp;psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&amp;ust=1706894768727000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD"><img src="https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg" class="img-fluid" alt="Be ready to lose all your money on bitcoin, FCA tells consumers&quot; Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"></a>
-</div><div class="column html-fill-item html-fill-container" style="width:33%;">
-<img src="images/clipboard-1023529598.png" class="img-fluid">
+<div class="center">
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img src="images/clipboard-1758479249.png" class="img-fluid" width="499"></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&amp;psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&amp;ust=1706894768727000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD"><img src="https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg" class="img-fluid" alt="Be ready to lose all your money on bitcoin, FCA tells consumers&quot; Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"></a></p>
+</div><div class="column" style="width:33%;">
+<p><img src="images/clipboard-1023529598.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-<div class="notes html-fill-item html-fill-container">
+<div class="notes">
 <p>El mensaje puede ser una pregunta</p>
 <ul>
 <li><p>¿Cuál es la comparación importante?</p></li>
@@ -426,41 +424,26 @@ grid-auto-rows: minmax(0, 1fr);">
 </ul>
 <p>[Incluir noticias del new york times]</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="principio-2-convierte-los-datos-en-información" class="level3">
+<h3 class="anchored" data-anchor-id="principio-2-convierte-los-datos-en-información"><strong><em>Principio 2</em>: <em>Convierte los datos en información</em></strong></h3>
 <p>Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de convertir los datos en información.</p>
-<img src="images/TobaccoGraph-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center">
-<div style="font-size: 85%;" class="html-fill-item html-fill-container">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/TobaccoGraph-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div style="font-size: 85%;">
 <p>Enriquece tu gráfica con símbolos de color y texto para transmitir información adicional.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="center html-fill-item html-fill-container">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:55%;">
-<div style="font-size: 75%;" class="html-fill-item html-fill-container">
-<div class="incremental html-fill-item html-fill-container">
+</section>
+<section id="principio-3-aplica-los-principios-del-diseño-gráfico" class="level3">
+<h3 class="anchored" data-anchor-id="principio-3-aplica-los-principios-del-diseño-gráfico"><em>Principio 3: Aplica los principios del diseño gráfico</em></h3>
+<div class="center">
+<div class="columns">
+<div class="column" style="width:55%;">
+<div style="font-size: 75%;">
+<div class="incremental">
 <ol class="incremental" type="1">
 <li>Es fácil identificar objetos por color.</li>
 <li>Utiliza etiquetas directas en lugar de una leyenda.</li>
@@ -471,39 +454,27 @@ grid-auto-rows: minmax(0, 1fr);">
 </ol>
 </div>
 </div>
-</div><div class="column html-fill-item html-fill-container" style="width:45%;">
-<img src="images/GlobalFastFoodLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center">
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GlobalFastFoodLN-superJumbo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
 </div>
 </div>
-<div class="notes html-fill-item html-fill-container">
+</div>
+<div class="notes">
 <p>No te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.</p>
 <p>También, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div style="font-size: 75%;" class="html-fill-item html-fill-container">
+</section>
+<section id="ejemplo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<div style="font-size: 75%;">
 <p><span style="color:#023562;"><strong>Principio 1</strong></span>: Es más barato tomar Uber que poseer un auto en cuatro de las cinco ciudades más grandes de USA.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:70%;">
+<div class="columns">
+<div class="column" style="width:70%;">
 <table class="caption-top table">
 <caption>Costo semanal (en USD) del viaje diario</caption>
 <thead>
@@ -541,86 +512,54 @@ grid-auto-rows: minmax(0, 1fr);">
 </tr>
 </tbody>
 </table>
-</div><div class="column html-fill-item html-fill-container" style="width:30%;">
+</div><div class="column" style="width:30%;">
 <p><img src="images/clipboard-3936281418.png" class="img-fluid"></p>
 </div>
-</div><div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="notes html-fill-item html-fill-container">
+</div>
+<div class="notes">
 <p>The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.</p>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4"></h3>
 <p><span style="color:#023562;"><strong>Principio 2</strong></span>: Convierte los datos en información.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="Introduccion_files/figure-revealjs/unnamed-chunk-1-1.png" class="img-fluid quarto-dashboard-img-contain" data-fig-pos="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Introduccion_files/figure-revealjs/unnamed-chunk-1-1.png" class="img-fluid figure-img" data-fig-pos="center" width="960"></p>
+</figure>
 </div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5"></h3>
 <p><span style="color:#023562;"><strong>Principio 3</strong></span>: Aplica los principios del diseño gráfico.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="Introduccion_files/figure-revealjs/unnamed-chunk-2-1.png" class="img-fluid quarto-dashboard-img-contain" data-fig-pos="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Introduccion_files/figure-revealjs/unnamed-chunk-2-1.png" class="img-fluid figure-img" data-fig-pos="center" width="960"></p>
+</figure>
 </div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="column html-fill-item html-fill-container" style="width:70%;">
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6"></h3>
+<div class="columns">
+<div class="column" style="width:70%;">
 <blockquote class="blockquote">
 <p>“<em>El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.</em>” John W. Tukey.</p>
 </blockquote>
-</div><div class="column html-fill-item html-fill-container" style="width:30%;">
+</div><div class="column" style="width:30%;">
 <p><img src="https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg" class="img-fluid" alt="John Tukey - Wikipedia"></p>
 </div>
-</div><div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</div>
 <p>. . .</p>
 <p><a href="https://www.storytellingwithdata.com/" class="uri">https://www.storytellingwithdata.com/</a> es una excelente guía sobre visualizaciones.</p>
-<div class="notes html-fill-item html-fill-container">
+<div class="notes">
 <p>Principios del diseño gráfico</p>
 <ol type="1">
 <li><p>Es más fácil identificar objetos por color que por forma.</p></li>
@@ -631,22 +570,12 @@ grid-auto-rows: minmax(0, 1fr);">
 <li><p>Utiliza un diseño de cuadrícula para organizar su visualización.</p></li>
 </ol>
 </div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div>
-</div>
-<div id="actividad" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-actividad">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+</section>
+<section id="actividad" class="level2">
+<h2 class="anchored" data-anchor-id="actividad">Actividad</h2>
+<section id="actividad-cooperative-mode" class="level3">
+<h3 class="anchored" data-anchor-id="actividad-cooperative-mode">Actividad (<em>cooperative</em> mode)</h3>
 <ol type="1">
 <li>Júntate con un compañero.</li>
 <li>Encuentren un <strong>buen</strong> y un <strong>mal</strong> ejemplo de una visualización (gráficas) en linea.</li>
@@ -654,28 +583,15 @@ grid-auto-rows: minmax(0, 1fr);">
 <li>Escriban una crítica breve (3 a 4 enunciados) de cada visualización.</li>
 <li>Suban un documento con sus criticas e imágenes en Canvas.</li>
 </ol>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div>
-</div>
-<div id="regresar-a-página-principal" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-regresar-a-página-principal">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: ; grid-auto-columns: minmax(0, 1fr);">
+</section>
+</section>
+<section id="regresar-a-página-principal" class="level2">
+<h2 class="anchored" data-anchor-id="regresar-a-página-principal"><a href="https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html">Regresar a página principal</a></h2>
 
 
-<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+</section>
 
-</div>
-</div>
-</div>
-</div>
-
-
+</main> <!-- /main -->
 
 <script>
   // htmlwidgets need to know to resize themselves when slides are shown/hidden.
@@ -1125,14 +1041,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
-<script type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (_event) {
-  if (window.bslib.Card) {
-    window.bslib.Card.initializeAllCards();
-  }
-}); 
-</script>
-  
 
 
 

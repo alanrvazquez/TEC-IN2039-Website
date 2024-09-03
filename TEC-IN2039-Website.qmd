@@ -18,7 +18,7 @@ author:
 6.  Datos de Múltiples Variables ([slides](/T5_Multivariate_Data/Slides_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WfAsvSng0tZGVZV3XmFrrEIlPuqnYPBa/view?usp=sharing))
 7.  Introducción a la Regresión Lineal Simple ([slides](/T6_Introduction_Linear_Regression/Slides_LR.slides.html)) ([colab](https://drive.google.com/file/d/1Vr2KThpsLCdEsxabA3baFx-NlMxhKJfN/view?usp=sharing))
 8. Resúmen de las primeras sesiones ([slides](/Recap/Repaso.slides.html))
-8.  Tópicos Especiales
+8.  Tópicos Especiales ([dashboard](https://rpubs.com/alanrvazquez/example-dashboard))
 
 ### Sobre el Autor
 
