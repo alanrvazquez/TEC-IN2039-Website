@@ -27,7 +27,7 @@ editor: visual
 
 3.  Regresión lineal simple
 
-4. Regresión local
+4.  Regresión local
 
 ## Carguemos las librerías
 
@@ -142,7 +142,6 @@ $$\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{
 
 donde $\bar{X} = \sum_{i=1}^n X_i/n$ y $\bar{Y} = \sum_{i=1}^n Y_i/n$.
 
-
 Estas fórmulas se obtienen del método de [*mínimos cuadrados*]{style="color:orange;"}.
 
 ## Ajustando modelos de regresión en R
@@ -156,7 +155,7 @@ Para ajustar un modelo de regresión lineal usamos el comando pipe `%>%` junto c
 gf_point(mpg ~ weight, data = auto_data) %>% gf_lm(mpg ~ weight)
 ```
 
-##
+## 
 
 Podemos afectar el color, grosor, y tipo de linea usando los argumentos `color`, `linewidth`, y `lty`, respectivamente, en la función `gf_lm()`.
 
@@ -262,14 +261,15 @@ Técnicamente, el error de la *i*-ésima observación es $e_i = Y_i - \hat{Y}_i 
 
 # De hecho ...
 
-Las fórmulas para $\hat{\beta}_0$ y $\hat{\beta}_1$ se obtienen al minimizar la suma de cuadrados de los errores. 
+Las fórmulas para $\hat{\beta}_0$ y $\hat{\beta}_1$ se obtienen al minimizar la suma de cuadrados de los errores.
 
 Específicamente, el [método de mínimos cuadrados]{style="color:orange;"} obtiene $\hat{\beta}_0$ y $\hat{\beta}_1$ al minimizar la función:
 
+```{=tex}
 \begin{align}
 g(\hat{\beta}_0, \hat{\beta}_1) & = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2. 
 \end{align}
-
+```
 ## Inspeccionar los errores
 
 El comportamiento de los errores ($e_i$'s) indica si el modelo es correcto o no. Si el modelo es correcto, los errores se deben de comportar como sigue:
@@ -346,7 +346,7 @@ Es una alternativa moderna al modelo de regresión lineal simple para capturar r
 
 El método más común para ajustar una regresión local a los datos es **loess**. Aquí omitiremos los detalles del método porque requieren de conceptos avanzados de estadística.
 
-##
+## 
 
 En R, ajustamos una regresión local usando la función `gf_smooth()`.
 
@@ -365,11 +365,9 @@ gf_point(mpg ~ weight, data = auto_data) %>%
             color = "red", linewidth = 2, lty = 2)
 ```
 
-
 ## Otro ejemplo
 
-Consideremos la relación entre la aceleración de los autos (`acceleration`) y el volumen total de todos los cilindros del motor (`displacement`).  
-
+Consideremos la relación entre la aceleración de los autos (`acceleration`) y el volumen total de todos los cilindros del motor (`displacement`).
 
 ```{r}
 gf_point(acceleration ~ displacement, data = auto_data)
@@ -394,23 +392,22 @@ gf_point(acceleration ~ displacement, data = auto_data) %>%
   gf_smooth(acceleration ~ displacement, method = "loess")
 ```
 
-
 ## Discusión
 
-- El modelo de regresión lineal simple es fácil de interpretar debido a su estructura:
+-   El modelo de regresión lineal simple es fácil de interpretar debido a su estructura:
 
 $$
 \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.
-$$ 
+$$
 
-- Sin embargo, puede ser inflexible para capturar relaciones complejas entre dos variables.
+-   Sin embargo, puede ser inflexible para capturar relaciones complejas entre dos variables.
 
-##
+## 
 
 </br>
 
-- La regresión local es flexible y permite capturar relaciones complejas entre dos variables. 
+-   La regresión local es flexible y permite capturar relaciones complejas entre dos variables.
 
-- Sin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor $X$ con la respuesta $Y$.
+-   Sin embargo, tiene un bajo nivel de interpretabilidad porque no provee una equación explícita para relacionar el predictor $X$ con la respuesta $Y$.
 
 # [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)

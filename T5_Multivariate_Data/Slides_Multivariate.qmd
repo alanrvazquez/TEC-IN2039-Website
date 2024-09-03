@@ -91,11 +91,11 @@ En el contexto de datos de múltiples variables, las preguntas típicas a estudi
 Existen varios tipos de gráficas que nos ayudan a explorar relaciones entre dos o más variables.
 
 ::: center
-| Tipo        | Gráfica                                                   |
-|:------------|:----------------------------------------------------------|
-| Numéricas   | Gráfica de dispersión, gráfico de lineas                  |
-| Categóricas | Gráfica de barras lado a lado, gráfico de barras apiladas |
-| Mixta       | Gráfica de caja una al lado de la otro, gráfica de burbujas                      |
+| Tipo        | Gráfica                                                     |
+|:---------------|:-------------------------------------------------------|
+| Numéricas   | Gráfica de dispersión, gráfico de lineas                    |
+| Categóricas | Gráfica de barras lado a lado, gráfico de barras apiladas   |
+| Mixta       | Gráfica de caja una al lado de la otro, gráfica de burbujas |
 :::
 
 ::: notes
@@ -264,7 +264,7 @@ Una gráfica de línea es una representación visual de datos en la que puntos d
 -   $X$ (horizontal): Representa el tiempo o la variable independiente.
 -   $Y$ (vertical): Representa la variable dependiente.
 
-Cada punto representa un valor en un momento dado. 
+Cada punto representa un valor en un momento dado.
 
 . . .
 
@@ -299,7 +299,7 @@ Podemos cambiar varios aspectos de la gráfica usando argumentos adicionales `li
 
 `gf_line(Y ~ X, linetype, size, color, data = data_set)`.
 
-##
+## 
 
 ```{r}
 #| echo: true
@@ -341,7 +341,7 @@ La gráfica de cajas lado a lado compara la distribución de una variable en dif
 
 </br>
 
-La gráfica se obtiene con la función 
+La gráfica se obtiene con la función
 
 `gf_boxplot(Y ~ X, data = dataset)`.
 
@@ -414,8 +414,8 @@ resumen_autos
 
 Dos tipos de visualizaciones comúnes para graficar una variable numérica y una discreta cuando cada solo hay un valor de la variable categorica por categoría son:
 
-- Gráfica de puntos de Cleveland
-- Gráfica de barras
+-   Gráfica de puntos de Cleveland
+-   Gráfica de barras
 
 ## Gráfica de puntos de Cleveland
 
@@ -461,7 +461,7 @@ Para hacer una gráfica de barras donde la longitud de la barra sea igual a un v
 gf_col(origin ~ Promedio.mpg, data = resumen_autos) 
 ```
 
-##
+## 
 
 Podemos usar comandos similares a la gráfica de puntos de Cleveland para mejorar la gráfica de barras.
 
@@ -523,7 +523,7 @@ penguins_data = penguins_data %>%
 
 ## Gráfica de barras apiladas
 
-La gráfica de barras lado al lado se genera con la función `gf_bar()`, asignando la variable $X$ al argumento `fill`. 
+La gráfica de barras lado al lado se genera con la función `gf_bar()`, asignando la variable $X$ al argumento `fill`.
 
 El nombre de la variable debe de estar precedido por una tilde `~X`.
 
@@ -608,7 +608,7 @@ Con **dplyr**, calculamos la frecuencia usando la función `count()`, que cuenta
 penguins_data %>% count(island, species) %>% group_by(island)
 ```
 
-##
+## 
 
 Para calcular la frecuencia relativa, usamos `mutate()` junto con la función `prop.table()`, que calcula las proporciones de una columna.
 
@@ -622,7 +622,6 @@ tabla.resumen = penguins_data %>%
   group_by(island) 
 tabla.resumen %>% mutate("Proporción" = prop.table(n))
 ```
-
 
 # Más de una variable
 
@@ -691,7 +690,7 @@ gf_point(mpg ~ weight, data = auto_data) %>% gf_facet_grid( ~ origin)
 
 ## Gráficas de varias líneas
 
-Podemos utilizar las funciones `gf_line()` y `gf_facet_grid()` para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx" a través del tiempo. 
+Podemos utilizar las funciones `gf_line()` y `gf_facet_grid()` para visualizar la evolución de las reproducciones de las 5 canciones en el archivo "spotify.xlsx" a través del tiempo.
 
 </br>
 
@@ -699,9 +698,9 @@ Sin embargo, requerimos manipular los datos para obtener el formato requerido po
 
 ## El formato requerido
 
-En el formato para una gráfica de varias, necesitamos juntar las columnas `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` y `Unforgettable` en dos columnas. 
+En el formato para una gráfica de varias, necesitamos juntar las columnas `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` y `Unforgettable` en dos columnas.
 
-Una columna contendrá el número de reproducciones y la otra el título de la canción. 
+Una columna contendrá el número de reproducciones y la otra el título de la canción.
 
 Ambas columnas estarán ordenadas por la variable `Date`.
 
@@ -769,7 +768,6 @@ O podemos poner todas las lineas en una sola gráfica.
 gf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)
 ```
 
-
 ## Gráfica de area
 
 Es una forma especializada de la gráfica de líneas, donde conectamos los puntos con una línea continua y rellenamos la región debajo de esa línea con un color sólido. Se genera usando la función `gf_area()` de **ggformula**.
@@ -810,7 +808,7 @@ gf_point(bill_length_mm ~ bill_depth_mm, size = ~island,
 color = ~species, data = penguins_data)
 ```
 
-##
+## 
 
 ```{r}
 #| fig-pos: center

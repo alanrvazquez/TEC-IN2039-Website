@@ -243,9 +243,9 @@ El mensaje puede ser una pregunta
 \[Incluir noticias del new york times\]
 :::
 
-## ***Principio 2*****: *Transforma los datos en información***
+## ***Principio 2*****: *Convierte los datos en información***
 
-Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.
+Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de convertir los datos en información.
 
 ![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
 
@@ -312,7 +312,7 @@ The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak
 
 ## 
 
-[**Principio 2**]{style="color:#023562;"}: Transforma los datos en información.
+[**Principio 2**]{style="color:#023562;"}: Convierte los datos en información.
 
 ```{r}
 #| echo: false

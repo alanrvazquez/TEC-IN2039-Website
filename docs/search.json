@@ -1926,5 +1926,138 @@
     "title": "Tópicos Especiales",
     "section": "Creating a dashboard",
     "text": "Creating a dashboard\nSummarize the material here\nhttps://epirhandbook.com/en/dashboards-with-r-markdown.html\n\n\n\n\nTecnológico de Monterrey"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#qué-es-la-visualización-de-datos",
+    "href": "Recap/Repaso.slides.html#qué-es-la-visualización-de-datos",
+    "title": "Repaso del Curso",
+    "section": "¿Qué es la visualización de datos?",
+    "text": "¿Qué es la visualización de datos?\n\n“Una visualización [de datos] es cualquier presentación visual destinada a revelar evidencia, haciendo visible lo invisible” Alberto Cairo (2015)."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#section",
+    "href": "Recap/Repaso.slides.html#section",
+    "title": "Repaso del Curso",
+    "section": "",
+    "text": "En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.\n\nLas visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#principio-1-formula-el-mensaje",
+    "href": "Recap/Repaso.slides.html#principio-1-formula-el-mensaje",
+    "title": "Repaso del Curso",
+    "section": "Principio 1: Formula el mensaje",
+    "text": "Principio 1: Formula el mensaje\nMuchas veces el mensaje se obtiene al contestar una pregunta de interés.\n\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\n¿Cuál es la comparación importante?\n¿Cómo la enfatizamos?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might bring added value to the investigation?\nAre there any potentially important features to create comparisons with/against?\n\n[Incluir noticias del new york times]"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#principio-2-transforma-los-datos-en-información",
+    "href": "Recap/Repaso.slides.html#principio-2-transforma-los-datos-en-información",
+    "title": "Repaso del Curso",
+    "section": "Principio 2: Transforma los datos en información",
+    "text": "Principio 2: Transforma los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.\n\n\n\n\n\n\n\n\n\n\n\nEnriquece tu gráfica con símbolos de color y texto para transmitir información adicional."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
+    "href": "Recap/Repaso.slides.html#principio-3-aplica-los-principios-del-diseño-gráfico",
+    "title": "Repaso del Curso",
+    "section": "Principio 3: Aplica los principios del diseño gráfico",
+    "text": "Principio 3: Aplica los principios del diseño gráfico\n\n\n\n\n\nEs fácil identificar objetos por color.\nUtiliza etiquetas directas en lugar de una leyenda.\nElementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.\nEquilibra gráficos y texto.\nTen cuidado con las opciones predeterminadas del software de visualización.\nUsa un diseño de cuadrícula para organizar su visualización.\n\n\n\n\n\n\n\n\nNo te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.\nTambién, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#tipos-de-variables-1",
+    "href": "Recap/Repaso.slides.html#tipos-de-variables-1",
+    "title": "Repaso del Curso",
+    "section": "Tipos de Variables",
+    "text": "Tipos de Variables"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#los-tipos-de-variable-definen-nuestro-análisis",
+    "href": "Recap/Repaso.slides.html#los-tipos-de-variable-definen-nuestro-análisis",
+    "title": "Repaso del Curso",
+    "section": "Los tipos de variable definen nuestro análisis",
+    "text": "Los tipos de variable definen nuestro análisis\n\nAyudan a especificar las operaciones, visualizaciones y modelos que podemos aplicar a los datos.\nExisten gráficas apropiadas o diseñadas para visualizar variables numéricas o categóricas."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#resúmenes-estadísticos-para-variables-categóricas",
+    "href": "Recap/Repaso.slides.html#resúmenes-estadísticos-para-variables-categóricas",
+    "title": "Repaso del Curso",
+    "section": "Resúmenes Estadísticos para variables categóricas",
+    "text": "Resúmenes Estadísticos para variables categóricas\n\nUn resumen estadístico nos ayuda a resumir un conjunto de observaciones de una manera simple.\n\nLos resúmenes estadísticos más utilizados para datos categóricos son:\n\nLa frecuencia de una categoría es el número de observaciones que pertenecen a esa categoría.\nLa frecuencia relativa es la frecuencia dividida por el número total de observaciones."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#resúmenes-estadísticos-para-variables-numéricas",
+    "href": "Recap/Repaso.slides.html#resúmenes-estadísticos-para-variables-numéricas",
+    "title": "Repaso del Curso",
+    "section": "Resúmenes Estadísticos para variables numéricas",
+    "text": "Resúmenes Estadísticos para variables numéricas\nLos resúmenes estadísticos más utilizados para datos numéricos son:\n\nPromedio\nVarianza y desviación estándar\nMediana y cuartiles\nMáximo y mínimo"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-1-variable",
+    "href": "Recap/Repaso.slides.html#gráficos-para-1-variable",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 1 variable",
+    "text": "Gráficos para 1 variable\n\n\n\n\nTipo\nGráfica\n\n\n\n\nCategórica\nBarras y circular"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-1-variable-1",
+    "href": "Recap/Repaso.slides.html#gráficos-para-1-variable-1",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 1 variable",
+    "text": "Gráficos para 1 variable\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNumérica\nHistograma y gráfica de caja"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-2-variables",
+    "href": "Recap/Repaso.slides.html#gráficos-para-2-variables",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 2 variables",
+    "text": "Gráficos para 2 variables\n\n\n\n\nTipo\nGráfica\n\n\n\n\nNuméricas\nDispersión y Lineas"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-2-variables-1",
+    "href": "Recap/Repaso.slides.html#gráficos-para-2-variables-1",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 2 variables",
+    "text": "Gráficos para 2 variables\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nCategóricas\nBarras lado a lado y barras apiladas"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-2-o-más-variables",
+    "href": "Recap/Repaso.slides.html#gráficos-para-2-o-más-variables",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 2 o más variables",
+    "text": "Gráficos para 2 o más variables\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nMixta\nCleveland, dispersión por color y forma, varias lineas, área, facetas"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#modelo-de-regresión-lineal",
+    "href": "Recap/Repaso.slides.html#modelo-de-regresión-lineal",
+    "title": "Repaso del Curso",
+    "section": "Modelo de regresión lineal",
+    "text": "Modelo de regresión lineal\nUna función \\(f(X)\\) muy común para predecir una respuesta (\\(Y\\)) es el modelo de regresión lineal.\nTiene la forma matemática:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\nDonde \\(i\\) es el indice de las \\(n\\) observaciones, y\n\\(\\hat{Y}_i\\) es la predicción del valor real de la respuesta \\(Y\\) asociada a un valor del predictor igual a \\(X_i\\).\nLos valores \\(\\hat{\\beta}_0\\) y \\(\\hat{\\beta}_1\\) se llaman coeficientes del modelo."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#para-nuestro-ejemplo",
+    "href": "Recap/Repaso.slides.html#para-nuestro-ejemplo",
+    "title": "Repaso del Curso",
+    "section": "Para nuestro ejemplo",
+    "text": "Para nuestro ejemplo\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#la-fórmula",
+    "href": "Recap/Repaso.slides.html#la-fórmula",
+    "title": "Repaso del Curso",
+    "section": "La fórmula",
+    "text": "La fórmula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#principio-2-convierte-los-datos-en-información",
+    "href": "Recap/Repaso.slides.html#principio-2-convierte-los-datos-en-información",
+    "title": "Repaso del Curso",
+    "section": "Principio 2: Convierte los datos en información",
+    "text": "Principio 2: Convierte los datos en información\nTu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de convertir los datos en información."
+  },
+  {
+    "objectID": "Recap/Repaso.slides.html#gráficos-para-2-o-más-variables-1",
+    "href": "Recap/Repaso.slides.html#gráficos-para-2-o-más-variables-1",
+    "title": "Repaso del Curso",
+    "section": "Gráficos para 2 o más variables",
+    "text": "Gráficos para 2 o más variables\n\n\n\n\n\n\n\n\nTipo\nGráfica\n\n\n\n\nMixta\nCleveland, dispersión por color y forma, varias lineas, área, facetas"
   }
 ]
