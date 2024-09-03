@@ -1,0 +1,291 @@
+---
+title: |
+   | Sesión 9: 
+   | Repaso de IN2039
+author: 
+  - name: Alan R. Vázquez
+    affiliations:
+      - name: Tecnológico de Monterrey
+format: 
+  revealjs:
+    multiplex: true
+editor: visual
+slide-number: True
+logo: IN2039_logo.png
+css: style.css
+---
+
+```{r}
+#| echo: false
+#| output: false
+
+# Nos se te olvide instalar la librería "ggformula" en Google Colab.
+# install.packages("ggformula")
+library(readxl)
+library(ggplot2)
+library(ggformula)
+library(dplyr)
+
+auto_data <- read_excel("auto_dataset.xlsx") # Leer los datos.
+head(auto_data) # Ver las primeras 6 observaciones.
+```
+
+# Visualización de datos y sus principios
+
+## ¿Qué es la visualización de datos?
+
+> “Una visualización \[de datos\] es cualquier presentación visual destinada a revelar evidencia, haciendo visible lo invisible” Alberto Cairo (2015).
+
+![](images/clipboard-3803538817.png){fig-align="center" width="814"}
+
+## 
+
+En esencia, una visualización de datos te permite profundizar en conjuntos de datos complejos para obtener información significativa mediante el uso de pantallas gráficas.
+
+<br/>
+
+Las visualizaciones de datos se ocupan principalmente de proporcionar evidencia y permitir que la audiencia explore y llegue a sus propias conclusiones sobre lo que las visualizaciones revelan sobre los datos.
+
+::: notes
+As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.
+:::
+
+# Los 3 principios de la visualización de datos
+
+## ***Principio 1*****:** Formula el mensaje
+
+Muchas veces el mensaje se obtiene al contestar una pregunta de interés.
+
+::: center
+::: columns
+::: {.column width="33%"}
+![](images/clipboard-1758479249.png){width="499"}
+:::
+
+::: {.column width="33%"}
+[![](https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg){alt="Be ready to lose all your money on bitcoin, FCA tells consumers\" Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"}](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&ust=1706894768727000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1023529598.png)
+:::
+:::
+:::
+
+::: notes
+El mensaje puede ser una pregunta
+
+-   ¿Cuál es la comparación importante?
+
+-   ¿Cómo la enfatizamos?
+
+-   Do you have reason to expect that one group/observation might be different?
+
+-   Why might your finding about shape matter?
+
+-   What additional comparison might bring added value to the investigation?
+
+-   Are there any potentially important features to create comparisons with/against?
+
+\[Incluir noticias del new york times\]
+:::
+
+## ***Principio 2*****: *Transforma los datos en información***
+
+Tu gráfica debe de usar los datos para transmitir el mensaje o contestar la pregunta. Es decir, debe de transformar los datos en información.
+
+::: center
+::: columns
+::: {.column width="33%"}
+![](images/clipboard-4189732703.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1399795317.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-2893827168.png)
+:::
+:::
+:::
+
+Enriquece tu gráfica con símbolos de color y texto para transmitir información adicional.
+
+## *Principio 3: Aplica los principios del diseño gráfico*
+
+::: center
+::: columns
+::: {.column width="60%"}
+::: {style="font-size: 75%;"}
+1.  Es fácil identificar objetos por color.
+2.  Utiliza etiquetas directas en lugar de una leyenda.
+3.  Elementos como texto, líneas, y formas que tengan la misma naturaleza deben parecerse.
+4.  Equilibra gráficos y texto.
+5.  Ten cuidado con las opciones predeterminadas del software de visualización.
+6.  Usa un diseño de cuadrícula para organizar su visualización.
+:::
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-2746624499.png){width="484" height="339"}
+:::
+:::
+:::
+
+::: notes
+No te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.
+
+También, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones.
+:::
+
+# Tipos de Variables
+
+## Tipos de Variables
+
+![](images/clipboard-2750534250.png)
+
+## Los tipos de variable definen nuestro análisis
+
+-   Ayudan a especificar las operaciones, visualizaciones y modelos que podemos aplicar a los datos.
+
+-   Existen gráficas apropiadas o diseñadas para visualizar variables numéricas o categóricas.
+
+# Resúmenes estadísticos
+
+## Resúmenes Estadísticos para variables categóricas
+
+> Un **resumen estadístico** nos ayuda a resumir un conjunto de observaciones de una manera simple.
+
+Los resúmenes estadísticos más utilizados para datos categóricos son:
+
+-   La [**frecuencia**]{style="color:darkblue;"} de una categoría es el número de observaciones que pertenecen a esa categoría.
+
+-   La [**frecuencia relativa**]{style="color:darkblue;"} es la frecuencia dividida por el número total de observaciones.
+
+## Resúmenes Estadísticos para variables numéricas
+
+Los resúmenes estadísticos más utilizados para datos numéricos son:
+
+-   [Promedio]{style="color:darkblue;"}
+-   [Varianza]{style="color:darkblue;"} y [desviación estándar]{style="color:darkblue;"}
+-   [Mediana]{style="color:darkgreen;"} y [cuartiles]{style="color:darkgreen;"}
+-   [Máximo]{style="color:dark;"} y [mínimo]{style="color:dark;"}
+
+# Gráficas por tipo y numero de variables
+
+## Gráficos para 1 variable
+
+::: center
+| Tipo       | Gráfica                              |
+|:-----------|:-------------------------------------|
+| Categórica | Gráfica de barras y gráfico circular |
+:::
+
+![](images/pie-vs-bar-compare.png){fig-align="center"}
+
+## Gráficos para 1 variable
+
+::: center
+| Tipo     | Gráfica                                                           |
+|:--------------|:--------------------------------------------------------|
+| Numérica | Histograma, gráfica de caja, gráfica de violín, curva de densidad |
+:::
+
+![](images/Box-plot-violin-plot-histogram-and-kernel-density-plot-of-the-Blood-Cancer-dataset.ppm){fig-align="center"}
+
+## Gráficos para 2 variables
+
+::: center
+| Tipo      | Gráfica               |
+|:----------|:----------------------|
+| Numéricas | Gráfico de dispersión |
+:::
+
+```{r}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+mi_diagrama <- gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2) + labs(x = "Peso (lb)", y = "Millas por galón")
+mi_diagrama <- mi_diagrama + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
+                                   plot.title=element_text(size=25))
+mi_diagrama
+```
+
+## Gráficos para 2 variables
+
+::: center
+| Tipo        | Gráfica                                                    |
+|:------------|:-----------------------------------------------------------|
+| Categóricas | Gráfico de barras lado a lado y gráfico de barras apiladas |
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/unnamed-chunk-2-1.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/stacked-bar-options-1.png){fig-align="center"}
+:::
+:::
+
+## Gráficos para 2 o más variables
+
+::: center
+| Tipo  | Gráfica                                                          |
+|:------|:-----------------------------------------------------------------|
+| Mixta | Curvas de densidad superpuestas y diagramas de cajas lado a lado |
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/cool%20mix%20plot.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/unnamed-chunk-4-1.png){fig-align="center"}
+:::
+:::
+
+# Regresión lineal
+
+## Modelo de regresión lineal
+
+Una función $f(X)$ muy común para predecir una respuesta ($Y$) es el **modelo de regresión lineal**.
+
+Tiene la forma matemática:
+
+$$
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
+$$
+
+-   Donde $i$ es el indice de las $n$ observaciones, y
+-   $\hat{Y}_i$ es la predicción del valor real de la respuesta $Y$ asociada a un valor del predictor igual a $X_i$.
+-   Los valores $\hat{\beta}_0$ y $\hat{\beta}_1$ se llaman [coeficientes]{style="color:darkblue;"} del modelo.
+
+## Para nuestro ejemplo
+
+$\hat{Y}_i = 46.32 -0.0076 X_i$
+
+```{r}
+#| fig-pos: center
+#| echo: false
+
+grafica_modelo <- mi_diagrama %>% gf_lm(color = "red", lty = 1, size = 2)
+grafica_modelo
+```
+
+## La fórmula
+
+$\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i$
+
+```{r}
+#| fig-pos: center
+#| echo: false
+
+grafica_modelo
+```
+
+# The End. Or is it?
