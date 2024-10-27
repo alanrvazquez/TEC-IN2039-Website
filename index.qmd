@@ -1,0 +1,33 @@
+---
+title: "IN2039 Visualización de Datos para la Toma de Decisiones"
+subtitle: "Materiales Semestre AD 2024"
+author: 
+  - name: Alan R. Vazquez
+    orcid: 0000-0002-3658-0911
+    affiliations:
+      - name: Tecnologico de Monterrey
+---
+
+## Tópicos del Curso
+
+1.  Introducción ([slides](/T1_Introduction/Introduccion.slides.html))
+2.  Herramientas ([slides](/T1_Introduction/Herramientas.slides.html)) ([colab](https://drive.google.com/file/d/1VwqGFnJ1k2A7GYPc5SCP9BXpSK1DIvV5/view?usp=sharing))
+3.  Tipos de Variable ([slides](/T2_Types_of_Variables/Slides_Types.slides.html)) ([colab](https://drive.google.com/file/d/1qislqsWfymnjqzcKHzt7eTaXHDcjrfRt/view?usp=sharing)) ([**dplyr** cheat sheet](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf))
+4.  Variables Categóricas ([slides](/T3_Categorical_Data/Slides_Categorical.slides.html)) ([colab](https://drive.google.com/file/d/1WHunI2M0mlTOJhXRlgzw0Q4LJ9cEEPBg/view?usp=sharing))
+5.  Variables Numéricas ([slides](/T4_Numerical_Data/Slides_Numerical.slides.html)) ([colab](https://drive.google.com/file/d/1WexwLHB0sY14umxsuF-DfsbxGH_CgnnZ/view?usp=sharing))
+6.  Datos de Múltiples Variables ([slides](/T5_Multivariate_Data/Slides_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WfAsvSng0tZGVZV3XmFrrEIlPuqnYPBa/view?usp=sharing))
+7.  Introducción a la Regresión Lineal Simple ([slides](/T6_Introduction_Linear_Regression/Slides_LR.slides.html)) ([colab](https://drive.google.com/file/d/1Vr2KThpsLCdEsxabA3baFx-NlMxhKJfN/view?usp=sharing))
+8.  Resúmen de las primeras sesiones ([slides](/Recap/Repaso.slides.html))
+9.  Tópicos Especiales ([dashboard](https://rpubs.com/alanrvazquez/example-dashboard))
+
+### Sobre el Autor
+
+Alan R. Vazquez ([website](https://alanrvazquez.netlify.app/)) es Profesor Investigador en el Departamento de Ingeniería Industrial del Tecnológico de Monterrey, Campus Monterrey.
+
+### Licencia
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+
+<a property="dct:title" rel="cc:attributionURL" href="https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html">IN2039 Visualización de Datos para la Toma de Decisiones</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://alanrvazquez.netlify.app/">Alan R Vazquez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/></a>
+
+</p>
