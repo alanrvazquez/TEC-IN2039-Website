@@ -8,10 +8,10 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Alan R. Vázquez">
-  <title>IN2039 Data Visualization - ¿Qué es la visualización de datos?</title>
+  <title>IN2039 Data Visualization – ¿Qué es la visualización de datos?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -359,8 +359,7 @@ Alan R. Vázquez
 <li><p>Los 3 principios de visualización</p>
 <p><img data-src="images/clipboard-1163901538.png" width="345"></p></li>
 </ol>
-</div>
-</div>
+</div></div>
 <div class="columns">
 <div class="column" style="width:30%;">
 <ol start="3" type="1">
@@ -372,8 +371,7 @@ Alan R. Vázquez
 <p><img data-src="images/clipboard-4224793803.png" class="quarto-figure quarto-figure-left" width="341"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section>
 <section id="introducción-a-ciencia-de-datos" class="title-slide slide level1 center">
@@ -399,8 +397,7 @@ Alan R. Vázquez
 <p><img data-src="images/clipboard-3242954590.png" class="quarto-figure quarto-figure-center" width="485"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 </div>
 </section>
@@ -453,8 +450,7 @@ Alan R. Vázquez
 </div><div class="column" style="width:30%;">
 <p><span style="color:green;"><strong>Audio</strong></span></p>
 <p><img data-src="images/clipboard-2206237365.png"></p>
-</div>
-</div>
+</div></div>
 </div>
 </section>
 <section id="datos-númericos" class="slide level2">
@@ -562,8 +558,7 @@ Alan R. Vázquez
 <p><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&amp;psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&amp;ust=1706894768727000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD"><img data-src="https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg" alt="Be ready to lose all your money on bitcoin, FCA tells consumers&quot; Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"></a></p>
 </div><div class="column" style="width:33%;">
 <p><img data-src="images/clipboard-1023529598.png"></p>
-</div>
-</div>
+</div></div>
 </div>
 <aside class="notes">
 <p>El mensaje puede ser una pregunta</p>
@@ -619,8 +614,7 @@ Alan R. Vázquez
 <p><img data-src="images/GlobalFastFoodLN-superJumbo.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <aside class="notes">
 <p>No te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.</p>
@@ -683,8 +677,7 @@ Alan R. Vázquez
 </table>
 </div><div class="column" style="width:30%;">
 <p><img data-src="images/clipboard-3936281418.png"></p>
-</div>
-</div>
+</div></div>
 <aside class="notes">
 <p>The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.</p>
 <style type="text/css">
@@ -718,8 +711,7 @@ Alan R. Vázquez
 </blockquote>
 </div><div class="column" style="width:30%;">
 <p><img data-src="https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg" alt="John Tukey - Wikipedia"></p>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <p><a href="https://www.storytellingwithdata.com/" class="uri">https://www.storytellingwithdata.com/</a> es una excelente guía sobre visualizaciones.</p>
 <aside class="notes">
@@ -1057,18 +1049,7 @@ Alan R. Vázquez
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1100,7 +1081,29 @@ Alan R. Vázquez
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1108,7 +1111,7 @@ Alan R. Vázquez
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
