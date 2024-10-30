@@ -1701,14 +1701,14 @@
     "href": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r",
     "title": "Herramientas para construir gráficas",
     "section": "Probemos un comando en R",
-    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Helllo world!\")"
+    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Hello world!\")"
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r-1",
     "href": "T1_Introduction/Herramientas.slides.html#probemos-un-comando-en-r-1",
     "title": "Herramientas para construir gráficas",
     "section": "Probemos un comando en R",
-    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Helllo world!\")\n\n[1] \"Helllo world!\""
+    "text": "Probemos un comando en R\n¿Qué crees que suceda si ejecutamos este comando?\n\nprint(\"Hello world!\")\n\n[1] \"Hello world!\""
   },
   {
     "objectID": "T1_Introduction/Herramientas.slides.html#probemos-otro-comando",

@@ -17,7 +17,7 @@ editor: visual
 
 ## Agenda
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 1.  Introducción a R
 
@@ -29,9 +29,9 @@ editor: visual
 
     ![](images/clipboard-2627775172.png){width="170"}
 :::
-:::
+:::::
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 3.  Gráficas con **ggplot2**
 :::
@@ -39,7 +39,7 @@ editor: visual
 ::: {.column width="50%"}
 ![](images/clipboard-4021595969.png){width="140"}
 :::
-:::
+:::::
 
 ::: {style="font-size: 70%;"}
 Estas diapositivas están basadas en material disponible en <https://coursekata.org/>
@@ -47,7 +47,7 @@ Estas diapositivas están basadas en material disponible en <https://coursekata.
 
 ## R
 
-::: columns
+::::: columns
 ::: {.column width="70%"}
 -   Es un lenguaje de programación estadística.
 
@@ -61,7 +61,7 @@ Estas diapositivas están basadas en material disponible en <https://coursekata.
 ::: {.column width="30%"}
 ![](images/clipboard-148304512.png){fig-align="center" width="324"}
 :::
-:::
+:::::
 
 ::: notes
 Para hacer gráficos o visualizaciones se tiene que usar la computadora y programas especiales. Hay muchos como Python tableu, o incluso, excel. Sin embargo los mas bonitos son los de R.
@@ -97,7 +97,7 @@ R Studio no es un requisito para programar con R, pero los programadores y cient
 #| echo: true
 #| output: false
 
-print("Helllo world!")
+print("Hello world!")
 ```
 
 ## Probemos un comando en R
@@ -105,7 +105,7 @@ print("Helllo world!")
 ¿Qué crees que suceda si ejecutamos este comando?
 
 ```{r, echo = TRUE}
-print("Helllo world!")
+print("Hello world!")
 ```
 
 ## Probemos otro comando
@@ -514,7 +514,7 @@ Dependiendo del estudio, las filas podrían ser personas, estados, parejas, rato
 
 ## 
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 Las columnas representan variables o los atributos de cada caso que se midieron.
 :::
@@ -530,7 +530,7 @@ Las columnas representan variables o los atributos de cada caso que se midieron.
 6    Informed   39  189  183.2
 ```
 :::
-:::
+:::::
 
 . . .
 
@@ -570,7 +570,7 @@ Por lo tanto, los valores en cada fila representan los valores de ese caso parti
 
 En este curso, asumiremos que los datos están almacenados en un archivo Excel con la organización anterior. Como ejemplo, usemos el archivo `penguins.xlsx`.
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/print_excel.png){width="418"}
 :::
@@ -578,7 +578,7 @@ En este curso, asumiremos que los datos están almacenados en un archivo Excel c
 ::: {.column width="50%"}
 ![](images/clipboard-1776523589.png){width="396"}
 :::
-:::
+:::::
 
 ::: {style="font-size: 85%;"}
 [***El archivo debe de ser previamente cargado en Google Colab.***]{style="color:red;"}
@@ -586,7 +586,7 @@ En este curso, asumiremos que los datos están almacenados en un archivo Excel c
 
 ## Librería readxl
 
-::: columns
+::::: columns
 ::: {.column width="70%"}
 Para cargar datos en R, usaremos la librería llamada **readxl**. Por fortuna, la librería ya viene pre-instalada en Google Colab.
 :::
@@ -594,7 +594,7 @@ Para cargar datos en R, usaremos la librería llamada **readxl**. Por fortuna, l
 ::: {.column width="30%"}
 ![](images/clipboard-2627775172.png){fig-align="right" width="244"}
 :::
-:::
+:::::
 
 Sin embargo, debemos informar a Google Colab que queremos usar **readxl** y sus funciones. Cargarmos la librería en R usando el siguiente comando.
 
@@ -622,7 +622,7 @@ head(penguins_data)
 
 ## ggplot2
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/tidyverse.png){fig-align="left"}
 :::
@@ -633,7 +633,7 @@ head(penguins_data)
 -   Está basado en la *Gramática de las Gráficas.*
 -   <https://ggplot2-book.org/>
 :::
-:::
+:::::
 
 ## 
 
