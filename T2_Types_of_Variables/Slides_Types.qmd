@@ -20,7 +20,7 @@ editor: visual
 
 ## Agenda
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 1.  ¿De qué tipo es mi variable?
 
@@ -32,7 +32,7 @@ editor: visual
 
     ![](images/clipboard-4025446454.png){width="245"}
 :::
-:::
+:::::
 
 ## Tipos de variables
 
@@ -102,12 +102,12 @@ Toman valores que se colocan en *categorías*.
 
 . . .
 
-|                  |                                                                 |
-|------------------|------------------------------------------------------|
-| **Variable**     | **Categorias**                                                  |
+|  |  |
+|-------------------|-----------------------------------------------------|
+| **Variable** | **Categorias** |
 | Reseña en Amazon | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
-| País de origen   | México, Canadá, EUA                                             |
-| Código postal    | 72703, 90034, 3000, ...                                         |
+| País de origen | México, Canadá, EUA |
+| Código postal | 72703, 90034, 3000, ... |
 
 ## Clasificación de variables categóricas
 
@@ -240,7 +240,7 @@ countdown::countdown(minutes = 20)
 
 ## Una nueva librería: dplyr
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/tidyverse.jpeg){fig-align="center" width="465" height="375"}
 :::
@@ -252,7 +252,7 @@ countdown::countdown(minutes = 20)
 
 -   <https://dplyr.tidyverse.org/>
 :::
-:::
+:::::
 
 Cárgala en Google Colab con el siguiente código.
 
